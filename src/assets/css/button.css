@@ -1,0 +1,66 @@
+.btn-custom{
+    padding: 0.4rem 1.5rem;
+    border-radius: 0.2rem;
+    outline: none;
+    border: none;
+    box-shadow: 0px 12px 9px -12px rgba(0,0,0,0.33);
+    -webkit-box-shadow: 0px 12px 9px -12px rgba(0,0,0,0.33);
+    -moz-box-shadow: 0px 12px 9px -12px rgba(0,0,0,0.33);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    align-self: flex-start;
+}
+
+.btn-lg-custom{
+    padding: 0.9rem 1.5rem;
+    font-size: 18px;
+}
+
+.btn-primary-custom{
+    background-color: var(--info);
+    color: var(--white);
+ }
+
+ .btn-primary-custom:hover{
+    background-color: var(--info-dark-light);
+ }
+ 
+ .btn-warning-custom{
+    background-color: var(--warning);
+    color: var(--black);
+ }
+
+ .btn-warning-custom:hover{
+    background-color: var(--warning-dark);
+ }
+
+ .btn-light-custom{
+    background-color: var(--white);
+    color: var(--black);
+ }
+
+ .btn-light-custom:hover{
+    background-color: var(--white-dark);
+ }
+
+ .btn-danger-custom{
+    background-color: var(--danger);
+    color: var(--white);
+ }
+
+ .btn-danger-custom:hover{
+    background-color: var(--danger-dark);
+ }
+
+ .btn-success-custom{
+    background-color: var(--success);
+    color: var(--white);
+ }
+
+ .btn-success-custom:hover{
+    background-color: var(--success-dark);
+ }
