@@ -9,10 +9,8 @@ const SelectOrganizationComponent = () => {
     <div className="album py-5 bg-light">
       <section className="jumbotron text-center">
         <div className="container">
-          <h1 className="h1">Select your organization type</h1>
-          <p className="text-muted">
-            And discover how FirmConnector can help you
-          </p>
+          <h1 className="display-5 fw-bold">Select your organization type</h1>
+          <p className="lead">And discover how FirmConnector can help you</p>
         </div>
       </section>
 

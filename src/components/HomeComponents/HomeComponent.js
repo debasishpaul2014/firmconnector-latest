@@ -7,12 +7,12 @@ import FourthBlock from "./FourthBlock";
 
 const HomeComponent = () => {
   return (
-    <div>
+    <>
       <TopBannerComponent />
       <SelectOrganizationComponent />
       <ThirdBlock />
       <FourthBlock />
-    </div>
+    </>
   );
 };
 

@@ -11,7 +11,7 @@ const ThirdBlock = () => {
             <img src={tell_company} className="d-block mx-lg-auto img-fluid" />
           </div>
           <div className="col-lg-6">
-            <h1 className="h1 mb-3">Gain easy access to specialists</h1>
+            <h1 className="display-6 mb-3">Gain easy access to specialists</h1>
             <p>
               Staffing needs can change quickly when a new project lands or a
               position needs to be filled. Perhaps you’re already working on a
@@ -21,7 +21,7 @@ const ThirdBlock = () => {
               FirmConnector allows you to quickly and easily access the right
               people with the right skills for the job.
             </p>
-            <h1 className="h1 mb-3 text-warning">Fast. Easy. And…</h1>
+            <h1 className="display-6 mb-3 text-warning">Fast. Easy. And…</h1>
             <p>
               Best of all, you will ensure you are fully utilizing your own
               workforce before turning to outside sources.

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import useLocationBlocker from "./LocationBlocker";
 
 //Component for auth checking
 import ProtectedRoute from "./ProtectedRoute";
@@ -27,6 +28,8 @@ import PageNotFound from "../screens/error/400/PageNotFound";
 
 //Define main route to access on App.js
 const MainRoute = () => {
+  useLocationBlocker();
+
   return (
     <>
       <Switch>

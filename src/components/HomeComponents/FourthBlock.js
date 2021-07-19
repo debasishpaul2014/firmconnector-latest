@@ -11,13 +11,13 @@ const FourthBlock = () => {
         width="150"
         height="150"
       />
-      <h1 className="h1">
+      <h1 className="display-5 fw-bold">
         Search for skillsets across your whole network quickly and easily
       </h1>
       <div className="col-lg-6 mx-auto">
-        <p className="mb-4 text-muted">
+        <p className="mb-4 lead">
           Search for skillsets and availability within your company. Connect
-          with the people you need across your network—quickly and easily
+          with the people you need across your network quickly and easily
         </p>
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <button

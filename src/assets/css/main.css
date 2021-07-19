@@ -6,7 +6,8 @@
 }
 
 .page-wrapper {
-   background-color: var(--bs-light) !important;
+   background-color: var(--white) !important;
+   margin-top: 0.5rem;
 }
 
 .bg-white-custom{
@@ -66,3 +67,22 @@ footer {
  footer p {
    margin-bottom: .25rem;
  }
+
+ .bd-lead {
+   font-size: calc(1rem + .3vw);
+   font-weight: 400;
+}
+
+.how-it-works:before {
+   content: '';
+   position: absolute;
+   left: 4px;
+   top: 10px;
+   width: 8px;
+   height: 8px;
+   background: #7731FF;
+   -webkit-border-radius: 100px;
+   -moz-border-radius: 100px;
+   border-radius: 100px;
+   z-index: 2;
+}

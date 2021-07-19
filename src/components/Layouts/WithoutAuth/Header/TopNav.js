@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const TopNav = (props) => {
+  const location = useLocation();
+  const currentRoute = location.pathname;
+
+  const [currentPath, setCurrentPath] = useState();
+
+  useEffect(() => {
+    setCurrentPath(currentRoute);
+  }, []);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top bd-navbar">
       <div className="container">
         <div className="d-flex">
-          <span className="h4 text-light">Firmconnector</span>
+          <Link className="nav-link active" aria-current="page" to="/">
+            <span className="h4 text-light">Firmconnector</span>
+          </Link>
         </div>
         <button
           className="navbar-toggler"
@@ -21,29 +32,45 @@ const TopNav = (props) => {
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <ul className="navbar-nav mx-auto mb-2 mb-md-0 justify-content-center">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <Link
+                className={currentPath == "/" ? "nav-link active" : "nav-link"}
+                aria-current="page"
+                to="/"
+              >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link
+                className={
+                  currentPath == "about-us" ? "nav-link active" : "nav-link"
+                }
+                to="about-us"
+              >
                 About Us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Pricing
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link
+                className={
+                  currentPath == "contact-us" ? "nav-link active" : "nav-link"
+                }
+                to="contact-us"
+              >
                 Contact Us
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link
+                className={
+                  currentPath == "privacy-policy"
+                    ? "nav-link active"
+                    : "nav-link"
+                }
+                to="privacy-policy"
+              >
                 Privacy Policy
-              </a>
+              </Link>
             </li>
           </ul>
           <div className="d-flex bd-buttons">
