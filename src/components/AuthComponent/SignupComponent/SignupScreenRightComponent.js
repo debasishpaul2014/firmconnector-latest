@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../../Buttons/ButtonSm";
-import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
+import { AlertDanger } from "../../Alerts/Alert";
 import HeaderSm from "../../Headers/HeaderSm";
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 
@@ -55,7 +55,7 @@ const SignupScreenRightComponent = () => {
 
           <div className="form-button-holder justify-content-end mt-4">
             <ButtonSm
-              className="btn-primary"
+              className="btn-primary-custom"
               role="button"
               title="Sign Up"
               type="button"

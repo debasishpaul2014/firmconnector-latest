@@ -1,12 +1,19 @@
 import React from "react";
-import HeaderLg from "../Headers/HeaderLg";
+import PageTitleBlock from "./PageTitleBlock";
+import "./static_page.css";
 
 const StaticPageHeaderComponent = (props) => {
   const { title, description_sm } = props;
 
   return (
-    <div className="container py-5">
-      <HeaderLg title={title} subText={description_sm} borderBottom={false} />
+    <div className="static-page-header bg-black-custom">
+      <div className="container py-5">
+        <PageTitleBlock
+          title={title}
+          subText={description_sm}
+          borderBottom={false}
+        />
+      </div>
     </div>
   );
 };

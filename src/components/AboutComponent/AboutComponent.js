@@ -2,31 +2,27 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import StaticPageHeaderComponent from "../PageCommonComponent/StaticPageHeaderComponent";
+import ButtonSm from "../Buttons/ButtonSm";
 
 import tell_company from "../../assets/images/about_1.svg";
 
 const AboutComponent = () => {
   return (
-    <>
-      <div className="container-fluid bg-info-light-custom">
-        <StaticPageHeaderComponent
-          title="About Firmconnector"
-          description_sm={
-            "Know something about us to make a good understanding."
-          }
-        />
-      </div>
-      <div className="container-fluid bg-white-custom">
+    <div className="d-block bg-white-custom">
+      <StaticPageHeaderComponent
+        title="About Firmconnector"
+        description_sm={"Know something about us to make a good understanding."}
+      />
+      <div className="container bg-white-custom">
         <div className="container py-5">
           <div className="row">
             <div className="col-md-7">
-              <p className="h4  fw-bold">
+              <p className="display-6 fw-bold">
                 So how exactly does{" "}
-                <span className="text-warning">FirmConnector</span>
-                <span className="text-muted"> work?</span>
+                <span className="text-warning">FirmConnector</span> work?
               </p>
-              <div className="my-3">
-                <h6 className="border-bottom border-gray pb-2 mb-0">
+              <div className="mt-4">
+                <h6 className="border-bottom border-gray pb-2 mb-0 fw-bold">
                   Get the most from your workforce:
                 </h6>
                 <div className="pt-1">
@@ -68,7 +64,7 @@ const AboutComponent = () => {
               </div>
 
               <div className="my-3">
-                <h6 className="border-bottom border-gray pb-2 mb-0">
+                <h6 className="border-bottom border-gray pb-2 mb-0 fw-bold">
                   Maximize the value of your network:
                 </h6>
                 <div className="pt-1">
@@ -92,7 +88,7 @@ const AboutComponent = () => {
                 </div>
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-5 d-flex align-items-end">
               <div className="card shadow-lg bg-dark text-white">
                 <div className="card-image-custom-holder p-5">
                   <img src={tell_company} className="card-img-top" alt="..." />
@@ -104,12 +100,13 @@ const AboutComponent = () => {
                     up the bulk of the card's content.
                   </p>
                   <div className="d-grid gap-2 d-sm-flex">
-                    <button
+                    <ButtonSm
+                      className="btn-warning-custom"
+                      role="button"
+                      title="Request a Demo"
                       type="button"
-                      className="btn-custom btn-warning-custom"
-                    >
-                      Request a Demo
-                    </button>
+                      to={"#"}
+                    />
                   </div>
                 </div>
               </div>
@@ -117,7 +114,7 @@ const AboutComponent = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
