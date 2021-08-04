@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../Buttons/ButtonSm";
-import AlertDanger from "../Alerts/AlertDanger";
+import {
+  AlertDanger,
+  AlertSuccess,
+  AlertInfo,
+  AlertWarning,
+} from "../Alerts/Alert";
 import HeaderSm from "../Headers/HeaderSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 
@@ -56,6 +61,18 @@ const LoginScreenRightComponent = () => {
             <AlertDanger
               title={"oops"}
               message={"This is a danger alert—check it out!"}
+            />
+            <AlertSuccess
+              title={"Success"}
+              message={"This is a success alert—check it out!"}
+            />
+            <AlertInfo
+              title={"Info"}
+              message={"This is a info alert—check it out!"}
+            />
+            <AlertWarning
+              title={"Warning"}
+              message={"This is a warning alert—check it out!"}
             />
           </div>
         </form>

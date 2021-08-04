@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../../Buttons/ButtonSm";
-import AlertDanger from "../../Alerts/AlertDanger";
+import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 import HeaderSm from "../../Headers/HeaderSm";
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 

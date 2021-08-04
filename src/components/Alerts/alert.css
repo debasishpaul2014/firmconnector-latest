@@ -1,10 +1,26 @@
 .alert-custom {
     display: block;
-    padding: 0.5em 1em;
+    padding: 0.2em 1em;
     border-radius: 0.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .alert-danger-custom {
-    background-color: var(--danger);
-    color: var(--white);
+    background-color: var(--danger-light);
+    border: 0.05rem solid var(--danger-dark);
+}
+
+.alert-success-custom {
+    background-color: var(--success-light);
+    border: 0.05rem solid var(--success-dark);
+}
+
+.alert-info-custom {
+    background-color: var(--info-light);
+    border: 0.05rem solid var(--info);
+}
+
+.alert-warning-custom {
+    background-color: var(--warning-light);
+    border: 0.05rem solid var(--warning);
 }

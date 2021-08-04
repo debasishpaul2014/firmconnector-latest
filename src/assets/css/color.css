@@ -7,13 +7,15 @@
     --black: #040d21;
     --danger: #e64539;
     --danger-dark: #ac3838;
-    --success-light: #b9fad0;
+    --danger-light: #ffdbd9;
+    --success-light: #F4F9F6;
     --success: #2be06a;
-    --success-dark: #16af4c;
+    --success-dark: #0AA653;
     --muted: #5B6987;
     --muted-light: #e8ebf0;
     --warning: #ffc107;
     --warning-dark: #ebc50c;
+    --warning-light: #fff2b1;
     --white: #FFFFFF;
     --white-x-dark: #b2bfcc;
     --white-dark: #fafcfe;

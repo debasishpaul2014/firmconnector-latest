@@ -50,7 +50,15 @@ body {
 }
 
 .text-success-custom{
-   color: var(--success);
+   color: var(--success-dark);
+}
+
+.text-white-custom{
+   color: var(--white);
+}
+
+.text-danger-custom{
+   color: var(--danger-dark);
 }
 
 .text-dark-custom{
