@@ -2,7 +2,8 @@
 
 body {
    font-family: 'Nunito Sans', sans-serif !important;
-   font-size: 1em !important;
+   font-size: 1rem !important;
+   color: var(--info-dark) !important;
 }
 
 
@@ -62,11 +63,11 @@ body {
 }
 
 .text-dark-custom{
-   color: var(--black);
+   color: var(--info-dark);
 }
 
 .text-info-custom{
-   color: var(--info);
+   color: var(--info-dark-light);
 }
 
 .text-muted-custom{
