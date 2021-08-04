@@ -13,12 +13,6 @@ body {
    line-height: 1.2 !important;
 }
 
-p{
-   margin-top: .35rem !important;
-   margin-bottom: .35rem !important;
-   line-height: 1.2 !important;
-}
-
 .page-wrapper {
    background-color: var(--white) !important;
 }
@@ -174,7 +168,7 @@ a{
 
 .header-holder{
    display: block;
-   padding: 0.5rem 0rem;
+   padding: 0 0 0.5rem;
    margin-bottom: 1rem;
 }
 

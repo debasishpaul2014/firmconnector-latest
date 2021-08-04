@@ -8,7 +8,7 @@ import InputLebelComponent from "../InputLebel/InputLebelComponent";
 const LoginScreenRightComponent = () => {
   return (
     <div className="col-sm-12 col-md-5 col-lg-5">
-      <div className="card bg-white-custom p-3 shadow-lg rounded">
+      <div className="card bg-white-custom">
         <form>
           <HeaderSm
             title={"Login to Your Account!"}

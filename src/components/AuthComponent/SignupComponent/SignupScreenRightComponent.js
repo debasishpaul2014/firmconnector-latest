@@ -8,7 +8,7 @@ import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 const SignupScreenRightComponent = () => {
   return (
     <div className="col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
-      <div className="card bg-white-custom p-3 shadow-lg rounded">
+      <div className="card bg-white-custom">
         <form>
           <HeaderSm
             title={"Create Organization"}

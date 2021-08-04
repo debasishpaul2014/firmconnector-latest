@@ -7,8 +7,8 @@ const HeaderSm = (props) => {
     <div
       className={`header-holder ${borderBottom ? "border-bottom-light" : null}`}
     >
-      <div className="h4 fw-bold">{title}</div>
-      <p className="text-muted-custom">{subText}</p>
+      <div className="h5 fw-bold">{title}</div>
+      <span className="text-muted-custom">{subText}</span>
     </div>
   );
 };
