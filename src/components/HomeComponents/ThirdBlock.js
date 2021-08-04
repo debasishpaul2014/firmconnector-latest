@@ -1,6 +1,7 @@
 import React from "react";
 
 import tell_company from "../../assets/images/tell_company.svg";
+import ButtonLg from "../Buttons/ButtonLg";
 
 const ThirdBlock = () => {
   return (
@@ -27,18 +28,21 @@ const ThirdBlock = () => {
               workforce before turning to outside sources.
             </p>
             <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-              <button
-                className="btn-custom btn-lg-custom btn-primary-custom"
+              <ButtonLg
+                className="btn-warning-custom"
+                role="button"
+                title="View Dashboard"
                 type="button"
-              >
-                View Dashboard
-              </button>
-              <button
-                className="btn-custom btn-lg-custom btn-light-custom"
+                to="#"
+              />
+
+              <ButtonLg
+                className="btn-light-custom"
+                role="button"
+                title="Create Account"
                 type="button"
-              >
-                Create Account
-              </button>
+                to="#"
+              />
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@
  }
 
  .btn-light-custom:hover{
-    background-color: var(--white-dark);
+    background-color: var(--muted-light);
  }
 
  .btn-danger-custom{

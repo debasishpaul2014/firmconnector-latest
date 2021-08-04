@@ -1,23 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonSm from "../Buttons/ButtonLg";
+import ButtonSm from "../Buttons/ButtonSm";
 import AlertDanger from "../Alerts/AlertDanger";
-import HeaderLg from "../Headers/HeaderLg";
+import HeaderSm from "../Headers/HeaderSm";
+import InputLebelComponent from "../InputLebel/InputLebelComponent";
 
 const LoginScreenRightComponent = () => {
   return (
     <div className="col-sm-12 col-md-5 col-lg-5">
-      <div className="card bg-white-custom">
+      <div className="card bg-white-custom p-3 shadow-lg rounded">
         <form>
-          <HeaderLg
+          <HeaderSm
             title={"Login to Your Account!"}
             subText={"Use your Firmconnector account credentials"}
             borderBottom={true}
           />
           <div className="form-input-holder">
-            <div className="form-input-header">
-              <span>Email</span>
-            </div>
+            <InputLebelComponent title="Email" />
             <div className="d-block">
               <input
                 type="email"
@@ -28,9 +27,7 @@ const LoginScreenRightComponent = () => {
             </div>
           </div>
           <div className="form-input-holder">
-            <div className="form-input-header">
-              <span>Password</span>
-            </div>
+            <InputLebelComponent title="Password" />
             <div className="d-block">
               <input
                 type="password"

@@ -1,5 +1,6 @@
 import React from "react";
 import tell_company from "../../assets/images/search_result_icon.svg";
+import ButtonLg from "../Buttons/ButtonLg";
 
 const FourthBlock = () => {
   return (
@@ -21,12 +22,13 @@ const FourthBlock = () => {
             with the people you need across your network quickly and easily
           </p>
           <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <button
+            <ButtonLg
+              className="btn-primary-custom"
+              role="button"
+              title="Request a Demo"
               type="button"
-              className="btn-custom btn-lg-custom btn-primary-custom px-4 gap-3"
-            >
-              Request a Demo
-            </button>
+              to="#"
+            />
           </div>
         </div>
       </div>

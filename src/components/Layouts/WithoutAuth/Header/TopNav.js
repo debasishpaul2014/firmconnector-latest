@@ -49,13 +49,13 @@ const TopNav = (props) => {
             <ButtonSm
               to="sign-in"
               title="Login"
-              className="btn btn-light"
+              className="btn-light-custom"
               type="button"
             />
             <ButtonSm
               to="sign-up"
               title="Create Account"
-              className="btn btn-primary ms-3"
+              className="btn-primary-custom ms-3"
               type="button"
             />
           </div>

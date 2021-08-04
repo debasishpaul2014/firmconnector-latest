@@ -8,7 +8,7 @@ const ButtonSm = (props) => {
 
   return (
     <Link to={to}>
-      <div className={`btn ${className}`} type={type}>
+      <div className={`btn-custom ${className}`} type={type}>
         <span>{title}</span>
       </div>
     </Link>

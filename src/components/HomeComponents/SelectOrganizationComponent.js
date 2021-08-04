@@ -3,6 +3,7 @@ import React from "react";
 import enterprise_companies from "../../assets/images/enterprise_companies.svg";
 import professional_services_firms from "../../assets/images/professional_services_firms.svg";
 import staffing_firms from "../../assets/images/staffing_firms.svg";
+import ButtonSm from "../Buttons/ButtonSm";
 
 const SelectOrganizationComponent = () => {
   return (
@@ -31,7 +32,13 @@ const SelectOrganizationComponent = () => {
                   <p className="card-text">
                     Find expertise across your network
                   </p>
-                  <div className="btn-custom btn-light-custom">Learn more</div>
+                  <ButtonSm
+                    className="btn-light-custom"
+                    role="button"
+                    title="Learn more"
+                    type="button"
+                    to="#"
+                  />
                 </div>
               </div>
             </div>
@@ -50,9 +57,13 @@ const SelectOrganizationComponent = () => {
                   <p className="card-text">
                     Improve the utilization of your team
                   </p>
-                  <button className="btn-custom btn-light-custom">
-                    Learn more
-                  </button>
+                  <ButtonSm
+                    className="btn-light-custom"
+                    role="button"
+                    title="Learn more"
+                    type="button"
+                    to="#"
+                  />
                 </div>
               </div>
             </div>
@@ -65,9 +76,13 @@ const SelectOrganizationComponent = () => {
                 <div className="card-body">
                   <h5 className="card-title">Staffing Firms</h5>
                   <p className="card-text">Place more candidates</p>
-                  <button className="btn-custom btn-light-custom">
-                    Learn more
-                  </button>
+                  <ButtonSm
+                    className="btn-light-custom"
+                    role="button"
+                    title="Learn more"
+                    type="button"
+                    to="#"
+                  />
                 </div>
               </div>
             </div>

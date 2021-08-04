@@ -1,7 +1,7 @@
 :root {
-    --info: #007bff;
+    --info: #0069ff;
     --info-dark-light: #0062cc;
-    --info-dark: #0a0744;
+    --info-dark: #031b4e;
     --info-light: #e7f6fc;
     --info-x-light: #e7f6fc;
     --black: #040d21;
@@ -10,7 +10,7 @@
     --success-light: #b9fad0;
     --success: #2be06a;
     --success-dark: #16af4c;
-    --muted: #5b6987;
+    --muted: #5B6987;
     --muted-light: #e8ebf0;
     --warning: #ffc107;
     --warning-dark: #ebc50c;

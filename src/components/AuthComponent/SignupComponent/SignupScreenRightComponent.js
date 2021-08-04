@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../../Buttons/ButtonSm";
 import AlertDanger from "../../Alerts/AlertDanger";
-import HeaderLg from "../../Headers/HeaderLg";
+import HeaderSm from "../../Headers/HeaderSm";
+import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 
 const SignupScreenRightComponent = () => {
   return (
     <div className="col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
-      <div className="card bg-white-custom">
+      <div className="card bg-white-custom p-3 shadow-lg rounded">
         <form>
-          <HeaderLg
+          <HeaderSm
             title={"Create Organization"}
             subText={
               "Please fill up your profile details below. You are one step behind to get started."
@@ -17,9 +18,7 @@ const SignupScreenRightComponent = () => {
             borderBottom={true}
           />
           <div className="form-input-holder">
-            <div className="form-input-header">
-              <span>Organization Name</span>
-            </div>
+            <InputLebelComponent title={"Organization Name"} />
             <div className="d-block">
               <input
                 type="text"
@@ -31,9 +30,7 @@ const SignupScreenRightComponent = () => {
             </div>
           </div>
           <div className="form-input-holder">
-            <div className="form-input-header">
-              <span>Email</span>
-            </div>
+            <InputLebelComponent title={"Email"} />
             <div className="d-block">
               <input
                 type="email"
@@ -45,9 +42,7 @@ const SignupScreenRightComponent = () => {
             </div>
           </div>
           <div className="form-input-holder">
-            <div className="form-input-header">
-              <span>Password</span>
-            </div>
+            <InputLebelComponent title={"Password"} />
             <div className="d-block">
               <input
                 type="password"

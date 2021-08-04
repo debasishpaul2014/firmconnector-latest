@@ -20,7 +20,7 @@ const TopBannerComponent = () => {
             </p>
             <p>
               <ButtonLg
-                className="btn-warning"
+                className="btn-warning-custom"
                 role="button"
                 title="Click here to learn more"
                 type="button"

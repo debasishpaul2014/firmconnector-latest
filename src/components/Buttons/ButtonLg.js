@@ -8,7 +8,7 @@ const ButtonLg = (props) => {
 
   return (
     <Link to={to}>
-      <button className={`btn btn-lg ${className}`} type={type}>
+      <button className={`btn-custom btn-lg-custom ${className}`} type={type}>
         <span>{title}</span>
       </button>
     </Link>

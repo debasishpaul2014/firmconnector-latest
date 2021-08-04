@@ -10,7 +10,7 @@ const AlertDanger = (props) => {
         <span className="text-md-custom">{title}</span>
       </div>
       <div>
-        <span className="text-white-custom">{message}</span>
+        <span className="text-sm-custom text-white-custom">{message}</span>
       </div>
     </div>
   );
