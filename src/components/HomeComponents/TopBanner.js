@@ -1,34 +1,40 @@
 import React from "react";
 
 import banner_image from "../../assets/images/banner_left.svg";
+import home_banner_bd from "../../assets/images/home_banner_bd.svg";
 import ButtonLg from "../Buttons/ButtonLg";
+import "./home.css";
 
 const TopBannerComponent = () => {
   return (
-    <div className="jumbotron bg-info bg-gradient">
-      <div className="container pt-5 pb-5">
+    <div className="jumbotron bg-black-custom top-banner py-5">
+      <div className="container">
         <div className="row">
-          <div className="col-sm-12 col-md-6 col-lg-6">
-            <h1 className="ddisplay-6 text-white">
-              Maximize the value of your network
-            </h1>
-            <p className=" text-dark">
-              FirmConnector is software as a service that can provide your
-              organization with quick, easy access to the skillsets and
-              availability of your entire talent network both your in-house
-              workforce and through trusted vendors and partners.
-            </p>
-            <p>
+          <div className="col-sm-12 col-md-7 col-lg-7">
+            <div className="d-block mb-4">
+              <h1 className="display-4 text-white fw-bold">
+                Maximize the value of your network
+              </h1>
+            </div>
+            <div className="d-block mb-4">
+              <p className="lead text-muted-custom mb-4">
+                FirmConnector is software as a service that can provide your
+                organization with quick, easy access to the skillsets and
+                availability of your entire talent network both your in-house
+                workforce and through trusted vendors and partners.
+              </p>
+            </div>
+            <div className="d-block">
               <ButtonLg
-                className="btn-warning-custom"
+                className="btn-success-custom"
                 role="button"
                 title="Click here to learn more"
                 type="button"
                 to="sign-in"
               />
-            </p>
+            </div>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">
+          <div className="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">
             <img src={banner_image} className="img-fluid" alt="..." />
           </div>
         </div>

@@ -13,8 +13,8 @@
 }
 
 .btn-lg-custom{
-    padding: 0.9rem 1.5rem;
-    font-size: 18px;
+    padding: 0.8rem 1.59rem;
+    font-size: 1.12rem;
 }
 
 .btn-primary-custom{
@@ -55,7 +55,7 @@
 
  .btn-success-custom{
     background-color: var(--success);
-    color: var(--white);
+    color: var(--black);
  }
 
  .btn-success-custom:hover{

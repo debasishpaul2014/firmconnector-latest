@@ -51,7 +51,7 @@ body {
 }
 
 .text-success-custom{
-   color: var(--success-dark);
+   color: var(--success);
 }
 
 .text-white-custom{
