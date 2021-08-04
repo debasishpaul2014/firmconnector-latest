@@ -11,7 +11,7 @@ import "../../../assets/css/button.css";
 
 const Layout = (props) => {
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper h-auto">
       <Helmet>
         <meta charSet="utf-8" />
         <title>{props.pageTitle}</title>

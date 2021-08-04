@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import StaticPageHeaderComponent from "../PageCommonComponent/StaticPageHeaderComponent";
 
 import tell_company from "../../assets/images/about_1.svg";
 
@@ -8,18 +9,12 @@ const AboutComponent = () => {
   return (
     <>
       <div className="container-fluid bg-info-light-custom">
-        <div className="container py-5 text-center">
-          <div>
-            <h1 className="display-5 fw-bold">
-              About <span className="text-warning">Firmconnector</span>
-            </h1>
-            <p>
-              <span className="lead">
-                Know something about us to make a good understanding.
-              </span>
-            </p>
-          </div>
-        </div>
+        <StaticPageHeaderComponent
+          title="About Firmconnector"
+          description_sm={
+            "Know something about us to make a good understanding."
+          }
+        />
       </div>
       <div className="container-fluid bg-white-custom">
         <div className="container py-5">

@@ -3,16 +3,13 @@
     border-radius: 0.2rem;
     outline: none;
     border: none;
-    box-shadow: 0px 12px 9px -12px rgba(0,0,0,0.33);
-    -webkit-box-shadow: 0px 12px 9px -12px rgba(0,0,0,0.33);
-    -moz-box-shadow: 0px 12px 9px -12px rgba(0,0,0,0.33);
     cursor: pointer;
-    font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
     justify-content: center;
     align-items: center;
     display: inline-block;
     align-self: flex-start;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .btn-lg-custom{
@@ -64,3 +61,4 @@
  .btn-success-custom:hover{
     background-color: var(--success-dark);
  }
+

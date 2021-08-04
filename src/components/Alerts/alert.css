@@ -1,0 +1,10 @@
+.alert-custom {
+    display: block;
+    padding: 0.5em 1em;
+    border-radius: 0.2rem;
+}
+
+.alert-danger-custom {
+    background-color: var(--danger);
+    color: var(--white);
+}

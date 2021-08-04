@@ -1,6 +1,7 @@
 import React from "react";
 
 import banner_image from "../../assets/images/banner_left.svg";
+import ButtonLg from "../Buttons/ButtonLg";
 
 const TopBannerComponent = () => {
   return (
@@ -18,12 +19,13 @@ const TopBannerComponent = () => {
               workforce and through trusted vendors and partners.
             </p>
             <p>
-              <div
-                className="btn-custom btn-lg-custom btn-warning-custom"
+              <ButtonLg
+                className="btn-warning"
                 role="button"
-              >
-                Click here to learn more
-              </div>
+                title="Click here to learn more"
+                type="button"
+                to="sign-in"
+              />
             </p>
           </div>
           <div className="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">

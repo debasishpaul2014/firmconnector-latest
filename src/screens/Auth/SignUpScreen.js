@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+//Import component
+import SignupComponent from "../../components/AuthComponent/SignupComponent/SignupComponent";
+import Layout from "../../components/Layouts/WithoutAuth/Layout";
 
 const SignUpScreen = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
-    <div>
-      <h1>This is signup screen</h1>
-    </div>
+    <Layout pageTitle={"Firmconnector :: Create your own account"}>
+      <SignupComponent />
+    </Layout>
   );
 };
 

@@ -1,10 +1,12 @@
 import React from "react";
+import ContactComponent from "../../../components/ContactUsComponent/ContactComponent";
+import Layout from "../../../components/Layouts/WithoutAuth/Layout";
 
 const ContactUsScreen = () => {
   return (
-    <div>
-      <h1>This is ContactUsScreen screen</h1>
-    </div>
+    <Layout pageTitle={"FirmConnector :: Contact Us"}>
+      <ContactComponent />
+    </Layout>
   );
 };
 
