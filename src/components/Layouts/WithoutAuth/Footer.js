@@ -4,13 +4,9 @@ const Footer = (props) => {
   return (
     <footer className="text-white bg-black-custom">
       <div className="container">
-        <p className="float-right">
-          <a href="#">Back to top</a>
+        <p className="text-sm-custom">
+          &copy; 2014-2021 firmconnector.com. All Rights Reserved.
         </p>
-        <p className="text-sm">
-          &copy; 2014-2021 Firmconnector.com. All Rights Reserved.
-        </p>
-        <p className="text-warning">E-mail: info@firmconnector.com</p>
       </div>
     </footer>
   );

@@ -99,14 +99,10 @@ body {
 }
 
 footer {
-   padding-top: 3rem;
-   padding-bottom: 3rem;
+   padding-top: 0.5rem;
+   padding-bottom: 0.5rem;
  }
  
-footer p {
-   margin-bottom: .25rem;
-}
-
  .bd-lead {
    font-size: calc(1rem + .3vw);
    font-weight: 400;
