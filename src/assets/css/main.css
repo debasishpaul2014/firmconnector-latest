@@ -2,7 +2,7 @@
 
 body {
    font-family: 'Nunito Sans', sans-serif !important;
-   font-size: 1rem !important;
+   font-size: 0.98rem !important;
    color: var(--info-dark) !important;
 }
 
@@ -32,6 +32,10 @@ body {
 
 .bg-info-custom{
    background-color: var(--info) !important;
+}
+
+.bg-info-dark-custom{
+   background-color: var(--info-dark) !important;
 }
 
 .bg-info-light-custom{
@@ -68,6 +72,10 @@ body {
 
 .text-info-custom{
    color: var(--info-dark-light);
+}
+
+.text-info-light-custom{
+   color: var(--info);
 }
 
 .text-muted-custom{
@@ -151,7 +159,7 @@ a{
 .form-control-custom{
    display: block;
    width: 100%;
-   padding: .25rem .75rem;
+   padding: .375rem .75rem;
    color: var(--info-dark);
    -webkit-appearance: none;
    appearance: none;
@@ -159,8 +167,25 @@ a{
    outline: none;
    background-color: var(--white);
    height: 3rem;
-   border-radius: 0.23rem;
-   border: 1px solid var(--muted);
+   border-radius: 0.33rem;
+   border: 0.15rem solid var(--muted-light);
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-control-textarea-custom{
+   display: block;
+   width: 100%;
+   padding: .375rem .75rem;
+   color: var(--info-dark);
+   -webkit-appearance: none;
+   appearance: none;
+   border: none;
+   outline: none;
+   background-color: var(--white);
+   height: 6rem;
+   border-radius: 0.33rem;
+   border: 0.15rem solid var(--muted-light);
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 ::placeholder { 
@@ -194,4 +219,8 @@ a{
 
 .border-bottom-light{
    border-bottom: 0.1em solid var(--muted-light);
+}
+
+.fw-bold-custom {
+   font-weight: 800!important;
 }

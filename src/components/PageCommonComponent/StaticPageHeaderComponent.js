@@ -8,11 +8,7 @@ const StaticPageHeaderComponent = (props) => {
   return (
     <div className="static-page-header bg-black-custom">
       <div className="container py-5">
-        <PageTitleBlock
-          title={title}
-          subText={description_sm}
-          borderBottom={false}
-        />
+        <PageTitleBlock title={title} subText={description_sm} />
       </div>
     </div>
   );

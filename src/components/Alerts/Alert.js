@@ -52,10 +52,10 @@ const AlertWarning = (props) => {
   return (
     <div className="alert-custom alert-warning-custom">
       <div>
-        <span className="text-dark-custom fw-bold">{title}</span>
+        <span className="fw-bold">{title}</span>
       </div>
       <div>
-        <span className="text-dark-custom text-sm-custom">{message}</span>
+        <span className="text-sm-custom">{message}</span>
       </div>
     </div>
   );

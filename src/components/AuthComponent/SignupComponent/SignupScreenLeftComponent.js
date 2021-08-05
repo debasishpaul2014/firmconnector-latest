@@ -1,19 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import signup_image from "../../../assets/images/sign_up.svg";
-import HeaderLg from "../../Headers/HeaderLg";
 
 const SignupScreenLeftComponent = () => {
   return (
     <div className="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">
-      <HeaderLg
-        title={"Firmconnector"}
-        subText={
-          "Firmconnector helps you connect and share resources within organizations."
-        }
-        borderBottom={false}
-      />
-      <div className="d-block mt-4">
+      <div className="d-block">
         <div>
           <span className="fst-normal text-muted-custom">
             Already have an account
