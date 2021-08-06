@@ -2,7 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import StaticPageHeaderComponent from "../PageCommonComponent/StaticPageHeaderComponent";
-import HeaderSm from "../Headers/HeaderSm";
 
 const AboutComponent = () => {
   const firstData = [
@@ -67,7 +66,7 @@ const AboutComponent = () => {
       <div className="container bg-white-custom py-5">
         <div className="row">
           <div className="col-md-12">
-            <p className="h3 fw-bold">
+            <p className="display-6 fw-bold">
               So how exactly does{" "}
               <span className="text-warning">FirmConnector</span> work?
             </p>

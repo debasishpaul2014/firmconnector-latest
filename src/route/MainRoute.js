@@ -14,6 +14,7 @@ import AboutScreen from "../screens/Static-pages/About/AboutScreen";
 import PrivacyPolicyScreen from "../screens/Static-pages/Privacy-policy/PrivacyPolicyScreen";
 import PricingScreen from "../screens/Static-pages/Pricing/PricingScreen";
 import ContactUsScreen from "../screens/Static-pages/Contact-us/ContactUsScreen";
+import DashboardScreen from "../screens/Dashboard/DashboardScreen";
 
 //Import Resource pages
 import ResourceListingScreen from "../screens/Resource/ResourceListingScreen";
@@ -63,6 +64,9 @@ const MainRoute = () => {
           path={`/resources/details/:resourceId`}
           component={ResourceDetailsScreen}
         />
+
+        {/* Route for Dashboard */}
+        <Route exact path="/dashboard" component={DashboardScreen} />
 
         {/* Route for 404 */}
         <Route component={PageNotFound} />

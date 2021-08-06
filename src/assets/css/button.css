@@ -54,8 +54,8 @@
  }
 
  .btn-success-custom{
-    background-color: var(--success);
-    color: var(--black);
+    background-color: var(--success-dark);
+    color: var(--white);
  }
 
  .btn-success-custom:hover{
