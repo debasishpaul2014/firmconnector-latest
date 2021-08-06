@@ -7,7 +7,10 @@ import "./home.css";
 
 const TopBannerComponent = () => {
   return (
-    <div className="jumbotron bg-black-custom top-banner py-5">
+    <div
+      className="jumbotron top-banner py-5"
+      style={{ backgroundColor: "#000" }}
+    >
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6">
