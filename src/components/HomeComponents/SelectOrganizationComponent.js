@@ -7,7 +7,7 @@ import ButtonSm from "../Buttons/ButtonSm";
 
 const SelectOrganizationComponent = () => {
   return (
-    <div className="album py-5 bg-light">
+    <div className="album py-5">
       <section className="jumbotron text-center">
         <div className="container">
           <h1 className="display-6 fw-bold">Select your organization type</h1>
@@ -15,7 +15,7 @@ const SelectOrganizationComponent = () => {
         </div>
       </section>
 
-      <div className="album pt-5 bg-light">
+      <div className="album pt-5">
         <div className="container">
           <div className="row">
             <div className="col-md-4 mb-2">

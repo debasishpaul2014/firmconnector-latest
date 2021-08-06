@@ -6,13 +6,21 @@ import "../../assets/css/button.css";
 const ButtonLg = (props) => {
   const { title, className, to, type } = props;
 
-  return (
-    <Link to={to}>
+  if (to === null) {
+    return (
       <button className={`btn-custom btn-lg-custom ${className}`} type={type}>
         <span>{title}</span>
       </button>
-    </Link>
-  );
+    );
+  } else {
+    return (
+      <Link to={to}>
+        <button className={`btn-custom btn-lg-custom ${className}`} type={type}>
+          <span>{title}</span>
+        </button>
+      </Link>
+    );
+  }
 };
 
 export default ButtonLg;

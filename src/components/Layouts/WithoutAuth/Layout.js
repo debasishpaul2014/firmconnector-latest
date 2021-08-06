@@ -17,7 +17,7 @@ const Layout = (props) => {
         <title>{props.pageTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
-      <div className="bg-light">
+      <div>
         <Header />
         <Content>{props.children}</Content>
         <Footer />

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonSm from "../Buttons/ButtonSm";
+import ButtonLg from "../Buttons/ButtonLg";
 import {
   AlertDanger,
   AlertSuccess,
@@ -48,12 +48,12 @@ const LoginScreenRightComponent = () => {
           </p>
 
           <div className="form-button-holder justify-content-end mt-4">
-            <ButtonSm
+            <ButtonLg
               className="btn-primary"
               role="button"
               title="Submit"
               type="button"
-              to={"#"}
+              to={null}
             />
           </div>
 
