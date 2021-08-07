@@ -1,10 +1,13 @@
 import React from "react";
 
+import DashboardComponent from "../../components/DashboardComponent/DashboardComponent";
+import Layout from "../../components/Layouts/WithAuth/Layout";
+
 const DashboardScreen = () => {
   return (
-    <div>
-      <span>Hello I am dashboard</span>
-    </div>
+    <Layout>
+      <DashboardComponent />
+    </Layout>
   );
 };
 

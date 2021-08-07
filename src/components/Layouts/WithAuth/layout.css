@@ -1,0 +1,71 @@
+.main-layout{
+    position: relative;
+}
+
+.dashboard-main-section{
+    display: flexbox;
+}
+
+.sm-block{
+    width: 2.3rem;
+    height: 2.3rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 0.2rem;
+    overflow: hidden;
+}
+
+.sm-block-rounded{
+    width: 2.3rem;
+    height: 2.3rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 2.3rem;
+    overflow: hidden;
+}
+
+.animated-hover{
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.animated-hover:hover{
+    background-color: var(--muted-extra-light) !important;
+    transform: scale(1.1);
+    color: var(--black) !important;
+}
+
+.animated-hover:hover > div {
+    color: var(--muted) !important;
+}
+
+.profile-image-sm{
+    width: 2.3rem;
+    height: 2.3rem;
+    background-color: var(--muted);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 0.2rem;
+    overflow: hidden;
+ }
+
+ .card-custom{
+    word-wrap: break-word;
+    background-clip: border-box;
+    background-color: var(--white);
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    position: relative;
+    margin-bottom: 1.5rem;
+ }
+
+ .card-title-custom{
+    color: var(--info-dark);
+    font-size: .9375rem;
+    line-height: 1.5;
+ }

@@ -53,7 +53,7 @@ const LoginScreenRightComponent = () => {
               role="button"
               title="Submit"
               type="button"
-              to={null}
+              to={"dashboard"}
             />
           </div>
 

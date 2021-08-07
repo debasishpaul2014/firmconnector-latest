@@ -1,19 +1,15 @@
 import React from "react";
 
 import banner_image from "../../assets/images/banner_left.svg";
-import banner_vid from "../../assets/video/home_video.mov";
 import ButtonLg from "../Buttons/ButtonLg";
 import "./home.css";
 
 const TopBannerComponent = () => {
   return (
-    <div
-      className="jumbotron top-banner py-5"
-      style={{ backgroundColor: "#000" }}
-    >
+    <div className="jumbotron bg-black-custom top-banner py-5">
       <div className="container">
         <div className="row">
-          <div className="col-sm-12 col-md-6 col-lg-6">
+          <div className="col-sm-12 col-md-7 col-lg-7">
             <div className="d-block mb-4">
               <h1 className="display-4 text-white fw-bold">
                 Maximize the value of your network
@@ -37,11 +33,8 @@ const TopBannerComponent = () => {
               />
             </div>
           </div>
-          <div className="col-sm-12 col-md-6 col-lg-6 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">
-            {/* <img src={banner_image} className="img-fluid" alt="..." /> */}
-            <video style={{ width: "100%", height: "auto" }} autoPlay loop>
-              <source src={banner_vid} />
-            </video>
+          <div className="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">
+            <img src={banner_image} className="img-fluid" alt="..." />
           </div>
         </div>
       </div>

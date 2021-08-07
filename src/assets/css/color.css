@@ -12,6 +12,7 @@
     --success: #2be06a;
     --success-dark: #25b953;
     --muted: #5B6987;
+    --muted-light-dark-text: #a2afc3;
     --muted-light: #d2dae6;
     --warning: #ffc107;
     --warning-dark: #ebc50c;
@@ -19,6 +20,7 @@
     --white: #FFFFFF;
     --white-x-dark: #b2bfcc;
     --white-dark: #fafcfe;
-    --muted-extra-light: #f6f6f6;
+    --muted-extra-light: #efecff;
+    --dashboard-menu: #ececf6;
     --indigo: #563d7c;
 }
