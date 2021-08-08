@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonSm from "../Buttons/ButtonSm";
+import ButtonLg from "../Buttons/ButtonLg";
 import HeaderSm from "../Headers/HeaderSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 
@@ -62,8 +62,8 @@ const ContactScreenRightBlock = () => {
           </div>
 
           <div className="form-button-holder justify-content-end mt-4">
-            <ButtonSm
-              className="btn-primary"
+            <ButtonLg
+              className="btn-primary w-100"
               role="button"
               title="Send Query"
               type="button"

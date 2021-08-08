@@ -21,13 +21,13 @@ const Header = () => {
           </div>
         </div>
         <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-end align-items-center d-lg-flex">
-          <div className="sm-block-rounded animated-hover bg-white-custom ms-4">
+          <div className="icon-holder-sm cursor-pointer icon-holder-white ms-4">
             <IconContainer iconName={"FiCast"} color="var(--info-dark)" />
           </div>
-          <div className="sm-block-rounded animated-hover bg-white-custom ms-4 me-4">
+          <div className="icon-holder-sm cursor-pointer icon-holder-white ms-4 me-4">
             <IconContainer iconName={"FiBell"} color="var(--info-dark)" />
           </div>
-          <div className="sm-block ms-4">
+          <div className="ms-4">
             <ProfileImageSmall />
           </div>
         </div>

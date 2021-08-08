@@ -7,22 +7,12 @@
 }
 
 .sm-block{
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.2rem;
+    height: 2.2rem;
     justify-content: center;
     align-items: center;
     display: flex;
     border-radius: 0.2rem;
-    overflow: hidden;
-}
-
-.sm-block-rounded{
-    width: 2.3rem;
-    height: 2.3rem;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 2.3rem;
     overflow: hidden;
 }
 
@@ -42,15 +32,13 @@
 }
 
 .profile-image-sm{
-    width: 2.3rem;
-    height: 2.3rem;
+    width: 2.2rem;
+    height:2.2rem;
     box-sizing: border-box;
-    background-color: var(--muted);
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    border-radius: 2.3rem;
+    background-color: var(--white);
     overflow: hidden;
+    border-radius:2.2rem;
+    cursor: pointer;
  }
 
  .profile-details-holder{
@@ -66,7 +54,7 @@
     flex-direction: column;
     min-width: 0;
     position: relative;
-    margin-bottom: 1.5rem;
+    overflow: hidden;
  }
 
  .card-title-custom{
@@ -77,88 +65,58 @@
     font-weight: 800;
  }
 
- .icon-holder-info-md{
-   padding-left: 1rem;
-   padding-right: 1rem;
-   height: 3rem;
-   border-radius: 3rem;
+ .icon-holder-sm{
+   width: 2.2rem;
+   height: 2.2rem;
+   border-radius: 2.2rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .icon-holder-md{
+   padding-left: 0.8rem;
+   padding-right: 0.8rem;
+   height: 2.6rem;
+   border-radius: 2.6rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ .icon-holder-white{
+   background-color: var(--white);
+   color: var(--black) !important;
+ }
+
+ .icon-holder-info{
    background-color: var(--info-light);
    color: var(--info) !important;
-   display: flex;
-   justify-content: center;
-   align-items: center;
  }
 
- .icon-holder-warning-md{
-   padding-left: 1rem;
-   padding-right: 1rem;
-   height: 3rem;
-   border-radius: 3rem;
+ .icon-holder-warning{
    background-color: var(--warning-light);
    color: var(--warning) !important;
-   display: flex;
-   justify-content: center;
-   align-items: center;
  }
 
- .icon-holder-info-sm-square{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.3rem;
-    background-color: var(--info-light);
-    color: var(--info-icon-text) !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ .icon-holder-success{
+   background-color: var(--success-light);
+   color: var(--success-dark) !important;
  }
 
- .icon-holder-danger-sm-square{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.2rem;
+ .icon-holder-danger{
     background-color: var(--danger-light);
     color: var(--danger) !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
  }
 
- .icon-holder-dark-sm-square{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.3rem;
+ .icon-holder-dark{
     background-color: var(--muted-light);
     color: var(--black) !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
  }
 
- .icon-holder-success-sm-square{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.3rem;
-    background-color: var(--success-light);
-    color: var(--success-dark) !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
-
- .icon-holder-ingigo-sm-square{
-    width: 2rem;
-    height: 2rem;
-    border-radius: 0.3rem;
+ .icon-holder-ingigo{
     background-color: var(--indigo);
     color: var(--white) !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
-
- .block-title{
-    display: block;
-    margin-bottom: 0.5rem;
  }
 
  .block-custom{
@@ -167,4 +125,8 @@
 
  .card-body-sm{
     padding: 0.6rem;
+ }
+
+ .cursor-pointer{
+    cursor: pointer;
  }

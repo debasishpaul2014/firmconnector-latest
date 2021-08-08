@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../../../Buttons/ButtonSm";
+import Logo from "../../../../assets/images/Logo.png";
 
 const TopNav = (props) => {
   return (
@@ -8,7 +9,9 @@ const TopNav = (props) => {
       <div className="container">
         <div className="d-flex">
           <Link to="/">
-            <span className="h4 text-light">Firmconnector</span>
+            <div className="logo-top">
+              <img src={Logo} className="h-100 w-100" alt="Firmconnector" />
+            </div>
           </Link>
         </div>
         <button

@@ -7,7 +7,7 @@ body {
    font-family: 'Open Sans', sans-serif !important;
    font-size: .9375rem !important;
    color: var(--info-dark) !important;
-   background-color: var(--muted-extra-light) !important;
+   background-color: var(--dashboard-menu) !important;
 }
 
 
@@ -88,6 +88,10 @@ body {
 
 .text-muted-light-custom{
    color: var(--muted-light-dark-text);
+}
+
+.text-x-sm-custom{
+   font-size: .75rem;
 }
 
 .text-sm-custom{

@@ -49,7 +49,7 @@ const LoginScreenRightComponent = () => {
 
           <div className="form-button-holder justify-content-end mt-4">
             <ButtonLg
-              className="btn-primary"
+              className="btn-primary w-100"
               role="button"
               title="Submit"
               type="button"

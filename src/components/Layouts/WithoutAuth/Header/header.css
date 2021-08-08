@@ -49,3 +49,8 @@
 .bd-buttons>.btn, .bd-buttons>.btn-group {
     margin: .25rem .125rem;
 }
+
+.logo-top{
+    width: 15rem;
+    padding: 0.3rem;
+}

@@ -14,7 +14,7 @@ const ButtonLg = (props) => {
     );
   } else {
     return (
-      <Link to={to}>
+      <Link to={to} className="w-100">
         <button className={`btn-custom btn-lg-custom ${className}`} type={type}>
           <span>{title}</span>
         </button>
