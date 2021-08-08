@@ -1,8 +1,9 @@
 :root {
     --info: #0069ff;
     --info-dark-light: #154d88;
+    --info-icon-text: #24bae1;
     --info-dark: #031b4e;
-    --info-light: #e7f6fc;
+    --info-light: #e4f9fd;
     --info-x-light: #e7f6fc;
     --black: #040d21;
     --danger: #e64539;

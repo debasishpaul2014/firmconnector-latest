@@ -66,6 +66,98 @@
 
  .card-title-custom{
     color: var(--info-dark);
-    font-size: .9375rem;
+    font-size: 0.975rem;
     line-height: 1.5;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+ }
+
+ .icon-holder-info-md{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background-color: var(--info-light);
+    color: var(--info-icon-text) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .icon-holder-warning-md{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background-color: var(--warning-light);
+    color: var(--warning) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .icon-holder-info-sm-square{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    background-color: var(--info-light);
+    color: var(--info-icon-text) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .icon-holder-danger-sm-square{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    background-color: var(--danger-light);
+    color: var(--danger) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .icon-holder-dark-sm-square{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    background-color: var(--muted-light);
+    color: var(--black) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .icon-holder-success-sm-square{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    background-color: var(--success-light);
+    color: var(--success-dark) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .icon-holder-ingigo-sm-square{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.3rem;
+    background-color: var(--indigo);
+    color: var(--white) !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+ .block-title{
+    display: block;
+    margin-bottom: 0.5rem;
+ }
+
+ .block-custom{
+    display: block;
+ }
+
+ .card-body-sm{
+    padding: 0.6rem;
  }

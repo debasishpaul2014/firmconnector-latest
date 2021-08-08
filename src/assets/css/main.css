@@ -71,7 +71,7 @@ body {
 }
 
 .text-dark-custom{
-   color: var(--info-dark);
+   color: var(--black);
 }
 
 .text-info-custom{
@@ -91,7 +91,7 @@ body {
 }
 
 .text-sm-custom{
-   font-size: .875rem;
+   font-size: .90rem;
 }
 
 .text-md-custom{

@@ -11,7 +11,7 @@ const PageHeader = (props) => {
         </span>
       </div>
       <div className="d-block">
-        <span className="text-muted-light-custom">{subText}</span>
+        <span className="text-muted-custom">{subText}</span>
       </div>
     </div>
   );
