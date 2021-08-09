@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../../../Buttons/ButtonSm";
-import Logo from "../../../../assets/images/Logo.png";
+import Logo from "../../../../assets/images/Company_logo.png";
 
 const TopNav = (props) => {
   return (
