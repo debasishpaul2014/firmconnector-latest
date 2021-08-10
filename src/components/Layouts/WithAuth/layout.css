@@ -37,9 +37,19 @@
     box-sizing: border-box;
     background-color: var(--white);
     overflow: hidden;
-    border-radius:2.2rem;
+    border-radius: 0.4rem;
     cursor: pointer;
  }
+
+ .profile-image-md{
+   width: 2.8rem;
+   height:2.8rem;
+   box-sizing: border-box;
+   background-color: var(--white);
+   overflow: hidden;
+   border-radius: 0.4rem;
+   cursor: pointer;
+}
 
  .profile-details-holder{
     width: 20rem;
@@ -61,8 +71,7 @@
     color: var(--info-dark);
     font-size: 0.975rem;
     line-height: 1.5;
-    margin-bottom: 0.5rem;
-    font-weight: 800;
+    font-weight: 700;
  }
 
  .icon-holder-sm{
@@ -129,4 +138,9 @@
 
  .cursor-pointer{
     cursor: pointer;
+ }
+
+ .card-header-custom{
+      flex: 1 1 auto;
+      padding: 1rem 1rem;
  }

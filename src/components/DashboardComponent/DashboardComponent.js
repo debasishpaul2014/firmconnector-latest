@@ -2,7 +2,7 @@ import React from "react";
 import PageHeader from "../CommonComponent/PageHeader";
 import IconContainer from "../Iconcontainer/IconContainer";
 import GroupedBar from "../Charts/GroupedBar";
-import ProfileImageSmall from "../CommonComponent/ProfileImageSmall";
+import ProfileImageMd from "../CommonComponent/ProfileImageMd";
 import DashboardBlockTitle from "../CommonComponent/DashboardBlockTitle";
 
 import user1 from "../../assets/images/user1.jpg";
@@ -41,22 +41,16 @@ const DashboardComponent = () => {
   ];
 
   const displayUserList = () => {
-    const itemLength = userList.length - 1;
-
     return (
       <>
         {userList.map((item, key) => {
           return (
-            <tr
-              key={key.toString()}
-              className={key !== itemLength ? "border-bottom border-20" : ""}
-            >
-              <td>
-                <div className="align-items-center px-2 position-relative">
+            <tr key={key.toString()}>
+              <td className="py-3">
+                <div className="align-items-center position-relative">
                   <div className="d-flex align-items-center">
-                    <ProfileImageSmall imgSrc={item.image} />
-
-                    <div className="profile-details-holder mx-3">
+                    <ProfileImageMd imgSrc={item.image} />
+                    <div className="profile-details-holder mx-2">
                       <div className="d-block">
                         <span className="text-sm-custom text-dark-custom fw-bold">
                           {item.name}
@@ -94,7 +88,7 @@ const DashboardComponent = () => {
           <div className="card-custom shadow-lg">
             <div className="card-body">
               <div className="card-title-custom">
-                <span>User Activity</span>
+                <p className="card-title-custom">User Activity</p>
               </div>
               <p className="text-sm-custom">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -105,11 +99,9 @@ const DashboardComponent = () => {
           </div>
         </div>
         <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 pe-lg-2 pe-xl-2 pe-xxl-2 ps-lg-2 ps-xl-2 ps-xxl-2">
-          <div className="card-custom">
+          <div className="card-custom card-stretch">
             <div className="card-body">
-              <div className="card-title-custom">
-                <span>Today's To Do</span>
-              </div>
+              <p className="card-title-custom">Today's To Do</p>
               <p className="text-sm-custom">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
@@ -125,9 +117,7 @@ const DashboardComponent = () => {
                   <IconContainer iconName={"FiFileText"} />
                 </div>
                 <div className="d-block">
-                  <div className="d-block text-md-custom fw-bold-custom text-dark-custom">
-                    $3240
-                  </div>
+                  <div className="card-title-custom">$3240</div>
                   <div className="d-block">
                     <span className="text-sm-custom text-dark-custom">
                       Earned this month
@@ -144,9 +134,7 @@ const DashboardComponent = () => {
                   <IconContainer iconName={"FiFileText"} />
                 </div>
                 <div className="d-block">
-                  <div className="d-block text-md-custom fw-bold-custom text-dark-custom">
-                    53
-                  </div>
+                  <div className="card-title-custom">53</div>
                   <div className="d-block">
                     <span className="text-sm-custom text-dark-custom">
                       New resource added this week
@@ -160,18 +148,18 @@ const DashboardComponent = () => {
       </div>
 
       <div className="row g-0">
-        <div className="col-12 col-lg-7 col-xl-7 col-xxl-7 mb-3 pe-lg-2 pe-xl-2 pe-xxl-2">
-          <div className="block-custom my-3 shadow">
+        <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-3 pe-lg-2 pe-xl-2 pe-xxl-2">
+          <div className="block-custom my-3">
             <div className="card-custom">
-              <div className="card-header bg-muted-light-custom py-2">
+              <div className="card-header-custom py-2">
                 <DashboardBlockTitle
                   title={"Latest Activities"}
-                  subTitle={null}
+                  subTitle={"Newly added resources this week"}
                 />
               </div>
-              <div className="card-body p-0">
+              <div className="card-body">
                 <div className="table-responsive-sm">
-                  <table className="table table-borderless mb-0">
+                  <table className="table table-borderless">
                     <tbody>{displayUserList()}</tbody>
                   </table>
                 </div>
@@ -179,10 +167,10 @@ const DashboardComponent = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 col-lg-5 col-xl-5 col-xxl-5 ps-lg-2 ps-xl-2 ps-xxl-2">
+        <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 ps-lg-2 ps-xl-2 ps-xxl-2">
           <div className="block-custom my-3">
-            <div className="card-custom shadow">
-              <div className="card-header bg-muted-light-custom py-2">
+            <div className="card-custom">
+              <div className="card-header bg-white-custom py-2">
                 <DashboardBlockTitle
                   title={"Resource Availability"}
                   subTitle={null}

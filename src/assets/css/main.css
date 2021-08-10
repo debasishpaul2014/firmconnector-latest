@@ -58,6 +58,16 @@ body {
    background-color: var(--muted-extra-light) !important;
 }
 
+.bg-muted-dark-custom{
+   background-color: var(--muted) !important;
+   color: var(--white) !important;
+}
+
+.bg-indigo-custom{
+   background-color: var(--indigo) !important;
+   color: var(--white) !important;
+}
+
 .text-success-custom{
    color: var(--success-dark);
 }
@@ -86,7 +96,7 @@ body {
    color: var(--muted);
 }
 
-.text-muted-light-custom{
+.muted-light-dark-text{
    color: var(--muted-light-dark-text);
 }
 
@@ -95,7 +105,7 @@ body {
 }
 
 .text-sm-custom{
-   font-size: .90rem;
+   font-size: .895rem;
 }
 
 .text-md-custom{

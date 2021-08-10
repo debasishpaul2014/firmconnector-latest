@@ -14,9 +14,7 @@ const Header = () => {
               <IconContainer iconName={"FiSearch"} color="var(--info-dark)" />
             </div>
             <div className="d-block">
-              <span className="text-sm text-muted-light-custom">
-                Search here
-              </span>
+              <span className="text-sm text-muted-custom">Search here</span>
             </div>
           </div>
         </div>
