@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import PageHeader from "../CommonComponent/PageHeader";
 import IconContainer from "../Iconcontainer/IconContainer";
 import GroupedBar from "../Charts/GroupedBar";
@@ -17,26 +19,31 @@ const DashboardComponent = () => {
       name: "Debasish Paul",
       role: "Senior Application Developer",
       image: user1,
+      profile: "resources/details/debasish-paul",
     },
     {
       name: "Aaron Mclaughlin",
       role: "Senior Consultant",
       image: user2,
+      profile: "resources/details/debasish-paul",
     },
     {
       name: "Petter Wood",
       role: "Account Manager",
       image: user3,
+      profile: "resources/details/debasish-paul",
     },
     {
       name: "St John",
       role: "Front End Engineer",
       image: user4,
+      profile: "resources/details/debasish-paul",
     },
     {
       name: "Malina Weissman",
       role: "Drama Actress",
       image: user5,
+      profile: "resources/details/debasish-paul",
     },
   ];
 
@@ -49,15 +56,18 @@ const DashboardComponent = () => {
               <td className="py-3">
                 <div className="align-items-center position-relative">
                   <div className="d-flex align-items-center">
-                    <ProfileImageMd imgSrc={item.image} />
+                    <Link to={item.profile}>
+                      <ProfileImageMd imgSrc={item.image} />
+                    </Link>
+
                     <div className="profile-details-holder mx-2">
                       <div className="d-block">
-                        <span className="text-sm-custom text-dark-custom fw-bold">
+                        <span className="text-sm-custom text-dark-custom fw-medium-custom">
                           {item.name}
                         </span>
                       </div>
                       <div className="d-block">
-                        <span className="text-muted-custom text-sm-custom">
+                        <span className="text-muted-custom text-x-sm-custom">
                           {item.role}
                         </span>
                       </div>
@@ -85,7 +95,7 @@ const DashboardComponent = () => {
       <PageHeader pageHeaderTitle={"Dashboard"} subText={"Recent activities"} />
       <div className="row g-0">
         <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 pe-lg-2 pe-xl-2 pe-xxl-2">
-          <div className="card-custom shadow-lg">
+          <div className="card-custom">
             <div className="card-body">
               <div className="card-title-custom">
                 <p className="card-title-custom">User Activity</p>
@@ -170,10 +180,10 @@ const DashboardComponent = () => {
         <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 ps-lg-2 ps-xl-2 ps-xxl-2">
           <div className="block-custom my-3">
             <div className="card-custom">
-              <div className="card-header bg-white-custom py-2">
+              <div className="card-header-custom py-2">
                 <DashboardBlockTitle
                   title={"Resource Availability"}
-                  subTitle={null}
+                  subTitle={"Newly added resources this week"}
                 />
               </div>
               <div className="card-body">

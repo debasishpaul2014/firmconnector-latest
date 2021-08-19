@@ -1,18 +1,18 @@
 :root {
-    --info: #0069ff;
+    --info: #255fd6;
     --info-dark-light: #154d88;
     --info-icon-text: #24bae1;
     --info-dark: #031b4e;
     --info-light: #e4f9fd;
     --info-x-light: #e7f6fc;
-    --black: #3F4254;
+    --black: #0f1014;
     --danger: #e64539;
     --danger-dark: #ac3838;
     --danger-light: #ffdbd9;
     --success-light: #F4F9F6;
     --success: #2be06a;
     --success-dark: #25b953;
-    --muted: #5B6987;
+    --muted: #7c8391;
     --muted-light-dark-text: #B5B5C3;
     --muted-light: #d2dae6;
     --warning: #ffc107;
@@ -21,7 +21,7 @@
     --white: #FFFFFF;
     --white-x-dark: #b2bfcc;
     --white-dark: #fafcfe;
-    --muted-extra-light: #efecff;
+    --muted-extra-light: #f1f5f9;
     --dashboard-menu: #edf2f9;
     --indigo: #563d7c;
 }

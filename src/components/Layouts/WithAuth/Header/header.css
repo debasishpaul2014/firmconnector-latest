@@ -4,7 +4,7 @@
     width: 100%;
     top: 0;
     z-index: 9;
-    background-color: var(--muted);
+    background-color: var(--info-dark);
 }
 
 .header-menu-breadcrumb{
@@ -17,10 +17,10 @@
 }
 
 .top-search-container{
-    width: 50%;
+    width: 70%;
     height: 2.5rem;
     background-color: var(--white);
-    border-radius: 5rem;
+    border-radius: 0.5rem;
     padding: 0.5rem;
 }
 

@@ -51,6 +51,27 @@
    cursor: pointer;
 }
 
+
+.profile-image-lg{
+   width: 6rem;
+   height: 6rem;
+   box-sizing: border-box;
+   background-color: var(--white);
+   overflow: hidden;
+   border-radius: 0.4rem;
+   cursor: pointer;
+}
+
+.profile-image-lg-rounder{
+   width: 6rem;
+   height: 6rem;
+   box-sizing: border-box;
+   background-color: var(--white);
+   overflow: hidden;
+   border-radius: 3rem;
+   cursor: pointer;
+}
+
  .profile-details-holder{
     width: 20rem;
  }

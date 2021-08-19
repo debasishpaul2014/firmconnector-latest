@@ -20,7 +20,7 @@ const Layout = (props) => {
       </Helmet>
       <div className="d-block main-layout ms-5">
         <LeftMenuComponent />
-        <div className="bg-muted d-block ms-2 ms-lg-4 ms-xl-4 ms-xxl-4">
+        <div className="bg-muted-custom d-block ms-4 ms-lg-4 ms-xl-4 ms-xxl-4">
           <Header />
           <div className="dashboard-main-section py-2 py-lg-5 py-xl-5 py-xxl-5">
             <Content>{props.children}</Content>

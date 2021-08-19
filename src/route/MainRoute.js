@@ -59,7 +59,14 @@ const MainRoute = () => {
           path={`/resources`}
           component={ResourceListingScreen}
         />
-        <ProtectedRoute
+        {/* <ProtectedRoute
+          exact
+          path={`/resources/details/:resourceId`}
+          component={ResourceDetailsScreen}
+        /> */}
+
+        {/* Route for Dashboard */}
+        <Route
           exact
           path={`/resources/details/:resourceId`}
           component={ResourceDetailsScreen}

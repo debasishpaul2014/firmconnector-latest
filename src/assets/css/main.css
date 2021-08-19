@@ -1,15 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
 
 body {
-   font-family: 'Open Sans', sans-serif !important;
-   font-size: .9375rem !important;
+   font-family: 'Noto Sans JP', sans-serif !important;
+   font-size: .89rem !important;
    color: var(--info-dark) !important;
    background-color: var(--dashboard-menu) !important;
 }
 
+a{
+   color: var(--info-dark) !important;
+}
+
+::-webkit-scrollbar {
+   display: none !important;
+}
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
    margin-top: .35rem !important;
@@ -100,12 +105,16 @@ body {
    color: var(--muted-light-dark-text);
 }
 
+.text-x-x-sm-custom{
+   font-size: .765rem;
+}
+
 .text-x-sm-custom{
-   font-size: .75rem;
+   font-size: .875rem;
 }
 
 .text-sm-custom{
-   font-size: .895rem;
+   font-size: .89rem;
 }
 
 .text-md-custom{

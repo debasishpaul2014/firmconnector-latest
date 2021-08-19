@@ -1,0 +1,9 @@
+.profile-img-lg{
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--muted-light);
+    border-radius: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
