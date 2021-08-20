@@ -5,7 +5,7 @@ const InputLebelComponent = (props) => {
 
   return (
     <div className="form-input-header">
-      <span class="text-sm-custom fw-bold">{title}</span>
+      <span class="fw-bold">{title}</span>
     </div>
   );
 };

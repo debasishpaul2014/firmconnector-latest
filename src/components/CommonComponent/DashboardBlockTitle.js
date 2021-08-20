@@ -11,7 +11,7 @@ const DashboardBlockTitle = (props) => {
         </div>
       </div>
       <div className="d-block" style={{ lineHeight: "1rem" }}>
-        <span className="text-muted-custom text-x-sm-custom">{subTitle}</span>
+        <span className="text-muted-custom ">{subTitle}</span>
       </div>
     </div>
   );

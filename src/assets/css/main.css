@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
 body {
-   font-family: 'Noto Sans JP', sans-serif !important;
-   font-size: .89rem !important;
+   font-family: 'Open Sans', sans-serif !important;
+   font-size: .80rem !important;
    color: var(--info-dark) !important;
    background-color: var(--dashboard-menu) !important;
 }
@@ -106,10 +107,10 @@ a{
 }
 
 .text-x-x-sm-custom{
-   font-size: .765rem;
+   font-size: .678rem;
 }
 
-.text-x-sm-custom{
+.{
    font-size: .875rem;
 }
 

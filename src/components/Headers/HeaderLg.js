@@ -9,7 +9,7 @@ const HeaderLg = (props) => {
     >
       <div className="display-6 fw-bold">{title}</div>
       <div>
-        <span className="text-sm-custom">{subText}</span>
+        <span>{subText}</span>
       </div>
     </div>
   );

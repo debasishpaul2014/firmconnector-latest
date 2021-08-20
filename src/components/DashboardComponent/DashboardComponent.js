@@ -62,14 +62,12 @@ const DashboardComponent = () => {
 
                     <div className="profile-details-holder mx-2">
                       <div className="d-block">
-                        <span className="text-sm-custom text-dark-custom fw-medium-custom">
+                        <span className="text-dark-custom fw-medium-custom">
                           {item.name}
                         </span>
                       </div>
                       <div className="d-block">
-                        <span className="text-muted-custom text-x-sm-custom">
-                          {item.role}
-                        </span>
+                        <span className="text-muted-custom ">{item.role}</span>
                       </div>
                     </div>
                     <div className="d-flex col justify-content-end">
@@ -100,7 +98,7 @@ const DashboardComponent = () => {
               <div className="card-title-custom">
                 <p className="card-title-custom">User Activity</p>
               </div>
-              <p className="text-sm-custom">
+              <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
                 text ever since the 1500s,
@@ -112,7 +110,7 @@ const DashboardComponent = () => {
           <div className="card-custom card-stretch">
             <div className="card-body">
               <p className="card-title-custom">Today's To Do</p>
-              <p className="text-sm-custom">
+              <p>
                 Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry.
               </p>
@@ -129,9 +127,7 @@ const DashboardComponent = () => {
                 <div className="d-block">
                   <div className="card-title-custom">$3240</div>
                   <div className="d-block">
-                    <span className="text-sm-custom text-dark-custom">
-                      Earned this month
-                    </span>
+                    <span className="text-dark-custom">Earned this month</span>
                   </div>
                 </div>
               </div>
@@ -146,9 +142,7 @@ const DashboardComponent = () => {
                 <div className="d-block">
                   <div className="card-title-custom">53</div>
                   <div className="d-block">
-                    <span className="text-sm-custom text-dark-custom">
-                      New resource added this week
-                    </span>
+                    <span>New resource added this week</span>
                   </div>
                 </div>
               </div>

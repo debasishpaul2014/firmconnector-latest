@@ -10,7 +10,7 @@ const AlertDanger = (props) => {
         <span className="text-danger-custom fw-bold">{title}</span>
       </div>
       <div>
-        <span className="text-danger-custom text-sm-custom">{message}</span>
+        <span className="text-danger-custom">{message}</span>
       </div>
     </div>
   );
@@ -25,7 +25,7 @@ const AlertSuccess = (props) => {
         <span className="text-success-custom fw-bold">{title}</span>
       </div>
       <div>
-        <span className="text-success-custom text-sm-custom">{message}</span>
+        <span className="text-success-custom">{message}</span>
       </div>
     </div>
   );
@@ -40,7 +40,7 @@ const AlertInfo = (props) => {
         <span className="text-info-custom fw-bold">{title}</span>
       </div>
       <div>
-        <span className="text-info-custom text-sm-custom">{message}</span>
+        <span className="text-info-custom">{message}</span>
       </div>
     </div>
   );
@@ -55,7 +55,7 @@ const AlertWarning = (props) => {
         <span className="fw-bold">{title}</span>
       </div>
       <div>
-        <span className="text-sm-custom">{message}</span>
+        <span>{message}</span>
       </div>
     </div>
   );
