@@ -1,8 +1,8 @@
 import React from "react";
 
-import DocumentBox from "./DocumentBox";
 import ProfileBrief from "./ProfileBrief";
 import GeneralInfo from "./GeneralInfo";
+import SkillSet from "./SkillSet";
 
 import "./profile.css";
 
@@ -11,7 +11,7 @@ const ResourceProfileTopSection = () => {
     <div className="row">
       <ProfileBrief />
       <GeneralInfo />
-      <DocumentBox />
+      <SkillSet />
     </div>
   );
 };

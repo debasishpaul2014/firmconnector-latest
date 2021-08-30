@@ -4,7 +4,7 @@ import user5 from "../../../assets/images/user5.jpg";
 
 const ProfileBrief = () => {
   return (
-    <div className="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3">
+    <div className="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3 top-card-section">
       <div className="card-custom h-100  d-flex flex-column align-items-center ">
         <div className="card-body row w-100">
           <div className="d-flex justify-content-center">
@@ -18,7 +18,10 @@ const ProfileBrief = () => {
               <span className="h5 fw-bold-custom">Malina Weissman</span>
             </div>
             <div className="d-block">
-              <span className=" text-muted-custom">Senior Consultant</span>
+              <span className="text-muted-custom">Senior Consultant</span>
+            </div>
+            <div className="d-block">
+              <span className="fw-bold">Kolkata, WB, India</span>
             </div>
           </div>
           <div className="d-flex flex-column mt-2 justify-content-center align-items-center">
