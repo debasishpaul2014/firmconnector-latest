@@ -73,3 +73,7 @@
     width: 10rem;
     height: 5rem;
 }
+
+.profile-tab-section{
+    min-height: 20rem;
+}

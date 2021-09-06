@@ -6,11 +6,13 @@ import SkillSet from "./SkillSet";
 
 import "./profile.css";
 
-const ResourceProfileTopSection = () => {
+const ResourceProfileTopSection = (props) => {
+  const displayView = props.displayView;
+
   return (
     <div className="row">
-      <ProfileBrief />
-      <GeneralInfo />
+      <ProfileBrief displayView={displayView} />
+      <GeneralInfo displayView={displayView} />
       <SkillSet />
     </div>
   );
