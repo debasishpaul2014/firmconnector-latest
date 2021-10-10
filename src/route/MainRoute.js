@@ -66,14 +66,14 @@ const MainRoute = () => {
         /> */}
 
         {/* Route for Dashboard */}
-        <Route
+        <ProtectedRoute
           exact
           path={`/resources/details/:resourceId`}
           component={ResourceDetailsScreen}
         />
 
         {/* Route for Dashboard */}
-        <Route exact path="/dashboard" component={DashboardScreen} />
+        <ProtectedRoute exact path="/dashboard" component={DashboardScreen} />
 
         {/* Route for 404 */}
         <Route component={PageNotFound} />

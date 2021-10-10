@@ -1,10 +1,14 @@
 import React from "react";
 import IconContainer from "../../../Iconcontainer/IconContainer";
 import ProfileImageSmall from "../../../CommonComponent/ProfileImageSmall";
+import { useAuthContext } from "../../../../context/AuthContext";
 
 import "./header.css";
 
 const Header = () => {
+  const { userDetails } = useAuthContext();
+  const loggedinUserDetails = JSON.parse(userDetails);
+
   return (
     <div className="header-dashboard pb-2 pt-2">
       <div className="container d-flex">
@@ -26,7 +30,10 @@ const Header = () => {
             <IconContainer iconName={"FiBell"} color="var(--info-dark)" />
           </div>
           <div className="ms-4">
-            <ProfileImageSmall />
+            <ProfileImageSmall
+              imgSrc={loggedinUserDetails.profile_image_path}
+              linkUrl={"/my-profile"}
+            />
           </div>
         </div>
       </div>

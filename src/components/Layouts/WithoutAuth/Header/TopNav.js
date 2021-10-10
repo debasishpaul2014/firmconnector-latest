@@ -2,8 +2,39 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ButtonSm from "../../../Buttons/ButtonSm";
 import Logo from "../../../../assets/images/Company_logo.png";
+import HeaderTopUserBlock from "../../../UserCommonBlocks/HeaderTopUserBlock";
+import { useAuthContext } from "../../../../context/AuthContext";
 
-const TopNav = (props) => {
+const TopNav = () => {
+  const { isLoggedIn, userDetails } = useAuthContext();
+
+  const checkIsLoggedInContent = () => {
+    if (isLoggedIn === true) {
+      return (
+        <div className="d-flex">
+          <HeaderTopUserBlock userDetails={userDetails} length={20} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="d-flex bd-buttons">
+          <ButtonSm
+            to="sign-in"
+            title="Login"
+            className="btn-light-custom"
+            type="button"
+          />
+          <ButtonSm
+            to="sign-up"
+            title="Create Account"
+            className="btn-primary-custom ms-3"
+            type="button"
+          />
+        </div>
+      );
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top bd-navbar">
       <div className="container">
@@ -48,20 +79,7 @@ const TopNav = (props) => {
               </Link>
             </li>
           </ul>
-          <div className="d-flex bd-buttons">
-            <ButtonSm
-              to="sign-in"
-              title="Login"
-              className="btn-light-custom"
-              type="button"
-            />
-            <ButtonSm
-              to="sign-up"
-              title="Create Account"
-              className="btn-primary-custom ms-3"
-              type="button"
-            />
-          </div>
+          {checkIsLoggedInContent()}
         </div>
       </div>
     </nav>

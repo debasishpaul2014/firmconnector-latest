@@ -1,18 +1,15 @@
 import React from "react";
 import { Redirect, Route } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 function ProtectedRouteWithoutAuth({ component: Component, ...rest }) {
-  const isAuthenticated = localStorage.getItem("isAuthenticated");
+  const { isLoggedIn } = useAuthContext();
 
   return (
     <Route
       {...rest}
       render={(props) =>
-        !isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect to="/dashboard" />
-        )
+        !isLoggedIn ? <Component {...props} /> : <Redirect to="/dashboard" />
       }
     />
   );

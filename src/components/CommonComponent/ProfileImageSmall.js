@@ -1,11 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProfileImageSmall = (props) => {
-  const { imgSrc } = props;
+  const { linkUrl, imgSrc } = props;
+
   return (
-    <div className="profile-image-sm">
-      <img className="img-fluid" src={imgSrc} alt="" />
-    </div>
+    <Link to={linkUrl}>
+      <div className="profile-image-sm-rounded">
+        <img className="img-fluid" src={imgSrc} alt="" />
+      </div>
+    </Link>
   );
 };
 

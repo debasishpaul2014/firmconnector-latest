@@ -4,14 +4,30 @@ import "./alert.css";
 const AlertDanger = (props) => {
   const { title, message } = props;
 
+  const splitMessage = () => {
+    if (message.length > 0) {
+      return (
+        <div>
+          {message.map((item, index) => {
+            return (
+              <div key={index}>
+                <span className="text-danger-custom">{item}</span>
+              </div>
+            );
+          })}
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="alert-custom alert-danger-custom">
       <div>
-        <span className="text-danger-custom fw-bold">{title}</span>
+        <span className="text-danger-custom fw-bold text-md-custom">
+          {title}
+        </span>
       </div>
-      <div>
-        <span className="text-danger-custom">{message}</span>
-      </div>
+      {splitMessage()}
     </div>
   );
 };
@@ -22,7 +38,9 @@ const AlertSuccess = (props) => {
   return (
     <div className="alert-custom alert-success-custom">
       <div>
-        <span className="text-success-custom fw-bold">{title}</span>
+        <span className="text-success-custom fw-bold text-md-custom">
+          {title}
+        </span>
       </div>
       <div>
         <span className="text-success-custom">{message}</span>
@@ -37,7 +55,7 @@ const AlertInfo = (props) => {
   return (
     <div className="alert-custom alert-info-custom">
       <div>
-        <span className="text-info-custom fw-bold">{title}</span>
+        <span className="text-info-custom fw-bold text-md-custom">{title}</span>
       </div>
       <div>
         <span className="text-info-custom">{message}</span>
@@ -52,10 +70,10 @@ const AlertWarning = (props) => {
   return (
     <div className="alert-custom alert-warning-custom">
       <div>
-        <span className="fw-bold">{title}</span>
+        <span className="text-info-custom fw-bold text-md-custom">{title}</span>
       </div>
       <div>
-        <span>{message}</span>
+        <span className="text-info-custom">{message}</span>
       </div>
     </div>
   );

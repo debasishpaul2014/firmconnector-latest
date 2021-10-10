@@ -1,37 +1,44 @@
 import React from "react";
-import IconContainerSm from "../../Iconcontainer/IconContainerSm";
+import ImageIconSmHolder from "../../Iconcontainer/ImageIconSmHolder";
+
 import firm_logo from "../../../assets/images/firm_logo.png";
+import envelope from "../../../assets/images/email.svg";
+import mobile from "../../../assets/images/mobile.svg";
+import phone from "../../../assets/images/phone.svg";
 
 const GeneralInfo = (props) => {
   const displayView = props.displayView;
 
   const displayGeneralInfoBlock = () => {
     return (
-      <div className="d-block">
-        <div className="d-block mb-4">
-          <div className="d-block">
-            <IconContainerSm iconName={"FiMail"} color="var(--black)" />
+      <div className="profile-info-block-holder">
+        <div className="general-info-block">
+          <div className="info-icon-holder">
+            <ImageIconSmHolder imageUrl={envelope} />
           </div>
-          <div className="d-block border-bottom pb-2">
+          <div className="d-block pb-1 pt-1">
             <span>debasishpaul2014@gmail.com</span>
           </div>
         </div>
-
-        <div className="row mb-4">
-          <div className="col-6">
-            <div className="d-block">
-              <IconContainerSm iconName={"FiSmartphone"} color="var(--black)" />
-            </div>
-            <div className="d-block border-bottom pb-2">
-              <span>+(91) 704 400 4365</span>
+        <div className="row mt-4">
+          <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
+            <div className="general-info-block">
+              <div className="info-icon-holder">
+                <ImageIconSmHolder imageUrl={mobile} />
+              </div>
+              <div className="d-block pb-1 pt-1">
+                <span>+(91) 704 400 4365</span>
+              </div>
             </div>
           </div>
-          <div className="col-6">
-            <div className="d-block">
-              <IconContainerSm iconName={"FiPhoneCall"} color="var(--black)" />
-            </div>
-            <div className="d-block border-bottom pb-2">
-              <span>+(033) 123456789</span>
+          <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
+            <div className="general-info-block">
+              <div className="info-icon-holder">
+                <ImageIconSmHolder imageUrl={phone} />
+              </div>
+              <div className="d-block pb-1 pt-1">
+                <span>+(033) 2335 568</span>
+              </div>
             </div>
           </div>
         </div>
@@ -41,7 +48,7 @@ const GeneralInfo = (props) => {
 
   const inquireView = () => {
     return (
-      <div className="d-block mb-4">
+      <div className="profile-info-block-holder">
         <form className="g-3">
           <div className="mb-2">
             <textarea

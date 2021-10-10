@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import LogoutButtonComponent from "./LogoutButtonComponent";
 import IconContainer from "../../../Iconcontainer/IconContainer";
 
 import "./leftmenu.css";
@@ -73,6 +73,8 @@ const LeftMenuComponent = () => {
             <span className="text-x-x-sm-custom">Settings</span>
           </div>
         </div>
+
+        <LogoutButtonComponent />
       </div>
     </div>
   );

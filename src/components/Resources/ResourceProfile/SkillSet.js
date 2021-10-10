@@ -34,7 +34,7 @@ const SkillSet = () => {
 
   return (
     <div className="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-3 top-card-section">
-      <div className="card-custom">
+      <div className="card-custom h-100">
         <div className="card-body ">
           <div className="d-block mb-3">
             <span className="fw-bold">My Skills</span>
