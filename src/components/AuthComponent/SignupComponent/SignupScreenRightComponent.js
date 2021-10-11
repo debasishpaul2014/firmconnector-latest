@@ -12,7 +12,6 @@ const SignupScreenRightComponent = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-
   const [organizationName, setOrganizationName] = useState("");
   const [organizationType, setOrganizationType] = useState(1);
   const [isSignUpButtonDisabled, setIsSignUpButtonDisabled] = useState(false);
@@ -134,6 +133,10 @@ const SignupScreenRightComponent = () => {
             setHasSignUpError(false);
             setIsSignUpButtonDisabled(true);
             setSignUpButtonText("Create Account");
+
+            setTimeout(() => {
+              window.location.reload();
+            }, 1500);
           } else if (data.data.status === 0) {
             errMessage.push(data.data.message);
             setErrorMessage(errMessage);

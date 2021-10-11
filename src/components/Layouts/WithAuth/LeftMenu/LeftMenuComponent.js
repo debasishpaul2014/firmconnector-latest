@@ -65,14 +65,19 @@ const LeftMenuComponent = () => {
           </div>
         </div>
 
-        <div className="my-3 align-items-center d-flex flex-column align-items-center">
-          <div className="sm-block animated-hover bg-muted-custom">
-            <IconContainer iconName={"FiSettings"} color="var(--muted-light)" />
+        <Link to="/profile-settings">
+          <div className="my-3 align-items-center d-flex flex-column align-items-center">
+            <div className="sm-block animated-hover bg-muted-custom">
+              <IconContainer
+                iconName={"FiSettings"}
+                color="var(--muted-light)"
+              />
+            </div>
+            <div>
+              <span className="text-x-x-sm-custom">Settings</span>
+            </div>
           </div>
-          <div>
-            <span className="text-x-x-sm-custom">Settings</span>
-          </div>
-        </div>
+        </Link>
 
         <LogoutButtonComponent />
       </div>

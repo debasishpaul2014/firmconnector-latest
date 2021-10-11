@@ -1,13 +1,12 @@
 .badge-custom{
-    align-self: flex-start;
     border-radius: 3rem;
-    padding: 0 0.5rem;
+    padding: 0.05rem 1rem;
 }
 
 .badge-success{
     background-color: var(--success-dark);
 }
 
-.badge-success > span {
+.badge-success > small {
     color: var(--white);
 }
