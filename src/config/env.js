@@ -1,4 +1,3 @@
-const API_BASE = "http://147.182.130.189/";
-// const API_BASE = "http://127.0.0.1/firmconnector-api/";
+const API_BASE = "https://cloudstack.live/";
 
 export { API_BASE };
