@@ -276,3 +276,22 @@ a{
 .selection-selected > span {
    color: var(--white);
 }
+
+.loading-block-sm{
+   width: 4rem;
+   height: 4rem;
+   background-color: var(--white);
+   border-radius: 0.6rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.loading-image-sm{
+   width: 2rem;
+   height: 2rem;
+}
+
+.profile-static-card{
+   height: 18rem;
+}

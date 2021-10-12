@@ -1,5 +1,5 @@
 .badge-custom{
-    border-radius: 3rem;
+    border-radius: 1rem;
     padding: 0.05rem 1rem;
 }
 
@@ -7,6 +7,6 @@
     background-color: var(--success-dark);
 }
 
-.badge-success > small {
+.badge-success > span {
     color: var(--white);
 }
