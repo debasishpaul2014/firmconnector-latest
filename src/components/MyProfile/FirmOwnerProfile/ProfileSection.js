@@ -43,10 +43,10 @@ const ProfileSection = (props) => {
   const displayProfileInformation = () => {
     return (
       <>
-        <div className="d-block mb-2">
+        <div className="d-block">
           <ProfileImageLg imgSrc={profileDetails.profile_image_path} />
         </div>
-        <div className="d-block mb-2">
+        <div className="d-block">
           <BadgeSuccess title={profileDetails.user_role_title} />
         </div>
         <div className="d-block">
@@ -54,12 +54,12 @@ const ProfileSection = (props) => {
             {profileDetails.first_name} {profileDetails.last_name}
           </span>
         </div>
-        <div className="d-block mb-2">
+        <div className="d-block">
           <span className="text-info-light-custom">
             {profileDetails.user_email}
           </span>
         </div>
-        <div className="d-block mt-2">
+        <div className="d-block">
           <Button className="btn-sm" variant="primary">
             Edit Profile
           </Button>
@@ -71,7 +71,7 @@ const ProfileSection = (props) => {
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3 mb-md-2 mb-lg-0 mb-xlg-0 ">
       <div className="card-custom p-3 shadow profile-static-card">
-        <div className="card-body justify-content-center align-items-center d-flex flex-column">
+        <div className="card-body justify-content-around align-items-center d-flex flex-column">
           {displayMainContent()}
         </div>
       </div>

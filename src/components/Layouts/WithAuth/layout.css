@@ -189,7 +189,6 @@
    width: 10rem;
    height: 6rem;
    box-sizing: border-box;
-   background-color: var(--warning-light);
    overflow: hidden;
    border-radius: 0.2rem;
    cursor: pointer;

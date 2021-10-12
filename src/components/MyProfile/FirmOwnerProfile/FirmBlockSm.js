@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import FirmLogoSm from "../../CommonComponent/FirmLogoSm";
-import { BadgeInfo } from "../../Badge/Badge";
+import { BadgeLight } from "../../Badge/Badge";
 import { Button } from "react-bootstrap";
 
 import getFirmDetails from "../../../apis/getFirmDetails";
@@ -37,7 +37,7 @@ const FirmBlockSm = (props) => {
   };
 
   const displayLoadingBlock = () => {
-    return <LoadingPageSm title={"Loading firm ..."} />;
+    return <LoadingPageSm title={"Loading firm details..."} />;
   };
 
   const displayFirmEmail = () => {
@@ -53,18 +53,18 @@ const FirmBlockSm = (props) => {
   const displayFirmInformation = () => {
     return (
       <>
-        <div className="d-block mb-2">
+        <div className="d-block">
           <FirmLogoSm imgSrc={firmDetails.firm_logo} />
         </div>
-        <div className="d-block mb-2">
-          <BadgeInfo title={firmDetails.firm_type_title} />
+        <div className="d-block">
+          <BadgeLight title={firmDetails.firm_type_title} />
         </div>
         <div className="d-block">
-          <span className="h6 text-white">{firmDetails.firm_name}</span>
+          <span className="h6 text-dark">{firmDetails.firm_name}</span>
         </div>
-        <div className="d-block mb-2">{displayFirmEmail()}</div>
-        <div className="d-block mt-2">
-          <Button className="btn-sm" variant="light">
+        <div className="d-block">{displayFirmEmail()}</div>
+        <div className="d-block">
+          <Button className="btn-sm" variant="primary">
             Edit Firm Details
           </Button>
         </div>
@@ -74,8 +74,8 @@ const FirmBlockSm = (props) => {
 
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3 mb-md-2 mb-lg-0 mb-xlg-0 ">
-      <div className="card-custom p-3 shadow profile-static-card bg-warning">
-        <div className="card-body d-flex flex-column justify-content-center align-items-center">
+      <div className="card-custom p-3 shadow profile-static-card bg-white">
+        <div className="card-body d-flex flex-column justify-content-around align-items-center">
           {displayMainContent()}
         </div>
       </div>
