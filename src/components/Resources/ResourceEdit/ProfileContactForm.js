@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
+import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
 
-const ProfileContactForm = () => {
+import updateProfileContactInfo from "../../../apis/updateProfileContactInfo";
+
+const ProfileContactForm = (props) => {
+  const { resourceDetails, resourceSlug } = props;
+
   const [contactEmail, setContactEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [officePhone, setOfficePhone] = useState("");
-  const [buttonText, setButtonText] = useState("Update Contact");
+  const [buttonText, setButtonText] = useState("Update Contact Details");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [hasSubmitError, setHasSubmitError] = useState(false);
   const [isValidSubmit, setIsValidSubmit] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+
+  useEffect(() => {
+    setContactEmail(resourceDetails.contact_email);
+    setPhone(resourceDetails.user_phone);
+    setOfficePhone(resourceDetails.user_office_phone);
+  }, [resourceDetails]);
+
+  useEffect(() => {}, [contactEmail, phone, officePhone]);
 
   const handleContactEmailChange = (e) => {
     setContactEmail(e.target.value);
@@ -69,7 +82,7 @@ const ProfileContactForm = () => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Create Account");
+      setButtonText("Update Contact Details");
     } else {
       submitForm();
     }
@@ -80,10 +93,61 @@ const ProfileContactForm = () => {
     let succMessage = [];
 
     let formData = {
+      userSlug: resourceSlug,
       contactEmail: contactEmail,
       phone: phone,
       officePhone: officePhone,
     };
+
+    try {
+      updateProfileContactInfo(formData).then(async (data) => {
+        if (data?.data) {
+          if (data.data.status === 1) {
+            succMessage.push(data.data.message);
+            setSuccessMessage(succMessage);
+            setIsValidSubmit(true);
+            setHasSubmitError(false);
+            setIsButtonDisabled(false);
+            setButtonText("Update Contact Details");
+
+            setTimeout(() => {
+              setIsValidSubmit(false);
+              setHasSubmitError(false);
+              setErrorMessage(false);
+              setSuccessMessage(false);
+            }, 2000);
+          } else if (data.data.status === 0) {
+            errMessage.push(data.data.message);
+            setErrorMessage(errMessage);
+            setHasSubmitError(true);
+            setIsButtonDisabled(false);
+            setButtonText("Update Contact Details");
+          } else {
+            errMessage.push(
+              "Error happened. Unable to update contact information."
+            );
+            setErrorMessage(errMessage);
+            setHasSubmitError(true);
+            setIsButtonDisabled(false);
+            setButtonText("Update Contact Details");
+          }
+        } else {
+          errMessage.push(
+            "Error happened. Unable to update your contact information"
+          );
+          setErrorMessage(errMessage);
+          setHasSubmitError(true);
+          setIsButtonDisabled(false);
+          setButtonText("Update Contact Details");
+        }
+      });
+    } catch (error) {
+      errMessage.push("Error happened. Network error happened.");
+      setErrorMessage(errMessage);
+      setHasSubmitError(true);
+      setIsButtonDisabled(false);
+      setButtonText("Update Contact Details");
+    }
   };
 
   const displaySubmitButton = () => {
@@ -101,6 +165,34 @@ const ProfileContactForm = () => {
     );
   };
 
+  const displayStatusMessage = () => {
+    return (
+      <>
+        {displayErrorMessage()} {displaySuccessMessage()}
+      </>
+    );
+  };
+
+  const displayErrorMessage = () => {
+    if (hasSubmitError) {
+      return (
+        <div className="d-block mt-4">
+          <AlertDanger title={"Oops"} message={errorMessage} />
+        </div>
+      );
+    }
+  };
+
+  const displaySuccessMessage = () => {
+    if (isValidSubmit) {
+      return (
+        <div className="d-block mt-4">
+          <AlertSuccess title={"Success"} message={successMessage} />
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="card-custom bg-white">
       <div className="card-body">
@@ -108,7 +200,7 @@ const ProfileContactForm = () => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Edit contact informations"}
+                title={"Contact Informations"}
                 subText={
                   "These informations will be used to display on profile"
                 }
@@ -168,6 +260,7 @@ const ProfileContactForm = () => {
             </div>
           </div>
           {displaySubmitButton()}
+          {displayStatusMessage()}
         </form>
       </div>
     </div>

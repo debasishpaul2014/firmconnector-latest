@@ -10,6 +10,9 @@ const CREATE_MANGER_ROUTE = `${API_BASE}create-resource-manager-by-firm`;
 const CREATE_RESOUCE_ROUTE = `${API_BASE}create-resource`;
 const RESOURCE_MANAGER_RESOURCE_MANAGER_COUNT = `${API_BASE}get-resource-manager-resource-count`;
 const CHECK_RESOURCE_EDIT_ACCESS = `${API_BASE}get-resource-edit-access`;
+const UPDATE_PROFILE_BASIC_INFO = `${API_BASE}update-profile-basic-info`;
+const UPDATE_PROFILE_CONTACT_INFO = `${API_BASE}update-profile-contact-info`;
+const USER_AVATAR_UPLOAD = `${API_BASE}user-avatar-upload`;
 
 export {
   LOGIN_ROUTE,
@@ -22,4 +25,7 @@ export {
   CREATE_RESOUCE_ROUTE,
   RESOURCE_MANAGER_RESOURCE_MANAGER_COUNT,
   CHECK_RESOURCE_EDIT_ACCESS,
+  UPDATE_PROFILE_BASIC_INFO,
+  UPDATE_PROFILE_CONTACT_INFO,
+  USER_AVATAR_UPLOAD,
 };

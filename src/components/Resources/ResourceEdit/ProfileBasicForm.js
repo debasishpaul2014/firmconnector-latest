@@ -1,18 +1,41 @@
-import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Button, Modal, Image } from "react-bootstrap";
+import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
 
-const ProfileBasicForm = () => {
+import updateProfileBasicInfo from "../../../apis/updateProfileBasicInfo";
+import userAvatarUpload from "../../../apis/userAvatarUpload";
+
+const ProfileBasicForm = (props) => {
+  const { resourceDetails, resourceSlug } = props;
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [buttonText, setButtonText] = useState("Update Profile");
+  const [buttonText, setButtonText] = useState("Update Profile Informations");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [hasSubmitError, setHasSubmitError] = useState(false);
   const [isValidSubmit, setIsValidSubmit] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const [show, setShow] = useState(false);
+  const [file, setFile] = useState(null);
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const [hasFileToUpload, setHasFileToUpload] = useState(null);
+  const [selectedFilePath, setSelectedFilePath] = useState(null);
+  const [fileUploadError, setFileUploadError] = useState(false);
+  const [fileUploadErrorMessage, setFileUploadErrorMessage] = useState(false);
+  const [modalButtonDisabled, setModalButtonDisabled] = useState(false);
+
+  useEffect(() => {
+    setFirstName(resourceDetails.first_name);
+    setLastName(resourceDetails.last_name);
+    setFile(resourceDetails.profile_image_path);
+    setUploadedFile(resourceDetails.profile_image_path);
+  }, [resourceDetails]);
+
+  useEffect(() => {}, [firstName, lastName]);
 
   const handleFirstNameChange = (e) => {
     setFirstName(e.target.value);
@@ -52,7 +75,7 @@ const ProfileBasicForm = () => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Create Account");
+      setButtonText("Update Profile Informations");
     } else {
       submitForm();
     }
@@ -63,9 +86,60 @@ const ProfileBasicForm = () => {
     let succMessage = [];
 
     let formData = {
+      userSlug: resourceSlug,
       firstName: firstName,
       lastName: lastName,
     };
+
+    try {
+      updateProfileBasicInfo(formData).then(async (data) => {
+        if (data?.data) {
+          if (data.data.status === 1) {
+            succMessage.push(data.data.message);
+            setSuccessMessage(succMessage);
+            setIsValidSubmit(true);
+            setHasSubmitError(false);
+            setIsButtonDisabled(false);
+            setButtonText("Update Profile Informations");
+
+            setTimeout(() => {
+              setIsValidSubmit(false);
+              setHasSubmitError(false);
+              setErrorMessage(false);
+              setSuccessMessage(false);
+            }, 2000);
+          } else if (data.data.status === 0) {
+            errMessage.push(data.data.message);
+            setErrorMessage(errMessage);
+            setHasSubmitError(true);
+            setIsButtonDisabled(false);
+            setButtonText("Update Profile Informations");
+          } else {
+            errMessage.push(
+              "Error happened. Unable to update profile information."
+            );
+            setErrorMessage(errMessage);
+            setHasSubmitError(true);
+            setIsButtonDisabled(false);
+            setButtonText("Update Profile Informations");
+          }
+        } else {
+          errMessage.push(
+            "Error happened. Unable to update your profile information"
+          );
+          setErrorMessage(errMessage);
+          setHasSubmitError(true);
+          setIsButtonDisabled(false);
+          setButtonText("Update Profile Informations");
+        }
+      });
+    } catch (error) {
+      errMessage.push("Error happened. Network error happened.");
+      setErrorMessage(errMessage);
+      setHasSubmitError(true);
+      setIsButtonDisabled(false);
+      setButtonText("Update Profile Informations");
+    }
   };
 
   const displaySubmitButton = () => {
@@ -83,6 +157,181 @@ const ProfileBasicForm = () => {
     );
   };
 
+  const displayStatusMessage = () => {
+    return (
+      <>
+        {displayErrorMessage()} {displaySuccessMessage()}
+      </>
+    );
+  };
+
+  const displayErrorMessage = () => {
+    if (hasSubmitError) {
+      return (
+        <div className="d-block mt-4">
+          <AlertDanger title={"Oops"} message={errorMessage} />
+        </div>
+      );
+    }
+  };
+
+  const displaySuccessMessage = () => {
+    if (isValidSubmit) {
+      return (
+        <div className="d-block mt-4">
+          <AlertSuccess title={"Success"} message={successMessage} />
+        </div>
+      );
+    }
+  };
+
+  const handleClose = () => {
+    setShow(false);
+    setHasFileToUpload(false);
+    setUploadedFile(file);
+    setSelectedFilePath(false);
+    setFileUploadError(false);
+    setFileUploadErrorMessage(false);
+  };
+  const handleShow = () => setShow(true);
+
+  const hiddenFileInput = React.useRef(null);
+
+  const handleClick = (event) => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    setHasFileToUpload(true);
+    setUploadedFile(URL.createObjectURL(fileUploaded));
+    setSelectedFilePath(fileUploaded);
+  };
+
+  const handleSubmitImageUpload = () => {
+    setFileUploadError(false);
+    setFileUploadErrorMessage(false);
+
+    if (selectedFilePath === null && hasFileToUpload === null) {
+      setFileUploadError(false);
+    } else {
+      setModalButtonDisabled(true);
+      uploadAvatar();
+    }
+  };
+
+  const uploadAvatar = () => {
+    let errMessage = [];
+
+    let formData = {
+      userSlug: resourceSlug,
+      file: selectedFilePath,
+    };
+
+    try {
+      userAvatarUpload(formData).then(async (data) => {
+        if (data?.data) {
+          if (data.data.status === 1) {
+            setShow(false);
+            setHasFileToUpload(false);
+            setUploadedFile(file);
+            setSelectedFilePath(false);
+            setFileUploadError(false);
+            setFileUploadErrorMessage(false);
+            setFile(data.data.profile_image_path);
+            setUploadedFile(data.data.profile_image_path);
+          } else if (data.data.status === 0) {
+            setFileUploadError(true);
+            errMessage.push(data.data.message);
+            setFileUploadErrorMessage(errMessage);
+            setModalButtonDisabled(false);
+          } else {
+            setFileUploadError(true);
+            errMessage.push("Network error happened. Please try again later");
+            setFileUploadErrorMessage(errMessage);
+            setModalButtonDisabled(false);
+          }
+        } else {
+          setFileUploadError(true);
+          errMessage.push("Network error happened. Please try again later");
+          setFileUploadErrorMessage(errMessage);
+          setModalButtonDisabled(false);
+        }
+      });
+    } catch (error) {}
+  };
+
+  const displayImageUploadModal = () => {
+    return (
+      <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <form name="image-upload-frm">
+          <Modal.Header>
+            <Modal.Title>Change Profile Image</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="d-flex flex-column justify-content-center align-items-center">
+              <div className="profile-image-upload-holder">
+                <Image
+                  className="profile-image-upload-holder-image"
+                  src={uploadedFile}
+                />
+              </div>
+              <div className="d-block mb-4 mt-2">
+                <Button variant="warning" size="sm" onClick={handleClick}>
+                  Upload Profile Image
+                </Button>
+                <input
+                  type="file"
+                  ref={hiddenFileInput}
+                  onChange={handleChange}
+                  style={{ display: "none" }}
+                  accept="image/*"
+                />
+              </div>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={handleClose}
+              type="reset"
+              disabled={modalButtonDisabled}
+            >
+              Close
+            </Button>
+            <Button
+              variant="primary"
+              onClick={handleSubmitImageUpload}
+              disabled={modalButtonDisabled}
+            >
+              Save Changes
+            </Button>
+            {displayImageUploadStatusMessage()}
+          </Modal.Footer>
+        </form>
+      </Modal>
+    );
+  };
+
+  const displayImageUploadStatusMessage = () => {
+    return <>{displayImageUploadErrorMessage()}</>;
+  };
+
+  const displayImageUploadErrorMessage = () => {
+    if (fileUploadError) {
+      return (
+        <div className="d-block mt-4 w-100">
+          <AlertDanger title={"Oops"} message={fileUploadErrorMessage} />
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="card-custom bg-white">
       <div className="card-body">
@@ -90,7 +339,7 @@ const ProfileBasicForm = () => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Edit profile informations"}
+                title={"Profile Informations"}
                 subText={
                   "These informations will be used to display on profile"
                 }
@@ -99,6 +348,20 @@ const ProfileBasicForm = () => {
             </div>
 
             <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="col-12">
+                <InputLebelComponent title="Profile Image" />
+                <div className="profile-image-upload-holder">
+                  <Image
+                    className="profile-image-upload-holder-image"
+                    src={file}
+                  />
+                </div>
+                <div className="d-block mb-4 mt-2">
+                  <Button variant="primary" size="sm" onClick={handleShow}>
+                    Upload Profile Image
+                  </Button>
+                </div>
+              </div>
               <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                 <div className="form-input-holder">
                   <InputLebelComponent title="First Name" />
@@ -134,6 +397,8 @@ const ProfileBasicForm = () => {
             </div>
           </div>
           {displaySubmitButton()}
+          {displayStatusMessage()}
+          {displayImageUploadModal()}
         </form>
       </div>
     </div>

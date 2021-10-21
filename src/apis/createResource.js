@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //IMPORT API ROUTE URL
-import { CREATE_MANGER_ROUTE } from "./apiRoutes";
+import { CREATE_RESOUCE_ROUTE } from "./apiRoutes";
 
 const createResourceManager = (data) => {
   var postData = new FormData();
@@ -16,7 +16,7 @@ const createResourceManager = (data) => {
   postData.append("officePhone", data.officePhone);
 
   return axios
-    .post(CREATE_MANGER_ROUTE, postData)
+    .post(CREATE_RESOUCE_ROUTE, postData)
     .then(function (response) {
       return response;
     })

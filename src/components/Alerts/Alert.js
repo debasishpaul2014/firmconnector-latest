@@ -21,11 +21,9 @@ const AlertDanger = (props) => {
   };
 
   return (
-    <div className="alert-custom alert-danger-custom">
+    <div className="alert-custom alert-danger-custom w-100">
       <div>
-        <span className="text-danger-custom fw-bold text-md-custom">
-          {title}
-        </span>
+        <span className="text-danger-custom fw-bold">{title}</span>
       </div>
       {splitMessage()}
     </div>
@@ -36,11 +34,9 @@ const AlertSuccess = (props) => {
   const { title, message } = props;
 
   return (
-    <div className="alert-custom alert-success-custom">
+    <div className="alert-custom alert-success-custom w-100">
       <div>
-        <span className="text-success-custom fw-bold text-md-custom">
-          {title}
-        </span>
+        <span className="text-success-custom fw-bold">{title}</span>
       </div>
       <div>
         <span className="text-success-custom">{message}</span>
@@ -55,7 +51,7 @@ const AlertInfo = (props) => {
   return (
     <div className="alert-custom alert-info-custom w-100">
       <div>
-        <span className="text-info-custom fw-bold text-md-custom">{title}</span>
+        <span className="text-info-custom fw-bold">{title}</span>
       </div>
       <div>
         <span className="text-info-custom">{message}</span>
@@ -70,7 +66,7 @@ const AlertWarning = (props) => {
   return (
     <div className="alert-custom alert-warning-custom">
       <div>
-        <span className="text-info-custom fw-bold text-md-custom">{title}</span>
+        <span className="text-info-custom fw-bold">{title}</span>
       </div>
       <div>
         <span className="text-info-custom">{message}</span>

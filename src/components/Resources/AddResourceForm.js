@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { AlertDanger, AlertSuccess, AlertInfo } from "../Alerts/Alert";
 
 //import API
-import createResourceManager from "../../apis/createResourceManager";
+import createResource from "../../apis/createResource";
 
 const AddResourceForm = () => {
   const { userDetails } = useAuthContext();
@@ -154,7 +154,7 @@ const AddResourceForm = () => {
     };
 
     try {
-      createResourceManager(formData).then(async (data) => {
+      createResource(formData).then(async (data) => {
         if (data?.data) {
           if (data.data.status === 1) {
             succMessage.push(data.data.message);

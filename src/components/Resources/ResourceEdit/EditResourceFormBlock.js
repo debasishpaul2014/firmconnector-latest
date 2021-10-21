@@ -11,21 +11,36 @@ const EditResourceFormBlock = (props) => {
     <div className="d-block d-lg-flex d-xlg-flex row">
       <div className="col-12 col-lg-8 col-xl-8">
         <div className="d-block row d-lg-flex d-xl-flex mb-4">
-          <AccountLoginDetailsForm resourceDetails={resourceDetails} />
+          <AccountLoginDetailsForm
+            resourceDetails={resourceDetails}
+            resourceSlug={resourceSlug}
+          />
         </div>
         <div className="d-block row d-lg-flex d-xl-flex mb-4">
-          <ProfileBasicForm resourceDetails={resourceDetails} />
+          <ProfileBasicForm
+            resourceDetails={resourceDetails}
+            resourceSlug={resourceSlug}
+          />
         </div>
         <div className="d-block row d-lg-flex d-xl-flex">
-          <ProfileContactForm resourceDetails={resourceDetails} />
+          <ProfileContactForm
+            resourceDetails={resourceDetails}
+            resourceSlug={resourceSlug}
+          />
         </div>
       </div>
       <div className="col-12 col-lg-4 col-xl-4">
         <div className="d-block mb-4">
-          <ResourceSkillForm resourceDetails={resourceDetails} />
+          <ResourceSkillForm
+            resourceDetails={resourceDetails}
+            resourceSlug={resourceSlug}
+          />
         </div>
         <div className="d-block">
-          <ResourceDocumentForm resourceDetails={resourceDetails} />
+          <ResourceDocumentForm
+            resourceDetails={resourceDetails}
+            resourceSlug={resourceSlug}
+          />
         </div>
       </div>
     </div>

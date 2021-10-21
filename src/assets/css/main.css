@@ -170,7 +170,7 @@ a{
 }
 
 .form-input-holder{
-   margin-top: 0.5rem; 
+   /* margin-top: 0.5rem;  */
    margin-bottom: 1rem;
    overflow: hidden;
 }
@@ -309,4 +309,20 @@ a{
 
 .profile-static-card{
    height: 18rem;
+}
+
+.profile-image-upload-holder{
+   width: 10rem;
+   height: 10rem;
+   border-radius: 0.5rem;
+   border: 0.2rem solid var(--muted-light);
+   background-color: var(--muted-extra-light);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.profile-image-upload-holder-image{
+   max-width: 100%;
+   height: auto;
 }

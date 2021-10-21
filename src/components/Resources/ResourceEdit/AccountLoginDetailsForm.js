@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
 
-const AccountLoginDetailsForm = () => {
+const AccountLoginDetailsForm = (props) => {
+  const { resourceDetails, resourceSlug } = props;
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [buttonText, setButtonText] = useState("Update Login Credentials");
@@ -13,6 +15,13 @@ const AccountLoginDetailsForm = () => {
   const [isValidSubmit, setIsValidSubmit] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+
+  useEffect(() => {
+    setEmail(resourceDetails.user_email);
+    setPassword(resourceDetails.user_password_org);
+  }, [resourceDetails]);
+
+  useEffect(() => {}, [email, password]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -56,7 +65,7 @@ const AccountLoginDetailsForm = () => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Create Account");
+      setButtonText("Update Login Credentials");
     } else {
       submitForm();
     }
@@ -94,7 +103,7 @@ const AccountLoginDetailsForm = () => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Edit login informations"}
+                title={"Login Informations"}
                 subText={"These informations will be used while login"}
                 borderBottom={true}
               />
@@ -113,6 +122,7 @@ const AccountLoginDetailsForm = () => {
                       onChange={handleEmailChange}
                       value={email}
                       autoComplete="off"
+                      disabled="disabled"
                     />
                   </div>
                 </div>
@@ -129,13 +139,14 @@ const AccountLoginDetailsForm = () => {
                       onChange={handlePasswordChange}
                       value={password}
                       autoComplete="off"
+                      disabled="disabled"
                     />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          {displaySubmitButton()}
+          {/* {displaySubmitButton()} */}
         </form>
       </div>
     </div>
