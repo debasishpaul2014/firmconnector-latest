@@ -316,7 +316,6 @@ a{
    height: 10rem;
    border-radius: 0.5rem;
    border: 0.2rem solid var(--muted-light);
-   background-color: var(--muted-extra-light);
    display: flex;
    justify-content: center;
    align-items: center;
@@ -325,4 +324,8 @@ a{
 .profile-image-upload-holder-image{
    max-width: 100%;
    height: auto;
+}
+
+.left-menu-nav-wrapper a{
+   color: var(--muted);
 }

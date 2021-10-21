@@ -3,7 +3,7 @@ import EditResourceComponent from "../../components/Resources/ResourceEdit/EditR
 
 const AddResource = (props) => {
   const { resourceSlug } = props.match.params;
-  console.log(resourceSlug);
+
   return (
     <Layout>
       <EditResourceComponent resourceSlug={resourceSlug} />

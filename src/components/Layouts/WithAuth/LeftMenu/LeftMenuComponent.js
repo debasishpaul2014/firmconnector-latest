@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LogoutButtonComponent from "./LogoutButtonComponent";
 import IconContainer from "../../../Iconcontainer/IconContainer";
+import { useLocation } from "react-router-dom";
 
 import "./leftmenu.css";
 
 const LeftMenuComponent = () => {
+  const location = useLocation();
+  const routeName = location.pathname;
+  const [activeRoute, setActiveRoute] = useState("");
+
+  useEffect(() => {
+    setActiveRoute(routeName);
+  }, [routeName]);
+
   return (
     <div className="left-menu-wrapper px-2 shadow-lg justify-content-center">
       <div className="left-menu-nav-wrapper justify-content-center">
@@ -21,60 +30,103 @@ const LeftMenuComponent = () => {
         <Link to="/dashboard">
           <div className="my-3 align-items-center d-flex flex-column align-items-center">
             <div className="sm-block animated-hover bg-muted-custom">
-              <IconContainer iconName={"FiAirplay"} color="var(--black)" />
+              <IconContainer
+                iconName={"FiAirplay"}
+                color={
+                  activeRoute === "/dashboard"
+                    ? "var(--black)"
+                    : "var(--muted-light)"
+                }
+              />
             </div>
             <div>
-              <span className="text-x-x-sm-custom">Dashboard</span>
+              <span
+                className={
+                  activeRoute === "/dashboard"
+                    ? "text-x-x-sm-custom text-info-custom fw-bold"
+                    : "text-x-x-sm-custom"
+                }
+              >
+                Dashboard
+              </span>
             </div>
           </div>
         </Link>
 
-        <div className="my-3 align-items-center d-flex flex-column align-items-center">
+        {/* <div className="my-3 align-items-center d-flex flex-column align-items-center">
           <div className="sm-block animated-hover bg-muted-custom">
             <IconContainer iconName={"FiActivity"} color="var(--muted-light)" />
           </div>
           <div>
             <span className="text-x-x-sm-custom">Activity</span>
           </div>
-        </div>
+        </div> */}
 
-        <div className="my-3 align-items-center d-flex flex-column align-items-center">
+        {/* <div className="my-3 align-items-center d-flex flex-column align-items-center">
           <div className="sm-block animated-hover bg-muted-custom">
             <IconContainer iconName={"FiCompass"} color="var(--muted-light)" />
           </div>
           <div>
             <span className="text-x-x-sm-custom">Explore</span>
           </div>
-        </div>
+        </div> */}
 
-        <div className="my-3 align-items-center d-flex flex-column align-items-center">
-          <div className="sm-block animated-hover bg-muted-custom">
-            <IconContainer iconName={"FiUsers"} color="var(--muted-light)" />
+        <Link to="/resources">
+          <div className="my-3 align-items-center d-flex flex-column align-items-center">
+            <div className="sm-block animated-hover bg-muted-custom">
+              <IconContainer
+                iconName={"FiUsers"}
+                color={
+                  activeRoute === "/resources"
+                    ? "var(--black)"
+                    : "var(--muted-light)"
+                }
+              />
+            </div>
+            <div>
+              <span
+                className={
+                  activeRoute === "/resources"
+                    ? "text-x-x-sm-custom text-info-custom fw-bold"
+                    : "text-x-x-sm-custom"
+                }
+              >
+                Resources
+              </span>
+            </div>
           </div>
-          <div>
-            <span className="text-x-x-sm-custom">Resources</span>
-          </div>
-        </div>
-
-        <div className="my-3 align-items-center d-flex flex-column align-items-center">
+        </Link>
+        {/* <div className="my-3 align-items-center d-flex flex-column align-items-center">
           <div className="sm-block animated-hover bg-muted-custom">
             <IconContainer iconName={"FiZap"} color="var(--muted-light)" />
           </div>
           <div>
             <span className="text-x-x-sm-custom">Jobs</span>
           </div>
-        </div>
+        </div> */}
 
         <Link to="/profile-settings">
           <div className="my-3 align-items-center d-flex flex-column align-items-center">
             <div className="sm-block animated-hover bg-muted-custom">
               <IconContainer
                 iconName={"FiSettings"}
-                color="var(--muted-light)"
+                color={
+                  activeRoute === "/profile-settings"
+                    ? "var(--black)"
+                    : "var(--muted-light)"
+                }
               />
             </div>
             <div>
-              <span className="text-x-x-sm-custom">Settings</span>
+              <span
+                className={
+                  activeRoute === "/profile-settings"
+                    ? "text-x-x-sm-custom text-info-custom fw-bold"
+                    : "text-x-x-sm-custom"
+                }
+              >
+                Settings
+              </span>
             </div>
           </div>
         </Link>
