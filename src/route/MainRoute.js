@@ -28,6 +28,13 @@ import ResourceDetailsScreen from "../screens/Resource/ResourceDetailsScreen";
 import LoginScreen from "../screens/Auth/LoginScreen";
 import SignUpScreen from "../screens/Auth/SignUpScreen";
 
+//Import resource manager route
+import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
+
+//Import resource manager route
+import AddResource from "../screens/Resource/AddResource";
+import ResourceEditScreen from "../screens/Resource/ResourceEditScreen";
+
 //Error screen with type
 import PageNotFound from "../screens/error/400/PageNotFound";
 
@@ -84,6 +91,19 @@ const MainRoute = () => {
           exact
           path={`/profile-settings`}
           component={MyProfileScreen}
+        />
+
+        <ProtectedRoute
+          exact
+          path={`/add-resource-manager`}
+          component={AddResourceManager}
+        />
+
+        <ProtectedRoute exact path={`/add-resource`} component={AddResource} />
+        <ProtectedRoute
+          exact
+          path={`/resources/edit-resource/:resourceSlug`}
+          component={ResourceEditScreen}
         />
 
         {/* Route for 404 */}

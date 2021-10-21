@@ -32,7 +32,7 @@ const Header = () => {
           <div className="ms-4">
             <ProfileImageSmall
               imgSrc={loggedinUserDetails.profile_image_path}
-              linkUrl={"/my-profile"}
+              linkUrl={"/profile-settings"}
             />
           </div>
         </div>

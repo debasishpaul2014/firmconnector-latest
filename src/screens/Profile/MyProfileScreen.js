@@ -4,6 +4,7 @@ import Layout from "../../components/Layouts/WithAuth/Layout";
 
 //import specific my profile component
 import FirmOwnerScreen from "../../components/MyProfile/FirmOwnerProfile/FirmOwnerScreen";
+import ResourceManagerScreen from "../../components/MyProfile/ResourceManagerProfile/ResourceManagerScreen";
 
 const MyProfileScreen = () => {
   const { userDetails } = useAuthContext();
@@ -12,6 +13,8 @@ const MyProfileScreen = () => {
   const displayMyProfileOnRoleBasis = () => {
     if (user_primary_role === "1") {
       return <FirmOwnerScreen />;
+    } else if (user_primary_role === "2") {
+      return <ResourceManagerScreen />;
     }
   };
 

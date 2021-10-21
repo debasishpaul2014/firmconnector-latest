@@ -53,7 +53,7 @@ const AlertInfo = (props) => {
   const { title, message } = props;
 
   return (
-    <div className="alert-custom alert-info-custom">
+    <div className="alert-custom alert-info-custom w-100">
       <div>
         <span className="text-info-custom fw-bold text-md-custom">{title}</span>
       </div>

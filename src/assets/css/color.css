@@ -1,5 +1,5 @@
 :root {
-    --info: #255fd6;
+    --info: #0069ff;
     --info-dark-light: #154d88;
     --info-icon-text: #24bae1;
     --info-dark: #031b4e;
@@ -12,7 +12,7 @@
     --success-light: #e5faf5;
     --success: #16b314;
     --success-dark: #00c37b;
-    --muted: #7c8391;
+    --muted: #676767;
     --muted-light-dark-text: #B5B5C3;
     --muted-light: #d2dae6;
     --warning: #ffc107;

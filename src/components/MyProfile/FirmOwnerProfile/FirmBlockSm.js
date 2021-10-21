@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import FirmLogoSm from "../../CommonComponent/FirmLogoSm";
 import { BadgeLight } from "../../Badge/Badge";
-import { Button } from "react-bootstrap";
+import ButtonSm from "../../Buttons/ButtonSm";
 
 import getFirmDetails from "../../../apis/getFirmDetails";
 
@@ -64,9 +64,12 @@ const FirmBlockSm = (props) => {
         </div>
         <div className="d-block">{displayFirmEmail()}</div>
         <div className="d-block">
-          <Button className="btn-sm" variant="primary">
-            Edit Firm Details
-          </Button>
+          <ButtonSm
+            to="edit-firm"
+            title="Edit Firm Details"
+            className="btn-primary-custom"
+            type="button"
+          />
         </div>
       </>
     );

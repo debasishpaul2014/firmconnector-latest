@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import HeaderSm from "../../Headers/HeaderSm";
@@ -20,12 +20,6 @@ const SignupScreenRightComponent = () => {
   const [signUpButtonText, setSignUpButtonText] = useState("Create Account");
   const [hasSignUpError, setHasSignUpError] = useState(false);
   const [isValidSignUp, setIsValidSignUp] = useState(false);
-
-  const displayErrorMessage = () => {
-    if (hasSignUpError) {
-      return <AlertDanger title={"Oops"} message={errorMessage} />;
-    }
-  };
 
   const handleOrganizationNameChange = (e) => {
     setOrganizationName(e.target.value);
@@ -49,12 +43,6 @@ const SignupScreenRightComponent = () => {
 
   const handleOrganizationTypeChange = (type) => {
     setOrganizationType(type);
-  };
-
-  const displaySuccessMessage = () => {
-    if (isValidSignUp) {
-      return <AlertSuccess title={"Success"} message={successMessage} />;
-    }
   };
 
   const checkSignupData = () => {
@@ -168,6 +156,18 @@ const SignupScreenRightComponent = () => {
       setHasSignUpError(true);
       setIsSignUpButtonDisabled(false);
       setSignUpButtonText("Create Account");
+    }
+  };
+
+  const displayErrorMessage = () => {
+    if (hasSignUpError) {
+      return <AlertDanger title={"Oops"} message={errorMessage} />;
+    }
+  };
+
+  const displaySuccessMessage = () => {
+    if (isValidSignUp) {
+      return <AlertSuccess title={"Success"} message={successMessage} />;
     }
   };
 

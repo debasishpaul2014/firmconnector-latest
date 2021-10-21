@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
-import { Button } from "react-bootstrap";
+import IconContainer from "../../Iconcontainer/IconContainer";
+import ButtonSm from "../../Buttons/ButtonSm";
 
 import getFirmResourceCount from "../../../apis/getFirmResourceCount";
 
@@ -41,14 +42,22 @@ const FirmResourceCount = (props) => {
   const displayFirmInformation = () => {
     return (
       <>
-        <h1 class="display-3">{resourceCount}</h1>
-        <div className="d-block mb-2">
-          <span className="h6 text-muted-custom">Added Resources</span>
+        <div className="d-block mb-2 mt-2">
+          <div className="icon-holder-sm icon-holder-info">
+            <IconContainer iconName={"FiUsers"} />
+          </div>
         </div>
-        <div className="d-block mt-2">
-          <Button size="sm" variant="success">
-            Add new Resource
-          </Button>
+        <h1 className="display-3">{resourceCount}</h1>
+        <div className="d-block mb-2">
+          <span className="h6 text-muted-custom">Resources</span>
+        </div>
+        <div className="d-block mt-3">
+          <ButtonSm
+            to="all-resources"
+            title="View All Resources"
+            className="btn-warning-custom"
+            type="button"
+          />
         </div>
       </>
     );

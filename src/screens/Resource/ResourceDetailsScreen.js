@@ -2,7 +2,7 @@ import React from "react";
 import ResourceProfile from "../../components/Resources/ResourceProfile/ResourceProfile";
 import Layout from "../../components/Layouts/WithAuth/Layout";
 
-const ResourceDetailsScreen = () => {
+const ResourceEditScreen = () => {
   return (
     <Layout>
       <ResourceProfile />
@@ -10,4 +10,4 @@ const ResourceDetailsScreen = () => {
   );
 };
 
-export default ResourceDetailsScreen;
+export default ResourceEditScreen;

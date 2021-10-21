@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
-import ButtonSm from "../../Buttons/ButtonSm";
 import IconContainer from "../../Iconcontainer/IconContainer";
+import ButtonSm from "../../Buttons/ButtonSm";
 
-import getFirmResourceManagerCount from "../../../apis/getFirmResourceManagerCount";
+import getResourceManagerResourceCount from "../../../apis/getResourceManagerResourceCount";
 
-const FirmResourceManagerCount = (props) => {
+const FirmResourceCount = (props) => {
   const { user_slug } = props;
 
   const [isLoading, setIsLoading] = useState(true);
-  const [resourceManagerCount, setResourceManagerCount] = useState(false);
+  const [resourceCount, setResourceCount] = useState(false);
 
   useEffect(() => {
-    Promise.all([getFirmResourceManagerCount(user_slug)])
+    Promise.all([getResourceManagerResourceCount(user_slug)])
       .then(async ([data]) => {
-        if (data?.data?.resource_manager_count) {
+        if (data?.data?.resource_count) {
           setIsLoading(false);
-          setResourceManagerCount(data?.data?.resource_manager_count);
+          setResourceCount(data?.data?.resource_count);
         } else {
           setIsLoading(false);
         }
@@ -36,7 +36,7 @@ const FirmResourceManagerCount = (props) => {
   };
 
   const displayLoadingBlock = () => {
-    return <LoadingPageSm title={"Loading Resource Managers"} />;
+    return <LoadingPageSm title={"Loading Resources"} />;
   };
 
   const displayFirmInformation = () => {
@@ -47,14 +47,14 @@ const FirmResourceManagerCount = (props) => {
             <IconContainer iconName={"FiUsers"} />
           </div>
         </div>
-        <h1 className="display-3">{resourceManagerCount}</h1>
+        <h1 className="display-3">{resourceCount}</h1>
         <div className="d-block mb-2">
-          <span className="h6 text-muted-custom">Resource Managers</span>
+          <span className="h6 text-muted-custom">Resources</span>
         </div>
         <div className="d-block mt-3">
           <ButtonSm
-            to="add-resource-manager"
-            title="Add new Manager"
+            to="add-resource"
+            title="Add new Resource"
             className="btn-success-custom"
             type="button"
           />
@@ -74,4 +74,4 @@ const FirmResourceManagerCount = (props) => {
   );
 };
 
-export default React.memo(FirmResourceManagerCount);
+export default React.memo(FirmResourceCount);
