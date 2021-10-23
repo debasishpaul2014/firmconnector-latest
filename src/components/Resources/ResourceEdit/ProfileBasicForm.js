@@ -99,7 +99,7 @@ const ProfileBasicForm = (props) => {
             setSuccessMessage(succMessage);
             setIsValidSubmit(true);
             setHasSubmitError(false);
-            setIsButtonDisabled(false);
+            setModalButtonDisabled(false);
             setButtonText("Update Profile Informations");
 
             setTimeout(() => {
@@ -240,6 +240,7 @@ const ProfileBasicForm = (props) => {
             setFileUploadErrorMessage(false);
             setFile(data.data.profile_image_path);
             setUploadedFile(data.data.profile_image_path);
+            setModalButtonDisabled(false);
           } else if (data.data.status === 0) {
             setFileUploadError(true);
             errMessage.push(data.data.message);

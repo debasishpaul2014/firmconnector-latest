@@ -320,13 +320,14 @@ a{
 }
 
 .profile-image-upload-holder{
-   width: 10rem;
-   height: 10rem;
+   width: 150px;
+   height: 150px;
    border-radius: 0.5rem;
    border: 0.2rem solid var(--muted-light);
    display: flex;
    justify-content: center;
    align-items: center;
+   overflow: hidden;
 }
 
 .profile-image-upload-holder-image{

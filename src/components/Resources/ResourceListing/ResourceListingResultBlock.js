@@ -114,7 +114,7 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-end">
+                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-lg-end justify-content-xlg-end">
                       <ButtonSm
                         className="btn-primary-custom"
                         role="button"
