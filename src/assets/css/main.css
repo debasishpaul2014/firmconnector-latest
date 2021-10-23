@@ -47,7 +47,11 @@ body {
 }
 
 .bg-success-custom{
-   background-color: var(--success) !important;
+   background-color: var(--success-light) !important;
+}
+
+.bg-success-custom > span{
+   color: var(--success-dark);
 }
 
 .bg-warning-custom{
@@ -94,6 +98,10 @@ body {
 
 .text-muted-custom{
    color: var(--muted);
+}
+
+.text-muted-light-custom{
+   color: var(--muted-light);
 }
 
 .muted-light-dark-text{

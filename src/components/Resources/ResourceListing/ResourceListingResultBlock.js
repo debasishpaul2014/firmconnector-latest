@@ -3,6 +3,9 @@ import { useAuthContext } from "../../../context/AuthContext";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { AlertInfo } from "../../Alerts/Alert";
 import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
+import { BadgeSuccess } from "../../Badge/Badge";
+import ButtonSm from "../../Buttons/ButtonSm";
+import { Button } from "react-bootstrap";
 
 import getMyResourceListing from "../../../apis/getMyResourceListing";
 
@@ -70,19 +73,55 @@ const ResourceListingResultBlock = () => {
       <>
         {resourceListing.map((item, index) => {
           return (
-            <div key={index.toString()} className="d-block mb-4">
-              <div className="card-custom bg-white">
+            <div key={index.toString()} className="d-block mb-3">
+              <div className="card-custom bg-white shadow-sm">
                 <div className="card-body">
                   <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
                     <div className="col-12 col-md-2 col-lg-1 col-xl-1">
                       <ProfileImageMd imgSrc={item.profile_image_path} />
                     </div>
                     <div className="col-12 col-md-4 col-lg-2 col-xl-2">
-                      <div className="d-block">
-                        <span className="text-dark-custom fw-medium-custom">
-                          {item.first_name} {item.last_name}
+                      <div className="d-block mb-1">
+                        <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
+                          Name
                         </span>
                       </div>
+                      <div className="d-block">
+                        <span className="text-dark-custom fw-bold">
+                          {item.resource_name}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0">
+                      <div className="d-block mb-0 my-md-1 my-lg-1 my-xl-1">
+                        <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
+                          Resource Role
+                        </span>
+                      </div>
+                      <div className="d-block">
+                        <BadgeSuccess title={item.user_profile_role} />
+                      </div>
+                    </div>
+                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0">
+                      <div className="d-block mb-0">
+                        <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
+                          Contact Email
+                        </span>
+                      </div>
+                      <div className="d-block">
+                        <span className="text-dark-custom">
+                          {item.user_email}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-end">
+                      <ButtonSm
+                        className="btn-primary-custom"
+                        role="button"
+                        title="View Profile"
+                        type="button"
+                        to={"resources/edit-resource/" + item.user_slug}
+                      />
                     </div>
                   </div>
                 </div>
