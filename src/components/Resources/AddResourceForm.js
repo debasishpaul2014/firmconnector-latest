@@ -295,9 +295,10 @@ const AddResourceForm = () => {
           setHasResumeUploadError(true);
           setIsResumeButtonDisabled(false);
         }
+
         setTimeout(() => {
           window.location.reload();
-        }, 200000);
+        }, 2000);
       });
     } catch (error) {
       console.log(error);
