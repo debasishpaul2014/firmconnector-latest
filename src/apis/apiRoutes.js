@@ -8,6 +8,7 @@ const FIRM_RESOURCE_MANAGER_COUNT = `${API_BASE}get-firm-resource-manager-count`
 const FIRM_RESOURCE_COUNT = `${API_BASE}get-firm-resource-count`;
 const CREATE_MANGER_ROUTE = `${API_BASE}create-resource-manager-by-firm`;
 const CREATE_RESOUCE_ROUTE = `${API_BASE}create-resource`;
+const CREATE_RESOUCE_FROM_RESUME_ROUTE = `${API_BASE}create-resource-from-resume`;
 const RESOURCE_MANAGER_RESOURCE_MANAGER_COUNT = `${API_BASE}get-resource-manager-resource-count`;
 const CHECK_RESOURCE_EDIT_ACCESS = `${API_BASE}get-resource-edit-access`;
 const UPDATE_PROFILE_BASIC_INFO = `${API_BASE}update-profile-basic-info`;
@@ -24,6 +25,7 @@ export {
   FIRM_RESOURCE_COUNT,
   CREATE_MANGER_ROUTE,
   CREATE_RESOUCE_ROUTE,
+  CREATE_RESOUCE_FROM_RESUME_ROUTE,
   RESOURCE_MANAGER_RESOURCE_MANAGER_COUNT,
   CHECK_RESOURCE_EDIT_ACCESS,
   UPDATE_PROFILE_BASIC_INFO,

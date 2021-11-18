@@ -8,14 +8,16 @@ import { AlertDanger, AlertSuccess, AlertInfo } from "../Alerts/Alert";
 
 //import API
 import createResource from "../../apis/createResource";
+import createResourceFromResume from "../../apis/createResourceFromResume";
 
 const AddResourceForm = () => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
+  const hiddenFileInput = React.useRef(null);
+
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [contactEmail, setContactEmail] = useState("");
@@ -27,6 +29,14 @@ const AddResourceForm = () => {
   const [isValidSubmit, setIsValidSubmit] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
   const [successMessage, setSuccessMessage] = useState(false);
+  const [isResumeButtonDisabled, setIsResumeButtonDisabled] = useState(false);
+
+  const [hasResumeUploadError, setHasResumeUploadError] = useState(false);
+  const [isValidResumeUpload, setIsValidResumeUpload] = useState(false);
+  const [errorResumeUploadMessage, setErrorResumeUploadMessage] =
+    useState(false);
+  const [successResumeUploadMessage, setSuccessResumeUploadMessage] =
+    useState(false);
 
   useEffect(() => {
     if (user_primary_role === "2") {
@@ -36,10 +46,6 @@ const AddResourceForm = () => {
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
   };
 
   const handleFirstNameChange = (e) => {
@@ -108,11 +114,6 @@ const AddResourceForm = () => {
       errMessage.push("Enter a valid business email address");
     }
 
-    if (password.trim().length === 0) {
-      isInvalid = 1;
-      errMessage.push("Enter valid password");
-    }
-
     if (!emailPattern.test(contactEmail)) {
       isInvalid = 1;
       errMessage.push("Enter a valid contact business email address");
@@ -147,7 +148,6 @@ const AddResourceForm = () => {
       email: email,
       firstName: firstName,
       lastName: lastName,
-      password: password,
       contactEmail: contactEmail,
       phone: phone,
       officePhone: officePhone,
@@ -218,6 +218,92 @@ const AddResourceForm = () => {
     );
   };
 
+  const displayResumeUpload = () => {
+    return (
+      <>
+        <div className="d-block">
+          <form id="create-frm-by-resume">
+            <div className="form-button-holder mt-4 mb-4">
+              <Button
+                variant="primary"
+                disabled={isResumeButtonDisabled}
+                onClick={handleResumeUpload}
+              >
+                Upload Resume
+              </Button>
+
+              {isResumeButtonDisabled ? (
+                <div className="ms-2 d-flex justify-content-center align-items-center">
+                  <span className="text-success-custom">
+                    uploading, please wait...
+                  </span>
+                </div>
+              ) : null}
+            </div>
+            <input
+              type="file"
+              ref={hiddenFileInput}
+              onChange={handleChange}
+              style={{ display: "none" }}
+              accept="application/pdf,application/msword,
+            application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+            />
+          </form>
+        </div>
+        <div className="d-block mt-2">{displayResumeUploadStatusMessage()}</div>
+      </>
+    );
+  };
+
+  const handleResumeUpload = () => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    uploadResume(fileUploaded);
+  };
+
+  const uploadResume = (fileUploaded) => {
+    setIsResumeButtonDisabled(true);
+
+    let errMessage = [];
+    let succMessage = [];
+
+    let formData = {
+      user_slug: user_slug,
+      file: fileUploaded,
+    };
+
+    try {
+      createResourceFromResume(formData).then(async (data) => {
+        if (data?.data) {
+          if (data.data.status === 0) {
+            errMessage.push(data.data.message);
+            setErrorResumeUploadMessage(errMessage);
+            setHasResumeUploadError(true);
+          } else {
+            succMessage.push(data.data.message);
+            setSuccessResumeUploadMessage(succMessage);
+            setIsValidResumeUpload(true);
+            setIsResumeButtonDisabled(false);
+          }
+        } else {
+          setErrorResumeUploadMessage(
+            "Something wrong happened. Please try again later."
+          );
+          setHasResumeUploadError(true);
+          setIsResumeButtonDisabled(false);
+        }
+        setTimeout(() => {
+          window.location.reload();
+        }, 200000);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const displayForm = () => {
     return (
       <>
@@ -269,22 +355,6 @@ const AddResourceForm = () => {
                   placeholder="Enter email address"
                   onChange={handleEmailChange}
                   value={email}
-                  autoComplete="off"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-            <div className="form-input-holder">
-              <InputLebelComponent title="Password" />
-              <div className="d-block">
-                <input
-                  type="password"
-                  className="form-control-custom"
-                  id="last-name"
-                  placeholder="Enter password"
-                  onChange={handlePasswordChange}
-                  value={password}
                   autoComplete="off"
                 />
               </div>
@@ -443,11 +513,35 @@ const AddResourceForm = () => {
     }
   };
 
+  const displayResumeUploadStatusMessage = () => {
+    return (
+      <div className="d-block mt-4">
+        {displayResumeUploadErrorMessage()}{" "}
+        {displayResumeUploadSuccessMessage()}
+      </div>
+    );
+  };
+
+  const displayResumeUploadErrorMessage = () => {
+    if (hasResumeUploadError) {
+      return <AlertDanger title={"Oops"} message={errorResumeUploadMessage} />;
+    }
+  };
+
+  const displayResumeUploadSuccessMessage = () => {
+    if (isValidResumeUpload) {
+      return (
+        <AlertSuccess title={"Success"} message={successResumeUploadMessage} />
+      );
+    }
+  };
+
   const displayFormBlock = () => {
     if (user_primary_role === "2") {
       return (
         <>
           {displayTopBlock()}
+          {displayResumeUpload()}
           {displayForm()}
         </>
       );

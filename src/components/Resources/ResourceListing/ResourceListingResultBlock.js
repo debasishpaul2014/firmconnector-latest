@@ -5,7 +5,6 @@ import { AlertInfo } from "../../Alerts/Alert";
 import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
 import { BadgeSuccess } from "../../Badge/Badge";
 import ButtonSm from "../../Buttons/ButtonSm";
-import { Button } from "react-bootstrap";
 
 import getMyResourceListing from "../../../apis/getMyResourceListing";
 
@@ -92,7 +91,7 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0">
+                    <div className="col-12 col-md-2 col-lg-2 col-xl-2 my-3 my-md-0 my-lg-0 my-xl-0">
                       <div className="d-block mb-0 my-md-1 my-lg-1 my-xl-1">
                         <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
                           Resource Role
@@ -114,11 +113,18 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-lg-end justify-content-xlg-end">
+                    <div className="col-12 col-md-4 col-lg-4 col-xl-4 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-lg-end justify-content-xlg-end">
+                      <ButtonSm
+                        className="btn-success-custom me-2"
+                        role="button"
+                        title="View Profile"
+                        type="button"
+                        to={"resources/details/" + item.user_slug}
+                      />
                       <ButtonSm
                         className="btn-primary-custom"
                         role="button"
-                        title="View Profile"
+                        title="Edit Profile"
                         type="button"
                         to={"resources/edit-resource/" + item.user_slug}
                       />

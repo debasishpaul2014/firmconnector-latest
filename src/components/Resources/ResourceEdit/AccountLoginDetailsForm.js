@@ -127,23 +127,6 @@ const AccountLoginDetailsForm = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Login Password" />
-                  <div className="d-block">
-                    <input
-                      type="password"
-                      className="form-control-custom-sm"
-                      id="last-name"
-                      placeholder="Enter password"
-                      onChange={handlePasswordChange}
-                      value={password}
-                      autoComplete="off"
-                      disabled="disabled"
-                    />
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           {/* {displaySubmitButton()} */}
