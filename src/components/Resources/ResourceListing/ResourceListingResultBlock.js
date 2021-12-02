@@ -98,7 +98,7 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                       <div className="d-block">
-                        <BadgeSuccess title={item.user_profile_role} />
+                        {displayUserProfileRole(item.user_profile_role)}
                       </div>
                     </div>
                     <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0">
@@ -137,6 +137,15 @@ const ResourceListingResultBlock = () => {
         })}
       </>
     );
+  };
+
+  const displayUserProfileRole = (user_profile_role) => {
+    if (user_profile_role.length > 20) {
+      let formattedString = user_profile_role.substring(0, 19) + "...";
+      return <BadgeSuccess title={formattedString} />;
+    } else {
+      return <BadgeSuccess title={user_profile_role} />;
+    }
   };
 
   return <div className="d-block">{displayMainContent()}</div>;
