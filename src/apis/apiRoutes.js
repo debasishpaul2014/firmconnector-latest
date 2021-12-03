@@ -15,6 +15,7 @@ const UPDATE_PROFILE_BASIC_INFO = `${API_BASE}update-profile-basic-info`;
 const UPDATE_PROFILE_CONTACT_INFO = `${API_BASE}update-profile-contact-info`;
 const USER_AVATAR_UPLOAD = `${API_BASE}user-avatar-upload`;
 const GET_MY_RESOURCE_LISTING = `${API_BASE}get-my-resource-listing`;
+const RESOURCE_DETAILS_ROUTE = `${API_BASE}get-resource-details`;
 
 export {
   LOGIN_ROUTE,
@@ -32,4 +33,5 @@ export {
   UPDATE_PROFILE_CONTACT_INFO,
   USER_AVATAR_UPLOAD,
   GET_MY_RESOURCE_LISTING,
+  RESOURCE_DETAILS_ROUTE,
 };

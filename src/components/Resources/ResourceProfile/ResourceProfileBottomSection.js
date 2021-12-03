@@ -3,12 +3,14 @@ import DocumentBox from "./DocumentBox";
 import ProfileInfoTabSection from "./ProfileInfoTabSection";
 
 const ResourceProfileBottomSection = (props) => {
-  const displayView = props.displayView;
+  const { displayView, resourceDetails } = props;
 
   return (
     <div className="row">
       <ProfileInfoTabSection displayView={displayView} />
-      {displayView === "default" ? <DocumentBox /> : null}
+      {displayView === "default" ? (
+        <DocumentBox documentDetails={resourceDetails.document_details} />
+      ) : null}
     </div>
   );
 };

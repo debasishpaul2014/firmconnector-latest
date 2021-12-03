@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImageIconSmHolder from "../../Iconcontainer/ImageIconSmHolder";
+import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 
-import firm_logo from "../../../assets/images/firm_logo.png";
 import envelope from "../../../assets/images/email.svg";
 import mobile from "../../../assets/images/mobile.svg";
 import phone from "../../../assets/images/phone.svg";
 
 const GeneralInfo = (props) => {
-  const displayView = props.displayView;
+  const { displayView, contactDetails, resourceDetails } = props;
+  const [isProfileLoading, setIsProfileLoading] = useState(true);
+
+  useEffect(() => {
+    setIsProfileLoading(false);
+  }, [contactDetails, resourceDetails]);
 
   const displayGeneralInfoBlock = () => {
     return (
@@ -16,9 +21,7 @@ const GeneralInfo = (props) => {
           <div className="info-icon-holder">
             <ImageIconSmHolder imageUrl={envelope} />
           </div>
-          <div className="d-block pb-1 pt-1">
-            <span>debasishpaul2014@gmail.com</span>
-          </div>
+          <div className="d-block pb-1 pt-1">{displayEmail()}</div>
         </div>
         <div className="row mt-4">
           <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
@@ -26,9 +29,7 @@ const GeneralInfo = (props) => {
               <div className="info-icon-holder">
                 <ImageIconSmHolder imageUrl={mobile} />
               </div>
-              <div className="d-block pb-1 pt-1">
-                <span>+(91) 704 400 4365</span>
-              </div>
+              <div className="d-block pb-1 pt-1">{displayMobile()}</div>
             </div>
           </div>
           <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
@@ -36,14 +37,42 @@ const GeneralInfo = (props) => {
               <div className="info-icon-holder">
                 <ImageIconSmHolder imageUrl={phone} />
               </div>
-              <div className="d-block pb-1 pt-1">
-                <span>+(033) 2335 568</span>
-              </div>
+              <div className="d-block pb-1 pt-1">{displayOfficePhone()}</div>
             </div>
           </div>
         </div>
       </div>
     );
+  };
+
+  const displayEmail = () => {
+    if (
+      contactDetails.user_email !== null &&
+      contactDetails.user_email !== ""
+    ) {
+      return <span>{contactDetails.user_email}</span>;
+    } else {
+      return <span className="text-muted">Email not available!</span>;
+    }
+  };
+
+  const displayMobile = () => {
+    if (contactDetails.mobile !== null && contactDetails.mobile !== "") {
+      return <span>{contactDetails.mobile}</span>;
+    } else {
+      return <span className="text-muted">Not available!</span>;
+    }
+  };
+
+  const displayOfficePhone = () => {
+    if (
+      contactDetails.office_phone !== null &&
+      contactDetails.office_phone !== ""
+    ) {
+      return <span>{contactDetails.office_phone}</span>;
+    } else {
+      return <span className="text-muted">Not available!</span>;
+    }
   };
 
   const inquireView = () => {
@@ -71,21 +100,33 @@ const GeneralInfo = (props) => {
     );
   };
 
-  return (
-    <div className="col-12 col-lg-5 col-xl-5 col-xxl-5 mb-3 top-card-section">
-      <div className="card-custom h-100">
-        <div className="card-body">
-          <div className="d-flex flex-column">
-            {displayView === "default"
-              ? displayGeneralInfoBlock()
-              : inquireView()}
-            <div className="d-flex mb-4 mt-4 justify-content-center align-items-center">
-              <div className="firm-logo-lg">
-                <img className="img-fluid" src={firm_logo} alt="" />
-              </div>
+  const displayBlockContent = () => {
+    if (isProfileLoading) {
+      return <LoadingPageSm />;
+    } else {
+      return (
+        <div className="d-flex flex-column">
+          {displayView === "default"
+            ? displayGeneralInfoBlock()
+            : inquireView()}
+          <div className="d-flex mb-4 mt-4 justify-content-center align-items-center">
+            <div className="firm-logo-lg">
+              <img
+                className="img-fluid"
+                src={resourceDetails.firm_logo}
+                alt=""
+              />
             </div>
           </div>
         </div>
+      );
+    }
+  };
+
+  return (
+    <div className="col-12 col-lg-5 col-xl-5 col-xxl-5 mb-3 top-card-section">
+      <div className="card-custom h-100">
+        <div className="card-body">{displayBlockContent()}</div>
       </div>
     </div>
   );

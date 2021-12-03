@@ -71,19 +71,6 @@ const MainRoute = () => {
           component={ResourceListingScreen}
         />
 
-        <ProtectedRoute
-          exact
-          path={`/resources/details/:resourceId`}
-          component={ResourceDetailsScreen}
-        />
-
-        {/* Route for Dashboard */}
-        <ProtectedRoute
-          exact
-          path={`/resources/details/:resourceId`}
-          component={ResourceDetailsScreen}
-        />
-
         {/* Route for Dashboard */}
         <ProtectedRoute exact path="/dashboard" component={DashboardScreen} />
 
@@ -100,10 +87,18 @@ const MainRoute = () => {
         />
 
         <ProtectedRoute exact path={`/add-resource`} component={AddResource} />
+
         <ProtectedRoute
           exact
           path={`/resources/edit-resource/:resourceSlug`}
           component={ResourceEditScreen}
+        />
+
+        {/* Route for Resource Details */}
+        <ProtectedRoute
+          exact
+          path={`/resources/details/:resourceSlug`}
+          component={ResourceDetailsScreen}
         />
 
         {/* Route for 404 */}

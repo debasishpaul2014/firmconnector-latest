@@ -3,7 +3,7 @@ import { useAuthContext } from "../../../context/AuthContext";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { AlertInfo } from "../../Alerts/Alert";
 import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
-import { BadgeSuccess } from "../../Badge/Badge";
+import { BadgeSuccess, BadgeInfo } from "../../Badge/Badge";
 import ButtonSm from "../../Buttons/ButtonSm";
 
 import getMyResourceListing from "../../../apis/getMyResourceListing";
@@ -86,9 +86,7 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                       <div className="d-block">
-                        <span className="text-dark-custom fw-bold">
-                          {item.resource_name}
-                        </span>
+                        {displayName(item.resource_name)}
                       </div>
                     </div>
                     <div className="col-12 col-md-2 col-lg-2 col-xl-2 my-3 my-md-0 my-lg-0 my-xl-0">
@@ -140,11 +138,23 @@ const ResourceListingResultBlock = () => {
   };
 
   const displayUserProfileRole = (user_profile_role) => {
-    if (user_profile_role.length > 20) {
-      let formattedString = user_profile_role.substring(0, 19) + "...";
-      return <BadgeSuccess title={formattedString} />;
+    if (user_profile_role !== null) {
+      if (user_profile_role.length > 20) {
+        let formattedString = user_profile_role.substring(0, 19) + "...";
+        return <BadgeSuccess title={formattedString} />;
+      } else {
+        return <BadgeSuccess title={user_profile_role} />;
+      }
     } else {
-      return <BadgeSuccess title={user_profile_role} />;
+      return <BadgeInfo title={"Not available"} />;
+    }
+  };
+
+  const displayName = (name) => {
+    if (name !== null) {
+      return <span className="text-dark-custom fw-bold">{name}</span>;
+    } else {
+      return <BadgeInfo title={"Not available"} />;
     }
   };
 
