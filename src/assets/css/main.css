@@ -338,3 +338,7 @@ a{
 .left-menu-nav-wrapper a{
    color: var(--muted);
 }
+
+.p-wrap{
+   white-space: pre-line;
+}

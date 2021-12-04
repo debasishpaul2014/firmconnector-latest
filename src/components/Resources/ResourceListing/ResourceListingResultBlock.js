@@ -126,11 +126,13 @@ const ResourceListingResultBlock = () => {
 
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      if (user_profile_role.length > 20) {
-        let formattedString = user_profile_role.substring(0, 19) + "...";
-        return <BadgeSuccess title={formattedString} />;
+      if (user_profile_role.length > 15) {
+        let formattedString = user_profile_role.substring(0, 14) + "...";
+        return <BadgeSuccess title={formattedString} alt={user_profile_role} />;
       } else {
-        return <BadgeSuccess title={user_profile_role} />;
+        return (
+          <BadgeSuccess title={user_profile_role} alt={user_profile_role} />
+        );
       }
     } else {
       return <BadgeInfo title={"Not available"} />;

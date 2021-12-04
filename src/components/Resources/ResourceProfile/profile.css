@@ -107,6 +107,20 @@
     flex-wrap: wrap;
 }
 
+.profile-tab-selected{
+    background-color: var(--info);
+    padding: 0.5rem 1rem;
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile-tab-selected > span {
+    color: var(--white);
+}
+
 .top-card-section{
     height: 21.2rem;
 }

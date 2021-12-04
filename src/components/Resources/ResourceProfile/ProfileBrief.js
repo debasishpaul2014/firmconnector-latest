@@ -11,31 +11,6 @@ const ProfileBrief = (props) => {
     setIsProfileLoading(false);
   }, [profileDetails]);
 
-  const displayProfileBio = () => {
-    if (profileDetails.profile_bio !== null) {
-      if (profileDetails.profile_bio.length > 100) {
-        return (
-          <div className="text-center">
-            {profileDetails.profile_bio.substr(0, 100) + "..."}{" "}
-            <span className="text-info fw-bold cursor-pointer">See More</span>
-          </div>
-        );
-      } else {
-        return (
-          <div>
-            <span className="text-center">{profileDetails.profile_bio}</span>
-          </div>
-        );
-      }
-    } else {
-      return (
-        <div>
-          <span className="text-center">Nothing added to bio!</span>
-        </div>
-      );
-    }
-  };
-
   const displayProfileName = () => {
     if (
       profileDetails.profile_name !== null &&
@@ -52,7 +27,7 @@ const ProfileBrief = (props) => {
       return <LoadingPageSm />;
     } else {
       return (
-        <div>
+        <div className="d-flex flex-column justify-content-center align-items-center">
           <div className="profile-img-lg-holder">
             <div className="profile-img-lg">
               <ProfileImageLg
@@ -90,8 +65,6 @@ const ProfileBrief = (props) => {
               <span className="fw-bold">Kolkata, WB, India</span>
             </div>
           </div>
-
-          <div className="profile-bio-lg-holder">{displayProfileBio()}</div>
         </div>
       );
     }

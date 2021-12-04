@@ -119,14 +119,18 @@ const AddResourceForm = () => {
       errMessage.push("Enter a valid contact business email address");
     }
 
-    if (!phonePattern.test(phone)) {
-      isInvalid = 1;
-      errMessage.push("Enter a valid phone number");
+    if (phone.trim().length > 0) {
+      if (!phonePattern.test(phone)) {
+        isInvalid = 1;
+        errMessage.push("Enter a valid phone number");
+      }
     }
 
-    if (!phonePattern.test(officePhone)) {
-      isInvalid = 1;
-      errMessage.push("Enter a valid office phone number");
+    if (officePhone.trim().length > 0) {
+      if (!phonePattern.test(officePhone)) {
+        isInvalid = 1;
+        errMessage.push("Enter a valid office phone number");
+      }
     }
 
     if (isInvalid === 1) {
@@ -298,7 +302,7 @@ const AddResourceForm = () => {
 
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+        }, 20000);
       });
     } catch (error) {
       console.log(error);

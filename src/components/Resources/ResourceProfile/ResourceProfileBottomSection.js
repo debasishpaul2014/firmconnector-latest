@@ -7,7 +7,10 @@ const ResourceProfileBottomSection = (props) => {
 
   return (
     <div className="row">
-      <ProfileInfoTabSection displayView={displayView} />
+      <ProfileInfoTabSection
+        displayView={displayView}
+        profileDetails={resourceDetails.profile_details}
+      />
       {displayView === "default" ? (
         <DocumentBox documentDetails={resourceDetails.document_details} />
       ) : null}

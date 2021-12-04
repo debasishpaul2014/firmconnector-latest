@@ -2,11 +2,13 @@ import React from "react";
 import "./style.css";
 
 const BadgeSuccess = (props) => {
-  const { title } = props;
+  const { title, alt } = props;
 
   return (
     <div className="badge-custom bg-success-custom w-auto d-inline-block justify-content-center align-items-center">
-      <span className="text-x-sm-custom fw-medium-custom">{title}</span>
+      <span className="text-x-sm-custom fw-medium-custom" title={alt}>
+        {title}
+      </span>
     </div>
   );
 };

@@ -13,6 +13,8 @@ const ProfileBasicForm = (props) => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [jobRole, setJobRole] = useState("");
+  const [bio, setBio] = useState("");
   const [buttonText, setButtonText] = useState("Update Profile Informations");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [hasSubmitError, setHasSubmitError] = useState(false);
@@ -31,6 +33,8 @@ const ProfileBasicForm = (props) => {
   useEffect(() => {
     setFirstName(resourceDetails.first_name);
     setLastName(resourceDetails.last_name);
+    setJobRole(resourceDetails.user_profile_role);
+    setBio(resourceDetails.profile_bio);
     setFile(resourceDetails.profile_image_path);
     setUploadedFile(resourceDetails.profile_image_path);
   }, [resourceDetails]);
@@ -43,6 +47,14 @@ const ProfileBasicForm = (props) => {
 
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
+  };
+
+  const handleJobRoleChange = (e) => {
+    setJobRole(e.target.value);
+  };
+
+  const handleBioChange = (e) => {
+    setBio(e.target.value);
   };
 
   const handleFormSubmit = () => {
@@ -71,6 +83,18 @@ const ProfileBasicForm = (props) => {
       errMessage.push("Enter last name");
     }
 
+    if (jobRole.trim().length === 0) {
+      isInvalid = 1;
+      errMessage.push("Enter job role");
+    }
+
+    if (bio.length > 0) {
+      if (bio === "") {
+        isInvalid = 1;
+        errMessage.push("Enter your bio");
+      }
+    }
+
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
@@ -89,6 +113,8 @@ const ProfileBasicForm = (props) => {
       userSlug: resourceSlug,
       firstName: firstName,
       lastName: lastName,
+      jobRole: jobRole,
+      bio: bio,
     };
 
     try {
@@ -107,6 +133,7 @@ const ProfileBasicForm = (props) => {
               setHasSubmitError(false);
               setErrorMessage(false);
               setSuccessMessage(false);
+              setIsButtonDisabled(false);
             }, 2000);
           } else if (data.data.status === 0) {
             errMessage.push(data.data.message);
@@ -390,6 +417,38 @@ const ProfileBasicForm = (props) => {
                       placeholder="Enter last name"
                       onChange={handleLastNameChange}
                       value={lastName}
+                      autoComplete="off"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+                <div className="form-input-holder">
+                  <InputLebelComponent title="Job Role" />
+                  <div className="d-block">
+                    <input
+                      type="text"
+                      className="form-control-custom-sm"
+                      id="job-role"
+                      placeholder="Enter job role"
+                      onChange={handleJobRoleChange}
+                      value={jobRole}
+                      autoComplete="off"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+                <div className="form-input-holder">
+                  <InputLebelComponent title="Profile Bio" />
+                  <div className="d-block">
+                    <textarea
+                      type="textarea"
+                      className="form-control-custom-sm"
+                      id="job-role"
+                      placeholder="Enter your bio"
+                      onChange={handleBioChange}
+                      value={bio}
                       autoComplete="off"
                     />
                   </div>
