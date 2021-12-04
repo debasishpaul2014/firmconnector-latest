@@ -18,12 +18,12 @@
 }
 
 .btn-primary-custom{
-    background-color: var(--info);
+    background-color: var(--info-dark-light);
     color: var(--white);
  }
 
  .btn-primary-custom:hover{
-    background-color: var(--info-dark-light);
+    background-color: var(--info);
  }
  
  .btn-warning-custom{

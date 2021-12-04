@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
+import { Link } from "react-router-dom";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { AlertInfo } from "../../Alerts/Alert";
 import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
 import { BadgeSuccess, BadgeInfo } from "../../Badge/Badge";
 import ButtonSm from "../../Buttons/ButtonSm";
-
+import { Button } from "react-bootstrap";
 import getMyResourceListing from "../../../apis/getMyResourceListing";
 
 const ResourceListingResultBlock = () => {
@@ -77,34 +78,23 @@ const ResourceListingResultBlock = () => {
                 <div className="card-body">
                   <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
                     <div className="col-12 col-md-2 col-lg-1 col-xl-1">
-                      <ProfileImageMd imgSrc={item.profile_image_path} />
+                      <Link to={"resources/details/" + item.user_slug}>
+                        <ProfileImageMd imgSrc={item.profile_image_path} />
+                      </Link>
                     </div>
                     <div className="col-12 col-md-4 col-lg-2 col-xl-2">
-                      <div className="d-block mb-1">
-                        <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
-                          Name
-                        </span>
-                      </div>
                       <div className="d-block">
-                        {displayName(item.resource_name)}
+                        <Link to={"resources/details/" + item.user_slug}>
+                          {displayName(item.resource_name)}
+                        </Link>
                       </div>
                     </div>
                     <div className="col-12 col-md-2 col-lg-2 col-xl-2 my-3 my-md-0 my-lg-0 my-xl-0">
-                      <div className="d-block mb-0 my-md-1 my-lg-1 my-xl-1">
-                        <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
-                          Resource Role
-                        </span>
-                      </div>
                       <div className="d-block">
                         {displayUserProfileRole(item.user_profile_role)}
                       </div>
                     </div>
                     <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0">
-                      <div className="d-block mb-0">
-                        <span className="text-muted-light-custom text-x-sm-custom fw-medium-custom">
-                          Contact Email
-                        </span>
-                      </div>
                       <div className="d-block">
                         <span className="text-dark-custom">
                           {item.user_email}
@@ -112,20 +102,17 @@ const ResourceListingResultBlock = () => {
                       </div>
                     </div>
                     <div className="col-12 col-md-4 col-lg-4 col-xl-4 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-lg-end justify-content-xlg-end">
-                      <ButtonSm
-                        className="btn-success-custom me-2"
-                        role="button"
-                        title="View Profile"
-                        type="button"
-                        to={"resources/details/" + item.user_slug}
-                      />
-                      <ButtonSm
-                        className="btn-primary-custom"
-                        role="button"
-                        title="Edit Profile"
-                        type="button"
-                        to={"resources/edit-resource/" + item.user_slug}
-                      />
+                      <Link to={"resources/details/" + item.user_slug}>
+                        <Button variant="warning" size="sm" className="me-2">
+                          View Profile
+                        </Button>
+                      </Link>
+
+                      <Link to={"resources/edit-resource/" + item.user_slug}>
+                        <Button variant="primary" size="sm" className="ms-2">
+                          Edit Profile
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>
