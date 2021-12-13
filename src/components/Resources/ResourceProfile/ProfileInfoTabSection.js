@@ -5,7 +5,8 @@ import Education from "./Tabs/Education";
 import Employment from "./Tabs/Employment";
 
 const ProfileInfoTabSection = (props) => {
-  const { displayView, profileDetails } = props;
+  const { displayView, profileDetails, educationDetails, employmentDetails } =
+    props;
   const [selectedTab, setSelectedTab] = useState("about");
 
   useEffect(() => {}, [selectedTab]);
@@ -16,7 +17,7 @@ const ProfileInfoTabSection = (props) => {
     } else if (selectedTab === "availability") {
       return <Availability profileDetails={profileDetails} />;
     } else if (selectedTab === "education") {
-      return <Education profileDetails={profileDetails} />;
+      return <Education educationDetails={educationDetails} />;
     } else if (selectedTab === "employment") {
       return <Employment profileDetails={profileDetails} />;
     }

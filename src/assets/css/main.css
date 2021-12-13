@@ -231,9 +231,9 @@ a{
    border: none;
    outline: none;
    background-color: var(--white);
-   height: 6rem;
-   border-radius: 0.33rem;
-   border: 0.15rem solid var(--muted-light);
+   height: auto;
+   min-height: 10rem;
+   border: 0.1rem solid var(--info-dark);
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 

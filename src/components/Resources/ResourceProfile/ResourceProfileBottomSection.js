@@ -10,6 +10,8 @@ const ResourceProfileBottomSection = (props) => {
       <ProfileInfoTabSection
         displayView={displayView}
         profileDetails={resourceDetails.profile_details}
+        educationDetails={resourceDetails.education_details}
+        employmentDetails={resourceDetails.employment_details}
       />
       {displayView === "default" ? (
         <DocumentBox documentDetails={resourceDetails.document_details} />
