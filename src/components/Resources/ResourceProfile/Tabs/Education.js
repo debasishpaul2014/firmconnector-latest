@@ -6,7 +6,6 @@ const Education = (props) => {
 
   useEffect(() => {
     if (educationDetails) {
-      console.log(educationDetails);
       setEducationArray(educationDetails);
     }
   }, [educationDetails]);
@@ -20,12 +19,16 @@ const Education = (props) => {
           })}
         </>
       );
+    } else {
+      return (
+        <span className="text-muted-custom">Education details not added!</span>
+      );
     }
   };
 
   const degreeName = (education) => {
     return (
-      <span className="text-dark-custom fw-bold">
+      <span className="text-dark-custom text-md-custom fw-bold">
         {education.degree_name !== null
           ? education.degree_name
           : "Not available"}{" "}
@@ -36,10 +39,16 @@ const Education = (props) => {
 
   const displaySchoolName = (education) => {
     if (education.school_name !== "" && education.school_name !== null) {
-      return <span className="text-dark-custom">{education.school_name}</span>;
+      return (
+        <span className="text-muted-custom text-x-sm-custom">
+          {education.school_name}
+        </span>
+      );
     } else {
       return (
-        <span className="text-danger-custom">Institute name not available</span>
+        <span className="text-danger-custom text-x-sm-custom">
+          Institute name not available
+        </span>
       );
     }
   };
@@ -47,7 +56,7 @@ const Education = (props) => {
   const displayPassedOn = (passedOn) => {
     if (passedOn !== "" && passedOn !== null) {
       return (
-        <span className="text-dark-custom text-x-sm-custom fw-bold">
+        <span className="text-dark-custom text-x-sm-custom">
           Passed on {passedOn}
         </span>
       );

@@ -9,7 +9,6 @@ const DocumentBox = (props) => {
 
   useEffect(() => {
     setIsLoading(false);
-    console.log(documentDetails);
   }, [documentDetails]);
 
   const displayBlockContent = () => {

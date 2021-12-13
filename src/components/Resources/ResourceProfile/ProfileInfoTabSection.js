@@ -19,7 +19,7 @@ const ProfileInfoTabSection = (props) => {
     } else if (selectedTab === "education") {
       return <Education educationDetails={educationDetails} />;
     } else if (selectedTab === "employment") {
-      return <Employment profileDetails={profileDetails} />;
+      return <Employment employmentDetails={employmentDetails} />;
     }
   };
 
