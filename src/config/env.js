@@ -1,4 +1,6 @@
-const API_BASE = "https://cloudstack.live/index.php/";
-const ASSETS_BASE = "https://cloudstack.live/assets/";
+const API_BASE =
+  "https://www.firmconnector.com/firmconnector-api-new/index.php/";
+const ASSETS_BASE =
+  "https://www.firmconnector.com/firmconnector-api-new/assets/";
 
 export { API_BASE, ASSETS_BASE };

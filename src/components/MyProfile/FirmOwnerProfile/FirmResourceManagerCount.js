@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
-import ButtonSm from "../../Buttons/ButtonSm";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 import IconContainer from "../../Iconcontainer/IconContainer";
 
 import getFirmResourceManagerCount from "../../../apis/getFirmResourceManagerCount";
@@ -52,12 +53,11 @@ const FirmResourceManagerCount = (props) => {
           <span className="h6 text-muted-custom">Resource Managers</span>
         </div>
         <div className="d-block mt-3">
-          <ButtonSm
-            to="add-resource-manager"
-            title="Add new Manager"
-            className="btn-success-custom"
-            type="button"
-          />
+          <Link to={"add-resource-manager"}>
+            <Button variant="success" size="sm">
+              Add Manager
+            </Button>
+          </Link>
         </div>
       </>
     );

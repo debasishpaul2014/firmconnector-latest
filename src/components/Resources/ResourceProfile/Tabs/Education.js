@@ -56,7 +56,7 @@ const Education = (props) => {
   const displayPassedOn = (passedOn) => {
     if (passedOn !== "" && passedOn !== null) {
       return (
-        <span className="text-dark-custom text-x-sm-custom">
+        <span className="text-muted-custom text-x-sm-custom">
           Passed on {passedOn}
         </span>
       );

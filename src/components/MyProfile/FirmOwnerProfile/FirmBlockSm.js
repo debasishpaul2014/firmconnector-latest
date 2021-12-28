@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import FirmLogoSm from "../../CommonComponent/FirmLogoSm";
 import { BadgeLight } from "../../Badge/Badge";
-import ButtonSm from "../../Buttons/ButtonSm";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 import getFirmDetails from "../../../apis/getFirmDetails";
 
@@ -26,7 +27,7 @@ const FirmBlockSm = (props) => {
         setIsFirmLoading(false);
         console.log(err);
       });
-  }, []);
+  }, [user_slug]);
 
   const displayMainContent = () => {
     if (isFirmLoading === true) {
@@ -64,12 +65,11 @@ const FirmBlockSm = (props) => {
         </div>
         <div className="d-block">{displayFirmEmail()}</div>
         <div className="d-block">
-          <ButtonSm
-            to="edit-firm"
-            title="Edit Firm Details"
-            className="btn-primary-custom"
-            type="button"
-          />
+          <Link to={"edit-firm"}>
+            <Button variant="primary" size="sm">
+              Edit Firm Details
+            </Button>
+          </Link>
         </div>
       </>
     );

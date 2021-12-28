@@ -35,6 +35,8 @@ import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
 import AddResource from "../screens/Resource/AddResource";
 import ResourceEditScreen from "../screens/Resource/ResourceEditScreen";
 
+import FirmEdit from "../screens/Firm/FirmEdit";
+
 //Error screen with type
 import PageNotFound from "../screens/error/400/PageNotFound";
 
@@ -100,6 +102,10 @@ const MainRoute = () => {
           path={`/resources/details/:resourceSlug`}
           component={ResourceDetailsScreen}
         />
+
+        {/* FIRM routes */}
+        {/* Route for Firm edit */}
+        <ProtectedRoute exact path={`/edit-firm`} component={FirmEdit} />
 
         {/* Route for 404 */}
         <Route component={PageNotFound} />
