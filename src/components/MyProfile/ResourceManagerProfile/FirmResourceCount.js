@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import IconContainer from "../../Iconcontainer/IconContainer";
-import ButtonSm from "../../Buttons/ButtonSm";
-
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import getResourceManagerResourceCount from "../../../apis/getResourceManagerResourceCount";
 
 const FirmResourceCount = (props) => {
@@ -25,7 +25,7 @@ const FirmResourceCount = (props) => {
         setIsLoading(false);
         console.log(err);
       });
-  }, []);
+  }, [user_slug]);
 
   const displayMainContent = () => {
     if (isLoading === true) {
@@ -52,12 +52,11 @@ const FirmResourceCount = (props) => {
           <span className="h6 text-muted-custom">Resources</span>
         </div>
         <div className="d-block mt-3">
-          <ButtonSm
-            to="add-resource"
-            title="Add new Resource"
-            className="btn-success-custom"
-            type="button"
-          />
+          <Link to={"add-resource"}>
+            <Button variant="success" size="sm" className="me-2">
+              Add new Resource
+            </Button>
+          </Link>
         </div>
       </>
     );

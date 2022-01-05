@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ButtonSm from "../../Buttons/ButtonSm";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import ProfileImageLg from "../../CommonComponent/ProfileImageLg";
 import { BadgeSuccess } from "../../Badge/Badge";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
@@ -60,12 +61,11 @@ const ProfileSection = (props) => {
           </span>
         </div>
         <div className="d-block">
-          <ButtonSm
-            to=""
-            title="Edit Profile"
-            className="btn-primary-custom"
-            type="button"
-          />
+          <Link to={"edit-profile"}>
+            <Button variant="primary" size="sm" className="me-2">
+              Edit Profile
+            </Button>
+          </Link>
         </div>
       </>
     );
