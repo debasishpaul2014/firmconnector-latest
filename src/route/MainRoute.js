@@ -36,7 +36,8 @@ import EditProfile from "../screens/ResourceManager/EditProfile";
 import AddResource from "../screens/Resource/AddResource";
 import ResourceEditScreen from "../screens/Resource/ResourceEditScreen";
 
-import FirmEdit from "../screens/Firm/FirmEdit";
+import EditFirm from "../screens/Firm/EditFirm";
+import FirmOwnerEdit from "../screens/Firm/FirmOwnerEdit";
 
 //Error screen with type
 import PageNotFound from "../screens/error/400/PageNotFound";
@@ -108,7 +109,12 @@ const MainRoute = () => {
 
         {/* FIRM routes */}
         {/* Route for Firm edit */}
-        <ProtectedRoute exact path={`/edit-firm`} component={FirmEdit} />
+        <ProtectedRoute
+          exact
+          path={`/edit-firm-owner-profile`}
+          component={FirmOwnerEdit}
+        />
+        <ProtectedRoute exact path={`/edit-firm`} component={EditFirm} />
 
         {/* Route for 404 */}
         <Route component={PageNotFound} />

@@ -17,6 +17,7 @@ const USER_AVATAR_UPLOAD = `${API_BASE}user-avatar-upload`;
 const GET_MY_RESOURCE_LISTING = `${API_BASE}get-my-resource-listing`;
 const RESOURCE_DETAILS_ROUTE = `${API_BASE}get-resource-details`;
 const RESOURCE_MANAGER_DETAILS_ROUTE = `${API_BASE}get-resource-manager-details`;
+const FIRM_OWNER_DETAILS_ROUTE = `${API_BASE}get-firm-owner-details`;
 
 export {
   LOGIN_ROUTE,
@@ -36,4 +37,5 @@ export {
   GET_MY_RESOURCE_LISTING,
   RESOURCE_DETAILS_ROUTE,
   RESOURCE_MANAGER_DETAILS_ROUTE,
+  FIRM_OWNER_DETAILS_ROUTE,
 };

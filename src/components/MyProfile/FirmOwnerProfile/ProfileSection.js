@@ -61,8 +61,8 @@ const ProfileSection = (props) => {
           </span>
         </div>
         <div className="d-block">
-          <Link to={"edit-profile"}>
-            <Button variant="warning" size="sm">
+          <Link to={"edit-firm-owner-profile"}>
+            <Button variant="primary" size="sm">
               Edit Profile
             </Button>
           </Link>

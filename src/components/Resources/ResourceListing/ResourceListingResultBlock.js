@@ -11,6 +11,7 @@ import getMyResourceListing from "../../../apis/getMyResourceListing";
 const ResourceListingResultBlock = () => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
+  const user_primary_role = JSON.parse(userDetails).user_primary_role;
   const [isLoading, setIsLoading] = useState(true);
   const [resourceListing, setResourceListing] = useState(false);
   const [hasResult, setHasResult] = useState(false);
@@ -106,12 +107,13 @@ const ResourceListingResultBlock = () => {
                           View Profile
                         </Button>
                       </Link>
-
-                      <Link to={"resources/edit-resource/" + item.user_slug}>
-                        <Button variant="primary" size="sm" className="ms-2">
-                          Edit Profile
-                        </Button>
-                      </Link>
+                      {user_primary_role === "2" ? (
+                        <Link to={"resources/edit-resource/" + item.user_slug}>
+                          <Button variant="primary" size="sm" className="ms-2">
+                            Edit Profile
+                          </Button>
+                        </Link>
+                      ) : null}
                     </div>
                   </div>
                 </div>

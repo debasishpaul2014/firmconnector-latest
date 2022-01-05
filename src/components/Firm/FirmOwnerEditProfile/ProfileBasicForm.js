@@ -9,7 +9,7 @@ import updateProfileBasicInfo from "../../../apis/updateProfileBasicInfo";
 import userAvatarUpload from "../../../apis/userAvatarUpload";
 
 const ProfileBasicForm = (props) => {
-  const { resourceManagerDetails, resourceManagerSlug } = props;
+  const { userDetails, userSlug } = props;
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -31,15 +31,15 @@ const ProfileBasicForm = (props) => {
   const [modalButtonDisabled, setModalButtonDisabled] = useState(false);
 
   useEffect(() => {
-    if (resourceManagerDetails) {
-      setFirstName(resourceManagerDetails.first_name);
-      setLastName(resourceManagerDetails.last_name);
-      setJobRole(resourceManagerDetails.user_profile_role);
-      setBio(resourceManagerDetails.profile_bio);
-      setFile(resourceManagerDetails.profile_image_path);
-      setUploadedFile(resourceManagerDetails.profile_image_path);
+    if (userDetails) {
+      setFirstName(userDetails.first_name);
+      setLastName(userDetails.last_name);
+      setJobRole(userDetails.user_profile_role);
+      setBio(userDetails.profile_bio);
+      setFile(userDetails.profile_image_path);
+      setUploadedFile(userDetails.profile_image_path);
     }
-  }, [resourceManagerDetails]);
+  }, [userDetails]);
 
   useEffect(() => {}, [firstName, lastName]);
 
@@ -85,18 +85,6 @@ const ProfileBasicForm = (props) => {
       errMessage.push("Enter last name");
     }
 
-    // if (jobRole.trim().length === 0) {
-    //   isInvalid = 1;
-    //   errMessage.push("Enter job role");
-    // }
-
-    // if (bio.length > 0) {
-    //   if (bio === "") {
-    //     isInvalid = 1;
-    //     errMessage.push("Enter your bio");
-    //   }
-    // }
-
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
@@ -112,7 +100,7 @@ const ProfileBasicForm = (props) => {
     let succMessage = [];
 
     let formData = {
-      userSlug: resourceManagerSlug,
+      userSlug: userSlug,
       firstName: firstName,
       lastName: lastName,
       jobRole: jobRole,
@@ -253,7 +241,7 @@ const ProfileBasicForm = (props) => {
     let errMessage = [];
 
     let formData = {
-      userSlug: resourceManagerSlug,
+      userSlug: userSlug,
       file: selectedFilePath,
     };
 

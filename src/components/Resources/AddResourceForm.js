@@ -16,7 +16,6 @@ const AddResourceForm = () => {
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
   const hiddenFileInput = React.useRef(null);
 
-  const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -37,12 +36,6 @@ const AddResourceForm = () => {
     useState(false);
   const [successResumeUploadMessage, setSuccessResumeUploadMessage] =
     useState(false);
-
-  useEffect(() => {
-    if (user_primary_role === "2") {
-      setIsLoading(false);
-    }
-  }, [user_primary_role]);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -69,11 +62,7 @@ const AddResourceForm = () => {
   };
 
   const displayMainContent = () => {
-    if (isLoading === true) {
-      return displayLoadingBlock();
-    } else {
-      return displayFormBlock();
-    }
+    return displayFormBlock();
   };
 
   const handleFormSubmit = () => {
