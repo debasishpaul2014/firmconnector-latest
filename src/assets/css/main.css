@@ -237,6 +237,23 @@ a{
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.form-control-textarea{
+   display: block;
+   width: 100%;
+   padding: .375rem .75rem;
+   color: var(--info-dark);
+   -webkit-appearance: none;
+   appearance: none;
+   border: none;
+   outline: none;
+   background-color: var(--white);
+   height: auto;
+   min-height: 10rem;
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+   border-radius: 0.33rem;
+   border: 0.15rem solid var(--muted-light);
+}
+
 ::placeholder { 
    color: var(--muted);
    opacity: 1; 

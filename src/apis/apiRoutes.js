@@ -18,6 +18,8 @@ const GET_MY_RESOURCE_LISTING = `${API_BASE}get-my-resource-listing`;
 const RESOURCE_DETAILS_ROUTE = `${API_BASE}get-resource-details`;
 const RESOURCE_MANAGER_DETAILS_ROUTE = `${API_BASE}get-resource-manager-details`;
 const FIRM_OWNER_DETAILS_ROUTE = `${API_BASE}get-firm-owner-details`;
+const FIRM_LOGO_UPLOAD = `${API_BASE}firm-logo-upload`;
+const UPDATE_FIRM_BASIC_INFO = `${API_BASE}update-firm-basic-info`;
 
 export {
   LOGIN_ROUTE,
@@ -38,4 +40,6 @@ export {
   RESOURCE_DETAILS_ROUTE,
   RESOURCE_MANAGER_DETAILS_ROUTE,
   FIRM_OWNER_DETAILS_ROUTE,
+  FIRM_LOGO_UPLOAD,
+  UPDATE_FIRM_BASIC_INFO,
 };

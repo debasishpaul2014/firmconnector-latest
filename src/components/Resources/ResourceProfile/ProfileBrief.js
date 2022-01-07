@@ -22,6 +22,17 @@ const ProfileBrief = (props) => {
     }
   };
 
+  const displayProfileRole = () => {
+    if (
+      profileDetails.user_profile_role !== null &&
+      profileDetails.user_profile_role !== ""
+    ) {
+      return profileDetails.user_profile_role;
+    } else {
+      return <span className="text-muted">Profile role not available!</span>;
+    }
+  };
+
   const displayBlockContent = () => {
     if (isProfileLoading) {
       return <LoadingPageSm />;
@@ -52,11 +63,11 @@ const ProfileBrief = (props) => {
             <div className="role-lg-holder">
               {displayView === "default" ? (
                 <span className="text-muted-custom">
-                  {profileDetails.user_profile_role}
+                  {displayProfileRole()}
                 </span>
               ) : (
                 <span className="h5 fw-bold-custom">
-                  {profileDetails.user_profile_role}
+                  {displayProfileRole()}
                 </span>
               )}
             </div>

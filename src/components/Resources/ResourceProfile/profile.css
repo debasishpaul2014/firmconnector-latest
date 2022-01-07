@@ -139,6 +139,11 @@
     height: 5rem;
 }
 
+.firm-logo-lg img{
+    width: 10rem;
+    height: auto !important;
+}
+
 .profile-tab-section{
     min-height: 20rem;
 }

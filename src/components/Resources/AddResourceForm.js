@@ -19,6 +19,8 @@ const AddResourceForm = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [jobRole, setJobRole] = useState("");
+  const [bio, setBio] = useState("");
   const [contactEmail, setContactEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [officePhone, setOfficePhone] = useState("");
@@ -47,6 +49,14 @@ const AddResourceForm = () => {
 
   const handleLastNameChange = (e) => {
     setLastName(e.target.value);
+  };
+
+  const handleJobRoleChange = (e) => {
+    setJobRole(e.target.value);
+  };
+
+  const handleBioChange = (e) => {
+    setBio(e.target.value);
   };
 
   const handleContactEmailChange = (e) => {
@@ -115,12 +125,12 @@ const AddResourceForm = () => {
       }
     }
 
-    if (officePhone.trim().length > 0) {
-      if (!phonePattern.test(officePhone)) {
-        isInvalid = 1;
-        errMessage.push("Enter a valid office phone number");
-      }
-    }
+    // if (officePhone.trim().length > 0) {
+    //   if (!phonePattern.test(officePhone)) {
+    //     isInvalid = 1;
+    //     errMessage.push("Enter a valid office phone number");
+    //   }
+    // }
 
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
@@ -141,6 +151,8 @@ const AddResourceForm = () => {
       email: email,
       firstName: firstName,
       lastName: lastName,
+      jobRole: jobRole,
+      profileBio: bio,
       contactEmail: contactEmail,
       phone: phone,
       officePhone: officePhone,
@@ -398,6 +410,39 @@ const AddResourceForm = () => {
                   placeholder="Enter last name"
                   onChange={handleLastNameChange}
                   value={lastName}
+                  autoComplete="off"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+            <div className="form-input-holder">
+              <InputLebelComponent title="Job Role" />
+              <div className="d-block">
+                <input
+                  type="text"
+                  className="form-control-custom"
+                  id="last-name"
+                  placeholder="Enter job role"
+                  onChange={handleJobRoleChange}
+                  value={jobRole}
+                  autoComplete="off"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+            <div className="form-input-holder">
+              <InputLebelComponent title="Profile Bio" />
+              <div className="d-block">
+                <textarea
+                  type="textarea"
+                  className="form-control-textarea"
+                  id="job-role"
+                  placeholder="Enter your bio"
+                  onChange={handleBioChange}
+                  value={bio}
                   autoComplete="off"
                 />
               </div>

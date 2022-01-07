@@ -29,7 +29,7 @@ const EditResourceFormBlock = (props) => {
           />
         </div>
       </div>
-      <div className="col-12 col-lg-4 col-xl-4">
+      {/* <div className="col-12 col-lg-4 col-xl-4">
         <div className="d-block mb-4">
           <ResourceSkillForm
             resourceDetails={resourceDetails}
@@ -42,7 +42,7 @@ const EditResourceFormBlock = (props) => {
             resourceSlug={resourceSlug}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

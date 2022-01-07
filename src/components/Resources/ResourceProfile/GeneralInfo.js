@@ -112,9 +112,9 @@ const GeneralInfo = (props) => {
           <div className="d-flex mb-4 mt-4 justify-content-center align-items-center">
             <div className="firm-logo-lg">
               <img
-                className="img-fluid"
+                className="img-fluid img-thumbnail"
                 src={resourceDetails.firm_logo}
-                alt=""
+                alt={resourceDetails.firm_name}
               />
             </div>
           </div>

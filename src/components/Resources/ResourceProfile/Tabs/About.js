@@ -10,9 +10,17 @@ const About = (props) => {
     }
   }, [profileDetails]);
 
+  const displayProfileBio = () => {
+    if (profileBio !== null && profileBio !== "") {
+      return profileBio;
+    } else {
+      return <span className="text-muted">Profile bio not available!</span>;
+    }
+  };
+
   return (
     <div className="d-block">
-      <span className="p-wrap">{profileBio}</span>
+      <span className="p-wrap">{displayProfileBio()}</span>
     </div>
   );
 };

@@ -5,17 +5,14 @@ import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
 
-import updateProfileBasicInfo from "../../../apis/updateProfileBasicInfo";
-import userAvatarUpload from "../../../apis/userAvatarUpload";
+import updateFirmBasicInfo from "../../../apis/updateFirmBasicInfo";
+import firmLogoUpload from "../../../apis/firmLogoUpload";
 
-const ProfileBasicForm = (props) => {
-  const { resourceDetails, resourceSlug } = props;
+const FirmBasicForm = (props) => {
+  const { firmDetails, userSlug } = props;
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [jobRole, setJobRole] = useState("");
-  const [bio, setBio] = useState("");
-  const [buttonText, setButtonText] = useState("Update Profile Informations");
+  const [firmName, setFirmName] = useState("");
+  const [buttonText, setButtonText] = useState("Update Firm Informations");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [hasSubmitError, setHasSubmitError] = useState(false);
   const [isValidSubmit, setIsValidSubmit] = useState(false);
@@ -31,30 +28,17 @@ const ProfileBasicForm = (props) => {
   const [modalButtonDisabled, setModalButtonDisabled] = useState(false);
 
   useEffect(() => {
-    setFirstName(resourceDetails.first_name);
-    setLastName(resourceDetails.last_name);
-    setJobRole(resourceDetails.user_profile_role);
-    setBio(resourceDetails.profile_bio);
-    setFile(resourceDetails.profile_image_path);
-    setUploadedFile(resourceDetails.profile_image_path);
-  }, [resourceDetails]);
+    if (firmDetails) {
+      setFirmName(firmDetails.firm_name);
+      setFile(firmDetails.firm_logo);
+      setUploadedFile(firmDetails.firm_logo);
+    }
+  }, [firmDetails]);
 
-  useEffect(() => {}, [firstName, lastName]);
+  useEffect(() => {}, [firmName]);
 
-  const handleFirstNameChange = (e) => {
-    setFirstName(e.target.value);
-  };
-
-  const handleLastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
-
-  const handleJobRoleChange = (e) => {
-    setJobRole(e.target.value);
-  };
-
-  const handleBioChange = (e) => {
-    setBio(e.target.value);
+  const handleFirmNameChange = (e) => {
+    setFirmName(e.target.value);
   };
 
   const handleFormSubmit = () => {
@@ -73,53 +57,16 @@ const ProfileBasicForm = (props) => {
     let isInvalid = 0;
     let errMessage = [];
 
-    if (firstName !== null) {
-      if (firstName.trim().length === 0) {
-        isInvalid = 1;
-        errMessage.push("Enter first name");
-      }
-    } else {
+    if (firmName.trim().length === 0) {
       isInvalid = 1;
-      errMessage.push("Enter first name");
-    }
-
-    if (lastName !== null) {
-      if (lastName.trim().length === 0) {
-        isInvalid = 1;
-        errMessage.push("Enter last name");
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Enter last name");
-    }
-
-    if (jobRole !== null) {
-      if (jobRole.trim().length === 0) {
-        isInvalid = 1;
-        errMessage.push("Enter job role");
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Enter job role");
-    }
-
-    if (bio !== null) {
-      if (bio.length > 0) {
-        if (bio === "") {
-          isInvalid = 1;
-          errMessage.push("Enter your bio");
-        }
-      }
-    } else {
-      isInvalid = 1;
-      errMessage.push("Enter your bio");
+      errMessage.push("Enter firm name");
     }
 
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Update Profile Informations");
+      setButtonText("Update Firm Informations");
     } else {
       submitForm();
     }
@@ -130,15 +77,13 @@ const ProfileBasicForm = (props) => {
     let succMessage = [];
 
     let formData = {
-      userSlug: resourceSlug,
-      firstName: firstName,
-      lastName: lastName,
-      jobRole: jobRole,
-      bio: bio,
+      userSlug: userSlug,
+      firmName: firmName,
+      firmID: firmDetails.firm_id,
     };
 
     try {
-      updateProfileBasicInfo(formData).then(async (data) => {
+      updateFirmBasicInfo(formData).then(async (data) => {
         if (data?.data) {
           if (data.data.status === 1) {
             succMessage.push(data.data.message);
@@ -146,7 +91,7 @@ const ProfileBasicForm = (props) => {
             setIsValidSubmit(true);
             setHasSubmitError(false);
             setModalButtonDisabled(false);
-            setButtonText("Update Profile Informations");
+            setButtonText("Update Firm Informations");
 
             setTimeout(() => {
               setIsValidSubmit(false);
@@ -160,24 +105,24 @@ const ProfileBasicForm = (props) => {
             setErrorMessage(errMessage);
             setHasSubmitError(true);
             setIsButtonDisabled(false);
-            setButtonText("Update Profile Informations");
+            setButtonText("Update Firm Informations");
           } else {
             errMessage.push(
-              "Error happened. Unable to update profile information."
+              "Error happened. Unable to update firm information."
             );
             setErrorMessage(errMessage);
             setHasSubmitError(true);
             setIsButtonDisabled(false);
-            setButtonText("Update Profile Informations");
+            setButtonText("Update Firm Informations");
           }
         } else {
           errMessage.push(
-            "Error happened. Unable to update your profile information"
+            "Error happened. Unable to update your firm information"
           );
           setErrorMessage(errMessage);
           setHasSubmitError(true);
           setIsButtonDisabled(false);
-          setButtonText("Update Profile Informations");
+          setButtonText("Update Firm Informations");
         }
       });
     } catch (error) {
@@ -185,7 +130,7 @@ const ProfileBasicForm = (props) => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Update Profile Informations");
+      setButtonText("Update Firm Informations");
     }
   };
 
@@ -271,12 +216,13 @@ const ProfileBasicForm = (props) => {
     let errMessage = [];
 
     let formData = {
-      userSlug: resourceSlug,
+      userSlug: userSlug,
+      firmID: firmDetails.firm_id,
       file: selectedFilePath,
     };
 
     try {
-      userAvatarUpload(formData).then(async (data) => {
+      firmLogoUpload(formData).then(async (data) => {
         if (data?.data) {
           if (data.data.status === 1) {
             setShow(false);
@@ -285,8 +231,8 @@ const ProfileBasicForm = (props) => {
             setSelectedFilePath(false);
             setFileUploadError(false);
             setFileUploadErrorMessage(false);
-            setFile(data.data.profile_image_path);
-            setUploadedFile(data.data.profile_image_path);
+            setFile(data.data.firm_logo);
+            setUploadedFile(data.data.firm_logo);
             setModalButtonDisabled(false);
           } else if (data.data.status === 0) {
             setFileUploadError(true);
@@ -319,7 +265,7 @@ const ProfileBasicForm = (props) => {
       >
         <form name="image-upload-frm">
           <Modal.Header>
-            <Modal.Title>Change Profile Image</Modal.Title>
+            <Modal.Title>Change Firm Logo</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <div className="d-flex flex-column justify-content-center align-items-center">
@@ -331,7 +277,7 @@ const ProfileBasicForm = (props) => {
               </div>
               <div className="d-block mb-4 mt-2">
                 <Button variant="warning" size="sm" onClick={handleClick}>
-                  Upload Profile Image
+                  Upload Logo
                 </Button>
                 <input
                   type="file"
@@ -406,7 +352,7 @@ const ProfileBasicForm = (props) => {
                 </div>
                 <div className="d-block mb-4 mt-2">
                   <Button variant="primary" size="sm" onClick={handleShow}>
-                    Upload Profile Image
+                    Upload Logo
                   </Button>
                 </div>
               </div>
@@ -419,56 +365,8 @@ const ProfileBasicForm = (props) => {
                       className="form-control-custom-sm"
                       id="first-name"
                       placeholder="Enter first name"
-                      onChange={handleFirstNameChange}
-                      value={firstName}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Last Name" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control-custom-sm"
-                      id="last-name"
-                      placeholder="Enter last name"
-                      onChange={handleLastNameChange}
-                      value={lastName}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Job Role" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control-custom-sm"
-                      id="job-role"
-                      placeholder="Enter job role"
-                      onChange={handleJobRoleChange}
-                      value={jobRole}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Profile Bio" />
-                  <div className="d-block">
-                    <textarea
-                      type="textarea"
-                      className="form-control-textarea-custom"
-                      id="job-role"
-                      placeholder="Enter your bio"
-                      onChange={handleBioChange}
-                      value={bio}
+                      onChange={handleFirmNameChange}
+                      value={firmName}
                       autoComplete="off"
                     />
                   </div>
@@ -485,4 +383,4 @@ const ProfileBasicForm = (props) => {
   );
 };
 
-export default ProfileBasicForm;
+export default FirmBasicForm;
