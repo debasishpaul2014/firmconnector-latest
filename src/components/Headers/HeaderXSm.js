@@ -7,8 +7,8 @@ const HeaderXSm = (props) => {
     <div
       className={`header-holder ${borderBottom ? "border-bottom-light" : null}`}
     >
-      <div className="h6 fw-bold-custom">{title}</div>
-      <span>{subText}</span>
+      <p className="h5 fw-bold-custom">{title}</p>
+      <span className="text-muted-custom">{subText}</span>
     </div>
   );
 };

@@ -5,11 +5,16 @@ import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 import moment from "moment";
 import saveEducationDetails from "../../../apis/saveEducationDetails";
+import removeEducationDetails from "../../../apis/removeEducationDetails";
+
+import Swal from "sweetalert2";
+import swalWithBootstrapButtons from "sweetalert2-react-content";
 
 const ResourceEducationBlock = (props) => {
   const { education_details, resourceSlug } = props;
-  const [show, setShow] = useState(false);
+  const MySwal = swalWithBootstrapButtons(Swal);
 
+  const [show, setShow] = useState(false);
   const [educationArray, setEducationArray] = useState(false);
 
   const [degreeName, setDegreeName] = useState("");
@@ -26,8 +31,6 @@ const ResourceEducationBlock = (props) => {
 
   const statusRef = useRef(null);
   const executeScroll = () => statusRef.current.scrollIntoView();
-
-  useState(false);
 
   useEffect(() => {
     setEducationArray(education_details);
@@ -116,7 +119,6 @@ const ResourceEducationBlock = (props) => {
             setSuccessMessage(succMessage);
             setIsValidSubmit(true);
             setHasSubmitError(false);
-            // setIsButtonDisabled(false);
             setButtonText("Save Education Details");
             executeScroll();
             setTimeout(() => {
@@ -125,7 +127,7 @@ const ResourceEducationBlock = (props) => {
               setErrorMessage(false);
               setSuccessMessage(false);
               window.location.reload(false);
-            }, 2000);
+            }, 1000);
           } else if (data.data.status === 0) {
             executeScroll();
             errMessage.push(data.data.message);
@@ -223,7 +225,79 @@ const ResourceEducationBlock = (props) => {
     setShow(false);
     window.location.reload(false);
   };
+
   const handleShow = () => setShow(true);
+
+  const handleRemoveEducation = async (id) => {
+    MySwal.fire({
+      title: "Are you sure?",
+      text: "that you want to remove this education record",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, remove!",
+      cancelButtonText: "Cancel",
+      reverseButtons: true,
+      confirmButtonColor: "var(--danger)",
+      cancelButtonColor: "var(--black)",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        removeSelectedDetails(id);
+      } else {
+        await setIsButtonDisabled(false);
+      }
+    });
+  };
+
+  const removeSelectedDetails = (id) => {
+    let formData = {
+      resourceSlug: resourceSlug,
+      id: id,
+    };
+
+    try {
+      removeEducationDetails(formData).then(async (data) => {
+        if (data?.data) {
+          if (data.data.status === 1) {
+            setEducationArray(
+              educationArray.filter((item) => item.education_history_id !== id)
+            );
+          } else if (data.data.status === 0) {
+            await MySwal.fire({
+              title: <strong>Success</strong>,
+              html: <i>{data.data.message}</i>,
+              icon: "danger",
+            });
+
+            await setIsButtonDisabled(false);
+          } else {
+            await MySwal.fire({
+              title: <strong>Success</strong>,
+              html: <i>{data.data.status}</i>,
+              icon: "danger",
+            });
+
+            await setIsButtonDisabled(false);
+          }
+        } else {
+          await MySwal.fire({
+            title: <strong>Success</strong>,
+            html: <i>{data.data.message}</i>,
+            icon: "danger",
+          });
+
+          await setIsButtonDisabled(false);
+        }
+      });
+    } catch (error) {
+      MySwal.fire({
+        title: <strong>Success</strong>,
+        html: <i>Something wrong happened!</i>,
+        icon: "danger",
+      });
+
+      setIsButtonDisabled(false);
+    }
+  };
 
   const displayAddEducationButton = () => {
     return (
@@ -391,18 +465,40 @@ const ResourceEducationBlock = (props) => {
 
   const displayEducationBlock = (education, key) => {
     return (
-      <div key={key} className="col-12 mb-3">
+      <div
+        data-id={education.education_history_id}
+        key={key}
+        className="col-12 mb-3"
+      >
         <div className="card-custom bg-white border-dark">
           <div className="card-body">
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">{displayDegreeName(education)}</div>
-            </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">{displaySchoolName(education)}</div>
-            </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayPassedOn(education.passed_on)}
+              <div className="col-12 col-md-8 col-lg-8 col-xl-8">
+                <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+                  <div className="col-12">{displayDegreeName(education)}</div>
+                </div>
+                <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+                  <div className="col-12">{displaySchoolName(education)}</div>
+                </div>
+                <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+                  <div className="col-12">
+                    {displayPassedOn(education.passed_on)}
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-4 col-lg-4 col-xl-4">
+                <div className="d-flex justify-content-end">
+                  <Button
+                    variant="danger"
+                    disabled={isButtonDisabled}
+                    onClick={() =>
+                      handleRemoveEducation(education.education_history_id)
+                    }
+                    size="sm"
+                  >
+                    Remove
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
