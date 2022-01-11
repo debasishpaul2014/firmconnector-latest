@@ -20,6 +20,7 @@ const RESOURCE_MANAGER_DETAILS_ROUTE = `${API_BASE}get-resource-manager-details`
 const FIRM_OWNER_DETAILS_ROUTE = `${API_BASE}get-firm-owner-details`;
 const FIRM_LOGO_UPLOAD = `${API_BASE}firm-logo-upload`;
 const UPDATE_FIRM_BASIC_INFO = `${API_BASE}update-firm-basic-info`;
+const SAVE_EDUCATION_DETAILS = `${API_BASE}save-education-details`;
 
 export {
   LOGIN_ROUTE,
@@ -42,4 +43,5 @@ export {
   FIRM_OWNER_DETAILS_ROUTE,
   FIRM_LOGO_UPLOAD,
   UPDATE_FIRM_BASIC_INFO,
+  SAVE_EDUCATION_DETAILS,
 };

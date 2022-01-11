@@ -358,3 +358,7 @@ a{
 .p-wrap{
    white-space: pre-line;
 }
+
+.border-dark{
+   border: 0.1rem solid var(--black)
+}

@@ -36,7 +36,7 @@ const EditResourceComponent = (props) => {
           console.log(err);
         });
     }
-  }, [user_slug]);
+  }, [user_slug, resourceSlug]);
 
   const displayMainContent = () => {
     if (isLoading === true) {
