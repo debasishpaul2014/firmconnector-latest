@@ -4,6 +4,7 @@ import ProfileContactForm from "./ProfileContactForm";
 import ResourceSkillForm from "./ResourceSkillForm";
 import ResourceDocumentForm from "./ResourceDocumentForm";
 import ResourceEducationBlock from "./ResourceEducationBlock";
+import ResourceEmploymentBlock from "./ResourceEmploymentBlock";
 
 const EditResourceFormBlock = (props) => {
   const { resourceDetails, resourceSlug } = props;
@@ -29,9 +30,15 @@ const EditResourceFormBlock = (props) => {
             resourceSlug={resourceSlug}
           />
         </div>
-        <div className="d-block row d-lg-flex d-xl-flex">
+        <div className="d-block row d-lg-flex d-xl-flex mb-4">
           <ResourceEducationBlock
             education_details={resourceDetails.education_details}
+            resourceSlug={resourceSlug}
+          />
+        </div>
+        <div className="d-block row d-lg-flex d-xl-flex">
+          <ResourceEmploymentBlock
+            employment_details={resourceDetails.employment_details}
             resourceSlug={resourceSlug}
           />
         </div>

@@ -20,7 +20,7 @@ const ResourceEducationBlock = (props) => {
   const [degreeName, setDegreeName] = useState("");
   const [subject, setSubject] = useState("");
   const [schoolName, setSchoolName] = useState("");
-  const [passedOn, setPassedOn] = useState(new Date());
+  const [passedOn, setPassedOn] = useState("");
 
   const [buttonText, setButtonText] = useState("Save Education Details");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -93,7 +93,7 @@ const ResourceEducationBlock = (props) => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Update Contact Details");
+      setButtonText("Save Education Details");
     } else {
       submitForm();
     }
@@ -311,26 +311,32 @@ const ResourceEducationBlock = (props) => {
 
   const showModal = () => {
     return (
-      <Modal show={show} onHide={() => handleClose()} scrollable={true}>
+      <Modal
+        show={show}
+        onHide={() => handleClose()}
+        scrollable={true}
+        backdrop="static"
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header>
-          <Modal.Title>Add your education details</Modal.Title>
+          <div className="d-block">
+            <div className="d-block">
+              <span className="h5 fw-bold-custom">
+                Add your education details
+              </span>
+            </div>
+            <div className="d-block">
+              <span>Please fill the form to save your education details</span>
+            </div>
+          </div>
         </Modal.Header>
         <Modal.Body>
-          <p>Please fill the form to save your education details</p>
           <form id="create-frm">
             <div className="d-block mb-4">
-              <div className="d-block">
-                <HeaderXSm
-                  title={"Contact Informations"}
-                  subText={
-                    "These informations will be used to display on profile"
-                  }
-                  borderBottom={true}
-                />
-              </div>
-
-              <div className="d-block">
-                <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+                <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Degree Name" />
                     <div className="d-block">
@@ -346,9 +352,7 @@ const ResourceEducationBlock = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="d-block">
-                <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+                <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Subject" />
                     <div className="d-block">
@@ -365,8 +369,8 @@ const ResourceEducationBlock = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="d-block">
-                <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+                <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Institute Name" />
                     <div className="d-block">
@@ -384,10 +388,7 @@ const ResourceEducationBlock = (props) => {
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div className="d-block">
-                <div className="col-12 col-md-12 col-lg-12 col-xlg-12">
+                <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Passed On" />
                     <div className="d-block">
@@ -410,7 +411,11 @@ const ResourceEducationBlock = (props) => {
                 </div>
               </div>
             </div>
-            {displaySubmitButton()}
+            <div className="d-flex justify-content-end">
+              {displayCloseButton()}
+              {displaySubmitButton()}
+            </div>
+
             <div className="d-block" ref={statusRef}>
               {displayStatusMessage()}
             </div>
@@ -422,7 +427,7 @@ const ResourceEducationBlock = (props) => {
 
   const displaySubmitButton = () => {
     return (
-      <div className="d-flex justify-content-end">
+      <div className="d-block">
         <Button
           variant="primary"
           disabled={isButtonDisabled}
@@ -433,6 +438,34 @@ const ResourceEducationBlock = (props) => {
         </Button>
       </div>
     );
+  };
+
+  const displayCloseButton = () => {
+    return (
+      <div className="d-block me-3">
+        <Button
+          variant="dark"
+          disabled={isButtonDisabled}
+          onClick={() => closeAddModal()}
+          size="sm"
+        >
+          Close
+        </Button>
+      </div>
+    );
+  };
+
+  const closeAddModal = () => {
+    setShow(false);
+    setDegreeName("");
+    setSubject("");
+    setSchoolName("");
+    setPassedOn(false);
+
+    setHasSubmitError(false);
+    setIsValidSubmit(false);
+    setErrorMessage(false);
+    setSuccessMessage(false);
   };
 
   const displayStatusMessage = () => {
@@ -470,35 +503,33 @@ const ResourceEducationBlock = (props) => {
         key={key}
         className="col-12 mb-3"
       >
-        <div className="card-custom bg-white border-dark">
-          <div className="card-body">
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12 col-md-8 col-lg-8 col-xl-8">
-                <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                  <div className="col-12">{displayDegreeName(education)}</div>
-                </div>
-                <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                  <div className="col-12">{displaySchoolName(education)}</div>
-                </div>
-                <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                  <div className="col-12">
-                    {displayPassedOn(education.passed_on)}
-                  </div>
+        <div key={key} className="col-12 p-3 border-bottom-light">
+          <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+            <div className="col-12 col-md-8 col-lg-8 col-xl-8">
+              <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+                <div className="col-12">{displayDegreeName(education)}</div>
+              </div>
+              <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+                <div className="col-12">{displaySchoolName(education)}</div>
+              </div>
+              <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+                <div className="col-12">
+                  {displayPassedOn(education.passed_on)}
                 </div>
               </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xl-4">
-                <div className="d-flex justify-content-end">
-                  <Button
-                    variant="danger"
-                    disabled={isButtonDisabled}
-                    onClick={() =>
-                      handleRemoveEducation(education.education_history_id)
-                    }
-                    size="sm"
-                  >
-                    Remove
-                  </Button>
-                </div>
+            </div>
+            <div className="col-12 col-md-4 col-lg-4 col-xl-4">
+              <div className="d-flex justify-content-end">
+                <Button
+                  variant="danger"
+                  disabled={isButtonDisabled}
+                  onClick={() =>
+                    handleRemoveEducation(education.education_history_id)
+                  }
+                  size="sm"
+                >
+                  Remove
+                </Button>
               </div>
             </div>
           </div>

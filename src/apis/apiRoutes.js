@@ -22,6 +22,7 @@ const FIRM_LOGO_UPLOAD = `${API_BASE}firm-logo-upload`;
 const UPDATE_FIRM_BASIC_INFO = `${API_BASE}update-firm-basic-info`;
 const SAVE_EDUCATION_DETAILS = `${API_BASE}save-education-details`;
 const REMOVE_EDUCATION_DETAILS = `${API_BASE}remove-education-details`;
+const SAVE_EMPLOYMENT_DETAILS = `${API_BASE}save-employment-details`;
 
 export {
   LOGIN_ROUTE,
@@ -46,4 +47,5 @@ export {
   UPDATE_FIRM_BASIC_INFO,
   SAVE_EDUCATION_DETAILS,
   REMOVE_EDUCATION_DETAILS,
+  SAVE_EMPLOYMENT_DETAILS,
 };
