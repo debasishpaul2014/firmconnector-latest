@@ -5,11 +5,11 @@ import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 import moment from "moment";
 import saveEmploymentDetails from "../../../apis/saveEmploymentDetails";
-import removeEducationDetails from "../../../apis/removeEducationDetails";
+import removeEmploymentDetails from "../../../apis/removeEmploymentDetails";
 
 import Swal from "sweetalert2";
 import swalWithBootstrapButtons from "sweetalert2-react-content";
-import { BadgeInfo, BadgeSuccess } from "../../Badge/Badge";
+import { BadgeInfo } from "../../Badge/Badge";
 
 const ResourceEmploymentBlock = (props) => {
   const { employment_details, resourceSlug } = props;
@@ -251,7 +251,7 @@ const ResourceEmploymentBlock = (props) => {
 
   const handleShow = () => setShow(true);
 
-  const handleRemoveEducation = async (id) => {
+  const handleRemoveEmployment = async (id) => {
     MySwal.fire({
       title: "Are you sure?",
       text: "that you want to remove this employment record",
@@ -278,11 +278,13 @@ const ResourceEmploymentBlock = (props) => {
     };
 
     try {
-      removeEducationDetails(formData).then(async (data) => {
+      removeEmploymentDetails(formData).then(async (data) => {
         if (data?.data) {
           if (data.data.status === 1) {
             setEmploymentArray(
-              employmentArray.filter((item) => item.education_history_id !== id)
+              employmentArray.filter(
+                (item) => item.employment_history_id !== id
+              )
             );
           } else if (data.data.status === 0) {
             await MySwal.fire({
@@ -663,37 +665,57 @@ const ResourceEmploymentBlock = (props) => {
     return (
       <div key={key} className="col-12 p-3 border-bottom-light">
         <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-          <div className="col-12">{displayJobTitle(employment.job_title)}</div>
-        </div>
-        <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-          <div className="col-12">
-            {displayEmployerName(employment.employer_name)}
-          </div>
-        </div>
+          <div className="col-12 col-md-8 col-lg-8 col-xl-8">
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+              <div className="col-12">
+                {displayJobTitle(employment.job_title)}
+              </div>
+            </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+              <div className="col-12">
+                {displayEmployerName(employment.employer_name)}
+              </div>
+            </div>
 
-        <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
-          <div className="col-12">
-            {displayLocation(
-              employment.city,
-              employment.province,
-              employment.country_code
-            )}
-          </div>
-        </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+              <div className="col-12">
+                {displayLocation(
+                  employment.city,
+                  employment.province,
+                  employment.country_code
+                )}
+              </div>
+            </div>
 
-        <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-2">
-          <div className="col-12">
-            {displayDiscription(employment.description)}
-          </div>
-        </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-2">
+              <div className="col-12">
+                {displayDiscription(employment.description)}
+              </div>
+            </div>
 
-        <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-          <div className="col-12">
-            {displayWorkYear(
-              employment.start_date,
-              employment.end_date,
-              employment.is_current
-            )}
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+              <div className="col-12">
+                {displayWorkYear(
+                  employment.start_date,
+                  employment.end_date,
+                  employment.is_current
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-4 col-lg-4 col-xl-4">
+            <div className="d-flex justify-content-end">
+              <Button
+                variant="danger"
+                disabled={isButtonDisabled}
+                onClick={() =>
+                  handleRemoveEmployment(employment.employment_history_id)
+                }
+                size="sm"
+              >
+                Remove
+              </Button>
+            </div>
           </div>
         </div>
       </div>
