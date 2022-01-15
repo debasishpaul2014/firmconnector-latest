@@ -28,7 +28,7 @@ const BadgeInfo = (props) => {
 
   return (
     <div className="badge-custom bg-info-custom w-auto d-inline-block justify-content-center align-items-center">
-      <span className="text-x-sm-custom text-white">{title}</span>
+      <span className="text-x-sm-custom text-badge-info-custom">{title}</span>
     </div>
   );
 };

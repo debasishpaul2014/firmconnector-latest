@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
-import ButtonSm from "../../Buttons/ButtonSm";
+import { Button, Modal } from "react-bootstrap";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 
 const SkillSet = (props) => {
   const { skillDetails } = props;
   const [isLoading, setIsLoading] = useState(true);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   useEffect(() => {
     setIsLoading(false);
@@ -23,27 +27,72 @@ const SkillSet = (props) => {
       return (
         <div>
           <div className="skill-holder flex-column mb-3">
-            {skillDetails.map((item) => {
-              return (
-                <div className="skill-wrapper" key={item.skill_id.toString()}>
-                  <small className="text-dark fw-medium-custom">
-                    {item.skill_name}
-                  </small>
-                </div>
-              );
+            {skillDetails.map((item, key) => {
+              return displaySkillItem(item, key);
             })}
           </div>
           {skillDetails.length > 7 ? (
             <div className="d-flex justify-content-end">
-              <ButtonSm
-                className="btn-primary-custom"
-                role="button"
-                title="View All Skills"
-                type="button"
-                to={"#"}
-              />
+              <Button variant="primary" size="sm" onClick={() => handleShow()}>
+                View All Skills
+              </Button>
             </div>
           ) : null}
+
+          {displaySkillModalContent()}
+        </div>
+      );
+    } else {
+      return <span className="text-muted">Nothing to display here!</span>;
+    }
+  };
+
+  const displaySkillItem = (item, key) => {
+    if (key <= 5) {
+      return (
+        <div className="skill-wrapper my-1" key={item.skill_id.toString()}>
+          <span>{item.skill_name}</span>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  const displaySkillModalContent = () => {
+    return (
+      <Modal show={show} onHide={handleClose} centered>
+        <Modal.Header>
+          <div className="d-block">
+            <span className="text-sm-custom text-dark-custom fw-bold-custom">
+              My Skills
+            </span>
+          </div>
+        </Modal.Header>
+        <Modal.Body>{displayAllSkills()}</Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleClose} size="sm">
+            Close Skill
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  };
+
+  const displayAllSkills = () => {
+    if (skillDetails !== null && skillDetails) {
+      return (
+        <div className="d-flex flex-wrap">
+          {skillDetails.map((item, key) => {
+            return (
+              <div
+                className="skill-wrapper my-1 me-2"
+                key={item.skill_id.toString()}
+              >
+                <span>{item.skill_name}</span>
+              </div>
+            );
+          })}
         </div>
       );
     } else {

@@ -90,7 +90,7 @@
     word-wrap: break-word;
     background-clip: border-box;
     background-color: var(--white);
-    border-radius: .5rem;
+    border-radius: .3rem;
     display: flex;
     flex-direction: column;
     min-width: 0;

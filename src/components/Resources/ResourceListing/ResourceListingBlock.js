@@ -1,4 +1,4 @@
-import HeaderLg from "../../Headers/HeaderLg";
+import BlockHeader from "../../Headers/BlockHeader";
 import ResourceListingResultBlock from "./ResourceListingResultBlock";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -11,12 +11,11 @@ const ResourceListingBlock = () => {
   return (
     <>
       <div className="d-block mb-3">
-        <HeaderLg
+        <BlockHeader
           title={"My Resources"}
           subText={
             "The resource listing showing results on which you have access"
           }
-          borderBottom={true}
         />
 
         {user_primary_role === "2" ? (

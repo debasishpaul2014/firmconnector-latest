@@ -82,12 +82,14 @@
 }
 
 .skill-wrapper{
-    padding: 0rem 1rem;
-    background-color: var(--success-light);
+    padding: 0.15rem 1.2rem;
+    background-color: var(--success-dark);
     align-self: flex-start;
     border-radius: 1rem;
-    margin-bottom: 0.3rem;
-    border: 0.01rem solid var(--success-dark);
+}
+
+.skill-wrapper > span{
+    color: var(--white);
 }
 
 .profile-tab-container{

@@ -76,32 +76,33 @@ const ResourceListingResultBlock = () => {
             <div key={index.toString()} className="d-block mb-3">
               <div className="card-custom bg-white shadow-sm">
                 <div className="card-body">
-                  <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                    <div className="col-12 col-md-2 col-lg-1 col-xl-1">
+                  <div className="d-block d-md-flex d-lg-flex d-xl-flex d-xxl-flex row align-items-center">
+                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <Link to={"resources/details/" + item.user_slug}>
                         <ProfileImageMd imgSrc={item.profile_image_path} />
                       </Link>
                     </div>
-                    <div className="col-12 col-md-4 col-lg-2 col-xl-2">
+                    <div className="col-12 col-lg-3 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <Link to={"resources/details/" + item.user_slug}>
                           {displayName(item.resource_name)}
                         </Link>
                       </div>
-                    </div>
-                    <div className="col-12 col-md-2 col-lg-2 col-xl-2 my-3 my-md-0 my-lg-0 my-xl-0">
-                      <div className="d-block">
+                      <div className="d-block mt-2">
                         {displayUserProfileRole(item.user_profile_role)}
                       </div>
                     </div>
-                    <div className="col-12 col-md-3 col-lg-3 col-xl-3 my-3 my-md-0 my-lg-0 my-xl-0">
+                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-dark-custom">
+                        <span className="text-md-custom text-info-custom fw-bold-custom">
+                          @
+                        </span>{" "}
+                        <span className="text-muted-custom text-sm-custom">
                           {item.user_email}
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-md-4 col-lg-4 col-xl-4 my-3 my-md-0 my-lg-0 my-xl-0 d-flex justify-content-lg-end justify-content-xlg-end">
+                    <div className="col-12 col-lg-4 col-xl-3 col-xxl-3 d-flex justify-content-end justify-content-lg-end justify-content-xlg-end">
                       <Link to={"resources/details/" + item.user_slug}>
                         <Button variant="warning" size="sm" className="me-2">
                           View Profile
@@ -127,8 +128,8 @@ const ResourceListingResultBlock = () => {
 
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      if (user_profile_role.length > 15) {
-        let formattedString = user_profile_role.substring(0, 14) + "...";
+      if (user_profile_role.length > 25) {
+        let formattedString = user_profile_role.substring(0, 24) + "...";
         return <BadgeSuccess title={formattedString} alt={user_profile_role} />;
       } else {
         return (
@@ -142,7 +143,11 @@ const ResourceListingResultBlock = () => {
 
   const displayName = (name) => {
     if (name !== null) {
-      return <span className="text-dark-custom fw-bold">{name}</span>;
+      return (
+        <span className="text-dark-custom fw-bold-custom text-sm-custom">
+          {name}
+        </span>
+      );
     } else {
       return <BadgeInfo title={"Not available"} />;
     }

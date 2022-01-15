@@ -328,7 +328,9 @@ const ResourceEducationBlock = (props) => {
               </span>
             </div>
             <div className="d-block">
-              <span>Please fill the form to save your education details</span>
+              <span className="text-muted-custom text-sm-custom">
+                Please fill the form to save your education details
+              </span>
             </div>
           </div>
         </Modal.Header>
