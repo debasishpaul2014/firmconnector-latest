@@ -503,34 +503,30 @@ const ResourceEducationBlock = (props) => {
         key={key}
         className="col-12 mb-3"
       >
-        <div key={key} className="col-12 p-3 border-bottom-light">
-          <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-            <div className="col-12 col-md-8 col-lg-8 col-xl-8">
-              <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                <div className="col-12">{displayDegreeName(education)}</div>
-              </div>
-              <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                <div className="col-12">{displaySchoolName(education)}</div>
-              </div>
-              <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-                <div className="col-12">
-                  {displayPassedOn(education.passed_on)}
-                </div>
-              </div>
+        <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center border-bottom-light mb-3">
+          <div className="col-12 col-md-10 col-lg-10 col-xl-10 mb-3">
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+              {displayDegreeName(education)}
             </div>
-            <div className="col-12 col-md-4 col-lg-4 col-xl-4">
-              <div className="d-flex justify-content-end">
-                <Button
-                  variant="danger"
-                  disabled={isButtonDisabled}
-                  onClick={() =>
-                    handleRemoveEducation(education.education_history_id)
-                  }
-                  size="sm"
-                >
-                  Remove
-                </Button>
-              </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+              {displaySchoolName(education)}
+            </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+              {displayPassedOn(education.passed_on)}
+            </div>
+          </div>
+          <div className="col-12 col-md-2 col-lg-2 col-xl-2 mb-3">
+            <div className="d-flex justify-content-md-end justify-content-lg-end justify-content-xl-end justify-content-xxl-end justify-content-sm-start">
+              <Button
+                variant="danger"
+                disabled={isButtonDisabled}
+                onClick={() =>
+                  handleRemoveEducation(education.education_history_id)
+                }
+                size="sm"
+              >
+                Remove
+              </Button>
             </div>
           </div>
         </div>

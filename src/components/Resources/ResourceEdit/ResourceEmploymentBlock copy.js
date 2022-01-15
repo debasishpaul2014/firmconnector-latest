@@ -6,26 +6,14 @@ import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
 
 import updateProfileContactInfo from "../../../apis/updateProfileContactInfo";
-import getAllState from "../../../apis/getAllState";
-import getAllCity from "../../../apis/getAllCity";
 
-const ProfileContactForm = (props) => {
+const ResourceAddressBlock = (props) => {
   const { resourceDetails, resourceSlug } = props;
 
   const [contactEmail, setContactEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [officePhone, setOfficePhone] = useState("");
-
-  const [userStreetAddress, setUserStreetAddress] = useState("");
-  const [userAddressCityId, setUserAddressCityId] = useState(false);
-  const [userAddressProvienceId, setUserAddressProvienceId] = useState(false);
-  const [userAddressCountryId, setUserAddressCountryId] = useState(false);
-
-  const [countryList, setCountryList] = useState(false);
-  const [stateList, setStateList] = useState(false);
-  const [cityList, setCityList] = useState(false);
-
-  const [buttonText, setButtonText] = useState("Update Contact Details");
+  const [buttonText, setButtonText] = useState("Update Address Details");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [hasSubmitError, setHasSubmitError] = useState(false);
   const [isValidSubmit, setIsValidSubmit] = useState(false);
@@ -36,29 +24,9 @@ const ProfileContactForm = (props) => {
     setContactEmail(resourceDetails.contact_email);
     setPhone(resourceDetails.user_phone);
     setOfficePhone(resourceDetails.user_office_phone);
-
-    setUserStreetAddress(resourceDetails.user_street_address);
-    setUserAddressCityId(resourceDetails.user_address_city_id);
-    setUserAddressProvienceId(resourceDetails.user_address_provience_id);
-    setUserAddressCountryId(resourceDetails.user_address_country_id);
-
-    setCountryList(resourceDetails.country_list);
-    setStateList(resourceDetails.state_list);
-    setCityList(resourceDetails.city_list);
   }, [resourceDetails]);
 
-  useEffect(() => {}, [
-    contactEmail,
-    phone,
-    officePhone,
-    countryList,
-    stateList,
-    cityList,
-    userStreetAddress,
-    userAddressCityId,
-    userAddressCountryId,
-    userAddressProvienceId,
-  ]);
+  useEffect(() => {}, [contactEmail, phone, officePhone]);
 
   const handleContactEmailChange = (e) => {
     setContactEmail(e.target.value);
@@ -71,67 +39,6 @@ const ProfileContactForm = (props) => {
   const handleOfficePhoneChange = (e) => {
     setOfficePhone(e.target.value);
   };
-
-  //////////////////////////////////////////////
-  const handleStreetAddressChange = (e) => {
-    setUserStreetAddress(e.target.value);
-  };
-
-  const handleCityChange = (e) => {
-    setUserAddressCityId(e.target.value);
-  };
-
-  const handleProvienceChange = (e) => {
-    setUserAddressProvienceId(e.target.value);
-    getCityList(e.target.value);
-  };
-
-  const handleCountryChange = (e) => {
-    setUserAddressCountryId(e.target.value);
-    getStateList(e.target.value);
-  };
-
-  const getStateList = (id) => {
-    setStateList(false);
-    setCityList(false);
-
-    let formData = {
-      countryID: id,
-    };
-
-    try {
-      getAllState(formData).then(async (data) => {
-        if (data?.data) {
-          if (data.data.status === 1) {
-            setStateList(data.data.list);
-          }
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getCityList = (id) => {
-    setCityList(false);
-
-    let formData = {
-      stateID: id,
-    };
-
-    try {
-      getAllCity(formData).then(async (data) => {
-        if (data?.data) {
-          if (data.data.status === 1) {
-            setCityList(data.data.list);
-          }
-        }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  //////////////////////////////////////////////////
 
   const handleFormSubmit = () => {
     //disable signup button
@@ -168,31 +75,11 @@ const ProfileContactForm = (props) => {
       }
     }
 
-    if (userStreetAddress.trim().length === 0) {
-      isInvalid = 1;
-      errMessage.push("Enter a valid street address");
-    }
-
-    if (userAddressCountryId === "0") {
-      isInvalid = 1;
-      errMessage.push("Select your country");
-    }
-
-    if (userAddressProvienceId === "0") {
-      isInvalid = 1;
-      errMessage.push("Select your provience");
-    }
-
-    if (userAddressCityId === "0") {
-      isInvalid = 1;
-      errMessage.push("Select your city");
-    }
-
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Update Contact Details");
+      setButtonText("Update Address Details");
     } else {
       submitForm();
     }
@@ -207,10 +94,6 @@ const ProfileContactForm = (props) => {
       contactEmail: contactEmail,
       phone: phone,
       officePhone: officePhone,
-      city: userAddressCityId,
-      state: userAddressProvienceId,
-      country: userAddressCountryId,
-      streetAddress: userStreetAddress,
     };
 
     try {
@@ -222,7 +105,7 @@ const ProfileContactForm = (props) => {
             setIsValidSubmit(true);
             setHasSubmitError(false);
             setIsButtonDisabled(false);
-            setButtonText("Update Contact Details");
+            setButtonText("Update Address Details");
 
             setTimeout(() => {
               setIsValidSubmit(false);
@@ -235,24 +118,24 @@ const ProfileContactForm = (props) => {
             setErrorMessage(errMessage);
             setHasSubmitError(true);
             setIsButtonDisabled(false);
-            setButtonText("Update Contact Details");
+            setButtonText("Update Address Details");
           } else {
             errMessage.push(
-              "Error happened. Unable to update contact information."
+              "Error happened. Unable to update address information."
             );
             setErrorMessage(errMessage);
             setHasSubmitError(true);
             setIsButtonDisabled(false);
-            setButtonText("Update Contact Details");
+            setButtonText("Update Address Details");
           }
         } else {
           errMessage.push(
-            "Error happened. Unable to update your contact information"
+            "Error happened. Unable to update your address information"
           );
           setErrorMessage(errMessage);
           setHasSubmitError(true);
           setIsButtonDisabled(false);
-          setButtonText("Update Contact Details");
+          setButtonText("Update Address Details");
         }
       });
     } catch (error) {
@@ -260,7 +143,7 @@ const ProfileContactForm = (props) => {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
       setIsButtonDisabled(false);
-      setButtonText("Update Contact Details");
+      setButtonText("Update Address Details");
     }
   };
 
@@ -314,7 +197,7 @@ const ProfileContactForm = (props) => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Contact Informations"}
+                title={"Address Informations"}
                 subText={
                   "These informations will be used to display on profile"
                 }
@@ -371,88 +254,6 @@ const ProfileContactForm = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="col-12">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Street address" />
-                  <div className="d-block">
-                    <input
-                      type="text"
-                      className="form-control-custom-sm"
-                      id="street-address"
-                      placeholder="Enter your street address"
-                      onChange={handleStreetAddressChange}
-                      value={userStreetAddress}
-                      autoComplete="off"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Select Country" />
-                  <div className="d-block">
-                    <select
-                      class="form-control-custom-sm"
-                      aria-label="Country"
-                      onChange={handleCountryChange}
-                      value={userAddressCountryId}
-                    >
-                      <option value="">Select country</option>
-                      {countryList ? (
-                        <>
-                          {countryList.map(function (item) {
-                            return <option value={item.id}>{item.name}</option>;
-                          })}
-                        </>
-                      ) : null}
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Select Provience/State" />
-                  <div className="d-block">
-                    <select
-                      class="form-control-custom-sm"
-                      aria-label="State"
-                      onChange={handleProvienceChange}
-                      value={userAddressProvienceId}
-                    >
-                      <option value="">Select provience</option>
-                      {stateList ? (
-                        <>
-                          {stateList.map(function (item) {
-                            return <option value={item.id}>{item.name}</option>;
-                          })}
-                        </>
-                      ) : null}
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
-                <div className="form-input-holder">
-                  <InputLebelComponent title="Select City" />
-                  <div className="d-block">
-                    <select
-                      class="form-control-custom-sm"
-                      aria-label="City"
-                      onChange={handleCityChange}
-                      value={userAddressCityId}
-                    >
-                      <option value="">Select city</option>
-                      {cityList ? (
-                        <>
-                          {cityList.map(function (item) {
-                            return <option value={item.id}>{item.name}</option>;
-                          })}
-                        </>
-                      ) : null}
-                    </select>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
           {displaySubmitButton()}
@@ -463,4 +264,4 @@ const ProfileContactForm = (props) => {
   );
 };
 
-export default ProfileContactForm;
+export default ResourceAddressBlock;

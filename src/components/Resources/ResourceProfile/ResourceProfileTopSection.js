@@ -14,6 +14,7 @@ const ResourceProfileTopSection = (props) => {
       <ProfileBrief
         displayView={displayView}
         profileDetails={resourceDetails.profile_details}
+        contactDetails={resourceDetails.contact_details}
       />
       <GeneralInfo
         displayView={displayView}

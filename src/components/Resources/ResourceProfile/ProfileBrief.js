@@ -4,12 +4,12 @@ import user from "../../../assets/images/user.png";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 
 const ProfileBrief = (props) => {
-  const { displayView, profileDetails } = props;
+  const { displayView, profileDetails, contactDetails } = props;
   const [isProfileLoading, setIsProfileLoading] = useState(true);
 
   useEffect(() => {
     setIsProfileLoading(false);
-  }, [profileDetails]);
+  }, [profileDetails, contactDetails]);
 
   const displayProfileName = () => {
     if (
@@ -30,6 +30,27 @@ const ProfileBrief = (props) => {
       return profileDetails.user_profile_role;
     } else {
       return <span className="text-muted">Profile role not available!</span>;
+    }
+  };
+
+  const displayLocation = () => {
+    if (
+      contactDetails.user_address_city_id > 0 &&
+      contactDetails.user_address_provience_id > 0 &&
+      contactDetails.user_address_country_id > 0
+    ) {
+      return (
+        <span className="fw-bold-custom text-sm-custom">
+          {contactDetails.city_name}, {contactDetails.state_name},{" "}
+          {contactDetails.country_name}
+        </span>
+      );
+    } else {
+      return (
+        <span className="fw-bold-custom text-sm-custom text-muted-custom">
+          Location not available!
+        </span>
+      );
     }
   };
 
@@ -62,9 +83,7 @@ const ProfileBrief = (props) => {
 
             <div className="role-lg-holder">
               {displayView === "default" ? (
-                <span className="text-muted-custom">
-                  {displayProfileRole()}
-                </span>
+                <span className="text-dark-custom">{displayProfileRole()}</span>
               ) : (
                 <span className="h5 fw-bold-custom">
                   {displayProfileRole()}
@@ -72,9 +91,7 @@ const ProfileBrief = (props) => {
               )}
             </div>
 
-            <div className="address-lg-holder">
-              <span className="fw-bold">Kolkata, WB, India</span>
-            </div>
+            <div className="address-lg-holder">{displayLocation()}</div>
           </div>
         </div>
       );

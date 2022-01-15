@@ -28,10 +28,14 @@ const Education = (props) => {
 
   const degreeName = (education) => {
     return (
-      <span className="text-dark-custom text-md-custom fw-bold">
-        {education.degree_name !== null
-          ? education.degree_name
-          : "Not available"}{" "}
+      <span className="text-dark-custom text-sm-custom fw-medium-custom">
+        {education.degree_name !== null ? (
+          <span className="text-success-custom text-md-custom">
+            {education.degree_name}
+          </span>
+        ) : (
+          "Not available"
+        )}{" "}
         in {education.subject !== null ? education.subject : "Not available"}
       </span>
     );
@@ -40,13 +44,13 @@ const Education = (props) => {
   const displaySchoolName = (education) => {
     if (education.school_name !== "" && education.school_name !== null) {
       return (
-        <span className="text-muted-custom text-x-sm-custom">
+        <span className="text-info-custom text-x-sm-custom fw-medium-custom">
           {education.school_name}
         </span>
       );
     } else {
       return (
-        <span className="text-danger-custom text-x-sm-custom">
+        <span className="text-muted-custom text-x-sm-custom fw-medium-custom">
           Institute name not available
         </span>
       );
@@ -56,7 +60,7 @@ const Education = (props) => {
   const displayPassedOn = (passedOn) => {
     if (passedOn !== "" && passedOn !== null) {
       return (
-        <span className="text-muted-custom text-x-sm-custom">
+        <span className="text-dark-custom text-x-x-sm-custom fw-medium-custom">
           Passed on {passedOn}
         </span>
       );
@@ -66,18 +70,16 @@ const Education = (props) => {
   const displayEducationBlock = (education, key) => {
     return (
       <div key={key} className="col-12 mb-3">
-        <div className="card-custom bg-white shadow-sm">
+        <div className="card bg-white shadow-sm">
           <div className="card-body">
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">{degreeName(education)}</div>
+              {degreeName(education)}
             </div>
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">{displaySchoolName(education)}</div>
+              {displaySchoolName(education)}
             </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayPassedOn(education.passed_on)}
-              </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center mt-2">
+              {displayPassedOn(education.passed_on)}
             </div>
           </div>
         </div>

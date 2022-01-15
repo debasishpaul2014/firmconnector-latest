@@ -19,7 +19,7 @@ const About = (props) => {
   };
 
   return (
-    <div className="d-block">
+    <div className="d-block p-3 bg-white">
       <span className="p-wrap">{displayProfileBio()}</span>
     </div>
   );

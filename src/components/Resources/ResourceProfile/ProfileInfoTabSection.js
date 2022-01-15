@@ -30,7 +30,7 @@ const ProfileInfoTabSection = (props) => {
   return (
     <div className="col-12 col-xl-9 col-xxl-9 mb-3 profile-tab-section">
       <div className="card-custom h-100 shadow">
-        <div className="card-body">
+        <div className="card-body bg-light">
           <div className="profile-tab-container px-3">
             <div
               className={`shadow-sm cursor-pointer my-2 mx-2 ${

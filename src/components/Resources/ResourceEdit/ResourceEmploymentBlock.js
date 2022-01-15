@@ -663,59 +663,47 @@ const ResourceEmploymentBlock = (props) => {
 
   const displayEmploymentBlock = (employment, key) => {
     return (
-      <div key={key} className="col-12 p-3 border-bottom-light">
-        <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-          <div className="col-12 col-md-8 col-lg-8 col-xl-8">
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayJobTitle(employment.job_title)}
-              </div>
-            </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayEmployerName(employment.employer_name)}
-              </div>
-            </div>
-
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
-              <div className="col-12">
-                {displayLocation(
-                  employment.city,
-                  employment.province,
-                  employment.country_code
-                )}
-              </div>
-            </div>
-
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-2">
-              <div className="col-12">
-                {displayDiscription(employment.description)}
-              </div>
-            </div>
-
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayWorkYear(
-                  employment.start_date,
-                  employment.end_date,
-                  employment.is_current
-                )}
-              </div>
-            </div>
+      <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center border-bottom-light mb-3">
+        <div className="col-12 col-md-10 col-lg-10 col-xl-10 mb-3">
+          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+            {displayJobTitle(employment.job_title)}
           </div>
-          <div className="col-12 col-md-4 col-lg-4 col-xl-4">
-            <div className="d-flex justify-content-end">
-              <Button
-                variant="danger"
-                disabled={isButtonDisabled}
-                onClick={() =>
-                  handleRemoveEmployment(employment.employment_history_id)
-                }
-                size="sm"
-              >
-                Remove
-              </Button>
-            </div>
+          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+            {displayEmployerName(employment.employer_name)}
+          </div>
+
+          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+            {displayLocation(
+              employment.city,
+              employment.province,
+              employment.country_code
+            )}
+          </div>
+
+          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center my-2">
+            {displayDiscription(employment.description)}
+          </div>
+
+          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+            {displayWorkYear(
+              employment.start_date,
+              employment.end_date,
+              employment.is_current
+            )}
+          </div>
+        </div>
+        <div className="col-12 col-md-2 col-lg-2 col-xl-2 mb-3">
+          <div className="d-flex justify-content-md-end justify-content-lg-end justify-content-xl-end justify-content-xxl-end justify-content-sm-start">
+            <Button
+              variant="danger"
+              disabled={isButtonDisabled}
+              onClick={() =>
+                handleRemoveEmployment(employment.employment_history_id)
+              }
+              size="sm"
+            >
+              Remove
+            </Button>
           </div>
         </div>
       </div>
@@ -724,9 +712,9 @@ const ResourceEmploymentBlock = (props) => {
 
   const displayJobTitle = (job_title) => {
     if (job_title !== null) {
-      return <span className="h6 fw-bold">{job_title}</span>;
+      return <span className="text-dark-custom fw-bold">{job_title}</span>;
     } else {
-      return <span className="h6 fw-bold">Not available!</span>;
+      return <span className="text-dark-custom fw-bold">Not available!</span>;
     }
   };
 

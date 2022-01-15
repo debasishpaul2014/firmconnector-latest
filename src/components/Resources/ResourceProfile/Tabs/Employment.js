@@ -31,13 +31,13 @@ const Employment = (props) => {
   const jobTitle = (job_title) => {
     if (job_title !== null) {
       return (
-        <span className="text-dark-custom text-md-custom fw-bold">
+        <span className="text-dark-custom text-md-custom fw-bold-custom">
           {job_title}
         </span>
       );
     } else {
       return (
-        <span className="text-danger-custom text-md-custom fw-bold">
+        <span className="text-muted-custom text-md-custom fw-bold-custom">
           Not available!
         </span>
       );
@@ -47,13 +47,13 @@ const Employment = (props) => {
   const employerName = (employer_name) => {
     if (employer_name !== "" && employer_name !== null) {
       return (
-        <span className="text-muted-custom text-x-sm-custom">
+        <span className="text-info-custom text-sm-custom fw-medium-custom">
           {employer_name}
         </span>
       );
     } else {
       return (
-        <span className="text-muted-custom text-x-sm-custom">
+        <span className="text-muted-custom text-sm-custom fw-medium-custom">
           Employer name not available
         </span>
       );
@@ -63,9 +63,7 @@ const Employment = (props) => {
   const displayDiscription = (discription) => {
     if (discription !== "" && discription !== null) {
       return (
-        <span className="text-muted-custom text-x-sm-custom">
-          {discription}
-        </span>
+        <span className="text-dark-custom text-sm-custom">{discription}</span>
       );
     }
   };
@@ -83,14 +81,14 @@ const Employment = (props) => {
   const displayWorkYear = (start, end, is_current) => {
     if (is_current === "1") {
       return (
-        <span className="text-dark-custom text-x-sm-custom">
-          From {start !== null ? start : "-"} to{" "}
+        <span className="text-dark-custom text-x-x-sm-custom fw-medium-custom">
+          From {start !== null ? start : "-"} to&nbsp;{" "}
           <BadgeSuccess title={"Present"} />
         </span>
       );
     } else {
       return (
-        <span className="text-dark-custom text-x-sm-custom">
+        <span className="text-dark-custom text-x-x-sm-custom fw-medium-custom">
           From {start !== null ? start : "-"} to {end !== null ? end : "-"}
         </span>
       );
@@ -100,38 +98,31 @@ const Employment = (props) => {
   const displayEmploymentBlock = (employment, key) => {
     return (
       <div key={key} className="col-12 mb-3">
-        <div className="card-custom bg-white shadow-sm">
+        <div className="card bg-white shadow-sm">
           <div className="card-body">
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">{jobTitle(employment.job_title)}</div>
+              {jobTitle(employment.job_title)}
             </div>
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {employerName(employment.employer_name)}
-              </div>
+              {employerName(employment.employer_name)}
             </div>
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayDiscription(employment.description)}
-              </div>
+              {displayLocation(
+                employment.city,
+                employment.province,
+                employment.country_code
+              )}
             </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayLocation(
-                  employment.city,
-                  employment.province,
-                  employment.country_code
-                )}
-              </div>
+            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center my-3">
+              {displayDiscription(employment.description)}
             </div>
+
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              <div className="col-12">
-                {displayWorkYear(
-                  employment.start_date,
-                  employment.end_date,
-                  employment.is_current
-                )}
-              </div>
+              {displayWorkYear(
+                employment.start_date,
+                employment.end_date,
+                employment.is_current
+              )}
             </div>
           </div>
         </div>
