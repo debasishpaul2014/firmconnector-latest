@@ -214,7 +214,7 @@ const ProfileContactForm = (props) => {
               />
             </div>
 
-            <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
               <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                 <div className="form-input-holder">
                   <InputLebelComponent title="Contact Email" />

@@ -337,7 +337,7 @@ const ResourceEducationBlock = (props) => {
         <Modal.Body>
           <form id="create-frm">
             <div className="d-block mb-4">
-              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
                 <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Degree Name" />
@@ -371,7 +371,7 @@ const ResourceEducationBlock = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
                 <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Institute Name" />

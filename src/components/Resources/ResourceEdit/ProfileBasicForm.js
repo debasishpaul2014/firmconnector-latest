@@ -395,7 +395,7 @@ const ProfileBasicForm = (props) => {
               />
             </div>
 
-            <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+            <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
               <div className="col-12">
                 <InputLebelComponent title="Profile Image" />
                 <div className="profile-image-upload-holder">

@@ -4,6 +4,7 @@ import * as Icons from "react-icons/fi";
 const IconContainer = (props) => {
   const { iconName, color } = props;
   const icon = React.createElement(Icons[iconName]);
+
   return (
     <div
       style={{

@@ -375,7 +375,7 @@ const ResourceEmploymentBlock = (props) => {
         <Modal.Body>
           <form id="create-frm">
             <div className="d-block mb-4">
-              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
                 <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Your Organization" />
@@ -409,7 +409,7 @@ const ResourceEmploymentBlock = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
                 <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Employment Type" />
@@ -461,7 +461,7 @@ const ResourceEmploymentBlock = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
                 <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Start Date" />
@@ -518,7 +518,7 @@ const ResourceEmploymentBlock = (props) => {
                   </div>
                 </div>
               </div>
-              <div className="d-block d-md-flex d-lg-flex d-xlg-flex row">
+              <div className="d-block d-md-flex d-lg-flex d-xl-flex row">
                 <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
                   <div className="form-input-holder">
                     <InputLebelComponent title="Select Country" />
