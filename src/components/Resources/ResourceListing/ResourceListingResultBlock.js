@@ -7,6 +7,7 @@ import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
 import { BadgeSuccess, BadgeInfo } from "../../Badge/Badge";
 import { Button } from "react-bootstrap";
 import getMyResourceListing from "../../../apis/getMyResourceListing";
+import { PieChart } from "react-minimal-pie-chart";
 
 const ResourceListingResultBlock = () => {
   const { userDetails } = useAuthContext();
@@ -82,7 +83,7 @@ const ResourceListingResultBlock = () => {
                         <ProfileImageMd imgSrc={item.profile_image_path} />
                       </Link>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <Link to={"resources/details/" + item.user_slug}>
                           {displayName(item.resource_name)}
@@ -92,7 +93,20 @@ const ResourceListingResultBlock = () => {
                         {displayUserProfileRole(item.user_profile_role)}
                       </div>
                     </div>
-                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                      <div class="form-switch">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          role="switch"
+                          id="flexSwitchCheckDefault"
+                        />
+                      </div>
+                      <div className="d-block">
+                        <span>Advertised</span>
+                      </div>
+                    </div>
+                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <span className="text-md-custom text-info-custom fw-bold-custom">
                           @
@@ -102,7 +116,15 @@ const ResourceListingResultBlock = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-4 col-xl-3 col-xxl-3 d-flex justify-content-end justify-content-lg-end justify-content-xlg-end">
+                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                      {displayAvailability(item.availability)}
+                      <div className="d-flex align-items-center justify-content-center">
+                        <span className="text-x-x-sm-custom fw-bold">
+                          {item.availability} hrs/week
+                        </span>
+                      </div>
+                    </div>
+                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-end justify-content-lg-end justify-content-xlg-end">
                       <Link to={"resources/details/" + item.user_slug}>
                         <Button variant="warning" size="sm" className="me-2">
                           View Profile
@@ -126,10 +148,76 @@ const ResourceListingResultBlock = () => {
     );
   };
 
+  const displayAvailability = (availability) => {
+    if (availability !== null) {
+      availability = parseInt(availability);
+
+      var color = "#DC143C";
+
+      if (availability < 20) {
+        color = "#DC143C";
+      } else if (availability === 20 || availability === 30) {
+        color = "#808000";
+      } else {
+        color = "#00d09c";
+      }
+
+      return (
+        <PieChart
+          animate={true}
+          animationDuration={500}
+          animationEasing="ease-out"
+          center={[25, 25]}
+          totalValue={40}
+          data={[
+            {
+              color: color,
+              value: availability,
+            },
+          ]}
+          labelPosition={25}
+          lengthAngle={360}
+          lineWidth={30}
+          paddingAngle={0}
+          radius={25}
+          startAngle={0}
+          viewBoxSize={[50, 50]}
+          background={"#ccc"}
+        />
+      );
+    } else {
+      availability = 0;
+
+      return (
+        <PieChart
+          animate={true}
+          animationDuration={500}
+          animationEasing="ease-out"
+          center={[50, 50]}
+          totalValue={40}
+          data={[
+            {
+              color: color,
+              value: availability,
+            },
+          ]}
+          labelPosition={50}
+          lengthAngle={360}
+          lineWidth={30}
+          paddingAngle={0}
+          radius={50}
+          startAngle={0}
+          viewBoxSize={[50, 50]}
+          background={"#ccc"}
+        />
+      );
+    }
+  };
+
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      if (user_profile_role.length > 25) {
-        let formattedString = user_profile_role.substring(0, 24) + "...";
+      if (user_profile_role.length > 18) {
+        let formattedString = user_profile_role.substring(0, 18) + "...";
         return <BadgeSuccess title={formattedString} alt={user_profile_role} />;
       } else {
         return (

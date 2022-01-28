@@ -208,10 +208,6 @@ const AddResourceForm = () => {
     }
   };
 
-  const displayLoadingBlock = () => {
-    return <LoadingPageSm title={"Loading, please wait..."} />;
-  };
-
   const displayTopBlock = () => {
     return (
       <div className="d-flex flex-column mb-4">
@@ -303,7 +299,7 @@ const AddResourceForm = () => {
 
         setTimeout(() => {
           window.location.reload();
-        }, 2000);
+        }, 1500);
       });
     } catch (error) {
       console.log(error);

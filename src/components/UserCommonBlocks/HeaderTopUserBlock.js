@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ASSETS_BASE } from "../../config/env";
 
 const HeaderTopUserBlock = (props) => {
   const { userDetails, length } = props;
@@ -23,7 +24,7 @@ const HeaderTopUserBlock = (props) => {
         <div className="profile-image-sm-rounded">
           <img
             className="img-fluid"
-            src={loggedinUserDetails.profile_image_path}
+            src={ASSETS_BASE + loggedinUserDetails.profile_image_path}
             alt={profileName}
           />
         </div>

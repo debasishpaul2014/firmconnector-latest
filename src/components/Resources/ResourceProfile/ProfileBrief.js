@@ -83,9 +83,11 @@ const ProfileBrief = (props) => {
 
             <div className="role-lg-holder">
               {displayView === "default" ? (
-                <span className="text-dark-custom">{displayProfileRole()}</span>
+                <span className="text-dark-custom text-center">
+                  {displayProfileRole()}
+                </span>
               ) : (
-                <span className="h5 fw-bold-custom">
+                <span className="h5 fw-bold-custom text-center">
                   {displayProfileRole()}
                 </span>
               )}

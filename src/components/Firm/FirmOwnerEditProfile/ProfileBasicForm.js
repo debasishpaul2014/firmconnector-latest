@@ -358,9 +358,7 @@ const ProfileBasicForm = (props) => {
             <div className="d-block">
               <HeaderXSm
                 title={"Profile Informations"}
-                subText={
-                  "These informations will be used to display on profile"
-                }
+                subText={null}
                 borderBottom={true}
               />
             </div>

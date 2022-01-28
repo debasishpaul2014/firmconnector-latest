@@ -774,7 +774,7 @@ const ResourceEmploymentBlock = (props) => {
           <div className="d-block">
             <HeaderXSm
               title={"Employment History"}
-              subText={"These informations will be used to display on profile"}
+              subText={null}
               borderBottom={true}
             />
           </div>

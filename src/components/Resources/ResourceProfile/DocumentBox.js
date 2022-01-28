@@ -53,8 +53,8 @@ const DocumentBox = (props) => {
     }
   };
   return (
-    <div className="col-12 col-md-3 col-lg-3 col-xl-3 col-xxl-3 mb-3 docuament-box-holder">
-      <div className="card-custom h-100">
+    <div className="col-12 mb-3 docuament-box-holder">
+      <div className="card-custom">
         <div className="card-body ">
           <div className="d-block mb-3">
             <span className="fw-bold">Files / Documents</span>

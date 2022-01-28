@@ -3,7 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 
 const SkillSet = (props) => {
-  const { skillDetails } = props;
+  const { skillDetails, skillCount, skillFormattedSet } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [show, setShow] = useState(false);
 
@@ -11,8 +11,9 @@ const SkillSet = (props) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
+    console.log(skillFormattedSet);
     setIsLoading(false);
-  }, [skillDetails]);
+  }, [skillDetails, skillCount, skillFormattedSet]);
 
   const displayBlockContent = () => {
     if (isLoading) {
@@ -31,7 +32,7 @@ const SkillSet = (props) => {
               return displaySkillItem(item, key);
             })}
           </div>
-          {skillDetails.length > 7 ? (
+          {skillCount.skill_count > 7 ? (
             <div className="d-flex justify-content-end">
               <Button variant="primary" size="sm" onClick={() => handleShow()}>
                 View All Skills
@@ -47,21 +48,24 @@ const SkillSet = (props) => {
     }
   };
 
-  const displaySkillItem = (item, key) => {
-    if (key <= 5) {
-      return (
-        <div className="skill-wrapper my-1" key={item.skill_id.toString()}>
-          <span>{item.skill_name}</span>
-        </div>
-      );
-    } else {
-      return null;
-    }
+  const displaySkillItem = (item) => {
+    return (
+      <div className="skill-wrapper my-1 me-1" key={item.skill_id.toString()}>
+        <span className="text-x-sm-custom">{item.skill_name}</span>
+      </div>
+    );
   };
 
   const displaySkillModalContent = () => {
     return (
-      <Modal show={show} onHide={handleClose} centered>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+        scrollable={true}
+      >
         <Modal.Header>
           <div className="d-block">
             <span className="text-sm-custom text-dark-custom fw-bold-custom">
@@ -82,14 +86,21 @@ const SkillSet = (props) => {
   const displayAllSkills = () => {
     if (skillDetails !== null && skillDetails) {
       return (
-        <div className="d-flex flex-wrap">
-          {skillDetails.map((item, key) => {
+        <div className="d-block">
+          {skillFormattedSet.map((item, key) => {
             return (
               <div
-                className="skill-wrapper my-1 me-2"
-                key={item.skill_id.toString()}
+                className="card-custom shadow mb-1"
+                key={item.skill_category_id.toString()}
               >
-                <span>{item.skill_name}</span>
+                <div className="p-2">
+                  <div className="d-block mb-1">
+                    <span className="fw-medium-custom">
+                      {item.skill_category_title}
+                    </span>
+                  </div>
+                  {displayAllSkillSubCategory(item.sub_category)}
+                </div>
               </div>
             );
           })}
@@ -97,6 +108,46 @@ const SkillSet = (props) => {
       );
     } else {
       return <span className="text-muted">Nothing to display here!</span>;
+    }
+  };
+
+  const displayAllSkillSubCategory = (subCat) => {
+    if (subCat.length > 0) {
+      return (
+        <>
+          {subCat.map((item, key) => {
+            return (
+              <div
+                className="card-custom mb-1 bg-light"
+                key={item.skill_sub_category_id.toString()}
+              >
+                <div className="p-1">
+                  <div className="d-block">
+                    <span className="text-dark">
+                      {item.skill_sub_category_title}
+                    </span>
+                  </div>
+                  <div className="d-block">
+                    {displayAllSkill(item.skill_set)}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </>
+      );
+    }
+  };
+
+  const displayAllSkill = (skillArray) => {
+    if (skillArray.length > 0) {
+      return (
+        <div className="d-flex flex-wrap">
+          {skillArray.map((item, key) => {
+            return displaySkillItem(item, key);
+          })}
+        </div>
+      );
     }
   };
 

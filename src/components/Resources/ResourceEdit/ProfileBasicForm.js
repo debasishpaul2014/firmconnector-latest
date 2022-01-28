@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Image } from "react-bootstrap";
 import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
+import { ASSETS_BASE } from "../../../config/env";
 
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
@@ -326,7 +327,7 @@ const ProfileBasicForm = (props) => {
               <div className="profile-image-upload-holder">
                 <Image
                   className="profile-image-upload-holder-image"
-                  src={uploadedFile}
+                  src={ASSETS_BASE + uploadedFile}
                 />
               </div>
               <div className="d-block mb-4 mt-2">
@@ -388,9 +389,7 @@ const ProfileBasicForm = (props) => {
             <div className="d-block">
               <HeaderXSm
                 title={"Profile Informations"}
-                subText={
-                  "These informations will be used to display on profile"
-                }
+                subText={null}
                 borderBottom={true}
               />
             </div>
@@ -401,7 +400,7 @@ const ProfileBasicForm = (props) => {
                 <div className="profile-image-upload-holder">
                   <Image
                     className="profile-image-upload-holder-image"
-                    src={file}
+                    src={ASSETS_BASE + file}
                   />
                 </div>
                 <div className="d-block mb-4 mt-2">

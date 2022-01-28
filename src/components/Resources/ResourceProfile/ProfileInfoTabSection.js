@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import About from "./Tabs/About";
-import Availability from "./Tabs/Availability";
 import Education from "./Tabs/Education";
 import Employment from "./Tabs/Employment";
 
@@ -14,8 +13,6 @@ const ProfileInfoTabSection = (props) => {
   const displayTabContent = () => {
     if (selectedTab === "about") {
       return <About profileDetails={profileDetails} />;
-    } else if (selectedTab === "availability") {
-      return <Availability profileDetails={profileDetails} />;
     } else if (selectedTab === "education") {
       return <Education educationDetails={educationDetails} />;
     } else if (selectedTab === "employment") {
@@ -64,17 +61,6 @@ const ProfileInfoTabSection = (props) => {
                 </div>
               </>
             ) : null}
-
-            <div
-              className={`shadow-sm cursor-pointer my-2 mx-2 ${
-                selectedTab === "availability"
-                  ? "profile-tab-selected"
-                  : "profile-tab"
-              }`}
-              onClick={() => handleTabChange("availability")}
-            >
-              <span className="fw-medium-custom">Current Availability</span>
-            </div>
           </div>
           <div className="col-12 pt-3">{displayTabContent()}</div>
         </div>

@@ -6,6 +6,7 @@ import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 import IconContainer from "../../Iconcontainer/IconContainer";
 import saveUploadedDocument from "../../../apis/saveUploadedDocument";
 import removeDocument from "../../../apis/removeDocument";
+import ReactTooltip from "react-tooltip";
 
 import Swal from "sweetalert2";
 import swalWithBootstrapButtons from "sweetalert2-react-content";
@@ -189,7 +190,7 @@ const ResourceDocumentForm = (props) => {
 
   const displayAddDocumentnButton = () => {
     return (
-      <div className="d-block justify-content-end">
+      <div className="d-flex justify-content-end">
         <Button variant="primary" size="sm" onClick={() => handleShow()}>
           Add New Document
         </Button>
@@ -286,10 +287,20 @@ const ResourceDocumentForm = (props) => {
                 className="d-flex border-dark col-12 py-1 px-3 rounded my-2 shadow-sm"
                 key={key.toString()}
               >
-                <div className="col-8 d-flex align-items-center">
+                <div
+                  className="col-8 d-flex align-items-center"
+                  data-for={`documentTitle${key}`}
+                >
                   <span className="text-sm-custom text-muted-custom">
                     {displayDocumentTitle(item.document_title)}
                   </span>
+                  <ReactTooltip
+                    id={`documentTitle${key}`}
+                    place="top"
+                    effect="solid"
+                  >
+                    {item.document_title}
+                  </ReactTooltip>
                 </div>
                 <div className="col-4 d-flex justify-content-end align-items-end">
                   <div
@@ -466,7 +477,7 @@ text/plain, application/pdf"
           <div className="d-block">
             <HeaderXSm
               title={"My Documents"}
-              subText={"Upload/Remove your documents"}
+              subText={null}
               borderBottom={true}
             />
           </div>

@@ -21,7 +21,7 @@ const AccountLoginDetailsForm = (props) => {
             <div className="d-block">
               <HeaderXSm
                 title={"Login Informations"}
-                subText={"These informations will be used while login"}
+                subText={null}
                 borderBottom={true}
               />
             </div>

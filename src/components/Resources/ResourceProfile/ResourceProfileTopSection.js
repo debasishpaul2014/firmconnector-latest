@@ -21,7 +21,11 @@ const ResourceProfileTopSection = (props) => {
         resourceDetails={resourceDetails.profile_details}
         contactDetails={resourceDetails.contact_details}
       />
-      <SkillSet skillDetails={resourceDetails.skill_details} />
+      <SkillSet
+        skillDetails={resourceDetails.skill_details}
+        skillCount={resourceDetails.skill_count}
+        skillFormattedSet={resourceDetails.skill_formatted_set}
+      />
     </div>
   );
 };

@@ -86,6 +86,7 @@
     background-color: var(--success-dark);
     align-self: flex-start;
     border-radius: 1rem;
+    width: auto;
 }
 
 .skill-wrapper > span{

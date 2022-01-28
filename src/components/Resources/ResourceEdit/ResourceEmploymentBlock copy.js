@@ -198,9 +198,7 @@ const ResourceAddressBlock = (props) => {
             <div className="d-block">
               <HeaderXSm
                 title={"Address Informations"}
-                subText={
-                  "These informations will be used to display on profile"
-                }
+                subText={null}
                 borderBottom={true}
               />
             </div>
