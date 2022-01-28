@@ -7,7 +7,10 @@ import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
 import { BadgeSuccess, BadgeInfo } from "../../Badge/Badge";
 import { Button } from "react-bootstrap";
 import getMyResourceListing from "../../../apis/getMyResourceListing";
+import updateIsAdvertised from "../../../apis/updateIsAdvertised";
 import { PieChart } from "react-minimal-pie-chart";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMapSigns } from "@fortawesome/free-solid-svg-icons";
 
 const ResourceListingResultBlock = () => {
   const { userDetails } = useAuthContext();
@@ -69,6 +72,30 @@ const ResourceListingResultBlock = () => {
     }
   };
 
+  const updateAdvertised = (advertised, resourceSlug, index) => {
+    Promise.all([updateIsAdvertised(user_slug, advertised, resourceSlug)])
+      .then(async ([data]) => {
+        if (data?.data?.status === 1) {
+          let updatedResourceList = [...resourceListing];
+
+          if (advertised === "1") {
+            advertised = 0;
+          } else {
+            advertised = 1;
+          }
+
+          updatedResourceList[index].is_advertised = advertised;
+
+          setResourceListing(updatedResourceList);
+        }
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setEmptyResult(false);
+        console.log(err);
+      });
+  };
+
   const displayList = () => {
     return (
       <>
@@ -83,48 +110,61 @@ const ResourceListingResultBlock = () => {
                         <ProfileImageMd imgSrc={item.profile_image_path} />
                       </Link>
                     </div>
-                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <Link to={"resources/details/" + item.user_slug}>
                           {displayName(item.resource_name)}
                         </Link>
                       </div>
-                      <div className="d-block mt-2">
+                      <div className="d-block">
                         {displayUserProfileRole(item.user_profile_role)}
                       </div>
                     </div>
-                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div class="form-switch">
                         <input
                           class="form-check-input"
                           type="checkbox"
                           role="switch"
-                          id="flexSwitchCheckDefault"
+                          onChange={() =>
+                            updateAdvertised(
+                              item.is_advertised,
+                              item.user_slug,
+                              index
+                            )
+                          }
+                          checked={item.is_advertised === "1" ? true : false}
                         />
                       </div>
                       <div className="d-block">
-                        <span>Advertised</span>
+                        <span className="text-x-sm-custom text-muted-custom">
+                          Advertised
+                        </span>
                       </div>
                     </div>
                     <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
-                        <span className="text-md-custom text-info-custom fw-bold-custom">
-                          @
-                        </span>{" "}
-                        <span className="text-muted-custom text-sm-custom">
-                          {item.user_email}
+                        <span className="text-primary">
+                          <FontAwesomeIcon icon={faMapSigns} />
+                        </span>
+                      </div>
+                      <div className="d-block">
+                        <span className="text-dark fw-bold-custom text-x-sm-custom">
+                          {" "}
+                          {item.city_name}, {item.state_name},{" "}
+                          {item.country_name}
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0 d-flex flex-column align-items-start align-items-lg-center align-items-xl-center align-items-xxl-center">
                       {displayAvailability(item.availability)}
-                      <div className="d-flex align-items-center justify-content-center">
-                        <span className="text-x-x-sm-custom fw-bold">
+                      <div className="d-block">
+                        <span className="text-x-x-sm-custom fw-medium-custom">
                           {item.availability} hrs/week
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-end justify-content-lg-end justify-content-xlg-end">
+                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
                       <Link to={"resources/details/" + item.user_slug}>
                         <Button variant="warning" size="sm" className="me-2">
                           View Profile
@@ -163,79 +203,100 @@ const ResourceListingResultBlock = () => {
       }
 
       return (
-        <PieChart
-          animate={true}
-          animationDuration={500}
-          animationEasing="ease-out"
-          center={[25, 25]}
-          totalValue={40}
-          data={[
-            {
-              color: color,
-              value: availability,
-            },
-          ]}
-          labelPosition={25}
-          lengthAngle={360}
-          lineWidth={30}
-          paddingAngle={0}
-          radius={25}
-          startAngle={0}
-          viewBoxSize={[50, 50]}
-          background={"#ccc"}
-        />
+        <div className="chart-box-md">
+          <PieChart
+            animate={true}
+            animationDuration={500}
+            animationEasing="ease-out"
+            center={[25, 25]}
+            totalValue={40}
+            data={[
+              {
+                color: color,
+                value: availability,
+              },
+            ]}
+            labelPosition={25}
+            lengthAngle={360}
+            lineWidth={30}
+            paddingAngle={0}
+            radius={25}
+            startAngle={0}
+            viewBoxSize={[50, 50]}
+            background={"#ccc"}
+          />
+        </div>
       );
     } else {
       availability = 0;
 
       return (
-        <PieChart
-          animate={true}
-          animationDuration={500}
-          animationEasing="ease-out"
-          center={[50, 50]}
-          totalValue={40}
-          data={[
-            {
-              color: color,
-              value: availability,
-            },
-          ]}
-          labelPosition={50}
-          lengthAngle={360}
-          lineWidth={30}
-          paddingAngle={0}
-          radius={50}
-          startAngle={0}
-          viewBoxSize={[50, 50]}
-          background={"#ccc"}
-        />
+        <div className="chart-box-md">
+          <PieChart
+            animate={true}
+            animationDuration={500}
+            animationEasing="ease-out"
+            center={[50, 50]}
+            totalValue={40}
+            data={[
+              {
+                color: color,
+                value: availability,
+              },
+            ]}
+            labelPosition={50}
+            lengthAngle={360}
+            lineWidth={30}
+            paddingAngle={0}
+            radius={50}
+            startAngle={0}
+            viewBoxSize={[50, 50]}
+            background={"#ccc"}
+          />
+        </div>
       );
     }
   };
 
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      if (user_profile_role.length > 18) {
-        let formattedString = user_profile_role.substring(0, 18) + "...";
-        return <BadgeSuccess title={formattedString} alt={user_profile_role} />;
-      } else {
-        return (
-          <BadgeSuccess title={user_profile_role} alt={user_profile_role} />
-        );
-      }
+      // if (user_profile_role.length > 18) {
+      //   let formattedString = user_profile_role.substring(0, 18) + "...";
+      //   return <BadgeSuccess title={formattedString} alt={user_profile_role} />;
+      // } else {
+      //   return (
+      //     <BadgeSuccess title={user_profile_role} alt={user_profile_role} />
+      //   );
+      // }
+      return (
+        <span className="text-muted-custom text-x-sm-custom">
+          {user_profile_role}
+        </span>
+      );
     } else {
-      return <BadgeInfo title={"Not available"} />;
+      return (
+        <span className="text-danger-custom text-x-sm-custom">
+          Not available
+        </span>
+      );
     }
   };
 
   const displayName = (name) => {
     if (name !== null) {
-      return (
-        <span className="text-dark-custom fw-bold-custom text-sm-custom">
-          {name}
-        </span>
-      );
+      if (name.length > 25) {
+        return (
+          <span className="text-dark-custom fw-bold text-sm-custom">
+            {name.substring(0, 25) + "..."}
+          </span>
+        );
+      } else {
+        return (
+          <span className="text-dark-custom fw-bold text-sm-custom">
+            {name}
+          </span>
+        );
+      }
     } else {
       return <BadgeInfo title={"Not available"} />;
     }

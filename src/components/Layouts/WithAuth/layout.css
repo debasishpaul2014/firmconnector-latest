@@ -45,41 +45,64 @@
     width: 2.2rem;
     height:2.2rem;
     box-sizing: border-box;
-    background-color: var(--white);
+    background-color: var(--muted-extra-light);
     overflow: hidden;
     border-radius: 0.4rem;
     cursor: pointer;
  }
 
+ .profile-image-sm > img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+
  .profile-image-md{
    width: 2.8rem;
    height:2.8rem;
    box-sizing: border-box;
-   background-color: var(--white);
+   background-color: var(--muted-extra-light);
    overflow: hidden;
    border-radius: 0.4rem;
    cursor: pointer;
 }
 
+.profile-image-md > img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
 
 .profile-image-lg{
    width: 6rem;
    height: 6rem;
    box-sizing: border-box;
-   background-color: var(--white);
+   background-color: var(--muted-extra-light);
    overflow: hidden;
    border-radius: 0.4rem;
    cursor: pointer;
+}
+
+.profile-image-lg > img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
 }
 
 .profile-image-lg-rounder{
    width: 6rem;
    height: 6rem;
    box-sizing: border-box;
-   background-color: var(--white);
+   background-color: var(--muted-extra-light);
    overflow: hidden;
    border-radius: 3rem;
    cursor: pointer;
+}
+
+.profile-image-lg-rounder > img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
 }
 
  .profile-details-holder{

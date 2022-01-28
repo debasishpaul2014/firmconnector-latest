@@ -2,7 +2,6 @@ import React from "react";
 import IconContainer from "../../../Iconcontainer/IconContainer";
 import ProfileImageSmall from "../../../CommonComponent/ProfileImageSmall";
 import { useAuthContext } from "../../../../context/AuthContext";
-import { ASSETS_BASE } from "../../../../config/env";
 
 import "./header.css";
 
@@ -32,7 +31,7 @@ const Header = () => {
           </div>
           <div className="ms-4">
             <ProfileImageSmall
-              imgSrc={ASSETS_BASE + loggedinUserDetails.profile_image_path}
+              imgSrc={loggedinUserDetails.profile_image_path}
               linkUrl={"/profile-settings"}
             />
           </div>

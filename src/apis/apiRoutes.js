@@ -27,6 +27,7 @@ const REMOVE_EMPLOYMENT_DETAILS = `${API_BASE}remove-employment-details`;
 const SAVE_UPLOADED_DOCUMENT = `${API_BASE}save-uploaded-document`;
 const REMOVE_DOCUMENT = `${API_BASE}remove-document`;
 const SAVE_RESOURCE_AVAILABILITY = `${API_BASE}save-resource-availability`;
+const UPDATE_IS_ADVERTISED = `${API_BASE}update-is-advertised`;
 
 const GET_ALL_STATE = `${API_BASE}get-all-state`;
 const GET_ALL_CITY = `${API_BASE}get-all-city`;
@@ -61,4 +62,5 @@ export {
   SAVE_UPLOADED_DOCUMENT,
   REMOVE_DOCUMENT,
   SAVE_RESOURCE_AVAILABILITY,
+  UPDATE_IS_ADVERTISED,
 };

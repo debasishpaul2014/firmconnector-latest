@@ -4,6 +4,7 @@ import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
+import { PROFILE_IMAGE_BASE } from "../../../config/env";
 
 import updateProfileBasicInfo from "../../../apis/updateProfileBasicInfo";
 import userAvatarUpload from "../../../apis/userAvatarUpload";
@@ -36,8 +37,8 @@ const ProfileBasicForm = (props) => {
       setLastName(userDetails.last_name);
       setJobRole(userDetails.user_profile_role);
       setBio(userDetails.profile_bio);
-      setFile(userDetails.profile_image_path);
-      setUploadedFile(userDetails.profile_image_path);
+      setFile(PROFILE_IMAGE_BASE + userDetails.profile_image_path);
+      setUploadedFile(PROFILE_IMAGE_BASE + userDetails.profile_image_path);
     }
   }, [userDetails]);
 

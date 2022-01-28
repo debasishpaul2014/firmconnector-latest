@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal, Image } from "react-bootstrap";
 import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
-import { ASSETS_BASE } from "../../../config/env";
+import { PROFILE_IMAGE_BASE } from "../../../config/env";
 
 import InputLebelComponent from "../../InputLebel/InputLebelComponent";
 import HeaderXSm from "../../Headers/HeaderXSm";
@@ -11,7 +11,6 @@ import userAvatarUpload from "../../../apis/userAvatarUpload";
 
 const ProfileBasicForm = (props) => {
   const { resourceDetails, resourceSlug } = props;
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobRole, setJobRole] = useState("");
@@ -36,8 +35,8 @@ const ProfileBasicForm = (props) => {
     setLastName(resourceDetails.last_name);
     setJobRole(resourceDetails.user_profile_role);
     setBio(resourceDetails.profile_bio);
-    setFile(resourceDetails.profile_image_path);
-    setUploadedFile(resourceDetails.profile_image_path);
+    setFile(PROFILE_IMAGE_BASE + resourceDetails.profile_image_path);
+    setUploadedFile(PROFILE_IMAGE_BASE + resourceDetails.profile_image_path);
   }, [resourceDetails]);
 
   useEffect(() => {}, [firstName, lastName]);
@@ -327,7 +326,7 @@ const ProfileBasicForm = (props) => {
               <div className="profile-image-upload-holder">
                 <Image
                   className="profile-image-upload-holder-image"
-                  src={ASSETS_BASE + uploadedFile}
+                  src={uploadedFile}
                 />
               </div>
               <div className="d-block mb-4 mt-2">
@@ -350,6 +349,7 @@ const ProfileBasicForm = (props) => {
               onClick={handleClose}
               type="reset"
               disabled={modalButtonDisabled}
+              size="sm"
             >
               Close
             </Button>
@@ -357,6 +357,7 @@ const ProfileBasicForm = (props) => {
               variant="primary"
               onClick={handleSubmitImageUpload}
               disabled={modalButtonDisabled}
+              size="sm"
             >
               Save Changes
             </Button>
@@ -400,7 +401,7 @@ const ProfileBasicForm = (props) => {
                 <div className="profile-image-upload-holder">
                   <Image
                     className="profile-image-upload-holder-image"
-                    src={ASSETS_BASE + file}
+                    src={file}
                   />
                 </div>
                 <div className="d-block mb-4 mt-2">

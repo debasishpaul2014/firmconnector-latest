@@ -35,7 +35,7 @@ const ProfileInfoTabSection = (props) => {
               }`}
               onClick={() => handleTabChange("about")}
             >
-              <span className="fw-medium-custom">About Me</span>
+              <span className="fw-medium-custom">Summery</span>
             </div>
             {displayView === "default" ? (
               <>

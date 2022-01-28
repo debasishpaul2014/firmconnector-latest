@@ -7,6 +7,7 @@ import HeaderXSm from "../../Headers/HeaderXSm";
 
 import updateProfileBasicInfo from "../../../apis/updateProfileBasicInfo";
 import userAvatarUpload from "../../../apis/userAvatarUpload";
+import { PROFILE_IMAGE_BASE } from "../../../config/env";
 
 const ProfileBasicForm = (props) => {
   const { resourceManagerDetails, resourceManagerSlug } = props;
@@ -36,8 +37,10 @@ const ProfileBasicForm = (props) => {
       setLastName(resourceManagerDetails.last_name);
       setJobRole(resourceManagerDetails.user_profile_role);
       setBio(resourceManagerDetails.profile_bio);
-      setFile(resourceManagerDetails.profile_image_path);
-      setUploadedFile(resourceManagerDetails.profile_image_path);
+      setFile(PROFILE_IMAGE_BASE + resourceManagerDetails.profile_image_path);
+      setUploadedFile(
+        PROFILE_IMAGE_BASE + resourceManagerDetails.profile_image_path
+      );
     }
   }, [resourceManagerDetails]);
 
@@ -84,18 +87,6 @@ const ProfileBasicForm = (props) => {
       isInvalid = 1;
       errMessage.push("Enter last name");
     }
-
-    // if (jobRole.trim().length === 0) {
-    //   isInvalid = 1;
-    //   errMessage.push("Enter job role");
-    // }
-
-    // if (bio.length > 0) {
-    //   if (bio === "") {
-    //     isInvalid = 1;
-    //     errMessage.push("Enter your bio");
-    //   }
-    // }
 
     if (isInvalid === 1) {
       setErrorMessage(errMessage);

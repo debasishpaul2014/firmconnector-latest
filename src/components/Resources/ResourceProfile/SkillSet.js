@@ -90,16 +90,18 @@ const SkillSet = (props) => {
           {skillFormattedSet.map((item, key) => {
             return (
               <div
-                className="card-custom shadow mb-1"
+                className="d-block mb-1"
                 key={item.skill_category_id.toString()}
               >
-                <div className="p-2">
+                <div className="d-block">
                   <div className="d-block mb-1">
-                    <span className="fw-medium-custom">
+                    <span className="fw-bold-custom">
                       {item.skill_category_title}
                     </span>
                   </div>
-                  {displayAllSkillSubCategory(item.sub_category)}
+                  <div className="d-block border-dark p-1 rounded">
+                    {displayAllSkillSubCategory(item.sub_category)}
+                  </div>
                 </div>
               </div>
             );
@@ -118,12 +120,12 @@ const SkillSet = (props) => {
           {subCat.map((item, key) => {
             return (
               <div
-                className="card-custom mb-1 bg-light"
+                className="card-custom mb-1 bg-light p-1"
                 key={item.skill_sub_category_id.toString()}
               >
                 <div className="p-1">
                   <div className="d-block">
-                    <span className="text-dark">
+                    <span className="text-dark fw-medium-custom">
                       {item.skill_sub_category_title}
                     </span>
                   </div>

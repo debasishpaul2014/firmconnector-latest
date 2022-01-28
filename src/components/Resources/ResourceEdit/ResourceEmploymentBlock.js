@@ -6,6 +6,8 @@ import { AlertDanger, AlertSuccess } from "../../Alerts/Alert";
 import moment from "moment";
 import saveEmploymentDetails from "../../../apis/saveEmploymentDetails";
 import removeEmploymentDetails from "../../../apis/removeEmploymentDetails";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBriefcase, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 
 import Swal from "sweetalert2";
 import swalWithBootstrapButtons from "sweetalert2-react-content";
@@ -669,6 +671,10 @@ const ResourceEmploymentBlock = (props) => {
             {displayJobTitle(employment.job_title)}
           </div>
           <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+            <span className="text-muted-custom">
+              <FontAwesomeIcon icon={faBriefcase} />
+            </span>
+            <span>&nbsp;</span>
             {displayEmployerName(employment.employer_name)}
           </div>
 
@@ -685,6 +691,10 @@ const ResourceEmploymentBlock = (props) => {
           </div>
 
           <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
+            <span className="text-primary">
+              <FontAwesomeIcon icon={faCalendarAlt} />
+            </span>
+            <span>&nbsp;</span>
             {displayWorkYear(
               employment.start_date,
               employment.end_date,
@@ -736,7 +746,25 @@ const ResourceEmploymentBlock = (props) => {
 
   const displayDiscription = (discription) => {
     if (discription !== "" && discription !== null) {
-      return <span className="text-x-sm-custom">{discription}</span>;
+      if (discription.length > 150) {
+        return (
+          <span className="text-sm-custom text-muted-custom">
+            {discription.substring(0, 150)}...
+          </span>
+        );
+      } else {
+        return (
+          <span className="text-sm-custom text-muted-custom">
+            {discription}
+          </span>
+        );
+      }
+    } else {
+      return (
+        <span className="text-sm-custom text-danger-custom">
+          Description not available!
+        </span>
+      );
     }
   };
 

@@ -320,6 +320,11 @@ a{
    border-bottom: 0.1em solid var(--muted-light);
 }
 
+.chart-box-md{
+   width: 3rem;
+   height: 3rem;
+}
+
 .fw-bold-custom {
    font-weight: 700!important;
 }
