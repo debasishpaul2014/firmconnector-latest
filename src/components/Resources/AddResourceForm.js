@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useAuthContext } from "../../context/AuthContext";
-import LoadingPageSm from "../CommonComponent/LoadingPageSm";
+import { useHistory } from "react-router-dom";
 import HeaderSm from "../Headers/HeaderSm";
 import InputLebelComponent from "../InputLebel/InputLebelComponent";
 import { Button } from "react-bootstrap";
@@ -11,6 +11,7 @@ import createResource from "../../apis/createResource";
 import createResourceFromResume from "../../apis/createResourceFromResume";
 
 const AddResourceForm = () => {
+  const history = useHistory();
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
@@ -90,7 +91,9 @@ const AddResourceForm = () => {
 
     //check for valid email
     const emailPattern =
-      /^([\w-.]+@(?!gmail\.com)(?!yahoo\.com)(?!hotmail\.com)(?!mail\.ru)(?!yandex\.ru)(?!mail\.com)([\w-]+.)+[\w-]{2,4})?$/;
+      // /^([\w-.]+@(?!gmail\.com)(?!yahoo\.com)(?!hotmail\.com)(?!mail\.ru)(?!yandex\.ru)(?!mail\.com)([\w-]+.)+[\w-]{2,4})?$/;
+      /^([\w-.]+@(?!mail\.ru)(?!yandex\.ru)(?!mail\.com)([\w-]+.)+[\w-]{2,4})?$/;
+
     //check for valid phone
     const phonePattern =
       /^\+((?:9[679]|8[035789]|6[789]|5[90]|42|3[578]|2[1-689])|9[0-58]|8[1246]|6[0-6]|5[1-8]|4[013-9]|3[0-469]|2[70]|7|1)(?:\W*\d){0,13}\d$/;
@@ -115,7 +118,7 @@ const AddResourceForm = () => {
 
     if (!emailPattern.test(contactEmail)) {
       isInvalid = 1;
-      errMessage.push("Enter a valid contact business email address");
+      errMessage.push("Enter a valid contact email address");
     }
 
     if (phone.trim().length > 0) {
@@ -288,6 +291,10 @@ const AddResourceForm = () => {
             setSuccessResumeUploadMessage(succMessage);
             setIsValidResumeUpload(true);
             setIsResumeButtonDisabled(false);
+
+            setTimeout(() => {
+              history.push("resources/details/" + data.data.resource_slug);
+            }, 1500);
           }
         } else {
           setErrorResumeUploadMessage(

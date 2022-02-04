@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { AlertInfo } from "../../Alerts/Alert";
 import ProfileImageMd from "../../CommonComponent/ProfileImageMd";
-import { BadgeSuccess, BadgeInfo } from "../../Badge/Badge";
+import { BadgeInfo } from "../../Badge/Badge";
 import { Button } from "react-bootstrap";
 import getMyResourceListing from "../../../apis/getMyResourceListing";
 import updateIsAdvertised from "../../../apis/updateIsAdvertised";
 import { PieChart } from "react-minimal-pie-chart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapSigns } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 
 const ResourceListingResultBlock = () => {
+  let history = useHistory();
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
@@ -96,6 +98,10 @@ const ResourceListingResultBlock = () => {
       });
   };
 
+  const navigateTpProfile = (path) => {
+    history.push(path);
+  };
+
   const displayList = () => {
     return (
       <>
@@ -165,11 +171,18 @@ const ResourceListingResultBlock = () => {
                       </div>
                     </div>
                     <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex justify-content-start justify-content-lg-end justify-content-xl-end justify-content-xxl-end">
-                      <Link to={"resources/details/" + item.user_slug}>
-                        <Button variant="warning" size="sm" className="me-2">
-                          View Profile
-                        </Button>
-                      </Link>
+                      <Button
+                        variant="warning"
+                        size="sm"
+                        className="me-2"
+                        onClick={() =>
+                          navigateTpProfile(
+                            "resources/details/" + item.user_slug
+                          )
+                        }
+                      >
+                        View Profile
+                      </Button>
                       {user_primary_role === "2" ? (
                         <Link to={"resources/edit-resource/" + item.user_slug}>
                           <Button variant="primary" size="sm" className="ms-2">
@@ -260,14 +273,6 @@ const ResourceListingResultBlock = () => {
 
   const displayUserProfileRole = (user_profile_role) => {
     if (user_profile_role !== null) {
-      // if (user_profile_role.length > 18) {
-      //   let formattedString = user_profile_role.substring(0, 18) + "...";
-      //   return <BadgeSuccess title={formattedString} alt={user_profile_role} />;
-      // } else {
-      //   return (
-      //     <BadgeSuccess title={user_profile_role} alt={user_profile_role} />
-      //   );
-      // }
       return (
         <span className="text-muted-custom text-x-sm-custom">
           {user_profile_role}

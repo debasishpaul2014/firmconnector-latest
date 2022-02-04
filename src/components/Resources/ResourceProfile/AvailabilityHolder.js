@@ -20,6 +20,18 @@ const AvailabilityHolder = (props) => {
 
   const renderAvailability = () => {
     if (availabilityDetails !== null && availabilityDetails) {
+      var chartColor = "#FFF";
+
+      if (availabilityDetails.availability <= 5) {
+        chartColor = "#FF5733";
+      } else if (
+        availabilityDetails.availability > 5 &&
+        availabilityDetails.availability < 20
+      ) {
+        chartColor = "#FDDA0D";
+      } else {
+        chartColor = "#00d09c";
+      }
       return (
         <>
           <PieChart
@@ -30,7 +42,7 @@ const AvailabilityHolder = (props) => {
             totalValue={40}
             data={[
               {
-                color: "#00d09c",
+                color: chartColor,
                 value: parseInt(availabilityDetails.availability),
               },
             ]}
@@ -39,30 +51,30 @@ const AvailabilityHolder = (props) => {
             lineWidth={30}
             paddingAngle={0}
             radius={50}
-            startAngle={0}
+            startAngle={90}
             viewBoxSize={[100, 100]}
             background={"#ccc"}
           />
-          <div className="d-flex justify-content-center align-items-center mt-2">
-            <span className="text-md-custom fw-bold">
-              {parseInt(availabilityDetails.availability)}hrs / week
-            </span>
-          </div>
         </>
       );
     } else {
       return <span className="text-muted">Nothing to display here!</span>;
     }
   };
+
   return (
     <div className="col-12 mb-3">
-      <div className="card-custom">
-        <div className="card-body ">
-          <div className="d-block mb-3">
-            <span className="fw-bold">Current Availability</span>
-          </div>
+      <div className="card-custom p-3">
+        <div className="d-block mb-3">
+          <span className="fw-bold">Current Availability</span>
+        </div>
 
-          {displayAvailabilityContent()}
+        {displayAvailabilityContent()}
+
+        <div className="d-flex justify-content-center align-items-center mt-2">
+          <span className="text-md-custom fw-bold">
+            {parseInt(availabilityDetails?.availability)}hrs / week
+          </span>
         </div>
       </div>
     </div>

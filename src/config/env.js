@@ -5,4 +5,6 @@ const ASSETS_BASE =
 const PROFILE_IMAGE_BASE =
   "https://www.firmconnector.com/firmconnector-api-new/";
 
-export { API_BASE, ASSETS_BASE, PROFILE_IMAGE_BASE };
+const FIRM_IMAGE_BASE = "https://www.firmconnector.com/firmconnector-api-new/";
+
+export { API_BASE, ASSETS_BASE, PROFILE_IMAGE_BASE, FIRM_IMAGE_BASE };

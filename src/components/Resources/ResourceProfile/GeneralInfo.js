@@ -6,6 +6,8 @@ import envelope from "../../../assets/images/email.svg";
 import mobile from "../../../assets/images/mobile.svg";
 import phone from "../../../assets/images/phone.svg";
 
+import { FIRM_IMAGE_BASE } from "../../../config/env";
+
 const GeneralInfo = (props) => {
   const { displayView, contactDetails, resourceDetails } = props;
   const [isProfileLoading, setIsProfileLoading] = useState(true);
@@ -113,7 +115,7 @@ const GeneralInfo = (props) => {
             <div className="firm-logo-lg">
               <img
                 className="img-fluid img-thumbnail"
-                src={resourceDetails.firm_logo}
+                src={FIRM_IMAGE_BASE + resourceDetails.firm_logo}
                 alt={resourceDetails.firm_name}
               />
             </div>
