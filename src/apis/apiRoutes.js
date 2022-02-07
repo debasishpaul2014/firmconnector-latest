@@ -29,6 +29,9 @@ const REMOVE_DOCUMENT = `${API_BASE}remove-document`;
 const SAVE_RESOURCE_AVAILABILITY = `${API_BASE}save-resource-availability`;
 const UPDATE_IS_ADVERTISED = `${API_BASE}update-is-advertised`;
 
+const CLIENT_LISTING_ROUTE = `${API_BASE}get-my-clients`;
+const CREATE_CLIENT_ROUTE = `${API_BASE}create-client`;
+
 const GET_ALL_STATE = `${API_BASE}get-all-state`;
 const GET_ALL_CITY = `${API_BASE}get-all-city`;
 
@@ -63,4 +66,6 @@ export {
   REMOVE_DOCUMENT,
   SAVE_RESOURCE_AVAILABILITY,
   UPDATE_IS_ADVERTISED,
+  CLIENT_LISTING_ROUTE,
+  CREATE_CLIENT_ROUTE,
 };

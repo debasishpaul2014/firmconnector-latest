@@ -80,10 +80,10 @@ const ResourceListingResultBlock = () => {
         if (data?.data?.status === 1) {
           let updatedResourceList = [...resourceListing];
 
-          if (advertised === "1") {
-            advertised = 0;
+          if (advertised === "0") {
+            advertised = "1";
           } else {
-            advertised = 1;
+            advertised = "0";
           }
 
           updatedResourceList[index].is_advertised = advertised;

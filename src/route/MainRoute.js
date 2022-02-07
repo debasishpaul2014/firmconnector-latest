@@ -39,6 +39,9 @@ import ResourceEditScreen from "../screens/Resource/ResourceEditScreen";
 import EditFirm from "../screens/Firm/EditFirm";
 import FirmOwnerEdit from "../screens/Firm/FirmOwnerEdit";
 
+import ClientsList from "../screens/Client/ClientListingScreen";
+import AddClient from "../screens/Client/AddClient";
+
 //Error screen with type
 import PageNotFound from "../screens/error/400/PageNotFound";
 
@@ -115,6 +118,9 @@ const MainRoute = () => {
           component={FirmOwnerEdit}
         />
         <ProtectedRoute exact path={`/edit-firm`} component={EditFirm} />
+
+        <ProtectedRoute exact path={`/clients`} component={ClientsList} />
+        <ProtectedRoute exact path={`/add-client`} component={AddClient} />
 
         {/* Route for 404 */}
         <Route component={PageNotFound} />

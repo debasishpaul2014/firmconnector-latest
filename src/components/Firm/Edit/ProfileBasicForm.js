@@ -8,6 +8,8 @@ import HeaderXSm from "../../Headers/HeaderXSm";
 import updateFirmBasicInfo from "../../../apis/updateFirmBasicInfo";
 import firmLogoUpload from "../../../apis/firmLogoUpload";
 
+import { FIRM_IMAGE_BASE } from "../../../config/env";
+
 const FirmBasicForm = (props) => {
   const { firmDetails, userSlug } = props;
 
@@ -30,8 +32,8 @@ const FirmBasicForm = (props) => {
   useEffect(() => {
     if (firmDetails) {
       setFirmName(firmDetails.firm_name);
-      setFile(firmDetails.firm_logo);
-      setUploadedFile(firmDetails.firm_logo);
+      setFile(FIRM_IMAGE_BASE + firmDetails.firm_logo);
+      setUploadedFile(FIRM_IMAGE_BASE + firmDetails.firm_logo);
     }
   }, [firmDetails]);
 

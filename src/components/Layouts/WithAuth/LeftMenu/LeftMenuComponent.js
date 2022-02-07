@@ -3,10 +3,14 @@ import { Link } from "react-router-dom";
 import LogoutButtonComponent from "./LogoutButtonComponent";
 import IconContainer from "../../../Iconcontainer/IconContainer";
 import { useLocation } from "react-router-dom";
+import { useAuthContext } from "../../../../context/AuthContext";
 
 import "./leftmenu.css";
 
 const LeftMenuComponent = () => {
+  const { userDetails } = useAuthContext();
+  const user_primary_role = JSON.parse(userDetails).user_primary_role;
+
   const location = useLocation();
   const routeName = location.pathname;
   const [activeRoute, setActiveRoute] = useState("");
@@ -53,24 +57,6 @@ const LeftMenuComponent = () => {
           </div>
         </Link>
 
-        {/* <div className="my-3 align-items-center d-flex flex-column align-items-center">
-          <div className="sm-block animated-hover bg-muted-custom">
-            <IconContainer iconName={"FiActivity"} color="var(--muted-light)" />
-          </div>
-          <div>
-            <span className="text-x-x-sm-custom">Activity</span>
-          </div>
-        </div> */}
-
-        {/* <div className="my-3 align-items-center d-flex flex-column align-items-center">
-          <div className="sm-block animated-hover bg-muted-custom">
-            <IconContainer iconName={"FiCompass"} color="var(--muted-light)" />
-          </div>
-          <div>
-            <span className="text-x-x-sm-custom">Explore</span>
-          </div>
-        </div> */}
-
         <Link to="/resources">
           <div className="my-3 align-items-center d-flex flex-column align-items-center">
             <div className="sm-block animated-hover bg-muted-custom">
@@ -96,14 +82,27 @@ const LeftMenuComponent = () => {
             </div>
           </div>
         </Link>
-        {/* <div className="my-3 align-items-center d-flex flex-column align-items-center">
-          <div className="sm-block animated-hover bg-muted-custom">
-            <IconContainer iconName={"FiZap"} color="var(--muted-light)" />
-          </div>
-          <div>
-            <span className="text-x-x-sm-custom">Jobs</span>
-          </div>
-        </div> */}
+
+        {user_primary_role === "2" ? (
+          <Link to="/clients">
+            <div className="my-3 align-items-center d-flex flex-column align-items-center">
+              <div className="sm-block animated-hover bg-muted-custom">
+                <IconContainer iconName={"FiZap"} color="var(--muted-light)" />
+              </div>
+              <div>
+                <span
+                  className={
+                    activeRoute === "/clients"
+                      ? "text-x-x-sm-custom text-info-custom fw-bold"
+                      : "text-x-x-sm-custom"
+                  }
+                >
+                  Clients
+                </span>
+              </div>
+            </div>
+          </Link>
+        ) : null}
 
         <Link to="/profile-settings">
           <div className="my-3 align-items-center d-flex flex-column align-items-center">

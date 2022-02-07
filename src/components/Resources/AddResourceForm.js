@@ -128,13 +128,6 @@ const AddResourceForm = () => {
       }
     }
 
-    // if (officePhone.trim().length > 0) {
-    //   if (!phonePattern.test(officePhone)) {
-    //     isInvalid = 1;
-    //     errMessage.push("Enter a valid office phone number");
-    //   }
-    // }
-
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
       setHasSubmitError(true);
@@ -302,11 +295,11 @@ const AddResourceForm = () => {
           );
           setHasResumeUploadError(true);
           setIsResumeButtonDisabled(false);
-        }
 
-        setTimeout(() => {
-          window.location.reload();
-        }, 1500);
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
+        }
       });
     } catch (error) {
       console.log(error);
