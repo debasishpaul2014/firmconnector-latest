@@ -35,6 +35,10 @@ const CREATE_CLIENT_ROUTE = `${API_BASE}create-client`;
 const GET_ALL_STATE = `${API_BASE}get-all-state`;
 const GET_ALL_CITY = `${API_BASE}get-all-city`;
 
+const GET_ALL_FIRM_ACCESS_LIST = `${API_BASE}get-all-firm-access-list`;
+const GET_SEARCH_AUTO_COMPLETE = `${API_BASE}get-search-auto-complete`;
+const GET_SEARCH_RESULT = `${API_BASE}get-search-result`;
+
 export {
   LOGIN_ROUTE,
   SIGNUP_ROUTE,
@@ -68,4 +72,7 @@ export {
   UPDATE_IS_ADVERTISED,
   CLIENT_LISTING_ROUTE,
   CREATE_CLIENT_ROUTE,
+  GET_ALL_FIRM_ACCESS_LIST,
+  GET_SEARCH_AUTO_COMPLETE,
+  GET_SEARCH_RESULT,
 };

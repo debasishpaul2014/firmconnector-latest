@@ -93,6 +93,18 @@
     color: var(--white);
 }
 
+.skill-wrapper-muted{
+    padding: 0.15rem 1.2rem;
+    background-color: var(--muted-extra-light);
+    align-self: flex-start;
+    border-radius: 0.2rem;
+    width: auto;
+}
+
+.skill-wrapper-muted > span{
+    color: var(--black);
+}
+
 .profile-tab-container{
     background-color: var(--muted-extra-light);
     border-radius: 0.2rem;

@@ -63,7 +63,7 @@ const ResourceListingResultBlock = () => {
   };
 
   const displayLoadingBlock = () => {
-    return <LoadingPageSm title={"Loading firm details..."} />;
+    return <LoadingPageSm title={"Loading resources..."} />;
   };
 
   const displayResourceListing = () => {
@@ -126,29 +126,48 @@ const ResourceListingResultBlock = () => {
                         {displayUserProfileRole(item.user_profile_role)}
                       </div>
                     </div>
-                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
-                      <div class="form-switch">
-                        <input
-                          class="form-check-input"
-                          type="checkbox"
-                          role="switch"
-                          onChange={() =>
-                            updateAdvertised(
-                              item.is_advertised,
-                              item.user_slug,
-                              index
-                            )
-                          }
-                          checked={item.is_advertised === "1" ? true : false}
-                        />
-                      </div>
+                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                      {user_primary_role === "2" ? (
+                        <div className="form-switch">
+                          <input
+                            className="form-check-input"
+                            type="checkbox"
+                            role="switch"
+                            onChange={() =>
+                              updateAdvertised(
+                                item.is_advertised,
+                                item.user_slug,
+                                index
+                              )
+                            }
+                            checked={item.is_advertised === "1" ? true : false}
+                          />
+                        </div>
+                      ) : (
+                        <div>
+                          {item.is_advertised === "1" ? (
+                            <div>
+                              <span className="text-x-x-sm-custom fw-bold text-success">
+                                Yes
+                              </span>
+                            </div>
+                          ) : (
+                            <div>
+                              <span className="text-x-x-sm-custom fw-bold text-danger">
+                                No
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+
                       <div className="d-block">
                         <span className="text-x-sm-custom text-muted-custom">
                           Advertised
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <span className="text-primary">
                           <FontAwesomeIcon icon={faMapSigns} />

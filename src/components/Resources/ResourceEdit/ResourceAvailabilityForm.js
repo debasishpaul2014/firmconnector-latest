@@ -195,9 +195,9 @@ const ResourceAvailabilityForm = (props) => {
                 <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
                   <InputLebelComponent title="I'm available up to" />
                   <div className="d-block mt-3">
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault1"
@@ -205,13 +205,16 @@ const ResourceAvailabilityForm = (props) => {
                         onChange={() => handleChangeAvailability(40)}
                         checked={availability === 40}
                       />
-                      <label class="form-check-label" for="flexRadioDefault1">
+                      <label
+                        className="form-check-label"
+                        for="flexRadioDefault1"
+                      >
                         40 hrs/week
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault2"
@@ -219,13 +222,16 @@ const ResourceAvailabilityForm = (props) => {
                         onChange={() => handleChangeAvailability(30)}
                         checked={availability === 30}
                       />
-                      <label class="form-check-label" for="flexRadioDefault2">
+                      <label
+                        className="form-check-label"
+                        for="flexRadioDefault2"
+                      >
                         30 hrs/week
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault3"
@@ -233,13 +239,16 @@ const ResourceAvailabilityForm = (props) => {
                         onChange={() => handleChangeAvailability(20)}
                         checked={availability === 20}
                       />
-                      <label class="form-check-label" for="flexRadioDefault3">
+                      <label
+                        className="form-check-label"
+                        for="flexRadioDefault3"
+                      >
                         20 hrs/week
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault4"
@@ -247,13 +256,16 @@ const ResourceAvailabilityForm = (props) => {
                         onChange={() => handleChangeAvailability(10)}
                         checked={availability === 10}
                       />
-                      <label class="form-check-label" for="flexRadioDefault4">
+                      <label
+                        className="form-check-label"
+                        for="flexRadioDefault4"
+                      >
                         10 hrs/week
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault5"
@@ -261,13 +273,16 @@ const ResourceAvailabilityForm = (props) => {
                         onChange={() => handleChangeAvailability(5)}
                         checked={availability === 5}
                       />
-                      <label class="form-check-label" for="flexRadioDefault5">
+                      <label
+                        className="form-check-label"
+                        for="flexRadioDefault5"
+                      >
                         5 hrs/week
                       </label>
                     </div>
-                    <div class="form-check">
+                    <div className="form-check">
                       <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="radio"
                         name="flexRadioDefault"
                         id="flexRadioDefault6"
@@ -275,7 +290,10 @@ const ResourceAvailabilityForm = (props) => {
                         onChange={() => handleChangeAvailability(0)}
                         checked={availability === 0}
                       />
-                      <label class="form-check-label" for="flexRadioDefault6">
+                      <label
+                        className="form-check-label"
+                        for="flexRadioDefault6"
+                      >
                         0 hrs/week
                       </label>
                     </div>

@@ -42,6 +42,8 @@ import FirmOwnerEdit from "../screens/Firm/FirmOwnerEdit";
 import ClientsList from "../screens/Client/ClientListingScreen";
 import AddClient from "../screens/Client/AddClient";
 
+import Search from "../screens/Search/SearchScreen";
+
 //Error screen with type
 import PageNotFound from "../screens/error/400/PageNotFound";
 
@@ -121,6 +123,8 @@ const MainRoute = () => {
 
         <ProtectedRoute exact path={`/clients`} component={ClientsList} />
         <ProtectedRoute exact path={`/add-client`} component={AddClient} />
+
+        <ProtectedRoute exact path={`/search`} component={Search} />
 
         {/* Route for 404 */}
         <Route component={PageNotFound} />
