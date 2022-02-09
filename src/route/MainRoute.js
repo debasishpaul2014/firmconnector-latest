@@ -31,8 +31,9 @@ import SignUpScreen from "../screens/Auth/SignUpScreen";
 //Import resource manager route
 import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
 import EditProfile from "../screens/ResourceManager/EditProfile";
+import Managers from "../screens/ResourceManager/Managers";
 
-//Import resource manager route
+//Import resource route
 import AddResource from "../screens/Resource/AddResource";
 import ResourceEditScreen from "../screens/Resource/ResourceEditScreen";
 
@@ -93,6 +94,12 @@ const MainRoute = () => {
           exact
           path={`/add-resource-manager`}
           component={AddResourceManager}
+        />
+
+        <ProtectedRoute
+          exact
+          path={`/resource-managers`}
+          component={Managers}
         />
 
         <ProtectedRoute exact path={`/edit-profile`} component={EditProfile} />

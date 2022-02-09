@@ -3,10 +3,11 @@ import axios from "axios";
 //IMPORT API ROUTE URL
 import { GET_SEARCH_RESULT } from "./apiRoutes";
 
-const getSearchResult = (keyword) => {
+const getSearchResult = (keyword, selectedFirmList) => {
   var postData = new FormData();
 
   postData.append("keyword", keyword);
+  postData.append("firmIds", selectedFirmList);
 
   return axios
     .post(GET_SEARCH_RESULT, postData)

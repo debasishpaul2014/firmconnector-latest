@@ -8,7 +8,7 @@ const SearchResultBlock = (props) => {
   const checkSearchStatus = () => {
     if (isSearching) {
       return (
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center align-items-center p-3 bg-white">
           <span className="text-sm-custom">Searching, please wait...</span>
         </div>
       );
@@ -46,6 +46,14 @@ const SearchResultBlock = (props) => {
           </span>
         </div>
       );
+    } else {
+      return (
+        <div className="d-block">
+          <span className="text-x-sm-custom text-muted-custom">
+            Job role not available
+          </span>
+        </div>
+      );
     }
   };
 
@@ -55,34 +63,32 @@ const SearchResultBlock = (props) => {
         <>
           {searchResult.map((item, index) => {
             return (
-              <div
-                key={index.toString()}
-                className="d-block p-3 rounded my-2 border"
-              >
-                <div class="d-flex">
-                  <Link to={"resources/details/" + item.user_slug}>
+              <Link to={"resources/details/" + item.user_slug}>
+                <div
+                  key={index.toString()}
+                  className="d-block p-3 rounded mb-2 border bg-white"
+                >
+                  <div class="d-flex">
                     <div className="d-block mt-1">
                       <ProfileImageMd imgSrc={item.profile_image_path} />
                     </div>
-                  </Link>
-                  <div className="d-block ms-2">
-                    <Link to={"resources/details/" + item.user_slug}>
+                    <div className="d-block ms-2">
                       <div className="d-block">
                         <span className="text-md-custom fw-bold text-warning">
                           {item.resource_name}
                         </span>
                       </div>
-                    </Link>
-                    {displayJobRole(item.user_profile_role)}
+                      {displayJobRole(item.user_profile_role)}
+                    </div>
                   </div>
-                </div>
 
-                <div className="d-block mt-4">
-                  <div className="d-flex flex-wrap">
-                    {displaySkills(item.skill_name)}
+                  <div className="d-block mt-4">
+                    <div className="d-flex flex-wrap">
+                      {displaySkills(item.skill_name)}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
         </>
@@ -94,7 +100,7 @@ const SearchResultBlock = (props) => {
 
   const displayInitialStatus = () => {
     return (
-      <>
+      <div className="d-block bg-light p-3">
         <div className="d-flex justify-content-center">
           <span className="fw-bold text-sm-custom">
             Search result will appear here
@@ -105,17 +111,11 @@ const SearchResultBlock = (props) => {
             Type keyword for skills, resources, city, country
           </span>
         </div>
-      </>
+      </div>
     );
   };
 
-  return (
-    <div className="d-block mx-1">
-      <div className="card-custom">
-        <div className="card-body">{checkSearchStatus()}</div>
-      </div>
-    </div>
-  );
+  return <div className="d-block mx-1">{checkSearchStatus()}</div>;
 };
 
 export default SearchResultBlock;

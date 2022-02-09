@@ -83,6 +83,34 @@ const LeftMenuComponent = () => {
           </div>
         </Link>
 
+        {user_primary_role === "1" ? (
+          <Link to="/resource-managers">
+            <div className="my-3 align-items-center d-flex flex-column align-items-center">
+              <div className="sm-block animated-hover bg-muted-custom">
+                <IconContainer
+                  iconName={"FiUsers"}
+                  color={
+                    activeRoute === "/resource-managers"
+                      ? "var(--black)"
+                      : "var(--muted-light)"
+                  }
+                />
+              </div>
+              <div>
+                <span
+                  className={
+                    activeRoute === "/resource-managers"
+                      ? "text-x-x-sm-custom text-info-custom fw-bold"
+                      : "text-x-x-sm-custom"
+                  }
+                >
+                  Managers
+                </span>
+              </div>
+            </div>
+          </Link>
+        ) : null}
+
         {user_primary_role === "2" ? (
           <Link to="/clients">
             <div className="my-3 align-items-center d-flex flex-column align-items-center">

@@ -3,9 +3,15 @@ import getFirmAccessList from "../../apis/getFirmAccessList";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 
 const SearchLeftBlock = (props) => {
-  const { user_slug } = props;
+  const { user_slug, getSelectedFirmIds } = props;
   const [isFirmListLoading, setIsFirmListLoading] = useState(true);
   const [firmList, setFirmList] = useState(false);
+  const [selectedFirmList, setSelectedFirmList] = useState([]);
+  const [selectedAvailabilityList, setSelectedAvailabilityList] = useState([]);
+
+  useEffect(() => {
+    getSelectedFirmIds(selectedFirmList);
+  }, [selectedFirmList]);
 
   useEffect(() => {
     if (user_slug !== undefined) {
@@ -13,7 +19,15 @@ const SearchLeftBlock = (props) => {
         .then(async ([data]) => {
           if (data?.data?.firmList) {
             setIsFirmListLoading(false);
-            setFirmList(data?.data?.firmList);
+            setFirmList(data.data.firmList);
+
+            var firmCheckedIds = [];
+
+            data.data.firmList.map((item) => {
+              return firmCheckedIds.push(item.firm_id);
+            });
+
+            await setSelectedFirmList(firmCheckedIds);
           } else {
             setIsFirmListLoading(false);
           }
@@ -24,6 +38,20 @@ const SearchLeftBlock = (props) => {
         });
     }
   }, [user_slug]);
+
+  const updateSelectedFirmIds = (id) => {
+    var ids = [...selectedFirmList];
+
+    const index = selectedFirmList.indexOf(id); //use id instead of index
+
+    if (index > -1) {
+      ids.pop(index);
+    } else {
+      ids.push(id);
+    }
+
+    setSelectedFirmList(ids);
+  };
 
   const displayLoadingBlock = () => {
     return (
@@ -52,6 +80,12 @@ const SearchLeftBlock = (props) => {
                     className="form-check-input"
                     type="checkbox"
                     value={item.firm_id}
+                    checked={
+                      selectedFirmList.indexOf(item.firm_id) !== -1
+                        ? true
+                        : false
+                    }
+                    onChange={() => updateSelectedFirmIds(item.firm_id)}
                   />
                   <label className="form-check-label" for="flexCheckDefault">
                     <span className="text-dark-custom text-x-sm-custom">

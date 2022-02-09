@@ -11,12 +11,29 @@ const SearchBottomBlock = (props) => {
   const [isKeywordChanging, setIsKeywordChanging] = useState(false);
   const [isAutoCompleteVisible, setIsAutoCompleteVisible] = useState(false);
   const [suggestionList, setSuggestionList] = useState(false);
+  const [selectedFirmList, setSelectedFirmList] = useState([]);
+  const [isSearchButtonDisabled, setIsSearchButtonDisabled] = useState(true);
 
   const [searchResult, setSearchResult] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
-  useEffect(() => {}, [searchText, isKeywordChanging, isAutoCompleteVisible]);
+  useEffect(() => {
+    if (searchText.trim().length > 2) {
+      setIsSearchButtonDisabled(false);
+    } else {
+      setIsSearchButtonDisabled(true);
+    }
+  }, [searchText, isKeywordChanging, isAutoCompleteVisible]);
+
   useEffect(() => {}, [isSearching, searchResult]);
+
+  useEffect(() => {
+    getSearch();
+  }, [selectedFirmList]);
+
+  const getSelectedFirmIds = (firmIds) => {
+    setSelectedFirmList(firmIds);
+  };
 
   const onKeyworkChange = (e) => {
     let keyword = e.target.value;
@@ -61,24 +78,27 @@ const SearchBottomBlock = (props) => {
   };
 
   const getSearch = () => {
-    setSearchResult(false);
-    setIsSearching(true);
+    if (searchText.trim().length > 2) {
+      setSearchResult(false);
+      setIsSearching(true);
+      setIsAutoCompleteVisible(false);
 
-    Promise.all([getSearchResult(searchText)])
-      .then(async ([data]) => {
-        if (data?.data?.searchResult) {
-          setIsSearching(false);
-          setSearchResult(data?.data?.searchResult);
-        } else {
+      Promise.all([getSearchResult(searchText, selectedFirmList)])
+        .then(async ([data]) => {
+          if (data?.data?.searchResult) {
+            setIsSearching(false);
+            setSearchResult(data?.data?.searchResult);
+          } else {
+            setIsSearching(false);
+            setSearchResult(false);
+          }
+        })
+        .catch((err) => {
           setIsSearching(false);
           setSearchResult(false);
-        }
-      })
-      .catch((err) => {
-        setIsSearching(false);
-        setSearchResult(false);
-        console.log(err);
-      });
+          console.log(err);
+        });
+    }
   };
 
   const displayAutoCompleteBlock = () => {
@@ -151,6 +171,7 @@ const SearchBottomBlock = (props) => {
                     variant="primary"
                     size="sm"
                     onClick={() => getSearch()}
+                    disabled={isSearchButtonDisabled}
                   >
                     Search
                   </Button>
@@ -164,7 +185,10 @@ const SearchBottomBlock = (props) => {
       <div className="d-flex justify-content-center mt-4 h-100">
         <div className="row col-12 col-lg-9 col-xl-9 col-xxl-9 mx-0">
           <div className="d-none d-lg-flex d-xl-flex d-xxl-flex col-lg-3 col-xl-3 col-xxl-3">
-            <SearchLeftBlock user_slug={user_slug} />
+            <SearchLeftBlock
+              user_slug={user_slug}
+              getSelectedFirmIds={getSelectedFirmIds}
+            />
           </div>
           <div className="col-12 col-lg-9 col-xl-9 col-xxl-9">
             <SearchResultBlock
