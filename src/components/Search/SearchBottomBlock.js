@@ -17,6 +17,9 @@ const SearchBottomBlock = (props) => {
   const [searchResult, setSearchResult] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
 
+  const [ownFirm, setOwnFirm] = useState(false);
+  const [accessFirm, setAccessFirm] = useState(false);
+
   useEffect(() => {
     if (searchText.trim().length > 2) {
       setIsSearchButtonDisabled(false);
@@ -33,6 +36,11 @@ const SearchBottomBlock = (props) => {
 
   const getSelectedFirmIds = (firmIds) => {
     setSelectedFirmList(firmIds);
+  };
+
+  const getFirmAccess = async (ownFirm, accessFirm) => {
+    await setOwnFirm(ownFirm);
+    await setAccessFirm(accessFirm);
   };
 
   const onKeyworkChange = (e) => {
@@ -188,12 +196,15 @@ const SearchBottomBlock = (props) => {
             <SearchLeftBlock
               user_slug={user_slug}
               getSelectedFirmIds={getSelectedFirmIds}
+              getFirmAccess={getFirmAccess}
             />
           </div>
           <div className="col-12 col-lg-9 col-xl-9 col-xxl-9">
             <SearchResultBlock
               isSearching={isSearching}
               searchResult={searchResult}
+              ownFirm={ownFirm}
+              accessFirm={accessFirm}
             />
           </div>
         </div>

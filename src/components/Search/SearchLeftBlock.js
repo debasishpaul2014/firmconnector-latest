@@ -3,15 +3,21 @@ import getFirmAccessList from "../../apis/getFirmAccessList";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 
 const SearchLeftBlock = (props) => {
-  const { user_slug, getSelectedFirmIds } = props;
+  const { user_slug, getSelectedFirmIds, getFirmAccess } = props;
   const [isFirmListLoading, setIsFirmListLoading] = useState(true);
   const [firmList, setFirmList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
   const [selectedAvailabilityList, setSelectedAvailabilityList] = useState([]);
+  const [ownFirm, setOwnFirm] = useState(false);
+  const [accessFirm, setAccessFirm] = useState([]);
 
   useEffect(() => {
     getSelectedFirmIds(selectedFirmList);
   }, [selectedFirmList]);
+
+  useEffect(() => {
+    getFirmAccess(ownFirm, accessFirm);
+  }, [accessFirm, ownFirm]);
 
   useEffect(() => {
     if (user_slug !== undefined) {
@@ -20,6 +26,8 @@ const SearchLeftBlock = (props) => {
           if (data?.data?.firmList) {
             setIsFirmListLoading(false);
             setFirmList(data.data.firmList);
+            setOwnFirm(data.data.ownFirm);
+            setAccessFirm(data.data.accessFirm);
 
             var firmCheckedIds = [];
 
