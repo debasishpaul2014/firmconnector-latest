@@ -162,13 +162,13 @@ const SearchBottomBlock = (props) => {
     <div className="d-block mb-4">
       <div className="d-flex col-12 mb-5 align-items-center justify-content-center">
         <div className="col-11 col-lg-8 col-xl-8 col-xxl-8 position-relative">
-          <div className="search-sm-block d-flex align-items-center">
+          <div className="d-flex align-items-center bg-white p-3 rounded shadow-lg">
             <div className="d-flex col-12 row mx-0">
               <div className="col-9">
                 <input
                   type="text"
                   placeholder="Search for resorces/skills/country/city/state"
-                  className="form-control-custom-sm-border-none text-md-custom text-capitalize"
+                  className="form-control-custom-sm-border-none text-capitalize fw-medium-custom text-info-custom"
                   onChange={onKeyworkChange}
                   value={searchText}
                 />

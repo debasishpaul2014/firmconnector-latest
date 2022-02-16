@@ -57,6 +57,32 @@ const LeftMenuComponent = () => {
           </div>
         </Link>
 
+        <Link to="/search">
+          <div className="my-3 align-items-center d-flex flex-column align-items-center">
+            <div className="sm-block animated-hover bg-muted-custom">
+              <IconContainer
+                iconName={"FiSearch"}
+                color={
+                  activeRoute === "/search"
+                    ? "var(--black)"
+                    : "var(--muted-light)"
+                }
+              />
+            </div>
+            <div>
+              <span
+                className={
+                  activeRoute === "/search"
+                    ? "text-x-x-sm-custom text-info-custom fw-bold"
+                    : "text-x-x-sm-custom"
+                }
+              >
+                Search
+              </span>
+            </div>
+          </div>
+        </Link>
+
         <Link to="/resources">
           <div className="my-3 align-items-center d-flex flex-column align-items-center">
             <div className="sm-block animated-hover bg-muted-custom">

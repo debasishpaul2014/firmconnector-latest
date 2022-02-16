@@ -75,14 +75,14 @@ const SearchLeftBlock = (props) => {
         <>
           {firmList.map(function (item, index) {
             return (
-              <div key={item.firm_id} className="mb-2 border-bottom-light-sm">
-                <div className="firm-logo-sm-custom shadow-sm">
+              <div key={item.firm_id} className="mb-2">
+                {/* <div className="firm-logo-sm-custom">
                   <img
                     src={FIRM_IMAGE_BASE + item.firm_logo}
                     className="img-fluid"
                     alt="..."
                   />
-                </div>
+                </div> */}
                 <div className="form-check mt-1">
                   <input
                     className="form-check-input"
@@ -100,9 +100,7 @@ const SearchLeftBlock = (props) => {
                     className="form-check-label"
                     for={"firm-id-" + item.firm_id}
                   >
-                    <span className="text-dark-custom text-x-sm-custom">
-                      {item.firm_name}
-                    </span>
+                    <span className="text-dark-custom">{item.firm_name}</span>
                   </label>
                 </div>
               </div>
@@ -123,22 +121,22 @@ const SearchLeftBlock = (props) => {
 
   return (
     <div className="d-flex flex-column col-12">
-      <div className="card-custom shadow">
+      <div className="card-custom">
         <div className="card-body">
           <div className="d-block mb-3">
-            <span className="fw-bold text-md-custom text-muted-custom">
-              Related Firms
+            <span className="text-sm-custom text-blue-dark-custom fw-medium-custom">
+              Refine by Firms
             </span>
           </div>
           <div>{displayRelatedFirms()}</div>
         </div>
       </div>
 
-      <div className="card-custom shadow mt-2">
+      <div className="card-custom mt-2">
         <div className="card-body">
           <div className="d-block mb-3">
-            <span className="fw-bold text-md-custom text-muted-custom">
-              Availability
+            <span className="text-sm-custom text-blue-dark-custom fw-medium-custom">
+              Refine by Availability
             </span>
           </div>
           <div className="d-block">
@@ -147,12 +145,10 @@ const SearchLeftBlock = (props) => {
                 className="form-check-input"
                 type="checkbox"
                 value="40"
-                id="flexCheckDefault"
+                id="fourtyhoursweek"
               />
-              <label className="form-check-label" for="flexCheckDefault">
-                <span className="text-dark-custom text-x-sm-custom">
-                  40 hrs/week
-                </span>
+              <label className="form-check-label" for="fourtyhoursweek">
+                <span className="text-dark-custom">40 hrs/week</span>
               </label>
             </div>
             <div className="form-check">
@@ -160,12 +156,10 @@ const SearchLeftBlock = (props) => {
                 className="form-check-input"
                 type="checkbox"
                 value="30"
-                id="flexCheckDefault"
+                id="thirtyhoursweek"
               />
-              <label className="form-check-label" for="flexCheckDefault">
-                <span className="text-dark-custom text-x-sm-custom">
-                  30 hrs/week
-                </span>
+              <label className="form-check-label" for="thirtyhoursweek">
+                <span className="text-dark-custom">30 hrs/week</span>
               </label>
             </div>
             <div className="form-check">
@@ -173,12 +167,10 @@ const SearchLeftBlock = (props) => {
                 className="form-check-input"
                 type="checkbox"
                 value="20"
-                id="flexCheckDefault"
+                id="twentyhoursweek"
               />
-              <label className="form-check-label" for="flexCheckDefault">
-                <span className="text-dark-custom text-x-sm-custom">
-                  20 hrs/week
-                </span>
+              <label className="form-check-label" for="twentyhoursweek">
+                <span className="text-dark-custom">20 hrs/week</span>
               </label>
             </div>
             <div className="form-check">
@@ -186,12 +178,10 @@ const SearchLeftBlock = (props) => {
                 className="form-check-input"
                 type="checkbox"
                 value="10"
-                id="flexCheckDefault"
+                id="tenhoursweek"
               />
-              <label className="form-check-label" for="flexCheckDefault">
-                <span className="text-dark-custom text-x-sm-custom">
-                  10 hrs/week
-                </span>
+              <label className="form-check-label" for="tenhoursweek">
+                <span className="text-dark-custom">10 hrs/week</span>
               </label>
             </div>
             <div className="form-check">
@@ -199,12 +189,10 @@ const SearchLeftBlock = (props) => {
                 className="form-check-input"
                 type="checkbox"
                 value="0"
-                id="flexCheckDefault"
+                id="zerohoursweek"
               />
-              <label className="form-check-label" for="flexCheckDefault">
-                <span className="text-dark-custom text-x-sm-custom">
-                  0 hrs/week
-                </span>
+              <label className="form-check-label" for="zerohoursweek">
+                <span className="text-dark-custom">0 hrs/week</span>
               </label>
             </div>
           </div>

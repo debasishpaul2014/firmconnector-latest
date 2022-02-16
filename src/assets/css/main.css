@@ -108,6 +108,10 @@ body {
    color: var(--muted);
 }
 
+.text-blue-dark-custom{
+   color: var(--info-dark);
+}
+
 .text-muted-light-custom{
    color: var(--muted-light);
 }

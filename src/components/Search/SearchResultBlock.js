@@ -293,7 +293,7 @@ const SearchResultBlock = (props) => {
               <Link target="_blank" to={"resources/details/" + item.user_slug}>
                 <div
                   key={index.toString()}
-                  className="d-block p-3 rounded mb-2 border bg-white"
+                  className="d-block p-3 rounded mb-2 bg-white shadow"
                 >
                   <div class="d-flex row">
                     <div className="col-12 col-lg-1 col-xl-1 col-xxl-1">
