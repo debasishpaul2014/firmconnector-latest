@@ -50,7 +50,7 @@ const SearchLeftBlock = (props) => {
   const updateSelectedFirmIds = (id) => {
     var ids = [...selectedFirmList];
 
-    const index = selectedFirmList.indexOf(id); //use id instead of index
+    const index = selectedFirmList.indexOf(id);
 
     if (index > -1) {
       ids.pop(index);
@@ -94,8 +94,12 @@ const SearchLeftBlock = (props) => {
                         : false
                     }
                     onChange={() => updateSelectedFirmIds(item.firm_id)}
+                    id={"firm-id-" + item.firm_id}
                   />
-                  <label className="form-check-label" for="flexCheckDefault">
+                  <label
+                    className="form-check-label"
+                    for={"firm-id-" + item.firm_id}
+                  >
                     <span className="text-dark-custom text-x-sm-custom">
                       {item.firm_name}
                     </span>

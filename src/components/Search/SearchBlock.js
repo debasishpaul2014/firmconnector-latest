@@ -1,6 +1,5 @@
 import React from "react";
 import { useAuthContext } from "../../context/AuthContext";
-import SearchTopBlock from "./SearchTopBlock";
 import SearchBottomBlock from "./SearchBottomBlock";
 
 const SearchBlock = () => {
@@ -9,7 +8,6 @@ const SearchBlock = () => {
 
   return (
     <div className="d-block">
-      <SearchTopBlock user_slug={user_slug} />
       <SearchBottomBlock user_slug={user_slug} />
     </div>
   );

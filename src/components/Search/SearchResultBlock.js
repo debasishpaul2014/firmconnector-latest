@@ -8,9 +8,11 @@ import {
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import user from "../../assets/images/no-photo.png";
+import { FIRM_IMAGE_BASE } from "../../config/env";
+import { PieChart } from "react-minimal-pie-chart";
 
 const SearchResultBlock = (props) => {
-  const { isSearching, searchResult, ownFirm, accessFirm } = props;
+  const { isSearching, searchResult, ownFirm } = props;
 
   const checkSearchStatus = () => {
     if (isSearching) {
@@ -27,20 +29,43 @@ const SearchResultBlock = (props) => {
   const displaySkills = (skills) => {
     if (skills.length > 0 && skills !== null) {
       const skillArray = skills.split(",");
+      const skillLength = skillArray.length;
 
-      return (
-        <>
-          {skillArray.map((skillItem, skillIndex) => {
-            return (
-              <div class="skill-wrapper-muted my-1 me-1">
-                <span class="text-x-sm-custom" key={skillIndex.toString()}>
-                  {skillItem}
-                </span>
-              </div>
-            );
-          })}
-        </>
-      );
+      if (skillLength > 10) {
+        const remainingSkills = skillLength - 10;
+        const skillFormatted = skillArray.slice(0, 10);
+
+        return (
+          <>
+            {skillFormatted.map((skillItem, skillIndex) => {
+              return (
+                <div class="skill-wrapper-muted my-1 me-1">
+                  <span class="text-x-sm-custom" key={skillIndex.toString()}>
+                    {skillItem}
+                  </span>
+                </div>
+              );
+            })}
+            <span className=" my-2 me-1 text-x-sm-custom fw-bold text-dark-custom">
+              +{remainingSkills} more skills
+            </span>
+          </>
+        );
+      } else {
+        return (
+          <>
+            {skillArray.map((skillItem, skillIndex) => {
+              return (
+                <div class="skill-wrapper-muted my-1 me-1">
+                  <span class="text-x-sm-custom" key={skillIndex.toString()}>
+                    {skillItem}
+                  </span>
+                </div>
+              );
+            })}
+          </>
+        );
+      }
     } else {
       return (
         <span className="text-x-sm-custom text-danger-custom">
@@ -122,8 +147,7 @@ const SearchResultBlock = (props) => {
               <FontAwesomeIcon icon={faMapPin} />
             </span>
             <span className="text-x-sm-custom text-dark-custom">
-              {item.user_street_address}, {item.city_name}, {item.state_name},{" "}
-              {item.country_name}
+              {item.city_name}, {item.state_name}, {item.country_name}
             </span>
           </div>
         );
@@ -165,13 +189,108 @@ const SearchResultBlock = (props) => {
     }
   };
 
+  const displayAvailability = (availability) => {
+    return (
+      <>
+        {displayAvailabilityGraph(availability)}
+        <div className="d-block">
+          <span className="text-x-x-sm-custom fw-medium-custom text-dark-custom">
+            {availability} hrs/week
+          </span>
+        </div>
+      </>
+    );
+  };
+
+  const displayAvailabilityGraph = (availability) => {
+    if (availability !== null) {
+      availability = parseInt(availability);
+
+      var color = "#DC143C";
+
+      if (availability < 20) {
+        color = "#DC143C";
+      } else if (availability === 20 || availability === 30) {
+        color = "#808000";
+      } else {
+        color = "#00d09c";
+      }
+
+      return (
+        <div className="chart-box-md">
+          <PieChart
+            animate={true}
+            animationDuration={500}
+            animationEasing="ease-out"
+            center={[25, 25]}
+            totalValue={40}
+            data={[
+              {
+                color: color,
+                value: availability,
+              },
+            ]}
+            labelPosition={25}
+            lengthAngle={360}
+            lineWidth={30}
+            paddingAngle={0}
+            radius={25}
+            startAngle={0}
+            viewBoxSize={[50, 50]}
+            background={"#ccc"}
+          />
+        </div>
+      );
+    } else {
+      availability = 0;
+
+      return (
+        <div className="chart-box-md">
+          <PieChart
+            animate={true}
+            animationDuration={500}
+            animationEasing="ease-out"
+            center={[50, 50]}
+            totalValue={40}
+            data={[
+              {
+                color: color,
+                value: availability,
+              },
+            ]}
+            labelPosition={50}
+            lengthAngle={360}
+            lineWidth={30}
+            paddingAngle={0}
+            radius={50}
+            startAngle={0}
+            viewBoxSize={[50, 50]}
+            background={"#ccc"}
+          />
+        </div>
+      );
+    }
+  };
+
+  const displayFirm = (logo_path) => {
+    return (
+      <div className="firm-logo-sm-custom shadow-sm">
+        <img
+          src={FIRM_IMAGE_BASE + logo_path}
+          className="img-fluid"
+          alt="..."
+        />
+      </div>
+    );
+  };
+
   const displaySearchResult = () => {
     if (searchResult) {
       return (
         <>
           {searchResult.map((item, index) => {
             return (
-              <Link to={"resources/details/" + item.user_slug}>
+              <Link target="_blank" to={"resources/details/" + item.user_slug}>
                 <div
                   key={index.toString()}
                   className="d-block p-3 rounded mb-2 border bg-white"
@@ -191,7 +310,12 @@ const SearchResultBlock = (props) => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2"></div>
+                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-center">
+                      {displayAvailability(item.availability)}
+                      <div className="d-block my-2">
+                        {displayFirm(item.firm_logo)}
+                      </div>
+                    </div>
                   </div>
 
                   <div className="d-block mt-2">

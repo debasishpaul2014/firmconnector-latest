@@ -91,7 +91,7 @@ const SearchBottomBlock = (props) => {
       setIsSearching(true);
       setIsAutoCompleteVisible(false);
 
-      Promise.all([getSearchResult(searchText, selectedFirmList)])
+      Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
         .then(async ([data]) => {
           if (data?.data?.searchResult) {
             setIsSearching(false);
@@ -160,8 +160,8 @@ const SearchBottomBlock = (props) => {
 
   return (
     <div className="d-block mb-4">
-      <div className="d-flex col-12 my-5 align-items-center justify-content-center">
-        <div className="col-11 col-lg-5 col-xl-5 col-xxl-5 position-relative">
+      <div className="d-flex col-12 mb-5 align-items-center justify-content-center">
+        <div className="col-11 col-lg-8 col-xl-8 col-xxl-8 position-relative">
           <div className="search-sm-block d-flex align-items-center">
             <div className="d-flex col-12 row mx-0">
               <div className="col-9">
@@ -191,7 +191,7 @@ const SearchBottomBlock = (props) => {
         </div>
       </div>
       <div className="d-flex justify-content-center mt-4 h-100">
-        <div className="row col-12 col-lg-9 col-xl-9 col-xxl-9 mx-0">
+        <div className="row col-12 mx-0">
           <div className="d-none d-lg-flex d-xl-flex d-xxl-flex col-lg-3 col-xl-3 col-xxl-3">
             <SearchLeftBlock
               user_slug={user_slug}
