@@ -8,6 +8,7 @@
     display: flex;
     justify-content: center;
     overflow-y: auto;
+    width: 4.5rem;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

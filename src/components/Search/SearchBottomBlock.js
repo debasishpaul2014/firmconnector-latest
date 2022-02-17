@@ -13,6 +13,7 @@ const SearchBottomBlock = (props) => {
   const [suggestionList, setSuggestionList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
   const [isSearchButtonDisabled, setIsSearchButtonDisabled] = useState(true);
+  const [isSearchResultAvailable, setIsSearchResultAvailable] = useState(false);
 
   const [searchResult, setSearchResult] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
@@ -31,7 +32,9 @@ const SearchBottomBlock = (props) => {
   useEffect(() => {}, [isSearching, searchResult]);
 
   useEffect(() => {
-    getSearch();
+    if (isSearchResultAvailable) {
+      getSearchByFirmChange();
+    }
   }, [selectedFirmList]);
 
   const getSelectedFirmIds = (firmIds) => {
@@ -47,7 +50,7 @@ const SearchBottomBlock = (props) => {
     let keyword = e.target.value;
 
     if (keyword.trim().length > 0) {
-      if (keyword.trim().length > 2) {
+      if (keyword.trim().length > 0) {
         setIsKeywordChanging(true);
         setIsAutoCompleteVisible(true);
         setSearchText(keyword);
@@ -85,28 +88,71 @@ const SearchBottomBlock = (props) => {
       });
   };
 
-  const getSearch = () => {
-    if (searchText.trim().length > 2) {
-      setSearchResult(false);
-      setIsSearching(true);
-      setIsAutoCompleteVisible(false);
+  const getSearchByFirmChange = () => {
+    // if (searchText.trim().length > 2) {
+    //   setSearchResult(false);
+    //   setIsSearching(true);
+    //   setIsAutoCompleteVisible(false);
 
-      Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
-        .then(async ([data]) => {
-          if (data?.data?.searchResult) {
-            setIsSearching(false);
-            setSearchResult(data?.data?.searchResult);
-          } else {
-            setIsSearching(false);
-            setSearchResult(false);
-          }
-        })
-        .catch((err) => {
+    //   Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
+    //     .then(async ([data]) => {
+    //       if (data?.data?.searchResult) {
+    //         setIsSearching(false);
+    //         setSearchResult(data?.data?.searchResult);
+    //       } else {
+    //         setIsSearching(false);
+    //         setSearchResult(false);
+    //       }
+    //     })
+    //     .catch((err) => {
+    //       setIsSearching(false);
+    //       setSearchResult(false);
+    //       console.log(err);
+    //     });
+    // }
+    setSearchResult(false);
+    setIsSearching(true);
+    setIsAutoCompleteVisible(false);
+
+    Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
+      .then(async ([data]) => {
+        if (data?.data?.searchResult) {
+          setIsSearching(false);
+          setSearchResult(data?.data?.searchResult);
+        } else {
           setIsSearching(false);
           setSearchResult(false);
-          console.log(err);
-        });
-    }
+        }
+      })
+      .catch((err) => {
+        setIsSearching(false);
+        setSearchResult(false);
+        console.log(err);
+      });
+  };
+
+  const getSearch = () => {
+    setSearchResult(false);
+    setIsSearching(true);
+    setIsAutoCompleteVisible(false);
+
+    Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
+      .then(async ([data]) => {
+        if (data?.data?.searchResult) {
+          setIsSearching(false);
+          setSearchResult(data?.data?.searchResult);
+          await setIsSearchResultAvailable(true);
+        } else {
+          setIsSearching(false);
+          setSearchResult(false);
+          await setIsSearchResultAvailable(true);
+        }
+      })
+      .catch((err) => {
+        setIsSearching(false);
+        setSearchResult(false);
+        console.log(err);
+      });
   };
 
   const displayAutoCompleteBlock = () => {
@@ -159,7 +205,7 @@ const SearchBottomBlock = (props) => {
   };
 
   return (
-    <div className="d-block mb-4">
+    <div className="d-block my-4">
       <div className="d-flex col-12 mb-5 align-items-center justify-content-center">
         <div className="col-11 col-lg-8 col-xl-8 col-xxl-8 position-relative">
           <div className="d-flex align-items-center bg-white p-3 rounded shadow-lg">
@@ -179,7 +225,7 @@ const SearchBottomBlock = (props) => {
                     variant="primary"
                     size="sm"
                     onClick={() => getSearch()}
-                    disabled={isSearchButtonDisabled}
+                    // disabled={isSearchButtonDisabled}
                   >
                     Search
                   </Button>

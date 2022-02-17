@@ -310,7 +310,7 @@ const SearchResultBlock = (props) => {
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-center">
+                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-xxl-end align-items-lg-end align-items-xl-end">
                       {displayAvailability(item.availability)}
                       <div className="d-block my-2">
                         {displayFirm(item.firm_logo)}
