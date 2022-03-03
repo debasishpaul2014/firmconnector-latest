@@ -40,7 +40,7 @@ const ProfileBrief = (props) => {
       contactDetails.user_address_country_id > 0
     ) {
       return (
-        <span className="fw-bold-custom text-sm-custom">
+        <span className="text-x-sm-custom text-center">
           {contactDetails.city_name}, {contactDetails.state_name},{" "}
           {contactDetails.country_name}
         </span>
@@ -83,11 +83,11 @@ const ProfileBrief = (props) => {
 
             <div className="role-lg-holder">
               {displayView === "default" ? (
-                <span className="text-dark-custom text-center">
+                <span className="text-muted fw-bold text-center">
                   {displayProfileRole()}
                 </span>
               ) : (
-                <span className="h5 fw-bold-custom text-center">
+                <span className="h5 text-muted fw-bold text-center">
                   {displayProfileRole()}
                 </span>
               )}

@@ -229,9 +229,9 @@ const ResourceListingResultBlock = () => {
       if (availability < 20) {
         color = "#DC143C";
       } else if (availability === 20 || availability === 30) {
-        color = "#808000";
+        color = "#FFBF00";
       } else {
-        color = "#00d09c";
+        color = "#32CD32";
       }
 
       return (
@@ -253,7 +253,7 @@ const ResourceListingResultBlock = () => {
             lineWidth={30}
             paddingAngle={0}
             radius={25}
-            startAngle={0}
+            startAngle={90}
             viewBoxSize={[50, 50]}
             background={"#ccc"}
           />

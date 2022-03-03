@@ -20,17 +20,17 @@ const AvailabilityHolder = (props) => {
 
   const renderAvailability = () => {
     if (availabilityDetails !== null && availabilityDetails) {
-      var chartColor = "#FFF";
+      var chartColor = "#DC143C";
 
       if (availabilityDetails.availability <= 5) {
-        chartColor = "#FF5733";
+        chartColor = "#DC143C";
       } else if (
         availabilityDetails.availability > 5 &&
         availabilityDetails.availability < 20
       ) {
-        chartColor = "#FDDA0D";
+        chartColor = "#FFBF00";
       } else {
-        chartColor = "#00d09c";
+        chartColor = "#32CD32";
       }
       return (
         <>

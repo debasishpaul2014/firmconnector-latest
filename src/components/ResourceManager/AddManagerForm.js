@@ -135,15 +135,15 @@ const AddManagerForm = () => {
       errMessage.push("Enter valid password");
     }
 
-    if (!emailPattern.test(contactEmail)) {
-      isInvalid = 1;
-      errMessage.push("Enter a valid contact business email address");
-    }
+    // if (!emailPattern.test(contactEmail)) {
+    //   isInvalid = 1;
+    //   errMessage.push("Enter a valid contact business email address");
+    // }
 
-    if (!phonePattern.test(phone)) {
-      isInvalid = 1;
-      errMessage.push("Enter a valid phone number");
-    }
+    // if (!phonePattern.test(phone)) {
+    //   isInvalid = 1;
+    //   errMessage.push("Enter a valid phone number");
+    // }
 
     if (isInvalid === 1) {
       setErrorMessage(errMessage);
@@ -247,7 +247,7 @@ const AddManagerForm = () => {
               <form id="create-frm">
                 {displayloginBlock()}
                 {displayprofileBlock()}
-                {displayContactBlock()}
+                {/* {displayContactBlock()} */}
                 {displaySubmitButton()}
                 {displayStatusMessage()}
               </form>

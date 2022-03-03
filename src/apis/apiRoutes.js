@@ -22,9 +22,13 @@ const FIRM_OWNER_DETAILS_ROUTE = `${API_BASE}get-firm-owner-details`;
 const FIRM_LOGO_UPLOAD = `${API_BASE}firm-logo-upload`;
 const UPDATE_FIRM_BASIC_INFO = `${API_BASE}update-firm-basic-info`;
 const SAVE_EDUCATION_DETAILS = `${API_BASE}save-education-details`;
+const UPDATE_EDUCATION_DETAILS = `${API_BASE}update-education-details`;
 const REMOVE_EDUCATION_DETAILS = `${API_BASE}remove-education-details`;
+const GET_EDUCATION_DETAILS = `${API_BASE}get-education-details`;
 const SAVE_EMPLOYMENT_DETAILS = `${API_BASE}save-employment-details`;
+const UPDATE_EMPLOYMENT_DETAILS = `${API_BASE}update-employment-details`;
 const REMOVE_EMPLOYMENT_DETAILS = `${API_BASE}remove-employment-details`;
+const GET_EMPLOYMENT_DETAILS = `${API_BASE}get-employment-details`;
 const SAVE_UPLOADED_DOCUMENT = `${API_BASE}save-uploaded-document`;
 const REMOVE_DOCUMENT = `${API_BASE}remove-document`;
 const SAVE_RESOURCE_AVAILABILITY = `${API_BASE}save-resource-availability`;
@@ -64,7 +68,9 @@ export {
   SAVE_EDUCATION_DETAILS,
   REMOVE_EDUCATION_DETAILS,
   SAVE_EMPLOYMENT_DETAILS,
+  UPDATE_EMPLOYMENT_DETAILS,
   REMOVE_EMPLOYMENT_DETAILS,
+  GET_EMPLOYMENT_DETAILS,
   GET_ALL_STATE,
   GET_ALL_CITY,
   SAVE_UPLOADED_DOCUMENT,
@@ -77,4 +83,6 @@ export {
   GET_SEARCH_AUTO_COMPLETE,
   GET_SEARCH_RESULT,
   GET_MY_RESOURCE_MANAGER_LISTING,
+  GET_EDUCATION_DETAILS,
+  UPDATE_EDUCATION_DETAILS,
 };

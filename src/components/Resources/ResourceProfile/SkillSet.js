@@ -11,7 +11,6 @@ const SkillSet = (props) => {
   const handleShow = () => setShow(true);
 
   useEffect(() => {
-    console.log(skillFormattedSet);
     setIsLoading(false);
   }, [skillDetails, skillCount, skillFormattedSet]);
 

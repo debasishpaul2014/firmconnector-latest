@@ -79,11 +79,8 @@ const SearchResultBlock = (props) => {
     if (role !== null && role.trim().length !== 0) {
       return (
         <div className="d-block">
-          <span className="text-x-sm-custom text-info-custom fw-bold">
-            Job Role:
-          </span>
           <span className="text-x-sm-custom text-dark-custom fw-bold">
-            &nbsp;{role}
+            {role}
           </span>
         </div>
       );
@@ -211,9 +208,9 @@ const SearchResultBlock = (props) => {
       if (availability < 20) {
         color = "#DC143C";
       } else if (availability === 20 || availability === 30) {
-        color = "#808000";
+        color = "#FFBF00";
       } else {
-        color = "#00d09c";
+        color = "#32CD32";
       }
 
       return (
@@ -235,7 +232,7 @@ const SearchResultBlock = (props) => {
             lineWidth={30}
             paddingAngle={0}
             radius={25}
-            startAngle={0}
+            startAngle={90}
             viewBoxSize={[50, 50]}
             background={"#ccc"}
           />
@@ -295,35 +292,32 @@ const SearchResultBlock = (props) => {
                   key={index.toString()}
                   className="d-block p-3 rounded mb-2 bg-white shadow"
                 >
-                  <div class="d-flex row">
+                  <div class="d-flex row mb-4">
                     <div className="col-12 col-lg-1 col-xl-1 col-xxl-1">
                       {displayProfilePicture(item)}
                     </div>
-                    <div className="col-12 col-lg-9 col-xl-9 col-xxl-9">
+                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4">
                       <div className="d-block">
                         {displayProfileName(item)}
                         {displayJobRole(item.user_profile_role)}
                         <div className="d-block mt-1">
-                          {displayEmail(item)}
-                          {displayPhone(item)}
-                          {displayLocation(item)}
+                          {displayFirm(item.firm_logo)}
                         </div>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-xxl-end align-items-lg-end align-items-xl-end">
-                      {displayAvailability(item.availability)}
-                      <div className="d-block my-2">
-                        {displayFirm(item.firm_logo)}
+                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0">
+                      <div className="d-block bg-light p-2 rounded">
+                        {displayEmail(item)}
+                        {displayPhone(item)}
+                        {displayLocation(item)}
                       </div>
+                    </div>
+                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-xxl-end align-items-lg-end align-items-xl-end">
+                      {displayAvailability(item.availability)}
                     </div>
                   </div>
 
                   <div className="d-block mt-2">
-                    <div className="d-block mb-1">
-                      <span className="text-x-sm-custom fw-bold text-muted-custom">
-                        My Skills
-                      </span>
-                    </div>
                     <div className="d-flex flex-wrap p-2 bg-light">
                       {displaySkills(item.skill_name)}
                     </div>

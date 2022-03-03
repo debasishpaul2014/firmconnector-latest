@@ -5,6 +5,7 @@ import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import { useAuthContext } from "../../../context/AuthContext";
 
 import getResourceDetails from "../../../apis/getResourceDetails";
+import { Link } from "react-router-dom";
 
 const ResourceProfile = (props) => {
   const { resourceSlug } = props;
@@ -14,14 +15,21 @@ const ResourceProfile = (props) => {
   const [displayView, setDisplayView] = useState("default");
   const [isProfileLoading, setIsProfileLoading] = useState(true);
   const [resourceDetails, setResourceDetails] = useState(false);
+  const [rmId, setRmId] = useState(false);
+
+  useEffect(() => {
+    if (resourceDetails) {
+      setRmId(resourceDetails.profile_details.rm_id);
+    }
+  }, [resourceDetails]);
 
   useEffect(() => {
     if (user_slug !== undefined && resourceSlug !== undefined) {
       Promise.all([getResourceDetails(resourceSlug, user_slug)])
         .then(async ([data]) => {
           if (data?.data?.resource_details) {
-            setIsProfileLoading(false);
-            setResourceDetails(data?.data?.resource_details);
+            await setResourceDetails(data?.data?.resource_details);
+            await setIsProfileLoading(false);
           } else {
             setIsProfileLoading(false);
           }
@@ -43,7 +51,7 @@ const ResourceProfile = (props) => {
     } else {
       return (
         <div>
-          <div className="col-12 col-md-6 col-lg-3 col-xl-3 col-xxl-3 mb-4">
+          <div className="col-12 mb-4">
             <div className="d-flex">
               <div className="me-2">
                 <span
@@ -53,7 +61,7 @@ const ResourceProfile = (props) => {
                   Default View
                 </span>
               </div>
-              <div>
+              <div className="me-2">
                 <span
                   className="btn btn-warning btn-sm"
                   onClick={() => changeView("client")}
@@ -61,6 +69,13 @@ const ResourceProfile = (props) => {
                   Client View
                 </span>
               </div>
+              {rmId === user_slug ? (
+                <Link to={"/resources/edit-resource/" + resourceSlug}>
+                  <div>
+                    <span className="btn btn-success btn-sm">Edit Profile</span>
+                  </div>
+                </Link>
+              ) : null}
             </div>
           </div>
           <ResourceProfileTopSection

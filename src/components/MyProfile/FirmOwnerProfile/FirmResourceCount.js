@@ -48,7 +48,9 @@ const FirmResourceCount = (props) => {
             <IconContainer iconName={"FiUsers"} />
           </div>
         </div>
-        <h1 className="display-3">{resourceCount}</h1>
+        <Link to={"resources"}>
+          <h1 className="display-3 text-dark">{resourceCount}</h1>
+        </Link>
         <div className="d-block mb-2">
           <span className="h6 text-muted-custom">Resources</span>
         </div>

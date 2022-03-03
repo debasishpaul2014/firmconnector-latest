@@ -3,17 +3,28 @@ import getFirmAccessList from "../../apis/getFirmAccessList";
 import { FIRM_IMAGE_BASE } from "../../config/env";
 
 const SearchLeftBlock = (props) => {
-  const { user_slug, getSelectedFirmIds, getFirmAccess } = props;
+  const {
+    user_slug,
+    getSelectedFirmIds,
+    getFirmAccess,
+    getSelectedAvailability,
+  } = props;
   const [isFirmListLoading, setIsFirmListLoading] = useState(true);
   const [firmList, setFirmList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
-  const [selectedAvailabilityList, setSelectedAvailabilityList] = useState([]);
+  const [availability, setAvailability] = useState(false);
   const [ownFirm, setOwnFirm] = useState(false);
   const [accessFirm, setAccessFirm] = useState([]);
 
   useEffect(() => {
     getSelectedFirmIds(selectedFirmList);
   }, [selectedFirmList]);
+
+  useEffect(() => {
+    if (availability) {
+      getSelectedAvailability(availability);
+    }
+  }, [availability]);
 
   useEffect(() => {
     getFirmAccess(ownFirm, accessFirm);
@@ -76,13 +87,13 @@ const SearchLeftBlock = (props) => {
           {firmList.map(function (item, index) {
             return (
               <div key={item.firm_id} className="mb-2">
-                {/* <div className="firm-logo-sm-custom">
+                <div className="firm-logo-sm-custom">
                   <img
                     src={FIRM_IMAGE_BASE + item.firm_logo}
                     className="img-fluid"
                     alt="..."
                   />
-                </div> */}
+                </div>
                 <div className="form-check mt-1">
                   <input
                     className="form-check-input"
@@ -136,63 +147,93 @@ const SearchLeftBlock = (props) => {
         <div className="card-body">
           <div className="d-block mb-3">
             <span className="text-sm-custom text-blue-dark-custom fw-medium-custom">
-              Refine by Availability
+              Current Availability
             </span>
           </div>
           <div className="d-block">
-            <div className="form-check">
+            <div
+              className="form-check"
+              onClick={() => {
+                setAvailability(40);
+              }}
+            >
               <input
                 className="form-check-input"
-                type="checkbox"
+                type="radio"
                 value="40"
                 id="fourtyhoursweek"
+                name="availability"
               />
               <label className="form-check-label" for="fourtyhoursweek">
                 <span className="text-dark-custom">40 hrs/week</span>
               </label>
             </div>
-            <div className="form-check">
+            <div
+              className="form-check"
+              onClick={() => {
+                setAvailability(30);
+              }}
+            >
               <input
                 className="form-check-input"
-                type="checkbox"
+                type="radio"
                 value="30"
                 id="thirtyhoursweek"
+                name="availability"
               />
               <label className="form-check-label" for="thirtyhoursweek">
                 <span className="text-dark-custom">30 hrs/week</span>
               </label>
             </div>
-            <div className="form-check">
+            <div
+              className="form-check"
+              onClick={() => {
+                setAvailability(20);
+              }}
+            >
               <input
                 className="form-check-input"
-                type="checkbox"
+                type="radio"
                 value="20"
                 id="twentyhoursweek"
+                name="availability"
               />
               <label className="form-check-label" for="twentyhoursweek">
                 <span className="text-dark-custom">20 hrs/week</span>
               </label>
             </div>
-            <div className="form-check">
+            <div
+              className="form-check"
+              onClick={() => {
+                setAvailability(10);
+              }}
+            >
               <input
                 className="form-check-input"
-                type="checkbox"
+                type="radio"
                 value="10"
                 id="tenhoursweek"
+                name="availability"
               />
               <label className="form-check-label" for="tenhoursweek">
                 <span className="text-dark-custom">10 hrs/week</span>
               </label>
             </div>
-            <div className="form-check">
+            <div
+              className="form-check"
+              onClick={() => {
+                setAvailability(99999);
+              }}
+            >
               <input
                 className="form-check-input"
-                type="checkbox"
+                type="radio"
                 value="0"
                 id="zerohoursweek"
+                name="availability"
               />
               <label className="form-check-label" for="zerohoursweek">
-                <span className="text-dark-custom">0 hrs/week</span>
+                <span className="text-dark-custom">N/A</span>
               </label>
             </div>
           </div>

@@ -48,7 +48,9 @@ const FirmResourceManagerCount = (props) => {
             <IconContainer iconName={"FiUsers"} />
           </div>
         </div>
-        <h1 className="display-3">{resourceManagerCount}</h1>
+        <Link to={"resource-managers"}>
+          <h1 className="display-3 text-dark">{resourceManagerCount}</h1>
+        </Link>
         <div className="d-block mb-2">
           <span className="h6 text-muted-custom">Resource Managers</span>
         </div>

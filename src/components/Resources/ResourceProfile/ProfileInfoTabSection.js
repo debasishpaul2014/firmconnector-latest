@@ -41,16 +41,6 @@ const ProfileInfoTabSection = (props) => {
               <>
                 <div
                   className={`shadow-sm cursor-pointer my-2 mx-2 ${
-                    selectedTab === "education"
-                      ? "profile-tab-selected"
-                      : "profile-tab"
-                  }`}
-                  onClick={() => handleTabChange("education")}
-                >
-                  <span className="fw-medium-custom">Education</span>
-                </div>
-                <div
-                  className={`shadow-sm cursor-pointer my-2 mx-2 ${
                     selectedTab === "employment"
                       ? "profile-tab-selected"
                       : "profile-tab"
@@ -58,6 +48,16 @@ const ProfileInfoTabSection = (props) => {
                   onClick={() => handleTabChange("employment")}
                 >
                   <span className="fw-medium-custom">Experience</span>
+                </div>
+                <div
+                  className={`shadow-sm cursor-pointer my-2 mx-2 ${
+                    selectedTab === "education"
+                      ? "profile-tab-selected"
+                      : "profile-tab"
+                  }`}
+                  onClick={() => handleTabChange("education")}
+                >
+                  <span className="fw-medium-custom">Education</span>
                 </div>
               </>
             ) : null}

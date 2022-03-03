@@ -12,6 +12,7 @@ const SearchBottomBlock = (props) => {
   const [isAutoCompleteVisible, setIsAutoCompleteVisible] = useState(false);
   const [suggestionList, setSuggestionList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
+  const [selectedAvailability, setSelectedAvailability] = useState(false);
   const [isSearchButtonDisabled, setIsSearchButtonDisabled] = useState(true);
   const [isSearchResultAvailable, setIsSearchResultAvailable] = useState(false);
 
@@ -35,10 +36,14 @@ const SearchBottomBlock = (props) => {
     if (isSearchResultAvailable) {
       getSearchByFirmChange();
     }
-  }, [selectedFirmList]);
+  }, [selectedFirmList, selectedAvailability]);
 
   const getSelectedFirmIds = (firmIds) => {
     setSelectedFirmList(firmIds);
+  };
+
+  const getSelectedAvailability = (availability) => {
+    setSelectedAvailability(availability);
   };
 
   const getFirmAccess = async (ownFirm, accessFirm) => {
@@ -114,7 +119,14 @@ const SearchBottomBlock = (props) => {
     setIsSearching(true);
     setIsAutoCompleteVisible(false);
 
-    Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
+    Promise.all([
+      getSearchResult(
+        searchText,
+        selectedFirmList,
+        selectedAvailability,
+        user_slug
+      ),
+    ])
       .then(async ([data]) => {
         if (data?.data?.searchResult) {
           setIsSearching(false);
@@ -136,7 +148,14 @@ const SearchBottomBlock = (props) => {
     setIsSearching(true);
     setIsAutoCompleteVisible(false);
 
-    Promise.all([getSearchResult(searchText, selectedFirmList, user_slug)])
+    Promise.all([
+      getSearchResult(
+        searchText,
+        selectedFirmList,
+        selectedAvailability,
+        user_slug
+      ),
+    ])
       .then(async ([data]) => {
         if (data?.data?.searchResult) {
           setIsSearching(false);
@@ -242,6 +261,7 @@ const SearchBottomBlock = (props) => {
             <SearchLeftBlock
               user_slug={user_slug}
               getSelectedFirmIds={getSelectedFirmIds}
+              getSelectedAvailability={getSelectedAvailability}
               getFirmAccess={getFirmAccess}
             />
           </div>

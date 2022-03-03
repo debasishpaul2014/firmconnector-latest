@@ -97,7 +97,7 @@ const ResourceManagerListingResultBlock = () => {
                         <ProfileImageMd imgSrc={item.profile_image_path} />
                       </Link>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <Link to={"resources/details/" + item.user_slug}>
                           {displayName(item.profile_name)}
@@ -107,7 +107,7 @@ const ResourceManagerListingResultBlock = () => {
                         {displayUserProfileRole(item.user_role_title)}
                       </div>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <span className="text-x-sm-custom fw-bold text-dark-custom">
                           Email Address
@@ -119,7 +119,7 @@ const ResourceManagerListingResultBlock = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    {/* <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <span className="text-x-sm-custom fw-bold text-dark-custom">
                           Phone Number
@@ -130,11 +130,11 @@ const ResourceManagerListingResultBlock = () => {
                           {item.user_phone}
                         </span>
                       </div>
-                    </div>
-                    <div className="col-12 col-lg-2 col-xl-2 col-xxl-2 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
+                    </div> */}
+                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">
                       <div className="d-block">
                         <span className="text-x-sm-custom fw-bold text-dark-custom">
-                          Joined On
+                          Created On
                         </span>
                       </div>
                       <div className="d-block">
