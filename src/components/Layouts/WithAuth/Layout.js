@@ -18,13 +18,11 @@ const Layout = (props) => {
         <title>{props.pageTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
-      <div className="d-block main-layout">
+      <div className="d-block">
         <LeftMenuComponent />
-        <div className="bg-muted-light-custom d-block ms-custom-left">
-          <Header />
-          <div className="d-flex py-2 py-lg-5 py-xl-5 py-xxl-5">
-            <Content>{props.children}</Content>
-          </div>
+        <Header />
+        <div className="d-flex py-2 py-lg-5 py-xl-5 py-xxl-5">
+          <Content>{props.children}</Content>
         </div>
       </div>
     </>

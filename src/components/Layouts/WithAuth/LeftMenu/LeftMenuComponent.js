@@ -20,173 +20,161 @@ const LeftMenuComponent = () => {
   }, [routeName]);
 
   return (
-    <div className="left-menu-wrapper px-2 shadow-lg justify-content-center">
-      <div className="left-menu-nav-wrapper justify-content-center">
-        <div className="align-items-center d-flex flex-column align-items-center">
-          <div className="sm-block animated-hover bg-muted-custom mt-2 mb-5">
-            <IconContainer
-              iconName={"FiMoreHorizontal"}
-              color="var(--warning)"
-            />
+    <>
+      <div
+        className="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel"
+      >
+        <div className="offcanvas-header d-flex align-items-end justify-content-end">
+          <div
+            className="sm-block-rounded bg-black-custom cursor-pointer"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          >
+            <IconContainer iconName={"FiX"} color={"var(--white)"} />
           </div>
         </div>
-
-        <Link to="/dashboard">
-          <div className="my-3 align-items-center d-flex flex-column align-items-center">
-            <div className="sm-block animated-hover bg-muted-custom">
-              <IconContainer
-                iconName={"FiAirplay"}
-                color={
-                  activeRoute === "/dashboard"
-                    ? "var(--black)"
-                    : "var(--muted-light)"
-                }
-              />
-            </div>
-            <div>
-              <span
-                className={
-                  activeRoute === "/dashboard"
-                    ? "text-x-x-sm-custom text-info-custom fw-bold"
-                    : "text-x-x-sm-custom"
-                }
-              >
-                Dashboard
-              </span>
-            </div>
-          </div>
-        </Link>
-
-        <Link to="/search">
-          <div className="my-3 align-items-center d-flex flex-column align-items-center">
-            <div className="sm-block animated-hover bg-muted-custom">
-              <IconContainer
-                iconName={"FiSearch"}
-                color={
-                  activeRoute === "/search"
-                    ? "var(--black)"
-                    : "var(--muted-light)"
-                }
-              />
-            </div>
-            <div>
-              <span
-                className={
-                  activeRoute === "/search"
-                    ? "text-x-x-sm-custom text-info-custom fw-bold"
-                    : "text-x-x-sm-custom"
-                }
-              >
-                Search
-              </span>
-            </div>
-          </div>
-        </Link>
-
-        <Link to="/resources">
-          <div className="my-3 align-items-center d-flex flex-column align-items-center">
-            <div className="sm-block animated-hover bg-muted-custom">
-              <IconContainer
-                iconName={"FiUsers"}
-                color={
-                  activeRoute === "/resources"
-                    ? "var(--black)"
-                    : "var(--muted-light)"
-                }
-              />
-            </div>
-            <div>
-              <span
-                className={
-                  activeRoute === "/resources"
-                    ? "text-x-x-sm-custom text-info-custom fw-bold"
-                    : "text-x-x-sm-custom"
-                }
-              >
-                Resources
-              </span>
-            </div>
-          </div>
-        </Link>
-
-        {user_primary_role === "1" ? (
-          <Link to="/resource-managers">
-            <div className="my-3 align-items-center d-flex flex-column align-items-center">
-              <div className="sm-block animated-hover bg-muted-custom">
-                <IconContainer
-                  iconName={"FiUsers"}
-                  color={
-                    activeRoute === "/resource-managers"
-                      ? "var(--black)"
-                      : "var(--muted-light)"
-                  }
-                />
+        <div className="offcanvas-body">
+          <div className="left-menu-nav-wrapper">
+            <Link to="/dashboard">
+              <div className="my-3 d-flex align-items-center">
+                <div className="sm-block animated-hover bg-muted-custom">
+                  <IconContainer
+                    iconName={"FiAirplay"}
+                    color={"var(--indigo)"}
+                  />
+                </div>
+                <div className="ms-3">
+                  <span
+                    className={
+                      activeRoute === "/dashboard"
+                        ? "text-md-custom text-white-custom fw-bold"
+                        : "text-md-custom text-white-custom"
+                    }
+                  >
+                    Dashboard
+                  </span>
+                </div>
               </div>
-              <div>
-                <span
-                  className={
-                    activeRoute === "/resource-managers"
-                      ? "text-x-x-sm-custom text-info-custom fw-bold"
-                      : "text-x-x-sm-custom"
-                  }
-                >
-                  Managers
-                </span>
-              </div>
-            </div>
-          </Link>
-        ) : null}
+            </Link>
 
-        {user_primary_role === "2" ? (
-          <Link to="/clients">
-            <div className="my-3 align-items-center d-flex flex-column align-items-center">
-              <div className="sm-block animated-hover bg-muted-custom">
-                <IconContainer iconName={"FiZap"} color="var(--muted-light)" />
+            <Link to="/search">
+              <div className="my-3 d-flex align-items-center">
+                <div className="sm-block animated-hover bg-muted-custom">
+                  <IconContainer
+                    iconName={"FiSearch"}
+                    color={"var(--success)"}
+                  />
+                </div>
+                <div className="ms-3">
+                  <span
+                    className={
+                      activeRoute === "/search"
+                        ? "text-md-custom text-white-custom fw-bold"
+                        : "text-md-custom text-white-custom"
+                    }
+                  >
+                    Search
+                  </span>
+                </div>
               </div>
-              <div>
-                <span
-                  className={
-                    activeRoute === "/clients"
-                      ? "text-x-x-sm-custom text-info-custom fw-bold"
-                      : "text-x-x-sm-custom"
-                  }
-                >
-                  Clients
-                </span>
-              </div>
-            </div>
-          </Link>
-        ) : null}
+            </Link>
 
-        <Link to="/profile-settings">
-          <div className="my-3 align-items-center d-flex flex-column align-items-center">
-            <div className="sm-block animated-hover bg-muted-custom">
-              <IconContainer
-                iconName={"FiSettings"}
-                color={
-                  activeRoute === "/profile-settings"
-                    ? "var(--black)"
-                    : "var(--muted-light)"
-                }
-              />
-            </div>
-            <div>
-              <span
-                className={
-                  activeRoute === "/profile-settings"
-                    ? "text-x-x-sm-custom text-info-custom fw-bold"
-                    : "text-x-x-sm-custom"
-                }
-              >
-                Settings
-              </span>
-            </div>
+            <Link to="/resources">
+              <div className="my-3 d-flex align-items-center">
+                <div className="sm-block animated-hover bg-muted-custom">
+                  <IconContainer iconName={"FiUsers"} color={"var(--info)"} />
+                </div>
+                <div className="ms-3">
+                  <span
+                    className={
+                      activeRoute === "/resources"
+                        ? "text-md-custom text-white-custom fw-bold"
+                        : "text-md-custom text-white-custom"
+                    }
+                  >
+                    Resources
+                  </span>
+                </div>
+              </div>
+            </Link>
+
+            {user_primary_role === "1" ? (
+              <Link to="/resource-managers">
+                <div className="my-3 d-flex align-items-center">
+                  <div className="sm-block animated-hover bg-muted-custom">
+                    <IconContainer
+                      iconName={"FiUsers"}
+                      color={"var(--warning)"}
+                    />
+                  </div>
+                  <div className="ms-3">
+                    <span
+                      className={
+                        activeRoute === "/resource-managers"
+                          ? "text-md-custom text-white-custom fw-bold"
+                          : "text-md-custom text-white-custom"
+                      }
+                    >
+                      Managers
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ) : null}
+
+            {user_primary_role === "2" ? (
+              <Link to="/clients">
+                <div className="my-3 d-flex align-items-center">
+                  <div className="sm-block animated-hover bg-muted-custom">
+                    <IconContainer
+                      iconName={"FiZap"}
+                      color={"var(--success-dark)"}
+                    />
+                  </div>
+                  <div className="ms-3">
+                    <span
+                      className={
+                        activeRoute === "/clients"
+                          ? "text-md-custom text-white-custom fw-bold"
+                          : "text-md-custom text-white-custom"
+                      }
+                    >
+                      Clients
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ) : null}
+
+            <Link to="/profile-settings">
+              <div className="my-3 d-flex align-items-center">
+                <div className="sm-block animated-hover bg-muted-custom">
+                  <IconContainer
+                    iconName={"FiSettings"}
+                    color={"var(--muted)"}
+                  />
+                </div>
+                <div className="ms-3">
+                  <span
+                    className={
+                      activeRoute === "/profile-settings"
+                        ? "text-md-custom text-white-custom fw-bold"
+                        : "text-md-custom text-white-custom"
+                    }
+                  >
+                    Settings
+                  </span>
+                </div>
+              </div>
+            </Link>
+            <LogoutButtonComponent />
           </div>
-        </Link>
-
-        <LogoutButtonComponent />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

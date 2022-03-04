@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
-   font-size: .876rem !important; 
+   font-family: 'League Spartan', sans-serif !important;
    color: var(--black) !important;
    background-color: var(--dashboard-menu) !important;
    -webkit-font-smoothing: antialiased !important;
@@ -540,4 +542,9 @@ a{
    z-index: 99;
    overflow-y: scroll;
    max-height: 18.5rem;
+}
+
+.offcanvas-start{
+   width: 18rem !important;
+   background-color: var(--info-dark) !important;
 }

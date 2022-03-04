@@ -30,14 +30,14 @@ const LogoutButtonComponent = () => {
 
   return (
     <div
-      className="my-3 align-items-center d-flex flex-column align-items-center"
+      className="my-3 d-flex align-items-center"
       onClick={() => displayLogoutAlert()}
     >
       <div className="sm-block animated-hover bg-muted-custom">
         <IconContainer iconName={"FiLogOut"} color="var(--danger)" />
       </div>
-      <div>
-        <span className="text-x-x-sm-custom text-danger fw-bold">Logout</span>
+      <div className="ms-3">
+        <span className="text-md-custom text-white-custom">Logout</span>
       </div>
     </div>
   );

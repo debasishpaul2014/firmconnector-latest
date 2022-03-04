@@ -86,15 +86,8 @@ const SearchLeftBlock = (props) => {
         <>
           {firmList.map(function (item, index) {
             return (
-              <div key={item.firm_id} className="mb-2">
-                <div className="firm-logo-sm-custom">
-                  <img
-                    src={FIRM_IMAGE_BASE + item.firm_logo}
-                    className="img-fluid"
-                    alt="..."
-                  />
-                </div>
-                <div className="form-check mt-1">
+              <div key={item.firm_id} className="my-2 d-block">
+                <div className="form-check mt-1 d-flex align-items-center">
                   <input
                     className="form-check-input"
                     type="checkbox"
@@ -107,12 +100,22 @@ const SearchLeftBlock = (props) => {
                     onChange={() => updateSelectedFirmIds(item.firm_id)}
                     id={"firm-id-" + item.firm_id}
                   />
-                  <label
+                  {/* <label
                     className="form-check-label"
                     for={"firm-id-" + item.firm_id}
                   >
                     <span className="text-dark-custom">{item.firm_name}</span>
-                  </label>
+                  </label> */}
+                  <div
+                    className="firm-logo-sm-custom ms-2"
+                    alt={item.firm_name}
+                  >
+                    <img
+                      src={FIRM_IMAGE_BASE + item.firm_logo}
+                      className="img-fluid"
+                      alt="..."
+                    />
+                  </div>
                 </div>
               </div>
             );
