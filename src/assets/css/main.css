@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
 body {
-   font-family: 'League Spartan', sans-serif !important;
+   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important;
    color: var(--black) !important;
    background-color: var(--dashboard-menu) !important;
    -webkit-font-smoothing: antialiased !important;
    line-height: 1.5;
-   font-weight: 500;
+   font-size: 0.885rem !important;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
    display: none !important;
-}
+} */
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
    margin-top: .35rem !important;

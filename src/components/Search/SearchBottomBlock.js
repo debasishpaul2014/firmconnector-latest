@@ -212,13 +212,75 @@ const SearchBottomBlock = (props) => {
               <div
                 className="d-block p-2 bg-light mb-1 cursor-pointer"
                 key={index.toString()}
-                onClick={() => updateSearchText(item.name)}
+                onClick={() =>
+                  updateSearchText(formatSuggestionName(item.name))
+                }
               >
-                <span>{item.name}</span>
+                {formatSuggestionList(item.name)}
               </div>
             );
           })}
         </>
+      );
+    }
+  };
+
+  const formatSuggestionName = (name) => {
+    let formattedString = name.split("||");
+
+    let suggestionName = formattedString[0];
+
+    return suggestionName;
+  };
+
+  const formatSuggestionList = (name) => {
+    let formattedString = name.split("||");
+
+    let suggestionName = formattedString[0];
+    let suggestionType = formattedString[1];
+
+    return (
+      <div className="d-flex">
+        <div className="me-4">
+          <span>{suggestionName}</span>
+        </div>
+        {displaySuggestionType(suggestionType)}
+      </div>
+    );
+  };
+
+  const displaySuggestionType = (type) => {
+    if (type === "city") {
+      return (
+        <div className="badge rounded-pill bg-primary d-flex justify-content-center align-items-center">
+          <span className="text-x-x-sm-custom text-white fw-bold">
+            in {type}
+          </span>
+        </div>
+      );
+    } else if (type === "provience") {
+      return (
+        <div className="badge rounded-pill bg-secondary d-flex justify-content-center align-items-center">
+          <span className="text-x-x-sm-custom text-white fw-bold">
+            in {type}
+          </span>
+        </div>
+      );
+    } else if (type === "country") {
+      return (
+        <div className="badge rounded-pill bg-warning d-flex justify-content-center align-items-center">
+          <span className="text-x-x-sm-custom text-white fw-bold">
+            in {type}
+          </span>
+        </div>
+      );
+    } else if (type === "skill") {
+      return (
+        <div className="badge rounded-pill bg-success d-flex justify-content-center align-items-center">
+          <span className="text-x-x-sm-custom text-white fw-bold">
+            in {type}
+          </span>
+        </div>
       );
     }
   };
@@ -233,22 +295,15 @@ const SearchBottomBlock = (props) => {
                 <input
                   type="text"
                   placeholder="Search for resorces/skills/country/city/state"
-                  className="form-control-custom-sm-border-none text-capitalize fw-medium-custom text-info-custom"
+                  className="form-control-custom-sm-border-none text-capitalize fw-medium-custom text-info-custom bg-light"
                   onChange={onKeyworkChange}
                   value={searchText}
                 />
               </div>
               <div className="col-3 d-flex justify-content-end align-items-center">
-                <div className="search-btn-sm-holder">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    onClick={() => getSearch()}
-                    // disabled={isSearchButtonDisabled}
-                  >
-                    Search
-                  </Button>
-                </div>
+                <Button variant="primary" size="md" onClick={() => getSearch()}>
+                  Search
+                </Button>
               </div>
             </div>
           </div>
