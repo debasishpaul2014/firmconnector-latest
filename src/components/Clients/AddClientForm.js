@@ -145,7 +145,7 @@ const AddClientForm = () => {
           </p>
         </div>
         <div className="d-block">
-          <div className="card-custom p-3 bg-white">
+          <div className="card-custom p-3">
             <div className="card-body">
               <form id="create-frm">
                 {displayloginBlock()}

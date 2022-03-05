@@ -352,7 +352,7 @@ const ProfileBasicForm = (props) => {
   };
 
   return (
-    <div className="card-custom bg-white">
+    <div className="card-custom">
       <div className="card-body">
         <form id="create-frm">
           <div className="d-block">

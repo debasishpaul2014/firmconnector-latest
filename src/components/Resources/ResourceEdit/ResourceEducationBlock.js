@@ -891,7 +891,7 @@ const ResourceEducationBlock = (props) => {
   };
 
   return (
-    <div className="card-custom bg-white">
+    <div className="card-custom">
       <div className="card-body">
         <div className="d-block">
           <div className="d-block">

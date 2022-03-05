@@ -37,7 +37,7 @@ const LogoutButtonComponent = () => {
         <IconContainer iconName={"FiLogOut"} color="var(--danger)" />
       </div>
       <div className="ms-3">
-        <span className="text-md-custom text-white-custom">Logout</span>
+        <span className="text-white-custom">Logout</span>
       </div>
     </div>
   );

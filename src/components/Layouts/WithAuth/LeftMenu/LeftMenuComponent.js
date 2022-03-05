@@ -26,6 +26,8 @@ const LeftMenuComponent = () => {
         tabindex="-1"
         id="offcanvasExample"
         aria-labelledby="offcanvasExampleLabel"
+        data-bs-scroll="true"
+        data-bs-backdrop="false"
       >
         <div className="offcanvas-header d-flex align-items-end justify-content-end">
           <div
@@ -50,8 +52,8 @@ const LeftMenuComponent = () => {
                   <span
                     className={
                       activeRoute === "/dashboard"
-                        ? "text-md-custom text-white-custom fw-bold"
-                        : "text-md-custom text-white-custom"
+                        ? "text-white-custom fw-bold"
+                        : "text-white-custom"
                     }
                   >
                     Dashboard
@@ -72,8 +74,8 @@ const LeftMenuComponent = () => {
                   <span
                     className={
                       activeRoute === "/search"
-                        ? "text-md-custom text-white-custom fw-bold"
-                        : "text-md-custom text-white-custom"
+                        ? "text-white-custom fw-bold"
+                        : "text-white-custom"
                     }
                   >
                     Search
@@ -91,8 +93,8 @@ const LeftMenuComponent = () => {
                   <span
                     className={
                       activeRoute === "/resources"
-                        ? "text-md-custom text-white-custom fw-bold"
-                        : "text-md-custom text-white-custom"
+                        ? "text-white-custom fw-bold"
+                        : "text-white-custom"
                     }
                   >
                     Resources
@@ -114,8 +116,8 @@ const LeftMenuComponent = () => {
                     <span
                       className={
                         activeRoute === "/resource-managers"
-                          ? "text-md-custom text-white-custom fw-bold"
-                          : "text-md-custom text-white-custom"
+                          ? "text-white-custom fw-bold"
+                          : "text-white-custom"
                       }
                     >
                       Managers
@@ -138,8 +140,8 @@ const LeftMenuComponent = () => {
                     <span
                       className={
                         activeRoute === "/clients"
-                          ? "text-md-custom text-white-custom fw-bold"
-                          : "text-md-custom text-white-custom"
+                          ? "text-white-custom fw-bold"
+                          : "text-white-custom"
                       }
                     >
                       Clients
@@ -161,8 +163,8 @@ const LeftMenuComponent = () => {
                   <span
                     className={
                       activeRoute === "/profile-settings"
-                        ? "text-md-custom text-white-custom fw-bold"
-                        : "text-md-custom text-white-custom"
+                        ? "text-white-custom fw-bold"
+                        : "text-white-custom"
                     }
                   >
                     Settings

@@ -89,7 +89,7 @@ const ResourceManagerListingResultBlock = () => {
         {resourceManagerListing.map((item, index) => {
           return (
             <div key={index.toString()} className="d-block mb-3">
-              <div className="card-custom bg-white shadow-sm">
+              <div className="card-custom shadow-sm">
                 <div className="card-body">
                   <div className="d-block d-md-flex d-lg-flex d-xl-flex d-xxl-flex row align-items-center">
                     <div className="col-12 col-lg-1 col-xl-1 col-xxl-1 mb-3 mb-lg-0 mb-xl-0 mb-xxl-0">

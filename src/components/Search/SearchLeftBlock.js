@@ -100,12 +100,6 @@ const SearchLeftBlock = (props) => {
                     onChange={() => updateSelectedFirmIds(item.firm_id)}
                     id={"firm-id-" + item.firm_id}
                   />
-                  {/* <label
-                    className="form-check-label"
-                    for={"firm-id-" + item.firm_id}
-                  >
-                    <span className="text-dark-custom">{item.firm_name}</span>
-                  </label> */}
                   <div
                     className="firm-logo-sm-custom ms-2"
                     alt={item.firm_name}
@@ -168,7 +162,7 @@ const SearchLeftBlock = (props) => {
                 name="availability"
               />
               <label className="form-check-label" for="fourtyhoursweek">
-                <span className="text-dark-custom">40 hrs/week</span>
+                <span className="fw-bold">40 hrs/week</span>
               </label>
             </div>
             <div
@@ -185,7 +179,7 @@ const SearchLeftBlock = (props) => {
                 name="availability"
               />
               <label className="form-check-label" for="thirtyhoursweek">
-                <span className="text-dark-custom">30 hrs/week</span>
+                <span className="fw-bold">30 hrs/week</span>
               </label>
             </div>
             <div
@@ -202,7 +196,7 @@ const SearchLeftBlock = (props) => {
                 name="availability"
               />
               <label className="form-check-label" for="twentyhoursweek">
-                <span className="text-dark-custom">20 hrs/week</span>
+                <span className="fw-bold">20 hrs/week</span>
               </label>
             </div>
             <div
@@ -219,7 +213,7 @@ const SearchLeftBlock = (props) => {
                 name="availability"
               />
               <label className="form-check-label" for="tenhoursweek">
-                <span className="text-dark-custom">10 hrs/week</span>
+                <span className="fw-bold">10 hrs/week</span>
               </label>
             </div>
             <div
@@ -236,7 +230,7 @@ const SearchLeftBlock = (props) => {
                 name="availability"
               />
               <label className="form-check-label" for="zerohoursweek">
-                <span className="text-dark-custom">N/A</span>
+                <span className="fw-bold">N/A</span>
               </label>
             </div>
           </div>
