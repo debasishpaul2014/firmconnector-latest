@@ -224,8 +224,10 @@ const AddManagerForm = () => {
   const displayTopBlock = () => {
     return (
       <div className="d-flex flex-column mb-4">
-        <span className="display-4">Hi, {firmDetails.firm_name}</span>
-        <span>You are about to create a Resource Manager within this firm</span>
+        <span className="display-6">Hi, {firmDetails.firm_name}</span>
+        <span className="text-muted">
+          You are about to create a Resource Manager within this firm
+        </span>
       </div>
     );
   };

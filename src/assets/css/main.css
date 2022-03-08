@@ -530,6 +530,12 @@ a{
    align-items: center;
    justify-content: center;
    display: flex;
+   border-radius: 0.3rem;
+}
+
+.firm-logo-sm-custom > img{
+   height: 2rem;
+   object-fit: cover;
 }
 
 .search-auto-complete-block{
@@ -545,4 +551,8 @@ a{
 .offcanvas-start{
    width: 18rem !important;
    background-color: var(--info-dark) !important;
+}
+
+.btn{
+   border-radius: 0 !important;
 }

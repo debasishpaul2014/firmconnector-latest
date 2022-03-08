@@ -282,6 +282,14 @@ const SearchBottomBlock = (props) => {
           </span>
         </div>
       );
+    } else if (type === "job role") {
+      return (
+        <div className="badge rounded-pill bg-success d-flex justify-content-center align-items-center">
+          <span className="text-x-x-sm-custom text-white fw-bold">
+            in {type}
+          </span>
+        </div>
+      );
     }
   };
 

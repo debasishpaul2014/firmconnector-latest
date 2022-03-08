@@ -206,11 +206,15 @@ const AddResourceForm = () => {
 
   const displayTopBlock = () => {
     return (
-      <div className="d-flex flex-column mb-4">
-        <h1>Add Resource</h1>
-        <span className="text-muted-custom">
-          Create a resource profile within your firm
-        </span>
+      <div className="d-block">
+        <div className="d-flex flex-column">
+          <span className="display-6">Create Resource Profile</span>
+        </div>
+        <div className="d-block">
+          <p className="text-muted-custom">
+            Create a resource profile within your firm
+          </p>
+        </div>
       </div>
     );
   };

@@ -847,13 +847,9 @@ const ResourceEducationBlock = (props) => {
       >
         <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center border-bottom-light mb-3">
           <div className="col-12 col-md-8 col-lg-8 col-xl-8 mb-3">
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              {displayDegreeName(education)}
-            </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
-              {displaySchoolName(education)}
-            </div>
-            <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
+            <div className="d-block">{displayDegreeName(education)}</div>
+            <div className="d-block">{displaySchoolName(education)}</div>
+            <div className="d-block">
               {displayPassedOn(education.passed_on)}
             </div>
           </div>

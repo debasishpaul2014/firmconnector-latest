@@ -271,7 +271,7 @@ const SearchResultBlock = (props) => {
 
   const displayFirm = (logo_path) => {
     return (
-      <div className="firm-logo-sm-custom shadow-sm">
+      <div className="firm-logo-sm-custom">
         <img
           src={FIRM_IMAGE_BASE + logo_path}
           className="img-fluid"

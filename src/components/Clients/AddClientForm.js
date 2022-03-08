@@ -124,38 +124,35 @@ const AddClientForm = () => {
 
   const displayTopBlock = () => {
     return (
-      <div className="d-flex flex-column mb-4">
-        <h1>Add Client Details</h1>
-        <span className="text-muted-custom">
-          Create a client profile within your firm
-        </span>
+      <div className="d-block">
+        <div className="d-flex flex-column">
+          <span className="display-6">Create Client Profile Access</span>
+        </div>
+        <div className="d-block">
+          <p>
+            <strong>Note</strong>{" "}
+            <span className="text-danger-custom">
+              ***Fill up all fields to create a client account
+            </span>
+          </p>
+        </div>
       </div>
     );
   };
 
   const displayForm = () => {
     return (
-      <>
-        <div className="d-block">
-          <p>
-            <strong>Please Note</strong>{" "}
-            <span className="text-info-light-custom">
-              ***Fill up all fields to create a client account
-            </span>
-          </p>
-        </div>
-        <div className="d-block">
-          <div className="card-custom p-3">
-            <div className="card-body">
-              <form id="create-frm">
-                {displayloginBlock()}
-                {displaySubmitButton()}
-                {displayStatusMessage()}
-              </form>
-            </div>
+      <div className="d-block">
+        <div className="card-custom">
+          <div className="card-body">
+            <form id="create-frm">
+              {displayloginBlock()}
+              {displaySubmitButton()}
+              {displayStatusMessage()}
+            </form>
           </div>
         </div>
-      </>
+      </div>
     );
   };
 
@@ -208,7 +205,7 @@ const AddClientForm = () => {
 
   const displayStatusMessage = () => {
     return (
-      <div className="d-block mt-4">
+      <div className="d-block">
         {displayErrorMessage()} {displaySuccessMessage()}
       </div>
     );

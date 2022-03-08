@@ -104,11 +104,7 @@ const SearchLeftBlock = (props) => {
                     className="firm-logo-sm-custom ms-2"
                     alt={item.firm_name}
                   >
-                    <img
-                      src={FIRM_IMAGE_BASE + item.firm_logo}
-                      className="img-fluid"
-                      alt="..."
-                    />
+                    <img src={FIRM_IMAGE_BASE + item.firm_logo} alt="..." />
                   </div>
                 </div>
               </div>

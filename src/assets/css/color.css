@@ -10,8 +10,8 @@
     --danger-dark: #f91c4d;
     --danger-light: #ffdbd9;
     --success-light: #e5faf5;
-    --success: #16b314;
-    --success-dark: #00d09c;
+    --success: #2da562;
+    --success-dark: #2da562;
     --muted: #5b6987;
     --muted-light-dark-text: #B5B5C3;
     --muted-light: #d2dae6;
@@ -25,5 +25,6 @@
     --dashboard-menu: #edf2f9;
     --indigo: #563d7c;
     --info-badge-bg: #e4f7fd;
-    --info-badge-text: #36b5f3
+    --info-badge-text: #36b5f3;
+    --bg: rgb(0, 69, 91);
 }
