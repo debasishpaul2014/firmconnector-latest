@@ -27,51 +27,53 @@ const SearchResultBlock = (props) => {
   };
 
   const displaySkills = (skills) => {
-    if (skills.length > 0 && skills !== null) {
-      const skillArray = skills.split(",");
-      const skillLength = skillArray.length;
+    if (skills) {
+      if (skills.length > 0 && skills !== null) {
+        const skillArray = skills.split(",");
+        const skillLength = skillArray.length;
 
-      if (skillLength > 10) {
-        const remainingSkills = skillLength - 10;
-        const skillFormatted = skillArray.slice(0, 10);
+        if (skillLength > 10) {
+          const remainingSkills = skillLength - 10;
+          const skillFormatted = skillArray.slice(0, 10);
 
-        return (
-          <>
-            {skillFormatted.map((skillItem, skillIndex) => {
-              return (
-                <div class="skill-wrapper-muted my-1 me-1">
-                  <span class="text-x-sm-custom" key={skillIndex.toString()}>
-                    {skillItem}
-                  </span>
-                </div>
-              );
-            })}
-            <span className=" my-2 me-1 text-x-sm-custom fw-bold text-dark-custom">
-              +{remainingSkills} more skills
-            </span>
-          </>
-        );
+          return (
+            <>
+              {skillFormatted.map((skillItem, skillIndex) => {
+                return (
+                  <div class="skill-wrapper-muted my-1 me-1">
+                    <span class="text-x-sm-custom" key={skillIndex.toString()}>
+                      {skillItem}
+                    </span>
+                  </div>
+                );
+              })}
+              <span className=" my-2 me-1 text-x-sm-custom fw-bold text-dark-custom">
+                +{remainingSkills} more skills
+              </span>
+            </>
+          );
+        } else {
+          return (
+            <>
+              {skillArray.map((skillItem, skillIndex) => {
+                return (
+                  <div class="skill-wrapper-muted my-1 me-1">
+                    <span class="text-x-sm-custom" key={skillIndex.toString()}>
+                      {skillItem}
+                    </span>
+                  </div>
+                );
+              })}
+            </>
+          );
+        }
       } else {
         return (
-          <>
-            {skillArray.map((skillItem, skillIndex) => {
-              return (
-                <div class="skill-wrapper-muted my-1 me-1">
-                  <span class="text-x-sm-custom" key={skillIndex.toString()}>
-                    {skillItem}
-                  </span>
-                </div>
-              );
-            })}
-          </>
+          <span className="text-x-sm-custom text-danger-custom">
+            No skills available!
+          </span>
         );
       }
-    } else {
-      return (
-        <span className="text-x-sm-custom text-danger-custom">
-          No skills available!
-        </span>
-      );
     }
   };
 

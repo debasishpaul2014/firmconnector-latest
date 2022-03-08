@@ -103,8 +103,16 @@ const SearchLeftBlock = (props) => {
                   <div
                     className="firm-logo-sm-custom ms-2"
                     alt={item.firm_name}
+                    style={{
+                      backgroundImage: `url("${
+                        FIRM_IMAGE_BASE + item.firm_logo
+                      }")`,
+                      backgroundSize: "contain",
+                      backgroundPosition: "center",
+                      backgroundRepeat: "no-repeat",
+                    }}
                   >
-                    <img src={FIRM_IMAGE_BASE + item.firm_logo} alt="..." />
+                    {/* <img src={FIRM_IMAGE_BASE + item.firm_logo} alt="..." /> */}
                   </div>
                 </div>
               </div>
