@@ -119,7 +119,7 @@ const SkillSet = (props) => {
           {subCat.map((item, key) => {
             return (
               <div
-                className="card-custom mb-1 bg-light p-1"
+                className="card mb-1 bg-light p-1"
                 key={item.skill_sub_category_id.toString()}
               >
                 <div className="p-1">

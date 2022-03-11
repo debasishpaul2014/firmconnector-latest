@@ -12,7 +12,7 @@ const ResourceProfile = (props) => {
   const { userDetails } = useAuthContext();
   const user_slug = JSON.parse(userDetails).user_slug;
 
-  const [displayView, setDisplayView] = useState("default");
+  const [displayView, setDisplayView] = useState(false);
   const [isProfileLoading, setIsProfileLoading] = useState(true);
   const [resourceDetails, setResourceDetails] = useState(false);
   const [rmId, setRmId] = useState(false);
@@ -29,6 +29,7 @@ const ResourceProfile = (props) => {
         .then(async ([data]) => {
           if (data?.data?.resource_details) {
             await setResourceDetails(data?.data?.resource_details);
+            await setDisplayView(data?.data?.resource_details.resource_access);
             await setIsProfileLoading(false);
           } else {
             setIsProfileLoading(false);
@@ -53,28 +54,32 @@ const ResourceProfile = (props) => {
         <div>
           <div className="col-12 mb-4">
             <div className="d-flex">
-              <div className="me-2">
-                <span
-                  className="btn btn-primary btn-sm"
-                  onClick={() => changeView("default")}
-                >
-                  Default View
-                </span>
-              </div>
-              <div className="me-2">
-                <span
-                  className="btn btn-warning btn-sm"
-                  onClick={() => changeView("client")}
-                >
-                  Client View
-                </span>
-              </div>
               {rmId === user_slug ? (
-                <Link to={"/resources/edit-resource/" + resourceSlug}>
-                  <div>
-                    <span className="btn btn-success btn-sm">Edit Profile</span>
+                <>
+                  <div className="me-2">
+                    <span
+                      className="btn btn-primary btn-sm"
+                      onClick={() => changeView("default")}
+                    >
+                      Default View
+                    </span>
                   </div>
-                </Link>
+                  <div className="me-2">
+                    <span
+                      className="btn btn-warning btn-sm"
+                      onClick={() => changeView("client")}
+                    >
+                      Client View
+                    </span>
+                  </div>
+                  <Link to={"/resources/edit-resource/" + resourceSlug}>
+                    <div>
+                      <span className="btn btn-success btn-sm">
+                        Edit Profile
+                      </span>
+                    </div>
+                  </Link>
+                </>
               ) : null}
             </div>
           </div>

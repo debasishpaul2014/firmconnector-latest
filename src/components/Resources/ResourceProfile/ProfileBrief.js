@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ProfileImageLg from "../../CommonComponent/ProfileImageLg";
-import user from "../../../assets/images/user.png";
 import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 
 const ProfileBrief = (props) => {

@@ -37,20 +37,25 @@ const SearchResultBlock = (props) => {
           const skillFormatted = skillArray.slice(0, 10);
 
           return (
-            <>
-              {skillFormatted.map((skillItem, skillIndex) => {
-                return (
-                  <div class="skill-wrapper-muted my-1 me-1">
-                    <span class="text-x-sm-custom" key={skillIndex.toString()}>
-                      {skillItem}
-                    </span>
-                  </div>
-                );
-              })}
-              <span className=" my-2 me-1 text-x-sm-custom fw-bold text-dark-custom">
-                +{remainingSkills} more skills
-              </span>
-            </>
+            <div className="d-block mt-2">
+              <div className="d-flex flex-wrap p-2 bg-light">
+                {skillFormatted.map((skillItem, skillIndex) => {
+                  return (
+                    <div class="skill-wrapper-muted my-1 me-1">
+                      <span
+                        class="text-x-sm-custom"
+                        key={skillIndex.toString()}
+                      >
+                        {skillItem}
+                      </span>
+                    </div>
+                  );
+                })}
+                <span className=" my-2 me-1 text-x-sm-custom fw-bold text-dark-custom">
+                  +{remainingSkills} more skills
+                </span>
+              </div>
+            </div>
           );
         } else {
           return (
@@ -134,6 +139,20 @@ const SearchResultBlock = (props) => {
           </span>
         </div>
       );
+    }
+  };
+
+  const checkContactBlockDisplay = (item) => {
+    if (ownFirm !== "" && ownFirm !== undefined) {
+      if (ownFirm.firm_id === item.firm_id) {
+        return (
+          <div className="d-block bg-light p-2 rounded">
+            {displayEmail(item)}
+            {displayPhone(item)}
+            {displayLocation(item)}
+          </div>
+        );
+      }
     }
   };
 
@@ -273,13 +292,15 @@ const SearchResultBlock = (props) => {
 
   const displayFirm = (logo_path) => {
     return (
-      <div className="firm-logo-sm-custom">
-        <img
-          src={FIRM_IMAGE_BASE + logo_path}
-          className="img-fluid"
-          alt="..."
-        />
-      </div>
+      <div
+        className="firm-logo-sm-custom"
+        style={{
+          backgroundImage: `url("${FIRM_IMAGE_BASE + logo_path}")`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      ></div>
     );
   };
 
@@ -308,22 +329,14 @@ const SearchResultBlock = (props) => {
                       </div>
                     </div>
                     <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0">
-                      <div className="d-block bg-light p-2 rounded">
-                        {displayEmail(item)}
-                        {displayPhone(item)}
-                        {displayLocation(item)}
-                      </div>
+                      {checkContactBlockDisplay(item)}
                     </div>
                     <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-xxl-end align-items-lg-end align-items-xl-end">
                       {displayAvailability(item.availability)}
                     </div>
                   </div>
 
-                  <div className="d-block mt-2">
-                    <div className="d-flex flex-wrap p-2 bg-light">
-                      {displaySkills(item.skill_name)}
-                    </div>
-                  </div>
+                  {displaySkills(item.skill_name)}
                 </div>
               </Link>
             );
