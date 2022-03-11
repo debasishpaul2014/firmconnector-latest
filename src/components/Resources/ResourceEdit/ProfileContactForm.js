@@ -169,10 +169,10 @@ const ProfileContactForm = (props) => {
       }
     }
 
-    if (userStreetAddress.trim().length === 0) {
-      isInvalid = 1;
-      errMessage.push("Enter a valid street address");
-    }
+    // if (userStreetAddress.trim().length === 0) {
+    //   isInvalid = 1;
+    //   errMessage.push("Enter a valid street address");
+    // }
 
     if (userAddressCountryId === "0") {
       isInvalid = 1;

@@ -335,7 +335,7 @@ const FirmBasicForm = (props) => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Profile Informations"}
+                title={"Profile Information"}
                 subText={
                   "These informations will be used to display on profile"
                 }

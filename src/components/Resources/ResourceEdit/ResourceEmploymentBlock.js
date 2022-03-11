@@ -1135,7 +1135,7 @@ const ResourceEmploymentBlock = (props) => {
                         type="text"
                         className="form-control-custom-sm"
                         id="country"
-                        placeholder="Select Country"
+                        placeholder="Enter Country"
                         onChange={handleCountryCodeChange}
                         value={countryCode}
                         autoComplete="off"
@@ -1145,13 +1145,13 @@ const ResourceEmploymentBlock = (props) => {
                 </div>
                 <div className="col-12 col-md-4 col-lg-4 col-xlg-4">
                   <div className="form-input-holder">
-                    <InputLebelComponent title="Select Provience" />
+                    <InputLebelComponent title="Enter State / Province" />
                     <div className="d-block">
                       <input
                         type="text"
                         className="form-control-custom-sm"
                         id="provience"
-                        placeholder="Select Provience"
+                        placeholder="State / Province"
                         onChange={handleProvinceChange}
                         value={province}
                         autoComplete="off"
@@ -1167,7 +1167,7 @@ const ResourceEmploymentBlock = (props) => {
                         type="text"
                         className="form-control-custom-sm"
                         id="city"
-                        placeholder="Select City"
+                        placeholder="Enter City"
                         onChange={handleCityChange}
                         value={city}
                         autoComplete="off"

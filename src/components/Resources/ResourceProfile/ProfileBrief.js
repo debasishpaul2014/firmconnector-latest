@@ -66,7 +66,7 @@ const ProfileBrief = (props) => {
                 imgSrc={
                   displayView === "default"
                     ? profileDetails.profile_image_path
-                    : user
+                    : "assets/uploads/profile/default/default.png"
                 }
               />
             </div>
@@ -82,15 +82,9 @@ const ProfileBrief = (props) => {
             </div>
 
             <div className="role-lg-holder">
-              {displayView === "default" ? (
-                <span className="text-muted fw-bold text-center">
-                  {displayProfileRole()}
-                </span>
-              ) : (
-                <span className="h5 text-muted fw-bold text-center">
-                  {displayProfileRole()}
-                </span>
-              )}
+              <span className="text-muted fw-bold text-center">
+                {displayProfileRole()}
+              </span>
             </div>
 
             <div className="address-lg-holder">{displayLocation()}</div>

@@ -225,13 +225,24 @@ const AddResourceForm = () => {
         <div className="d-block">
           <form id="create-frm-by-resume">
             <div className="form-button-holder mt-4 mb-4">
-              <Button
+              {/* <Button
                 variant="primary"
                 disabled={isResumeButtonDisabled}
                 onClick={handleResumeUpload}
               >
                 Upload Resume
-              </Button>
+              </Button> */}
+              <div class="form-group file">
+                <label>Upload Resume </label>
+                <input
+                  type="file"
+                  class="form-control"
+                  ref={hiddenFileInput}
+                  onChange={handleChange}
+                  accept="application/pdf,application/msword,
+            application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                />
+              </div>
 
               {isResumeButtonDisabled ? (
                 <div className="ms-2 d-flex justify-content-center align-items-center">
@@ -241,14 +252,14 @@ const AddResourceForm = () => {
                 </div>
               ) : null}
             </div>
-            <input
+            {/* <input
               type="file"
               ref={hiddenFileInput}
               onChange={handleChange}
               style={{ display: "none" }}
               accept="application/pdf,application/msword,
             application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            />
+            /> */}
           </form>
         </div>
         <div className="d-block mt-2">{displayResumeUploadStatusMessage()}</div>

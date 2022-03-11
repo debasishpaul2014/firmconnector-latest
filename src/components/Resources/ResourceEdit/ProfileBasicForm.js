@@ -389,7 +389,7 @@ const ProfileBasicForm = (props) => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Profile Informations"}
+                title={"Profile Information"}
                 subText={null}
                 borderBottom={true}
               />

@@ -20,7 +20,7 @@ const AccountLoginDetailsForm = (props) => {
           <div className="d-block">
             <div className="d-block">
               <HeaderXSm
-                title={"Login Informations"}
+                title={"Login Information"}
                 subText={null}
                 borderBottom={true}
               />

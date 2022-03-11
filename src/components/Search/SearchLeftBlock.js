@@ -12,7 +12,7 @@ const SearchLeftBlock = (props) => {
   const [isFirmListLoading, setIsFirmListLoading] = useState(true);
   const [firmList, setFirmList] = useState(false);
   const [selectedFirmList, setSelectedFirmList] = useState([]);
-  const [availability, setAvailability] = useState(false);
+  const [availability, setAvailability] = useState(99999);
   const [ownFirm, setOwnFirm] = useState(false);
   const [accessFirm, setAccessFirm] = useState([]);
 
@@ -164,6 +164,7 @@ const SearchLeftBlock = (props) => {
                 value="40"
                 id="fourtyhoursweek"
                 name="availability"
+                checked={availability === 40}
               />
               <label className="form-check-label" for="fourtyhoursweek">
                 <span className="fw-bold">40 hrs/week</span>
@@ -181,6 +182,7 @@ const SearchLeftBlock = (props) => {
                 value="30"
                 id="thirtyhoursweek"
                 name="availability"
+                checked={availability === 30}
               />
               <label className="form-check-label" for="thirtyhoursweek">
                 <span className="fw-bold">30 hrs/week</span>
@@ -198,6 +200,7 @@ const SearchLeftBlock = (props) => {
                 value="20"
                 id="twentyhoursweek"
                 name="availability"
+                checked={availability === 20}
               />
               <label className="form-check-label" for="twentyhoursweek">
                 <span className="fw-bold">20 hrs/week</span>
@@ -215,6 +218,7 @@ const SearchLeftBlock = (props) => {
                 value="10"
                 id="tenhoursweek"
                 name="availability"
+                checked={availability === 10}
               />
               <label className="form-check-label" for="tenhoursweek">
                 <span className="fw-bold">10 hrs/week</span>
@@ -232,6 +236,7 @@ const SearchLeftBlock = (props) => {
                 value="0"
                 id="zerohoursweek"
                 name="availability"
+                checked={availability === 99999}
               />
               <label className="form-check-label" for="zerohoursweek">
                 <span className="fw-bold">N/A</span>
