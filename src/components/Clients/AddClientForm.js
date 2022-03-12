@@ -90,7 +90,7 @@ const AddClientForm = () => {
             setButtonText("Create Account");
 
             setTimeout(() => {
-              window.location.replace("clients");
+              window.location.replace("access-control");
             }, 1000);
           } else if (data.data.status === 0) {
             errMessage.push(data.data.message);

@@ -128,7 +128,11 @@ const MainRoute = () => {
         />
         <ProtectedRoute exact path={`/edit-firm`} component={EditFirm} />
 
-        <ProtectedRoute exact path={`/clients`} component={ClientsList} />
+        <ProtectedRoute
+          exact
+          path={`/access-control`}
+          component={ClientsList}
+        />
         <ProtectedRoute exact path={`/add-client`} component={AddClient} />
 
         <ProtectedRoute exact path={`/search`} component={Search} />

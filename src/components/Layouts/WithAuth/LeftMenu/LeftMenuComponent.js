@@ -10,6 +10,7 @@ import "./leftmenu.css";
 const LeftMenuComponent = () => {
   const { userDetails } = useAuthContext();
   const user_primary_role = JSON.parse(userDetails).user_primary_role;
+  const firm_details = JSON.parse(userDetails).firm_details;
 
   const location = useLocation();
   const routeName = location.pathname;
@@ -18,6 +19,54 @@ const LeftMenuComponent = () => {
   useEffect(() => {
     setActiveRoute(routeName);
   }, [routeName]);
+
+  const checkResourceTextDisplay = () => {
+    if (firm_details) {
+      if (firm_details.firm_type === 1) {
+        return (
+          <Link to="/resources">
+            <div className="my-3 d-flex align-items-center">
+              <div className="sm-block animated-hover bg-muted-custom">
+                <IconContainer iconName={"FiUsers"} color={"var(--info)"} />
+              </div>
+              <div className="ms-3">
+                <span
+                  className={
+                    activeRoute === "/resources"
+                      ? "text-white-custom fw-bold"
+                      : "text-white-custom"
+                  }
+                >
+                  Candidates
+                </span>
+              </div>
+            </div>
+          </Link>
+        );
+      } else {
+        return (
+          <Link to="/resources">
+            <div className="my-3 d-flex align-items-center">
+              <div className="sm-block animated-hover bg-muted-custom">
+                <IconContainer iconName={"FiUsers"} color={"var(--info)"} />
+              </div>
+              <div className="ms-3">
+                <span
+                  className={
+                    activeRoute === "/resources"
+                      ? "text-white-custom fw-bold"
+                      : "text-white-custom"
+                  }
+                >
+                  My Team
+                </span>
+              </div>
+            </div>
+          </Link>
+        );
+      }
+    }
+  };
 
   return (
     <>
@@ -84,24 +133,7 @@ const LeftMenuComponent = () => {
               </div>
             </Link>
 
-            <Link to="/resources">
-              <div className="my-3 d-flex align-items-center">
-                <div className="sm-block animated-hover bg-muted-custom">
-                  <IconContainer iconName={"FiUsers"} color={"var(--info)"} />
-                </div>
-                <div className="ms-3">
-                  <span
-                    className={
-                      activeRoute === "/resources"
-                        ? "text-white-custom fw-bold"
-                        : "text-white-custom"
-                    }
-                  >
-                    Resources
-                  </span>
-                </div>
-              </div>
-            </Link>
+            {checkResourceTextDisplay()}
 
             {user_primary_role === "1" ? (
               <Link to="/resource-managers">
@@ -128,7 +160,7 @@ const LeftMenuComponent = () => {
             ) : null}
 
             {user_primary_role === "2" ? (
-              <Link to="/clients">
+              <Link to="/access-control">
                 <div className="my-3 d-flex align-items-center">
                   <div className="sm-block animated-hover bg-muted-custom">
                     <IconContainer
@@ -139,12 +171,12 @@ const LeftMenuComponent = () => {
                   <div className="ms-3">
                     <span
                       className={
-                        activeRoute === "/clients"
+                        activeRoute === "/access-control"
                           ? "text-white-custom fw-bold"
                           : "text-white-custom"
                       }
                     >
-                      Clients
+                      Access Control
                     </span>
                   </div>
                 </div>
