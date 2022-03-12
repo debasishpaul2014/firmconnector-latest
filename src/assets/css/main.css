@@ -524,8 +524,8 @@ a{
 }
 
 .firm-logo-sm-custom{
-   width: 5rem;
-   height: 2rem;
+   width: 6rem;
+   height: 3rem;
    border: 0.05rem solid var(--muted-extra-light);
    align-items: center;
    justify-content: center;
@@ -534,7 +534,7 @@ a{
 }
 
 .firm-logo-sm-custom > img{
-   height: 2rem;
+   height: 3rem;
    object-fit: cover;
 }
 
