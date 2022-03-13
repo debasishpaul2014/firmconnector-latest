@@ -58,7 +58,9 @@ const ResourceProfile = (props) => {
                 <>
                   <div className="me-2">
                     <span
-                      className="btn btn-primary btn-sm"
+                      className={`btn btn-${
+                        displayView === "default" ? "primary" : "secondary"
+                      } btn-sm`}
                       onClick={() => changeView("default")}
                     >
                       Default View
@@ -66,7 +68,9 @@ const ResourceProfile = (props) => {
                   </div>
                   <div className="me-2">
                     <span
-                      className="btn btn-warning btn-sm"
+                      className={`btn btn-${
+                        displayView === "client" ? "primary" : "secondary"
+                      } btn-sm`}
                       onClick={() => changeView("client")}
                     >
                       Client View
@@ -74,7 +78,7 @@ const ResourceProfile = (props) => {
                   </div>
                   <Link to={"/resources/edit-resource/" + resourceSlug}>
                     <div>
-                      <span className="btn btn-success btn-sm">
+                      <span className="btn btn-secondary btn-sm">
                         Edit Profile
                       </span>
                     </div>
