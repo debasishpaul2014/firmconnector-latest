@@ -27,4 +27,8 @@
     --info-badge-bg: #e4f7fd;
     --info-badge-text: #36b5f3;
     --bg: rgb(0, 69, 91);
+    --logo-color-danger: rgb(252,51,56,255);
+    --logo-color-warning: rgb(255,173,17,255);
+    --logo-color-blue: rgb(20,105,170,255)
+    ;
 }

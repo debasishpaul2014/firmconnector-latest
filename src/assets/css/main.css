@@ -556,3 +556,15 @@ a{
 .btn{
    border-radius: 0 !important;
 }
+
+.bg-danger-logo-custom{
+   background-color: var(--logo-color-danger) !important;
+}
+
+.bg-warning-logo-custom{
+   background-color: var(--logo-color-warning) !important;
+}
+
+.bg-blue-logo-custom{
+   background-color: var(--logo-color-blue) !important;
+}

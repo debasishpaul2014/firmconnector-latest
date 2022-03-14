@@ -19,7 +19,7 @@ const SelectOrganizationComponent = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-4 mb-2">
-              <div className="card text-white bg-dark-custom rounded-5 shadow-lg">
+              <div className="card text-white bg-danger-logo-custom rounded-5 shadow-lg">
                 <div className="card-image-custom-holder p-5">
                   <img
                     src={enterprise_companies}
@@ -44,7 +44,7 @@ const SelectOrganizationComponent = () => {
             </div>
 
             <div className="col-md-4 mb-2">
-              <div className="card text-white bg-dark rounded-5 shadow-lg">
+              <div className="card text-white bg-warning-logo-custom rounded-5 shadow-lg">
                 <div className="card-image-custom-holder p-5">
                   <img
                     src={professional_services_firms}
@@ -69,7 +69,7 @@ const SelectOrganizationComponent = () => {
             </div>
 
             <div className="col-md-4 mb-2">
-              <div className="card text-white bg-info-custom rounded-5 shadow-lg">
+              <div className="card text-white bg-blue-logo-custom rounded-5 shadow-lg">
                 <div className="card-image-custom-holder p-5">
                   <img src={staffing_firms} className="img-fluid" alt="..." />
                 </div>

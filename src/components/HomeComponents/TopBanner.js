@@ -16,7 +16,7 @@ const TopBannerComponent = () => {
               </h1>
             </div>
             <div className="d-block mb-4">
-              <p className="lead text-muted-custom mb-4">
+              <p className="lead text-white-custom mb-4">
                 FirmConnector is software as a service that can provide your
                 organization with quick, easy access to the skillsets and
                 availability of your entire talent network both your in-house

@@ -293,6 +293,12 @@ const SearchBottomBlock = (props) => {
     }
   };
 
+  const handler = (event) => {
+    if (event.key === "Enter") {
+      getSearch();
+    }
+  };
+
   return (
     <div className="d-block my-4">
       <div className="d-flex col-12 mb-5 align-items-center justify-content-center">
@@ -302,10 +308,11 @@ const SearchBottomBlock = (props) => {
               <div className="col-9">
                 <input
                   type="text"
-                  placeholder="Search for resorces/skills/country/city/state"
+                  placeholder="Search for resorces/skills/role"
                   className="form-control-custom-sm-border-none text-capitalize fw-medium-custom text-info-custom bg-light"
                   onChange={onKeyworkChange}
                   value={searchText}
+                  onKeyPress={(e) => handler(e)}
                 />
               </div>
               <div className="col-3 d-flex justify-content-end align-items-center">
