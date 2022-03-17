@@ -14,6 +14,7 @@ const ProfileBasicForm = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [jobRole, setJobRole] = useState("");
+  const [reportTo, setReportTo] = useState(false);
   const [bio, setBio] = useState("");
   const [buttonText, setButtonText] = useState("Update Profile Informations");
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
@@ -35,6 +36,7 @@ const ProfileBasicForm = (props) => {
     setLastName(resourceDetails.last_name);
     setJobRole(resourceDetails.user_profile_role);
     setBio(resourceDetails.profile_bio);
+    setReportTo(resourceDetails.report_to);
     setFile(PROFILE_IMAGE_BASE + resourceDetails.profile_image_path);
     setUploadedFile(PROFILE_IMAGE_BASE + resourceDetails.profile_image_path);
   }, [resourceDetails]);
@@ -55,6 +57,10 @@ const ProfileBasicForm = (props) => {
 
   const handleBioChange = (e) => {
     setBio(e.target.value);
+  };
+
+  const handleReportTo = (e) => {
+    setReportTo(e.target.value);
   };
 
   const handleFormSubmit = () => {
@@ -135,6 +141,7 @@ const ProfileBasicForm = (props) => {
       lastName: lastName,
       jobRole: jobRole,
       bio: bio,
+      report_to: reportTo,
     };
 
     try {
@@ -455,6 +462,36 @@ const ProfileBasicForm = (props) => {
                       value={jobRole}
                       autoComplete="off"
                     />
+                  </div>
+                </div>
+              </div>
+              <div className="col-12 col-md-6 col-lg-6 col-xlg-6">
+                <div className="form-input-holder">
+                  <div className="form-input-holder">
+                    <InputLebelComponent title="Select Reporting Person" />
+                    <div className="d-block">
+                      <select
+                        className="form-control-custom-sm"
+                        aria-label="Country"
+                        onChange={handleReportTo}
+                        value={reportTo}
+                      >
+                        <option value="">Select profile</option>
+                        {resourceDetails.report_persons ? (
+                          <>
+                            {resourceDetails.report_persons.map(function (
+                              item
+                            ) {
+                              return (
+                                <option value={item.user_id}>
+                                  {item.user_email}
+                                </option>
+                              );
+                            })}
+                          </>
+                        ) : null}
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>

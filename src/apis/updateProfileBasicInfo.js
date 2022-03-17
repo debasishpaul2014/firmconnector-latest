@@ -11,6 +11,7 @@ const updateProfileBasicInfo = (data) => {
   postData.append("last_name", data.lastName);
   postData.append("user_profile_role", data.jobRole);
   postData.append("profile_bio", data.bio);
+  postData.append("report_to", data.report_to);
 
   return axios
     .post(UPDATE_PROFILE_BASIC_INFO, postData)

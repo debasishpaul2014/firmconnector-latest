@@ -86,7 +86,7 @@ const GeneralInfo = (props) => {
               className="form-control"
               id="inquire-text"
               rows="3"
-              placeholder="Write your message here"
+              placeholder="Ask a question to their recruiter"
             ></textarea>
           </div>
 

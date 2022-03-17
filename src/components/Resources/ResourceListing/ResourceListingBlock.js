@@ -16,7 +16,7 @@ const ResourceListingBlock = () => {
         return (
           <Link to="/resources">
             <Button variant="warning" size="sm">
-              Candidates
+              My Candidates
             </Button>
           </Link>
         );
@@ -32,11 +32,43 @@ const ResourceListingBlock = () => {
     }
   };
 
+  const displayAddResourceText = () => {
+    if (user_primary_role === "2") {
+      if (firm_details) {
+        if (firm_details.firm_type === 1) {
+          return (
+            <div className="col-6">
+              <div className="d-flex justify-content-end">
+                <Link to="/add-resource">
+                  <Button variant="primary" size="sm">
+                    Add Candidate
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          );
+        } else {
+          return (
+            <div className="col-6">
+              <div className="d-flex justify-content-end">
+                <Link to="/add-resource">
+                  <Button variant="primary" size="sm">
+                    Add Team Member
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          );
+        }
+      }
+    }
+  };
+
   return (
     <>
       <div className="d-block mb-3">
         <BlockHeader
-          title={"My Resources"}
+          title={"Access Control"}
           subText={
             "The resource listing showing results on which you have access"
           }
@@ -51,17 +83,7 @@ const ResourceListingBlock = () => {
             </Link>
             {checkResourceTextDisplay()}
           </div>
-          <div className="col-6">
-            {user_primary_role === "2" ? (
-              <div className="d-flex justify-content-end">
-                <Link to="/add-resource">
-                  <Button variant="primary" size="sm">
-                    Add Candidate
-                  </Button>
-                </Link>
-              </div>
-            ) : null}
-          </div>
+          {displayAddResourceText()}
         </div>
       </div>
       <ResourceListingResultBlock />
