@@ -8,12 +8,10 @@ import saveEmploymentDetails from "../../../apis/saveEmploymentDetails";
 import updateEmploymentDetails from "../../../apis/updateEmploymentDetails";
 import removeEmploymentDetails from "../../../apis/removeEmploymentDetails";
 import getEmploymentDetails from "../../../apis/getEmploymentDetails";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBriefcase, faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
+import EmploymentContent from "../CommonComponents/EmploymentContent";
 
 import Swal from "sweetalert2";
 import swalWithBootstrapButtons from "sweetalert2-react-content";
-import { BadgeInfo } from "../../Badge/Badge";
 
 const ResourceEmploymentBlock = (props) => {
   const { employment_details, resourceSlug } = props;
@@ -1224,40 +1222,7 @@ const ResourceEmploymentBlock = (props) => {
     return (
       <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center border-bottom-light mb-3">
         <div className="col-12 col-md-8 col-lg-8 col-xl-8 mb-3">
-          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
-            {displayJobTitle(employment.job_title)}
-          </div>
-          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
-            <span className="text-muted-custom">
-              <FontAwesomeIcon icon={faBriefcase} />
-            </span>
-            <span>&nbsp;</span>
-            {displayEmployerName(employment.employer_name)}
-          </div>
-
-          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
-            {displayLocation(
-              employment.city,
-              employment.province,
-              employment.country_code
-            )}
-          </div>
-
-          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center my-2">
-            {displayDiscription(employment.description)}
-          </div>
-
-          <div className="d-block d-md-flex d-xl-flex d-lg-flex align-items-center">
-            <span className="text-primary">
-              <FontAwesomeIcon icon={faCalendarAlt} />
-            </span>
-            <span>&nbsp;</span>
-            {displayWorkYear(
-              employment.start_date,
-              employment.end_date,
-              employment.is_current
-            )}
-          </div>
+          <EmploymentContent employmentDetails={employment} />
         </div>
         <div className="col-12 col-md-2 col-lg-2 col-xl-2 mb-3">
           <div className="d-flex justify-content-md-end justify-content-lg-end justify-content-xl-end justify-content-xxl-end justify-content-sm-start">
@@ -1289,81 +1254,6 @@ const ResourceEmploymentBlock = (props) => {
         </div>
       </div>
     );
-  };
-
-  const displayJobTitle = (job_title) => {
-    if (job_title !== null) {
-      return <span className="text-dark-custom fw-bold">{job_title}</span>;
-    } else {
-      return <span className="text-dark-custom fw-bold">Not available!</span>;
-    }
-  };
-
-  const displayEmployerName = (employer_name) => {
-    if (employer_name !== "" && employer_name !== null) {
-      return (
-        <span className="text-info-custom text-x-sm-custom fw-medium-custom">
-          {employer_name}
-        </span>
-      );
-    } else {
-      return (
-        <span className="text-info-custom text-x-sm-custom fw-medium-custom">
-          Employer name not available
-        </span>
-      );
-    }
-  };
-
-  const displayDiscription = (discription) => {
-    if (discription !== "" && discription !== null) {
-      if (discription.length > 150) {
-        return (
-          <span className="text-sm-custom text-muted-custom">
-            {discription.substring(0, 150)}...
-          </span>
-        );
-      } else {
-        return (
-          <span className="text-sm-custom text-muted-custom">
-            {discription}
-          </span>
-        );
-      }
-    } else {
-      return (
-        <span className="text-sm-custom text-danger-custom">
-          Description not available!
-        </span>
-      );
-    }
-  };
-
-  const displayLocation = (city, state, country) => {
-    return (
-      <span className="text-x-sm-custom fw-medium-custom">
-        {city !== null ? city : ""}
-        {state !== null ? ", " + state : ""}
-        {country !== null ? ", " + country : ""}
-      </span>
-    );
-  };
-
-  const displayWorkYear = (start, end, is_current) => {
-    if (is_current === "1") {
-      return (
-        <span className="text-x-sm-custom fw-medium-custom">
-          From {start !== null ? start : "-"} to &nbsp;{" "}
-          <BadgeInfo title={"Present"} />
-        </span>
-      );
-    } else {
-      return (
-        <span className="text-x-sm-custom fw-medium-custom">
-          From {start !== null ? start : "-"} to {end !== null ? end : "-"}
-        </span>
-      );
-    }
   };
 
   return (

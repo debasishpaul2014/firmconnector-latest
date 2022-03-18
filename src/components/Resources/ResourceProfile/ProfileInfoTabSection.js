@@ -26,44 +26,42 @@ const ProfileInfoTabSection = (props) => {
 
   return (
     <div className="col-12 col-xl-9 col-xxl-9 mb-3 profile-tab-section">
-      <div className="card-custom h-100 shadow">
-        <div className="card-body bg-light">
-          <div className="profile-tab-container px-3">
-            <div
-              className={`shadow-sm cursor-pointer my-2 mx-2 ${
-                selectedTab === "about" ? "profile-tab-selected" : "profile-tab"
-              }`}
-              onClick={() => handleTabChange("about")}
-            >
-              <span className="fw-medium-custom">Summary</span>
-            </div>
-            {displayView === "default" ? (
-              <>
-                <div
-                  className={`shadow-sm cursor-pointer my-2 mx-2 ${
-                    selectedTab === "employment"
-                      ? "profile-tab-selected"
-                      : "profile-tab"
-                  }`}
-                  onClick={() => handleTabChange("employment")}
-                >
-                  <span className="fw-medium-custom">Experience</span>
-                </div>
-                <div
-                  className={`shadow-sm cursor-pointer my-2 mx-2 ${
-                    selectedTab === "education"
-                      ? "profile-tab-selected"
-                      : "profile-tab"
-                  }`}
-                  onClick={() => handleTabChange("education")}
-                >
-                  <span className="fw-medium-custom">Education</span>
-                </div>
-              </>
-            ) : null}
+      <div>
+        <div className="profile-tab-container px-3 rounded">
+          <div
+            className={`cursor-pointer my-2 mx-2 ${
+              selectedTab === "about" ? "profile-tab-selected" : "profile-tab"
+            }`}
+            onClick={() => handleTabChange("about")}
+          >
+            <span className="fw-medium-custom">Summary</span>
           </div>
-          <div className="col-12 pt-3">{displayTabContent()}</div>
+          {displayView === "default" ? (
+            <>
+              <div
+                className={`cursor-pointer my-2 mx-2 ${
+                  selectedTab === "employment"
+                    ? "profile-tab-selected"
+                    : "profile-tab"
+                }`}
+                onClick={() => handleTabChange("employment")}
+              >
+                <span className="fw-medium-custom">Experience</span>
+              </div>
+              <div
+                className={`cursor-pointer my-2 mx-2 ${
+                  selectedTab === "education"
+                    ? "profile-tab-selected"
+                    : "profile-tab"
+                }`}
+                onClick={() => handleTabChange("education")}
+              >
+                <span className="fw-medium-custom">Education</span>
+              </div>
+            </>
+          ) : null}
         </div>
+        <div className="col-12 pt-3">{displayTabContent()}</div>
       </div>
     </div>
   );

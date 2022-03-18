@@ -12,7 +12,7 @@
     --success-light: #e5faf5;
     --success: #2da562;
     --success-dark: #2da562;
-    --muted: #5b6987;
+    --muted: #65676B;
     --muted-light-dark-text: #B5B5C3;
     --muted-light: #d2dae6;
     --warning: #ffa515;
@@ -29,6 +29,7 @@
     --bg: rgb(0, 69, 91);
     --logo-color-danger: rgb(252,51,56,255);
     --logo-color-warning: rgb(255,173,17,255);
-    --logo-color-blue: rgb(20,105,170,255)
+    --logo-color-blue: rgb(20,105,170,255);
+    --background-color: #f0f2f5;
     ;
 }

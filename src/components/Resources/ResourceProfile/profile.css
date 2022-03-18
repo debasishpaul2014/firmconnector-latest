@@ -106,14 +106,14 @@
 }
 
 .profile-tab-container{
-    background-color: var(--muted-extra-light);
+    background-color: var(--white);
     border-radius: 0.2rem;
     display: flex;
     overflow-x:auto;
 }
 
 .profile-tab{
-    background-color: var(--white);
+    background-color: var(--background-color);
     padding: 0.5rem 1rem;
     border-radius: 3rem;
     display: flex;

@@ -95,7 +95,7 @@ const ProfileBrief = (props) => {
 
   return (
     <div className="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4 mb-3 top-card-section">
-      <div className="card-custom h-100 d-flex flex-column align-items-center shadow">
+      <div className="card-custom h-100 d-flex flex-column align-items-center">
         <div className="card-body row w-100">{displayBlockContent()}</div>
       </div>
     </div>

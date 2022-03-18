@@ -38,10 +38,10 @@ const SearchResultBlock = (props) => {
 
           return (
             <div className="d-block mt-2">
-              <div className="d-flex flex-wrap p-2 bg-light">
+              <div className="d-flex flex-wrap">
                 {skillFormatted.map((skillItem, skillIndex) => {
                   return (
-                    <div class="skill-wrapper-muted my-1 me-1">
+                    <div class="skill-wrapper-muted my-1 me-1 rounded-pill">
                       <span
                         class="text-x-sm-custom"
                         key={skillIndex.toString()}
@@ -86,9 +86,7 @@ const SearchResultBlock = (props) => {
     if (role !== null && role.trim().length !== 0) {
       return (
         <div className="d-block">
-          <span className="text-x-sm-custom text-dark-custom fw-bold">
-            {role}
-          </span>
+          <span className="text-x-sm-custom text-muted-custom">{role}</span>
         </div>
       );
     }
@@ -311,32 +309,31 @@ const SearchResultBlock = (props) => {
           {searchResult.map((item, index) => {
             return (
               <Link target="_blank" to={"resources/details/" + item.user_slug}>
-                <div
-                  key={index.toString()}
-                  className="d-block p-3 rounded mb-2 bg-white shadow"
-                >
-                  <div class="d-flex row mb-4">
-                    <div className="col-12 col-lg-1 col-xl-1 col-xxl-1">
-                      {displayProfilePicture(item)}
-                    </div>
-                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4">
-                      <div className="d-block">
-                        {displayProfileName(item)}
-                        {displayJobRole(item.user_profile_role)}
-                        <div className="d-block mt-1">
-                          {displayFirm(item.firm_logo)}
+                <div key={index.toString()} className="card-custom p-3 mb-3">
+                  <div className="card-body-custom">
+                    <div class="d-flex row mb-4">
+                      <div className="col-12 col-lg-1 col-xl-1 col-xxl-1">
+                        {displayProfilePicture(item)}
+                      </div>
+                      <div className="col-12 col-lg-4 col-xl-4 col-xxl-4">
+                        <div className="d-block">
+                          {displayProfileName(item)}
+                          {displayJobRole(item.user_profile_role)}
+                          <div className="d-block mt-3">
+                            {displayFirm(item.firm_logo)}
+                          </div>
                         </div>
                       </div>
+                      <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0">
+                        {checkContactBlockDisplay(item)}
+                      </div>
+                      <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-xxl-end align-items-lg-end align-items-xl-end">
+                        {displayAvailability(item.availability)}
+                      </div>
                     </div>
-                    <div className="col-12 col-lg-4 col-xl-4 col-xxl-4 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0">
-                      {checkContactBlockDisplay(item)}
-                    </div>
-                    <div className="col-12 col-lg-3 col-xl-3 col-xxl-3 d-flex flex-column my-2 my-lg-0 my-xl-0 my-xxl-0 justify-content-center align-items-xxl-end align-items-lg-end align-items-xl-end">
-                      {displayAvailability(item.availability)}
-                    </div>
-                  </div>
 
-                  {displaySkills(item.skill_name)}
+                    {displaySkills(item.skill_name)}
+                  </div>
                 </div>
               </Link>
             );

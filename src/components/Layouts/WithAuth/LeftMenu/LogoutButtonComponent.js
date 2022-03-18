@@ -30,7 +30,7 @@ const LogoutButtonComponent = () => {
 
   return (
     <div
-      className="my-3 d-flex align-items-center"
+      className="my-3 d-flex align-items-center cursor-pointer"
       onClick={() => displayLogoutAlert()}
     >
       <div className="sm-block animated-hover bg-muted-custom">

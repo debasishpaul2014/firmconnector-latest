@@ -2,11 +2,13 @@ import React from "react";
 
 const Footer = (props) => {
   return (
-    <div className="text-white bg-black-custom footer">
-      <div className="container">
-        <span>&copy; 2014-2021 firmconnector.com. All Rights Reserved.</span>
+    <footer class="footer bg-black-custom">
+      <div class="container">
+        <span class="text-muted">
+          &copy; 2014-2021 firmconnector.com. All Rights Reserved.
+        </span>
       </div>
-    </div>
+    </footer>
   );
 };
 

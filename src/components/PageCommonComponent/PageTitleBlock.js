@@ -4,10 +4,13 @@ const PageTitleBlock = (props) => {
   const { title, subText } = props;
 
   return (
-    <div>
-      <div className="display-6 fw-bold text-white-custom">{title}</div>
-      <div>
-        <span className="bd-lead text-muted-custom">{subText}</span>
+    <div className="d-block">
+      <div className="d-block">
+        <span className="display-6 text-white">{title}</span>
+      </div>
+
+      <div className="d-block">
+        <span className="lead text-white">{subText}</span>
       </div>
     </div>
   );

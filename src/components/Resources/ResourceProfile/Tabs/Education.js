@@ -70,7 +70,7 @@ const Education = (props) => {
   const displayEducationBlock = (education, key) => {
     return (
       <div key={key} className="col-12 mb-3">
-        <div className="card bg-white shadow-sm">
+        <div className="card-custom">
           <div className="card-body">
             <div className="d-block d-md-flex d-xl-flex d-lg-flex row align-items-center">
               {degreeName(education)}

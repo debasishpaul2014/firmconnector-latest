@@ -26,8 +26,8 @@ const Header = () => {
         </div>
         <div className="col-7 d-flex align-items-center">
           <Link to="/">
-            <div className="logo-top">
-              <img src={Logo} className="h-100 w-100" alt="Firmconnector" />
+            <div className="logo-top-sm">
+              <img src={Logo} className="img-fluid" alt="Firmconnector" />
             </div>
           </Link>
         </div>

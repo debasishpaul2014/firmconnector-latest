@@ -73,7 +73,7 @@ const ProfileSection = (props) => {
 
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mb-3 mb-md-2 mb-lg-0 mb-xlg-0 ">
-      <div className="card-custom p-3 shadow profile-static-card">
+      <div className="card-custom p-3 profile-static-card">
         <div className="card-body justify-content-around align-items-center d-flex flex-column">
           {displayMainContent()}
         </div>

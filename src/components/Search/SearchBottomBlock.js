@@ -301,22 +301,23 @@ const SearchBottomBlock = (props) => {
 
   return (
     <div className="d-block my-4">
-      <div className="d-flex col-12 mb-5 align-items-center justify-content-center">
-        <div className="col-11 col-lg-8 col-xl-8 col-xxl-8 position-relative">
-          <div className="d-flex align-items-center bg-white p-3 rounded shadow-lg">
-            <div className="d-flex col-12 row mx-0">
-              <div className="col-9">
+      <div className="d-flex row mb-4 align-items-center justify-content-center">
+        <div className="col-3"></div>
+        <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 position-relative">
+          <div className="card-custom p-3">
+            <div className="d-flex row">
+              <div className="col-12">
                 <input
                   type="text"
                   placeholder="Search for resorces/skills/role"
-                  className="form-control-custom-sm-border-none text-capitalize fw-medium-custom text-info-custom bg-light"
+                  className="form-control-custom-sm-border-none text-capitalize text-info-custom rounded-pill cursor-pointer bg-light"
                   onChange={onKeyworkChange}
                   value={searchText}
                   onKeyPress={(e) => handler(e)}
                 />
               </div>
-              <div className="col-3 d-flex justify-content-end align-items-center">
-                <Button variant="primary" size="md" onClick={() => getSearch()}>
+              <div className="col-12 d-flex justify-content-end mt-3">
+                <Button variant="primary" size="sm" onClick={() => getSearch()}>
                   Search
                 </Button>
               </div>
@@ -324,25 +325,24 @@ const SearchBottomBlock = (props) => {
           </div>
           {displayAutoCompleteBlock()}
         </div>
+        <div className="col-3"></div>
       </div>
-      <div className="d-flex justify-content-center mt-4 h-100">
-        <div className="row col-12 mx-0">
-          <div className="d-none d-lg-flex d-xl-flex d-xxl-flex col-lg-3 col-xl-3 col-xxl-3">
-            <SearchLeftBlock
-              user_slug={user_slug}
-              getSelectedFirmIds={getSelectedFirmIds}
-              getSelectedAvailability={getSelectedAvailability}
-              getFirmAccess={getFirmAccess}
-            />
-          </div>
-          <div className="col-12 col-lg-9 col-xl-9 col-xxl-9">
-            <SearchResultBlock
-              isSearching={isSearching}
-              searchResult={searchResult}
-              ownFirm={ownFirm}
-              accessFirm={accessFirm}
-            />
-          </div>
+      <div className="d-flex row justify-content-center mt-4 h-100">
+        <div className="d-none d-lg-flex d-xl-flex d-xxl-flex col-lg-3 col-xl-3 col-xxl-3">
+          <SearchLeftBlock
+            user_slug={user_slug}
+            getSelectedFirmIds={getSelectedFirmIds}
+            getSelectedAvailability={getSelectedAvailability}
+            getFirmAccess={getFirmAccess}
+          />
+        </div>
+        <div className="col-12 col-lg-9 col-xl-9 col-xxl-9">
+          <SearchResultBlock
+            isSearching={isSearching}
+            searchResult={searchResult}
+            ownFirm={ownFirm}
+            accessFirm={accessFirm}
+          />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonSm from "../../../Buttons/ButtonSm";
+import { Button } from "react-bootstrap";
 import Logo from "../../../../assets/images/Company_logo.png";
 import HeaderTopUserBlock from "../../../UserCommonBlocks/HeaderTopUserBlock";
 import { useAuthContext } from "../../../../context/AuthContext";
@@ -18,18 +18,17 @@ const TopNav = () => {
     } else {
       return (
         <div className="d-flex bd-buttons">
-          <ButtonSm
-            to="sign-in"
-            title="Login"
-            className="btn-light-custom"
-            type="button"
-          />
-          <ButtonSm
-            to="sign-up"
-            title="Create Account"
-            className="btn-primary-custom ms-3"
-            type="button"
-          />
+          <Link to="/sign-in">
+            <Button variant="light" size="sm">
+              {"Login"}
+            </Button>
+          </Link>
+
+          <Link to="/sign-up">
+            <Button variant="primary" size="sm" className="ms-3">
+              {"Create Account"}
+            </Button>
+          </Link>
         </div>
       );
     }

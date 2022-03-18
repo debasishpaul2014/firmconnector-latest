@@ -8,6 +8,7 @@ const IconContainerSm = (props) => {
   return (
     <div
       style={{
+        display: "flex",
         fontSize: "1rem",
         color: color,
         justifyContent: "center",

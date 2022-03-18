@@ -11,13 +11,13 @@ import "../../../assets/css/button.css";
 
 const Layout = (props) => {
   return (
-    <div className="page-wrapper h-auto">
+    <div className="page-wrapper">
       <Helmet>
         <meta charSet="utf-8" />
         <title>{props.pageTitle}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Helmet>
-      <div>
+      <div className="d-block">
         <Header />
         <Content>{props.children}</Content>
         <Footer />

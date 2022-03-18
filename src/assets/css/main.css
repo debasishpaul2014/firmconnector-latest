@@ -4,8 +4,24 @@ body {
    -webkit-font-smoothing: antialiased !important;
    line-height: 1.5;
    font-size: 0.885rem !important;
-   background-color: #fffcf9  !important;
+   background-color: var(--background-color) !important;
+   overflow-y:scroll !important;
 }
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+   position: relative;
+   min-height: 100%;
+ }
+
+ .footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   background-color: #f5f5f5;
+ }
+ 
 
 /* ::-webkit-scrollbar {
    display: none !important;
@@ -242,6 +258,10 @@ a{
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+   input[type=text]:hover,input[type=password]:hover,input[type=number] :hover {
+      background-color: var(--muted-extra-light) !important;
+   }
+
 .form-control-custom-sm-border-none{
    display: block;
    width: 100%;
@@ -251,7 +271,6 @@ a{
    appearance: none;
    border: none;
    outline: none;
-   background-color: var(--white);
    height: 2.5rem;
    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -554,7 +573,7 @@ a{
 }
 
 .btn{
-   border-radius: 0 !important;
+   border-radius: 0.2rem !important;
 }
 
 .bg-danger-logo-custom{
@@ -567,4 +586,9 @@ a{
 
 .bg-blue-logo-custom{
    background-color: var(--logo-color-blue) !important;
+}
+
+.header-text-title-custom{
+   font-size: 1.2rem;
+   font-weight: 700;
 }
