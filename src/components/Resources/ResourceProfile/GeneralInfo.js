@@ -5,6 +5,7 @@ import LoadingPageSm from "../../CommonComponent/LoadingPageSm";
 import envelope from "../../../assets/images/email.svg";
 import mobile from "../../../assets/images/mobile.svg";
 import phone from "../../../assets/images/phone.svg";
+import user from "../../../assets/images/user.svg";
 
 import { FIRM_IMAGE_BASE } from "../../../config/env";
 
@@ -19,7 +20,7 @@ const GeneralInfo = (props) => {
   const displayGeneralInfoBlock = () => {
     return (
       <div className="profile-info-block-holder">
-        <div className="general-info-block">
+        <div className="d-flex align-items-center">
           <div className="info-icon-holder">
             <ImageIconSmHolder imageUrl={envelope} />
           </div>
@@ -27,7 +28,7 @@ const GeneralInfo = (props) => {
         </div>
         <div className="row mt-4">
           <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-            <div className="general-info-block">
+            <div className="d-flex align-items-center">
               <div className="info-icon-holder">
                 <ImageIconSmHolder imageUrl={mobile} />
               </div>
@@ -35,7 +36,7 @@ const GeneralInfo = (props) => {
             </div>
           </div>
           <div className="col-12 col-lg-6 col-xl-6 col-xxl-6 mb-4">
-            <div className="general-info-block">
+            <div className="d-flex align-items-center">
               <div className="info-icon-holder">
                 <ImageIconSmHolder imageUrl={phone} />
               </div>
@@ -43,6 +44,7 @@ const GeneralInfo = (props) => {
             </div>
           </div>
         </div>
+        {displayReportTo()}
       </div>
     );
   };
@@ -77,6 +79,52 @@ const GeneralInfo = (props) => {
     }
   };
 
+  const displayReportTo = () => {
+    if (resourceDetails.firm_type === "1") {
+      if (resourceDetails.report_to_user_email) {
+        return (
+          <div className="d-flex align-items-center">
+            <div className="info-icon-holder">
+              <ImageIconSmHolder imageUrl={envelope} />
+            </div>
+            <div className="d-block">
+              <div className="">
+                <span className="fw-medium-custom text-x-x-custom">
+                  Report to
+                </span>
+              </div>
+              <div className="">
+                <span className="text-dark text-sm-custom">
+                  {resourceDetails.report_to_user_email}
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div className="d-flex align-items-center">
+            <div className="info-icon-holder">
+              <ImageIconSmHolder imageUrl={user} />
+            </div>
+            <div className="d-block">
+              <div className="">
+                <span className="fw-medium-custom text-x-x-custom">
+                  Report to
+                </span>
+              </div>
+              <div className="">
+                <span className="text-secondary text-x-sm-custom">
+                  Nothing found!
+                </span>
+              </div>
+            </div>
+          </div>
+        );
+      }
+    }
+  };
+
   const inquireView = () => {
     return (
       <div className="profile-info-block-holder">
@@ -107,18 +155,22 @@ const GeneralInfo = (props) => {
       return <LoadingPageSm />;
     } else {
       return (
-        <div className="d-flex flex-column">
+        <div className="d-block">
           {displayView === "default"
             ? displayGeneralInfoBlock()
             : inquireView()}
-          <div className="d-flex mb-4 mt-4 justify-content-center align-items-center">
-            <div className="firm-logo-lg">
-              <img
-                className="img-fluid img-thumbnail"
-                src={FIRM_IMAGE_BASE + resourceDetails.firm_logo}
-                alt={resourceDetails.firm_name}
-              />
-            </div>
+          <div className="d-flex justify-content-center align-items-center mt-4">
+            <div
+              className="firm-logo-lg"
+              style={{
+                backgroundImage: `url("${
+                  FIRM_IMAGE_BASE + resourceDetails.firm_logo
+                }")`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+              }}
+            />
           </div>
         </div>
       );
