@@ -3,6 +3,7 @@ import { useAuthContext } from "../../../context/AuthContext";
 
 import ProfileSection from "./ProfileSection";
 import FirmResourceCount from "./FirmResourceCount";
+import OrgChart from "./OrgChart";
 
 const TopProfileSection = () => {
   const { userDetails } = useAuthContext();
@@ -12,6 +13,7 @@ const TopProfileSection = () => {
     <div className="d-sm-flex d-md-flex d-lg-flex d-xl-flex mb-3 row d-block">
       <ProfileSection user_slug={user_slug} />
       <FirmResourceCount user_slug={user_slug} />
+      <OrgChart user_slug={user_slug} />
     </div>
   );
 };

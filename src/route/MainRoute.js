@@ -32,6 +32,7 @@ import SignUpScreen from "../screens/Auth/SignUpScreen";
 import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
 import EditProfile from "../screens/ResourceManager/EditProfile";
 import Managers from "../screens/ResourceManager/Managers";
+import DisolayOrgChart from "../components/MyProfile/ResourceManagerProfile/DisolayOrgChart";
 
 //Import resource route
 import AddResource from "../screens/Resource/AddResource";
@@ -88,6 +89,12 @@ const MainRoute = () => {
           exact
           path={`/profile-settings`}
           component={MyProfileScreen}
+        />
+
+        <ProtectedRoute
+          exact
+          path={`/display-org-chart`}
+          component={DisolayOrgChart}
         />
 
         <ProtectedRoute
