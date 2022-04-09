@@ -1,162 +1,60 @@
 import React from "react";
-import Tree from "react-d3-tree";
-
+import "./styles.css";
+import OrganizationChart from "@dabeng/react-orgchart";
+import { orgData } from "./Tree";
+import { User } from "react-feather";
 import Layout from "../../../components/Layouts/WithAuth/Layout";
-import "./custom-tree.css";
 
-const DisolayOrgChart = (props) => {
-  const data = {
-    name: "CEO",
-    children: [
-      {
-        name: "Manager",
-        attributes: {
-          department: "Production",
-        },
-        children: [
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Assembly",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Manager",
-        attributes: {
-          department: "Production",
-        },
-        children: [
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Assembly",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-        ],
-      },
-      {
-        name: "Manager",
-        attributes: {
-          department: "Production",
-        },
-        children: [
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Fabrication",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-          {
-            name: "Foreman",
-            attributes: {
-              department: "Assembly",
-            },
-            children: [
-              {
-                name: "Worker",
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  };
-
-  return (
-    <Layout>
-      <div id="treeWrapper" style={{ width: "550em", height: "520em" }}>
-        <Tree
-          data={data}
-          rootNodeClassName="node__root"
-          branchNodeClassName="node__branch"
-          leafNodeClassName="node__leaf"
-        />
+export default class App extends React.Component {
+  renderNode({ nodeData }) {
+    return (
+      <div className="org-node-container">
+        <div className="org-person">
+          <div>
+            <User size={32} />
+          </div>
+        </div>
+        <div className="org-name">{nodeData.name}</div>
+        <div className="org-title">{nodeData.designation}</div>
+        <div className="org-title">
+          Data unclassified: {nodeData.data_unclassified}
+        </div>
+        <div className="org-title">compliance: {nodeData.compliance}</div>
+        {nodeData.children.length > 0 && (
+          <div
+            className="org-node-children"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              let childNodes = document.getElementById(nodeData.id)
+                .parentElement.childNodes;
+              if (childNodes[1].className.includes("hidden")) {
+                childNodes[0].className = "oc-node";
+                childNodes[1].className = "";
+              } else {
+                childNodes[0].className = "oc-node isChildrenCollapsed";
+                childNodes[1].className = "hidden";
+              }
+            }}
+          >
+            {nodeData.children.length} Reportees
+          </div>
+        )}
       </div>
-    </Layout>
-  );
-};
+    );
+  }
 
-export default React.memo(DisolayOrgChart);
+  render() {
+    return (
+      <Layout>
+        <OrganizationChart
+          datasource={orgData}
+          chartClass="sekure-org-chart"
+          pan={true}
+          zoom={true}
+          NodeTemplate={this.renderNode}
+        />
+      </Layout>
+    );
+  }
+}
