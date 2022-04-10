@@ -32,7 +32,7 @@ import SignUpScreen from "../screens/Auth/SignUpScreen";
 import AddResourceManager from "../screens/ResourceManager/AddResourceManager";
 import EditProfile from "../screens/ResourceManager/EditProfile";
 import Managers from "../screens/ResourceManager/Managers";
-import DisolayOrgChart from "../components/MyProfile/ResourceManagerProfile/DisolayOrgChart";
+import DisolayOrgChart from "../screens/OrgChart/DisolayOrgChart";
 
 //Import resource route
 import AddResource from "../screens/Resource/AddResource";
@@ -93,7 +93,7 @@ const MainRoute = () => {
 
         <ProtectedRoute
           exact
-          path={`/display-org-chart`}
+          path={`/organization-structure`}
           component={DisolayOrgChart}
         />
 

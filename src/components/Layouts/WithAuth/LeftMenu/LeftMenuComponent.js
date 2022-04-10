@@ -133,6 +133,28 @@ const LeftMenuComponent = () => {
               </div>
             </Link>
 
+            <Link to="/organization-structure">
+              <div className="my-3 d-flex align-items-center">
+                <div className="sm-block animated-hover bg-muted-custom">
+                  <IconContainer
+                    iconName={"FiGitPullRequest"}
+                    color={"var(--warning)"}
+                  />
+                </div>
+                <div className="ms-3">
+                  <span
+                    className={
+                      activeRoute === "/organization-structure"
+                        ? "text-white-custom fw-bold"
+                        : "text-white-custom"
+                    }
+                  >
+                    Org Chart
+                  </span>
+                </div>
+              </div>
+            </Link>
+
             {checkResourceTextDisplay()}
 
             {user_primary_role === "1" ? (
