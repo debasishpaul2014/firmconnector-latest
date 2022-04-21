@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 import enterprise_companies from "../../assets/images/enterprise_companies.svg";
 import professional_services_firms from "../../assets/images/professional_services_firms.svg";
 import staffing_firms from "../../assets/images/staffing_firms.svg";
 import ButtonSm from "../Buttons/ButtonSm";
+import Button from "react-bootstrap/Button";
 
 const SelectOrganizationComponent = () => {
+  const [displayBlock, setDisplayBlock] = useState(1);
+
+  const changeBlockView = (val) => {
+    setDisplayBlock(val);
+  };
+
   return (
     <div className="album py-5">
       <section className="jumbotron text-center">
@@ -28,17 +35,17 @@ const SelectOrganizationComponent = () => {
                   />
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title">Enterprise Companies</h5>
+                  <h5 className="card-title">Small and Medium Enterprises</h5>
                   <p className="card-text">
                     Find expertise across your network
                   </p>
-                  <ButtonSm
-                    className="btn-light-custom"
-                    role="button"
-                    title="Learn more"
-                    type="button"
-                    to="#"
-                  />
+                  <Button
+                    variant="light"
+                    size="sm"
+                    onClick={() => changeBlockView(1)}
+                  >
+                    Learn more
+                  </Button>
                 </div>
               </div>
             </div>
@@ -57,13 +64,13 @@ const SelectOrganizationComponent = () => {
                   <p className="card-text">
                     Improve the utilization of your team
                   </p>
-                  <ButtonSm
-                    className="btn-light-custom"
-                    role="button"
-                    title="Learn more"
-                    type="button"
-                    to="#"
-                  />
+                  <Button
+                    variant="light"
+                    size="sm"
+                    onClick={() => changeBlockView(2)}
+                  >
+                    Learn more
+                  </Button>
                 </div>
               </div>
             </div>
@@ -76,14 +83,97 @@ const SelectOrganizationComponent = () => {
                 <div className="card-body">
                   <h5 className="card-title">Staffing Firms</h5>
                   <p className="card-text">Place more candidates</p>
-                  <ButtonSm
-                    className="btn-light-custom"
-                    role="button"
-                    title="Learn more"
-                    type="button"
-                    to="#"
-                  />
+                  <Button
+                    variant="light"
+                    size="sm"
+                    onClick={() => changeBlockView(3)}
+                  >
+                    Learn more
+                  </Button>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="d-block my-5">
+        <div
+          className={`container ${displayBlock === 1 ? "d-block" : "d-none"}`}
+        >
+          <div className="row">
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">Video 1</div>
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+              <h5>Gain easy access to specialists</h5>
+              <div className="my-4">
+                <span>
+                  Staffing needs can change quickly when a new project lands or
+                  a position needs to be filled. Perhaps you're already working
+                  on a project, and need to identify a specialist to bounce
+                  ideas off of.
+                </span>
+              </div>
+              <div className="my-4">
+                <span>
+                  FirmConnector allows you to quickly and easily access the
+                  right people with the right skills for the job.
+                </span>
+              </div>
+              <h5>Fast. Easy. And…</h5>
+              <div className="my-4">
+                <span>
+                  Best of all, you will ensure you are fully utilizing your own
+                  workforce before turning to outside sources.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`container ${displayBlock === 2 ? "d-block" : "d-none"}`}
+        >
+          <div className="row">
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">Video 2</div>
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+              <h5>Better leverage your specialists</h5>
+              <div className="my-4">
+                <span>
+                  Resourcing needs can change rapidly when a new project lands
+                  or a position needs to be filled. FirmConnector allows you to
+                  quickly and easily access the right people with the right
+                  skills for the job.
+                </span>
+              </div>
+              <h5>Improve the utilization of your team</h5>
+              <div className="my-4">
+                <span>
+                  Until now, smaller engagements just haven’t been worth the
+                  sales efforts to find and close. With FirmConnector, you can
+                  increase revenue by easily marketing your specialists directly
+                  to your clients.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`container ${displayBlock === 3 ? "d-block" : "d-none"}`}
+        >
+          <div className="row">
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">Video 3</div>
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+              <h5>Open up new opportunities for candidate placements</h5>
+              <div className="my-4">
+                <span>
+                  Your clients have more options than ever in finding and
+                  obtaining talent. Stay relevant with a fresh, new approach to
+                  showcasing your talented candidates.
+                </span>
+              </div>
+              <div>
+                <span>
+                  FirmConnector helps you proactively place available candidates
+                  quickly and accurately.
+                </span>
               </div>
             </div>
           </div>
