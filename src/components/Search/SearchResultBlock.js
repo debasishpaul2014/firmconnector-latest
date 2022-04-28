@@ -41,9 +41,9 @@ const SearchResultBlock = (props) => {
               <div className="d-flex flex-wrap">
                 {skillFormatted.map((skillItem, skillIndex) => {
                   return (
-                    <div class="skill-wrapper-muted my-1 me-1 rounded-pill">
+                    <div className="skill-wrapper-muted my-1 me-1 rounded-pill">
                       <span
-                        class="text-x-sm-custom"
+                        className="text-x-sm-custom"
                         key={skillIndex.toString()}
                       >
                         {skillItem}
@@ -62,8 +62,11 @@ const SearchResultBlock = (props) => {
             <>
               {skillArray.map((skillItem, skillIndex) => {
                 return (
-                  <div class="skill-wrapper-muted my-1 me-1">
-                    <span class="text-x-sm-custom" key={skillIndex.toString()}>
+                  <div className="skill-wrapper-muted my-1 me-1">
+                    <span
+                      className="text-x-sm-custom"
+                      key={skillIndex.toString()}
+                    >
                       {skillItem}
                     </span>
                   </div>
@@ -311,7 +314,7 @@ const SearchResultBlock = (props) => {
               <Link target="_blank" to={"resources/details/" + item.user_slug}>
                 <div key={index.toString()} className="card-custom p-3 mb-3">
                   <div className="card-body-custom">
-                    <div class="d-flex row mb-4">
+                    <div className="d-flex row mb-4">
                       <div className="col-12 col-lg-1 col-xl-1 col-xxl-1">
                         {displayProfilePicture(item)}
                       </div>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import enterprise_companies from "../../assets/images/enterprise_companies.svg";
 import professional_services_firms from "../../assets/images/professional_services_firms.svg";
 import staffing_firms from "../../assets/images/staffing_firms.svg";
-import ButtonSm from "../Buttons/ButtonSm";
+import ReactPlayer from "react-player/youtube";
 import Button from "react-bootstrap/Button";
 
 const SelectOrganizationComponent = () => {
@@ -101,9 +101,17 @@ const SelectOrganizationComponent = () => {
           className={`container ${displayBlock === 1 ? "d-block" : "d-none"}`}
         >
           <div className="row">
-            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">Video 1</div>
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
-              <h5>Gain easy access to specialists</h5>
+              <ReactPlayer
+                url="https://youtu.be/TlifFpxYnrQ"
+                width="100%"
+                stopOnUnmount={true}
+                controls={false}
+                playing={displayBlock === 1}
+              />
+            </div>
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+              <h5 className="display-6">Gain easy access to specialists</h5>
               <div className="my-4">
                 <span>
                   Staffing needs can change quickly when a new project lands or
@@ -118,7 +126,7 @@ const SelectOrganizationComponent = () => {
                   right people with the right skills for the job.
                 </span>
               </div>
-              <h5>Fast. Easy. And…</h5>
+              <h5 className="display-6">Fast. Easy. And…</h5>
               <div className="my-4">
                 <span>
                   Best of all, you will ensure you are fully utilizing your own
@@ -132,9 +140,17 @@ const SelectOrganizationComponent = () => {
           className={`container ${displayBlock === 2 ? "d-block" : "d-none"}`}
         >
           <div className="row">
-            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">Video 2</div>
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
-              <h5>Better leverage your specialists</h5>
+              <ReactPlayer
+                url="https://youtu.be/ROfdeyQ3AFg"
+                width="100%"
+                stopOnUnmount={true}
+                playing={displayBlock === 2}
+                autoPlay={false}
+              />
+            </div>
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+              <h5 className="display-6">Better leverage your specialists</h5>
               <div className="my-4">
                 <span>
                   Resourcing needs can change rapidly when a new project lands
@@ -143,10 +159,12 @@ const SelectOrganizationComponent = () => {
                   skills for the job.
                 </span>
               </div>
-              <h5>Improve the utilization of your team</h5>
+              <h5 className="display-6">
+                Improve the utilization of your team
+              </h5>
               <div className="my-4">
                 <span>
-                  Until now, smaller engagements just haven’t been worth the
+                  Until now, smaller engagements just haven't been worth the
                   sales efforts to find and close. With FirmConnector, you can
                   increase revenue by easily marketing your specialists directly
                   to your clients.
@@ -159,9 +177,18 @@ const SelectOrganizationComponent = () => {
           className={`container ${displayBlock === 3 ? "d-block" : "d-none"}`}
         >
           <div className="row">
-            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">Video 3</div>
             <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
-              <h5>Open up new opportunities for candidate placements</h5>
+              <ReactPlayer
+                url="https://youtu.be/X-yGkmDWY8Y"
+                width="100%"
+                stopOnUnmount={true}
+                playing={displayBlock === 3}
+              />
+            </div>
+            <div className="col-12 col-lg-6 col-xl-6 col-xxl-6">
+              <h5 className="display-6">
+                Open up new opportunities for candidate placements
+              </h5>
               <div className="my-4">
                 <span>
                   Your clients have more options than ever in finding and

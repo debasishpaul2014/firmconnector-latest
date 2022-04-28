@@ -232,11 +232,11 @@ const AddResourceForm = () => {
               >
                 Upload Resume
               </Button> */}
-              <div class="form-group file">
+              <div className="form-group file">
                 <label>Upload Resume </label>
                 <input
                   type="file"
-                  class="form-control"
+                  className="form-control"
                   ref={hiddenFileInput}
                   onChange={handleChange}
                   accept="application/pdf,application/msword,

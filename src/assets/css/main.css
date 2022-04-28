@@ -3,7 +3,7 @@ body {
    color: var(--black) !important;
    -webkit-font-smoothing: antialiased !important;
    line-height: 1.5;
-   font-size: 0.885rem !important;
+   /* font-size: 0.885rem !important; */
    background-color: var(--background-color) !important;
    overflow-y:scroll !important;
 }
