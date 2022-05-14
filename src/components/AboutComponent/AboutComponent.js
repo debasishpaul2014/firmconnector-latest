@@ -61,7 +61,7 @@ const AboutComponent = () => {
     <div className="d-block bg-white-custom">
       <StaticPageHeaderComponent
         title="About Firmconnector"
-        description_sm={"Know something about us to make a good understanding."}
+        description_sm={""}
       />
       <div className="container bg-white-custom py-5">
         <div className="row">
