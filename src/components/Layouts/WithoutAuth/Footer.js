@@ -5,7 +5,7 @@ const Footer = (props) => {
     <footer className="footer-custom bg-black-custom">
       <div className="container">
         <span className="text-light">
-          &copy; 2014-2021 firmconnector.com. All Rights Reserved.
+          &copy; 2014-2022 firmconnector.com. All Rights Reserved.
         </span>
       </div>
     </footer>

@@ -21,7 +21,7 @@ const FourthBlock = () => {
             Search for skillsets and availability within your company. Connect
             with the people you need across your network quickly and easily
           </p>
-          <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          {/* <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <ButtonLg
               className="btn-primary-custom"
               role="button"
@@ -29,7 +29,7 @@ const FourthBlock = () => {
               type="button"
               to="#"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

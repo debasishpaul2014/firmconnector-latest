@@ -23,7 +23,7 @@ const TopBannerComponent = () => {
                 workforce and through trusted vendors and partners.
               </p>
             </div>
-            <div className="d-block">
+            {/* <div className="d-block">
               <ButtonLg
                 className="btn-success-custom"
                 role="button"
@@ -31,7 +31,7 @@ const TopBannerComponent = () => {
                 type="button"
                 to="sign-in"
               />
-            </div>
+            </div> */}
           </div>
           <div className="col-sm-12 col-md-5 col-lg-5 d-flex justify-content-lg-end d-none d-md-block d-lg-block d-xl-block d-xxl-block">
             <img src={banner_image} className="img-fluid" alt="..." />
