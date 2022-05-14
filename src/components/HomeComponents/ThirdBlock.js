@@ -38,7 +38,7 @@ const ThirdBlock = () => {
               Best of all, you will ensure you are fully utilizing your own
               workforce before turning to outside sources.
             </p>
-            <div className="d-grid gap-2 d-md-flex justify-content-md-start">
+            {/* <div className="d-grid gap-2 d-md-flex justify-content-md-start">
               {isLoggedIn ? (
                 <ButtonLg
                   className="btn-success"
@@ -56,7 +56,7 @@ const ThirdBlock = () => {
                   to="/sign-up"
                 />
               )}
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
